@@ -1,0 +1,32 @@
+<nz-tabset nzType="card">
+  <ng-container *ngFor="let column of columns | filter: filterRule">
+    <nz-tab [nzTitle]="titleTemplate">
+      <ng-template #titleTemplate>
+        <div class="flex">
+          <span class="label">{{ column.title + '：' }}</span>
+          <ng-container
+            *ngIf="(column.searchValue | translate: column.lexicon || lexicon)?.length > 10; else textTemplate"
+          >
+            <div nz-popover nzTrigger="hover" [nzContent]="textTemplate" nzPlacement="bottom">
+              <span class="value text-ellipsis">
+                {{ column.displayValue || column.searchValue | translate: column.lexicon || lexicon }}
+              </span>
+            </div>
+          </ng-container>
+
+          <ng-template #textTemplate>
+            <div>
+              <span class="value">
+                {{ column.displayValue || column.searchValue | translate: column.lexicon || lexicon }}
+              </span>
+            </div>
+          </ng-template>
+
+          <div>
+            <i nz-icon type="close" class="ant-tabs-close-x" (click)="closeTab(column)"></i>
+          </div>
+        </div>
+      </ng-template>
+    </nz-tab>
+  </ng-container>
+</nz-tabset>

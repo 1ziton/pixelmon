@@ -1,0 +1,29 @@
+{
+  "name": "@pokemon/butterfree",
+  "version": "0.0.0-PLACEHOLDER",
+  "author": "cipchk<cipchk@qq.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1ziton/pokemon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/1ziton/pokemon/issues"
+  },
+  "homepage": "https://1ziton.com",
+  "keywords": [
+    "pokemon",
+    "1ziton",
+    "pokemon",
+    "antd",
+    "ng-zorro-antd",
+    "angular",
+    "component"
+  ],
+  "dependencies": {
+    "ng-zorro-antd": "ZORRO-0.0.0-PLACEHOLDER",
+    "@pokemon/acl": "PEER-0.0.0-PLACEHOLDER",
+    "@pokemon/util": "PEER-0.0.0-PLACEHOLDER"
+  },
+  "sideEffects": false
+}

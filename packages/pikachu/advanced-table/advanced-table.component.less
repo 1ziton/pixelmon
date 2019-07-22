@@ -1,0 +1,35 @@
+nz-pagination {
+    display: flex;
+    height: 48px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 2px;
+    box-shadow: 0px -2px 5px 0px rgba(194, 194, 194, 0.5);
+}
+
+:host ::ng-deep .ant-table-scroll {
+    position: relative;
+}
+
+:host ::ng-deep .fixed-pagination .ant-table-placeholder {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+td {
+    word-break: break-all;
+}
+
+.clear-icon {
+    color: rgba(0, 0, 0, .25);
+    font-size: 12px;
+    vertical-align: top;
+    cursor: pointer;
+    transition: color .3s;
+
+    &:hover {
+        color: rgba(0, 0, 0, .45);
+    }
+}

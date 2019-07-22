@@ -1,0 +1,30 @@
+@{full-content-prefix} {
+  &__body {
+    .pokemon-default__content {
+      router-outlet + * {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .pokemon-default__content-title {
+      margin-left: -24px;
+    }
+  }
+  &__opened {
+    .pokemon-default__header,
+    .pokemon-default__aside,
+    reuse-tab {
+      display: none !important;
+    }
+    .pokemon-default__content {
+      margin: 24px !important;
+    }
+  }
+  &__hidden-title {
+    .pokemon-default__content-title,
+    .page-header {
+      display: none !important;
+    }
+  }
+}

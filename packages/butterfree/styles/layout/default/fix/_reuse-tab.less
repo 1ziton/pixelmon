@@ -1,0 +1,40 @@
+@{reuse-tab-prefix} {
+  margin: 0 -@pokemon-default-content-padding 0 -@pokemon-default-content-padding;
+}
+
+@{pokemon-default-prefix}__fixed {
+  @{reuse-tab-prefix} {
+    position: fixed;
+    top: @pokemon-default-header-hg;
+    right: @pokemon-default-content-padding;
+    left: @pokemon-default-aside-wd + @pokemon-default-content-padding;
+    z-index: @zindex-fixed + 1;
+  }
+}
+
+@{pokemon-default-prefix}__collapsed {
+  @{reuse-tab-prefix} {
+    left: @pokemon-default-aside-collapsed-wd + @pokemon-default-content-padding;
+  }
+}
+
+@media (min-width: @mobile-min) {
+  @{pokemon-default-prefix}__fixed {
+    @{reuse-tab-prefix} {
+      + router-outlet {
+        display: block;
+        height: @reuse-tab-height;
+      }
+    }
+  }
+}
+
+@media (max-width: @mobile-max) {
+  @{pokemon-default-prefix}__fixed {
+    @{reuse-tab-prefix} {
+      position: unset;
+      width: initial;
+      margin-top: @reuse-tab-height;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "extends": "../tsconfig.lib.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "paths": {
+      "@pokeman/pikachu/*": ["../../dist/@pokeman/pikachu/*"],
+      "@pokeman/*": ["../../dist/@pokeman/*"]
+    }
+  },
+  "files": ["public_api.ts", "../typings.d.ts"],
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "strictMetadataEmit": false,
+    "fullTemplateTypeCheck": true,
+    "skipTemplateCodegen": true
+  }
+}

@@ -1,5 +1,7 @@
 // TypeScript config file that will be used to compile the gulp tasks. The normal gulpfile will
+
 // use TS-Node to compile the gulp tasks at runtime.
+
 {
   "compilerOptions": {
     "suppressImplicitAnyIndexErrors": true,
