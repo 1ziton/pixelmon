@@ -1,0 +1,20 @@
+node_modules
+npm-debug.log
+# package-lock.json
+yarn.lock
+yarn-error.log
+package-lock.json
+.tmp
+.lib
+*.iml
+dist
+coverage
+.idea
+debug.log
+
+src/app/routes/gen
+src/assets/color.less
+/scaffold
+/_scaffold
+/ng-alain
+/integration
