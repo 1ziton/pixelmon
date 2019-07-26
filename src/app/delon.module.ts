@@ -1,10 +1,10 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { throwIfAlreadyLoaded } from './core/module-import-guard';
 
-import { DelonFormModule } from '@delon/form';
+import { DelonFormModule } from '@pokemon/form';
 // mock
-import { DelonMockModule } from '@delon/mock';
-import { AlainThemeModule } from '@pokemon/butterfree';
+import { DelonMockModule } from '@pokemon/mock';
+import { AlainThemeModule } from '@pokemon/theme';
 import * as MOCKDATA from '../../_mock';
 
 // #region reuse-tab
@@ -33,7 +33,7 @@ const REUSETAB_PROVIDES = [
 // #region global config functions
 
 import { LodopConfig, STConfig } from '@pokemon/pikachu';
-import { DelonACLModule } from '@delon/acl';
+import { DelonACLModule } from '@pokemon/acl';
 
 export function fnSTConfig(): STConfig {
   return Object.assign(new STConfig(), {

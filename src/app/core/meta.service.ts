@@ -1,6 +1,4 @@
 import { Inject, Injectable } from '@angular/core';
-import { ALAIN_I18N_TOKEN } from '@pokemon/butterfree';
-import { I18NService } from '../core/i18n/service';
 import { Meta, MetaList, MetaSearchGroup, MetaSearchGroupItem } from '../interfaces';
 import { META as ACLMeta } from '../routes/gen/acl/meta';
 import { META as AuthMeta } from '../routes/gen/auth/meta';

@@ -1,0 +1,16 @@
+{
+  "extends": "../tsconfig.lib.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "paths": {
+      "@pokemon/acl": ["../../dist/@pokemon/acl"],
+      "@pokemon/util": ["../../dist/@pokemon/util"]
+    }
+  },
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "strictMetadataEmit": false,
+    "skipTemplateCodegen": true
+  }
+}

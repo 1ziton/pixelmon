@@ -554,28 +554,28 @@ module.exports = {
       },
       dir: [
         {
-          src: ['./packages/butterfree/docs'],
+          src: ['./packages/theme/docs'],
           template: {
             content: './src/templates/content.ts',
           },
           hasSubDir: false,
         },
         {
-          src: ['./packages/butterfree/styles/layout'],
+          src: ['./packages/theme/styles/layout'],
           template: {
             content: './src/templates/content.ts',
           },
           hasSubDir: true,
         },
         {
-          src: ['./packages/butterfree/src/pipes'],
+          src: ['./packages/theme/src/pipes'],
           template: {
             content: './src/templates/content.ts',
           },
           hasSubDir: true,
         },
         /*  {
-          src: ['./packages/butterfree/src/services'],
+          src: ['./packages/theme/src/services'],
           template: {
             content: './src/templates/content.ts',
           },

@@ -1,0 +1,25 @@
+{
+  "name": "@pokemon/util",
+  "version": "0.0.0-PLACEHOLDER",
+  "author": "cipchk<cipchk@qq.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1ziton/pokemon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/1ziton/1ziton/issues"
+  },
+  "homepage": "https://1ziton.com",
+  "keywords": [
+    "pokemon",
+    "1ziton",
+    "utility",
+    "utils",
+    "angular"
+  ],
+  "dependencies": {
+    "extend": "^3.0.0"
+  },
+  "sideEffects": false
+}

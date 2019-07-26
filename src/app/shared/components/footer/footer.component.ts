@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Input, NgZone, OnInit } from '@angular/core';
-import { ALAIN_I18N_TOKEN } from '@pokemon/butterfree';
-import { copy, InputBoolean, LazyService } from '@delon/util';
+import { ALAIN_I18N_TOKEN } from '@pokemon/theme';
+import { copy, InputBoolean, LazyService } from '@pokemon/util';
 import { NzIconService, NzMessageService } from 'ng-zorro-antd';
 import { I18NService } from '../../../core/i18n/service';
 

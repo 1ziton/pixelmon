@@ -36,7 +36,7 @@ declare var Slider: any;
       {
         title,
         description: `${title}-${summary.replace(/<[^>]+>/g, '')}`,
-        tags: ['ng-alain', '@delon'],
+        tags: ['ng-alain', '@pokemon'],
         files: {
           'angular.json': `{
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
@@ -63,7 +63,7 @@ declare var Slider: any;
               "src/assets"
             ],
             "styles": [
-              "node_modules/@pokemon/butterfree/styles/ng-alain.css",
+              "node_modules/@pokemon/theme/styles/ng-alain.css",
               "src/styles.less"
             ],
             "scripts": [
@@ -196,15 +196,15 @@ import localeZh from '@angular/common/locales/zh';
 registerLocaleData(localeZh);
 
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { AlainThemeModule } from '@pokemon/butterfree';
+import { AlainThemeModule } from '@pokemon/theme';
 import { DelonABCModule } from '@pokemon/pikachu';
-import { DelonChartModule } from '@delon/chart';
-import { DelonFormModule } from '@delon/form';
-import { DelonAuthModule } from '@delon/auth';
-import { DelonACLModule } from '@delon/acl';
-import { DelonCacheModule } from '@delon/cache';
-import { DelonUtilModule, LazyService } from '@delon/util';
-import { DelonMockModule } from '@delon/mock';
+import { DelonChartModule } from '@pokemon/chart';
+import { DelonFormModule } from '@pokemon/form';
+import { DelonAuthModule } from '@pokemon/auth';
+import { DelonACLModule } from '@pokemon/acl';
+import { DelonCacheModule } from '@pokemon/cache';
+import { DelonUtilModule, LazyService } from '@pokemon/util';
+import { DelonMockModule } from '@pokemon/mock';
 import * as MOCKDATA from '../../_mock';
 
 @Injectable()
@@ -225,7 +225,7 @@ export function StartupServiceFactory(startupService: StartupService): Function 
   return () => startupService.load();
 }
 
-import { VERSION as VERSION_ALAIN } from '@pokemon/butterfree';
+import { VERSION as VERSION_ALAIN } from '@pokemon/theme';
 import { VERSION as VERSION_ZORRO } from 'ng-zorro-antd';
 import { ${componentName} } from './app.component';
 
@@ -263,7 +263,7 @@ export class AppModule {
   constructor() {
     setTimeout(() => {
       document.querySelector('#VERSION').innerHTML = \`
-      VERSIONS: ng-zorro-antd(\${VERSION_ZORRO.full}), @delon(\${VERSION_ALAIN.full})
+      VERSIONS: ng-zorro-antd(\${VERSION_ZORRO.full}), @pokemon(\${VERSION_ALAIN.full})
       \`;
     }, 1000);
   }
@@ -290,15 +290,15 @@ export class AppModule {
           'file-saver': '^1.3.3',
           'ngx-countdown': '*',
           'ng-zorro-antd': '*',
-          '@pokemon/butterfree': 'latest',
+          '@pokemon/theme': 'latest',
           '@pokemon/pikachu': 'latest',
-          '@delon/chart': 'latest',
-          '@delon/acl': 'latest',
-          '@delon/auth': 'latest',
-          '@delon/cache': 'latest',
-          '@delon/mock': 'latest',
-          '@delon/form': 'latest',
-          '@delon/util': 'latest',
+          '@pokemon/chart': 'latest',
+          '@pokemon/acl': 'latest',
+          '@pokemon/auth': 'latest',
+          '@pokemon/cache': 'latest',
+          '@pokemon/mock': 'latest',
+          '@pokemon/form': 'latest',
+          '@pokemon/util': 'latest',
           extend: '*',
           qrious: '*',
         },

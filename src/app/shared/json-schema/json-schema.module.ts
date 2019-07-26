@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared.module';
 
-import { DelonFormModule, WidgetRegistry } from '@delon/form';
+import { DelonFormModule, WidgetRegistry } from '@pokemon/form';
 import { MarkdownWidget } from '../../../../packages/form/widgets-third/markdown/markdown.widget';
 import { TinymceWidget } from '../../../../packages/form/widgets-third/tinymce/tinymce.widget';
 import { UeditorWidget } from '../../../../packages/form/widgets-third/ueditor/ueditor.widget';

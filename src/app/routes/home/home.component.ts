@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { AfterViewInit, Component, Inject, NgZone, OnDestroy, OnInit } from '@angular/core';
-import { ALAIN_I18N_TOKEN } from '@pokemon/butterfree';
+import { ALAIN_I18N_TOKEN } from '@pokemon/theme';
 import AOS from 'aos';
 import { I18NService } from '../../core/i18n/service';
 

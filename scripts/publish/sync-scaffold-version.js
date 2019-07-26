@@ -29,9 +29,9 @@ json.version = nextVersion;
   'theme',
   'util',
 ].forEach(v => {
-  json.dependencies[`@delon/${v}`] = `^${nextVersion}`;
+  json.dependencies[`@pokemon/${v}`] = `^${nextVersion}`;
 });
-json.devDependencies[`@delon/testing`] = `^${nextVersion}`;
+json.devDependencies[`@pokemon/testing`] = `^${nextVersion}`;
 json.devDependencies[`ng-alain`] = `^${nextVersion}`;
 
 // Save

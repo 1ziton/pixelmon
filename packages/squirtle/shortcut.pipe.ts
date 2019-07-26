@@ -4,7 +4,7 @@
  * @Date: 2019-07-08 11:18:59
  */
 
-import { Pipe, PipeTransform, NgModule } from './node_modules/@delon/squirtle/node_modules/@angular/core';
+import { Pipe, PipeTransform, NgModule } from './node_modules/@pokemon/squirtle/node_modules/@angular/core';
 
 @Pipe({
   name: 'shortcut',

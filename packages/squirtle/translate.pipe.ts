@@ -4,8 +4,8 @@
  * @Date: 2019-05-15 14:39:06
  */
 
-import { Pipe, PipeTransform, NgModule } from './node_modules/@delon/squirtle/node_modules/@angular/core';
-import { ENUM_FIELDS } from './node_modules/@delon/squirtle/node_modules/app/config/Enum';
+import { Pipe, PipeTransform, NgModule } from './node_modules/@pokemon/squirtle/node_modules/@angular/core';
+import { ENUM_FIELDS } from './node_modules/@pokemon/squirtle/node_modules/app/config/Enum';
 
 @Pipe({
   name: 'translate',

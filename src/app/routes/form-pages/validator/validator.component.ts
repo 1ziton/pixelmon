@@ -1,14 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { SFSchema } from '@delon/form';
-import { _HttpClient, ALAIN_I18N_TOKEN } from '@pokemon/butterfree';
-import { copy } from '@delon/util';
+import { SFSchema } from '@pokemon/form';
+import { _HttpClient, ALAIN_I18N_TOKEN } from '@pokemon/theme';
+import { copy } from '@pokemon/util';
 import { NzMessageService } from 'ng-zorro-antd';
 import { CodeService } from '../../../core/code.service';
 import { I18NService } from '../../../core/i18n/service';
 
 const stackBlitzTpl = `
 import { Component } from '@angular/core';
-import { SFSchema } from '@delon/form';
+import { SFSchema } from '@pokemon/form';
 import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
@@ -116,7 +116,7 @@ export class FormValidatorComponent implements OnInit {
     const componentCode = stackBlitzTpl.replace(/\{(\w+)\}/g, (_match: string, offset: any) =>
       (obj[offset] || '').trim(),
     );
-    this.codeSrv.openOnStackBlitz(componentCode, this.title, `@delon/form-${this.title}-${this.name}.json`);
+    this.codeSrv.openOnStackBlitz(componentCode, this.title, `@pokemon/form-${this.title}-${this.name}.json`);
   }
 
   onCopy() {

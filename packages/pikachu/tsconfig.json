@@ -5,8 +5,8 @@
     "rootDir": "..",
     "baseUrl": ".",
     "paths": {
-      "@delon/abc/*": ["./*"],
-      "@delon/*": [ "../*" ]
+      "@pokemon/abc/*": ["./*"],
+      "@pokemon/*": [ "../*" ]
     }
   },
   "files": [

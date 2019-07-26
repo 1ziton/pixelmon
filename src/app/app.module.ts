@@ -15,7 +15,7 @@ registerLocaleData(localeZh);
 import { RoutesModule } from './routes/routes.module';
 import { SharedModule } from './shared/shared.module';
 
-import { ALAIN_I18N_TOKEN } from '@pokemon/butterfree';
+import { ALAIN_I18N_TOKEN } from '@pokemon/theme';
 import { I18NService } from './core/i18n/service';
 import { StartupService } from './core/startup.service';
 
@@ -23,7 +23,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { LayoutComponent } from './layout/layout.component';
 
-import { DelonModule } from './delon.module';
+import { DelonModule } from './pokemon.module';
 
 import { SimplemdeModule } from 'ngx-simplemde';
 import { NgxTinymceModule } from 'ngx-tinymce';

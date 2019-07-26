@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable, Injector } from '@angular/core';
-import { TitleService } from '@pokemon/butterfree';
+import { TitleService } from '@pokemon/theme';
 
 import { NzIconService } from 'ng-zorro-antd';
 import { ICONS } from '../../style-icons';

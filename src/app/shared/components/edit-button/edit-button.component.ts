@@ -1,5 +1,5 @@
 import { Component, Inject, Input } from '@angular/core';
-import { ALAIN_I18N_TOKEN } from '@pokemon/butterfree';
+import { ALAIN_I18N_TOKEN } from '@pokemon/theme';
 import { I18NService } from '../../../core/i18n/service';
 import { MetaService } from './../../../core/meta.service';
 

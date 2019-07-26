@@ -8,7 +8,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { ALAIN_I18N_TOKEN } from '@pokemon/butterfree';
+import { ALAIN_I18N_TOKEN } from '@pokemon/theme';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { I18NService } from '../../../core/i18n/service';

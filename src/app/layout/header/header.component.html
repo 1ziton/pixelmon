@@ -19,9 +19,9 @@
           {{'app.header.menu.components' | translate}}
         </li>
         <li nz-submenu>
-          <span title>{{'app.header.menu.delon' | translate}}</span>
+          <span title>{{'app.header.menu.pokemon' | translate}}</span>
           <ul>
-            <li *ngFor="let i of delon" nz-menu-item (click)="toViaMobile(i)">
+            <li *ngFor="let i of pokemon" nz-menu-item (click)="toViaMobile(i)">
               {{'app.header.menu.' + i | translate}}
             </li>
           </ul>
@@ -66,10 +66,10 @@
             {{'app.header.menu.components' | translate}}
           </li>
           <li nz-menu-item>
-            <div nz-dropdown nzPlacement="bottomRight" [nzDropdownMenu]="delonMenu">{{'app.header.menu.delon' | translate}}</div>
+            <div nz-dropdown nzPlacement="bottomRight" [nzDropdownMenu]="delonMenu">{{'app.header.menu.pokemon' | translate}}</div>
             <nz-dropdown-menu #delonMenu="nzDropdownMenu">
               <ul nz-menu>
-                <li *ngFor="let i of delon" nz-menu-item routerLink="/{{i}}/getting-started/{{i18n.zone}}">
+                <li *ngFor="let i of pokemon" nz-menu-item routerLink="/{{i}}/getting-started/{{i18n.zone}}">
                   {{'app.header.menu.' + i | translate}}
                 </li>
               </ul>

@@ -1,5 +1,5 @@
 import { Component, HostBinding, Inject, OnInit } from '@angular/core';
-import { ALAIN_I18N_TOKEN, Menu, MenuService, SettingsService } from '@pokemon/butterfree';
+import { ALAIN_I18N_TOKEN, Menu, MenuService, SettingsService } from '@pokemon/theme';
 import { NzIconService, NzMessageService } from 'ng-zorro-antd';
 
 // #region icons

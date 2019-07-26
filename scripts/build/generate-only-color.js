@@ -7,8 +7,8 @@ const options = {
   antdStylesDir: path.join(root, './node_modules/ng-zorro-antd'),
   stylesDir: path.join(root, './src'),
   // default path is Ant Design default.less file
-  // varFile: path.join(root, './node_modules/@pokemon/butterfree/styles/default.less'),
-  varFile: path.join(root, './packages/butterfree/styles/default.less'),
+  // varFile: path.join(root, './node_modules/@pokemon/theme/styles/default.less'),
+  varFile: path.join(root, './packages/theme/styles/default.less'),
   // site less file
   mainLessFile: path.join(root, './src/styles.less'),
   themeVariables: ['@primary-color', '@text-color', '@text-color-secondary'],

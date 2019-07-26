@@ -35,7 +35,7 @@ export interface ModuleConfig {
   defaultRoute: string;
   /** 额外路由元数据 */
   extraRouteMeta?: any[];
-  /** 模块名称，例如：`@delon/abc` */
+  /** 模块名称，例如：`@pokemon/abc` */
   module: string;
   /** 元数据包含属性 */
   metaIncludeAttributes: string[];

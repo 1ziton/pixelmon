@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FilterPipeModule } from '@pokemon/butterfree/src/pipes/filter.pipe';
-import { TranslatePipeModule } from '@pokemon/butterfree/src/pipes/translate.pipe';
+import { FilterPipeModule } from '@pokemon/theme/src/pipes/filter.pipe';
+import { TranslatePipeModule } from '@pokemon/theme/src/pipes/translate.pipe';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { QueryDisplayComponent } from './query-display.component';
 

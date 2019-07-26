@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-import { ALAIN_I18N_TOKEN } from '@pokemon/butterfree';
-import { deepCopy } from '@delon/util';
+import { ALAIN_I18N_TOKEN } from '@pokemon/theme';
+import { deepCopy } from '@pokemon/util';
 
 import { I18NService } from '../../../core/i18n/service';
 import { MetaService } from '../../../core/meta.service';

@@ -1,6 +1,6 @@
-# Contributing to delon
+# Contributing to pokemon
 
-We would love for you to contribute to delon and help make it even better than it is
+We would love for you to contribute to pokemon and help make it even better than it is
 today! As a contributor, here are the guidelines we would like you to follow:
 
  - [Issues and Bugs](#issue)
@@ -33,7 +33,7 @@ Before you submit an issue, please search the issue tracker, maybe an issue for 
 
 We want to fix all the issues as soon as possible, but before fixing a bug we need to reproduce and confirm it. In order to reproduce bugs we will systematically ask you to provide a minimal reproduction scenario using http://plnkr.co. Having a live, reproducible scenario gives us wealth of important information without going back & forth to you with additional questions like:
 
-- version of delon used
+- version of pokemon used
 - 3rd-party libraries and their versions
 - and most importantly - a use-case that fails
 
@@ -43,13 +43,13 @@ We will be insisting on a minimal reproduce scenario in order to save maintainer
 
 Unfortunately we are not able to investigate / fix bugs without a minimal reproduction, so if we don't hear back from you we are going to close an issue that don't have enough info to be reproduced.
 
-You can file new issues by filling out our [new issue form](https://github.com/ng-alain/delon/issues/new).
+You can file new issues by filling out our [new issue form](https://github.com/ng-alain/pokemon/issues/new).
 
 
 ### <a name="submit-pr"></a> Submitting a Pull Request (PR)
 Before you submit your Pull Request (PR) consider the following guidelines:
 
-* Search [GitHub](https://github.com/ng-alain/delon/pulls) for an open or closed PR
+* Search [GitHub](https://github.com/ng-alain/pokemon/pulls) for an open or closed PR
   that relates to your submission. You don't want to duplicate effort.
 * Make your changes in a new git branch:
 
@@ -59,7 +59,7 @@ Before you submit your Pull Request (PR) consider the following guidelines:
 
 * Create your patch, **including appropriate test cases**.
 * Follow our [Coding Rules](#rules).
-* Run the full delon test suite <!-- , as described in the [developer documentation][dev-doc] -->, and ensure that all tests pass.
+* Run the full pokemon test suite <!-- , as described in the [developer documentation][dev-doc] -->, and ensure that all tests pass.
 * Commit your changes using a descriptive commit message that follows our
   [commit message conventions](#commit). Adherence to these conventions
   is necessary because release notes are automatically generated from these messages.
@@ -75,10 +75,10 @@ Before you submit your Pull Request (PR) consider the following guidelines:
     git push origin my-fix-branch
     ```
 
-* In GitHub, send a pull request to `delon:master`.
+* In GitHub, send a pull request to `pokemon:master`.
 * If we suggest changes then:
   * Make the required updates.
-  * Re-run the delon test suites to ensure tests are still passing.
+  * Re-run the pokemon test suites to ensure tests are still passing.
   * Rebase your branch and force push to your GitHub repository (this will update your Pull Request):
 
     ```shell
@@ -127,7 +127,7 @@ To ensure consistency throughout the source code, keep these rules in mind as yo
 
 We have very precise rules over how our git commit messages can be formatted.  This leads to **more
 readable messages** that are easy to follow when looking through the **project history**.  But also,
-we use the git commit messages to **generate the delon change log**.
+we use the git commit messages to **generate the pokemon change log**.
 
 ### Commit Message Format
 Each commit message consists of a **header**, a **body** and a **footer**.  The header has a special
@@ -148,7 +148,7 @@ to read on GitHub as well as in various git tools.
 
 Footer should contain a [closing reference to an issue](https://help.github.com/articles/closing-issues-via-commit-messages/) if any.
 
-Samples: (even more [samples](https://github.com/ng-alain/delon/commits/master))
+Samples: (even more [samples](https://github.com/ng-alain/pokemon/commits/master))
 
 ```
 docs(changelog): update change log to beta.5
@@ -196,5 +196,5 @@ A detailed explanation can be found in this [document][commit-message-format].
 
 
 [commit-message-format]: https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#
-[github]: https://github.com/ng-alain/delon
+[github]: https://github.com/ng-alain/pokemon
 [plunker]: http://plnkr.co/edit

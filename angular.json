@@ -86,7 +86,7 @@
         }
       }
     },
-    "delon": {
+    "pokemon": {
       "root": "packages",
       "projectType": "library",
       "prefix": "",
