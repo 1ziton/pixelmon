@@ -1,29 +1,22 @@
-import { NgModule, TemplateRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule, TemplateRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { QueryDisplayModule } from '../query-display/query-display.module';
 import { SmartTextModule } from '../smart-text/smart-text.module';
-import { ViewerDirectiveModule } from '@shared/directives/viewer.directive';
-import { AdvancedTableComponent } from './advanced-table.component';
+import { ViewerDirectiveModule } from './../directives/viewer.directive';
 import { AdvancedCellComponent } from './advanced-cell.component';
 import { AdvancedFilterComponent } from './advanced-filter.component';
+import { AdvancedTableComponent } from './advanced-table.component';
 
 const COMPONENT = [AdvancedTableComponent, AdvancedCellComponent, AdvancedFilterComponent];
 
-const MODULE = [
-  CommonModule,
-  FormsModule,
-  NgZorroAntdModule,
-  QueryDisplayModule,
-  SmartTextModule,
-  ViewerDirectiveModule
-];
+const MODULE = [CommonModule, FormsModule, NgZorroAntdModule, QueryDisplayModule, SmartTextModule, ViewerDirectiveModule];
 
 @NgModule({
   declarations: [...COMPONENT],
   imports: [...MODULE],
-  exports: [...MODULE, ...COMPONENT]
+  exports: [...MODULE, ...COMPONENT],
 })
 export class AdvancedTableModule {}
 

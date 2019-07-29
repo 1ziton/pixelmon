@@ -97,10 +97,10 @@ describe('utils: validate', () => {
 
   it('#isUrl', () => {
     const data = [
-      { k: 'http://ng-alain.com', v: true },
-      { k: 'https://ng-alain.com', v: true },
-      { k: '//ng-alain.com', v: false },
-      { k: 'ng-alain.com', v: false },
+      { k: 'http://1ziton.com', v: true },
+      { k: 'https://1ziton.com', v: true },
+      { k: '//1ziton.com', v: false },
+      { k: '1ziton.com', v: false },
       { k: '中国.com', v: false },
     ];
     for (const item of data) {

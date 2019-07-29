@@ -1,0 +1,12 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/@pokemon/testing",
+  "deleteDestPath": true,
+  "lib": {
+    "flatModuleFile": "testing",
+    "entryFile": "public_api.ts",
+    "umdModuleIds": {
+      "ng-zorro-antd/dropdown": "ng-zorro-antd/dropdown"
+    }
+  }
+}

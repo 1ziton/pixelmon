@@ -117,7 +117,7 @@ function makeMethod(method: string) {
         const http = this.injector.get(_HttpClient, null);
         if (http == null) {
           throw new TypeError(
-            `Not found '_HttpClient', You can import 'AlainThemeModule' && 'HttpClientModule' in your root module.`,
+            `Not found '_HttpClient', You can import 'PokemonThemeModule' && 'HttpClientModule' in your root module.`,
           );
         }
 

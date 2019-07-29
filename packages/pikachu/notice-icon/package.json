@@ -1,0 +1,19 @@
+{
+  "ngPackage": {
+    "lib": {
+      "flatModuleFile": "noticeIcon",
+      "entryFile": "public_api.ts",
+      "umdModuleIds": {
+        "ng-zorro-antd/badge": "ng-zorro-antd/badge",
+        "ng-zorro-antd/dropdown": "ng-zorro-antd/dropdown",
+        "ng-zorro-antd/icon": "ng-zorro-antd/icon",
+        "ng-zorro-antd/list": "ng-zorro-antd/list",
+        "ng-zorro-antd/spin": "ng-zorro-antd/spin",
+        "ng-zorro-antd/tabs": "ng-zorro-antd/tabs",
+        "ng-zorro-antd/tag": "ng-zorro-antd/tag",
+        "@pokemon/theme": "pokemon.theme",
+        "@pokemon/util": "pokemon.util"
+      }
+    }
+  }
+}

@@ -26,24 +26,24 @@ clone() {
   mkdir -p ${ROOT}
   cd ${DIST}
   echo ">>> Clone pokemon & cli dist..."
-  git clone --depth 1 https://github.com/ng-alain/pokemon-builds.git
+  git clone --depth 1 https://github.com/1ziton/pokemon-builds.git
 }
 
 publishToMaster() {
   (cd ${ROOT}/@pokemon; for p in `ls .`; do npm publish --access public $p; done)
-  cd ${ROOT}/ng-alain
+  cd ${ROOT}/1ziton
   npm publish --access public
 }
 
 publishToNext() {
   (cd ${ROOT}/@pokemon; for p in `ls .`; do npm publish $p --access public --tag next; done)
-  cd ${ROOT}/ng-alain
+  cd ${ROOT}/1ziton
   npm publish --access public --tag next
 }
 
 syncTaobao() {
   (cd ${ROOT}/@pokemon; for p in `ls .`; do curl -X PUT https://npm.taobao.org/sync/@pokemon/$p?sync_upstream=true; done)
-  curl -X PUT https://npm.taobao.org/sync/ng-alain?sync_upstream=true
+  curl -X PUT https://npm.taobao.org/sync/1ziton?sync_upstream=true
 }
 
 clone

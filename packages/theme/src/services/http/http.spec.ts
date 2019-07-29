@@ -4,7 +4,7 @@ import { fakeAsync, tick, TestBed, TestBedStatic } from '@angular/core/testing';
 import { deepCopy } from '@pokemon/util';
 import { Type } from '@angular/core';
 
-import { AlainThemeConfig } from '../../theme.config';
+import { PokemonThemeConfig } from '../../theme.config';
 import { _HttpClient } from './http.client';
 import { HttpClientConfig } from './http.config';
 
@@ -22,7 +22,7 @@ describe('theme: http.client', () => {
     const providers: any[] = [_HttpClient];
     if (config) {
       providers.push({
-        provide: AlainThemeConfig,
+        provide: PokemonThemeConfig,
         useFactory: () => ({
           http: config,
         }),

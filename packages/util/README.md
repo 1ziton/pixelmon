@@ -1,25 +1,25 @@
-# @delon/util module [![Build Status](https://img.shields.io/travis/ng-alain/delon/master.svg?style=flat-square)](https://travis-ci.org/ng-alain/delon) [![NPM version](https://img.shields.io/npm/v/@delon/util.svg?style=flat-square)](https://www.npmjs.com/package/@delon/util)
+# @pokemon/util module [![Build Status](https://img.shields.io/travis/1ziton/pokemon/master.svg?style=flat-square)](https://travis-ci.org/1ziton/pokemon) [![NPM version](https://img.shields.io/npm/v/@pokemon/util.svg?style=flat-square)](https://www.npmjs.com/package/@pokemon/util)
 
-Universal toolset of ng-alain.
+Universal toolset of 1ziton.
 
 ## Links
 
-- [Api Document](https://ng-alain.com/util)
-- [Demo](//ng-alain.github.io/ng-alain/)
+- [Api Document](https://1ziton.com/util)
+- [Demo](//1ziton.github.io/1ziton/)
 
 ## Architecture
 
-![Architecture](https://raw.githubusercontent.com/ng-alain/delon/master/_screenshot/architecture.png)
+![Architecture](https://raw.githubusercontent.com/1ziton/pokemon/master/_screenshot/architecture.png)
 
 ## Troubleshooting
 
 Please follow this guidelines when reporting bugs and feature requests:
 
-1. Use [GitHub Issues](https://github.com/ng-alain/delon/issues) board to report bugs and feature requests (not our email address)
+1. Use [GitHub Issues](https://github.com/1ziton/pokemon/issues) board to report bugs and feature requests (not our email address)
 2. Please **always** write steps to reproduce the error. That way we can focus on fixing the bug, not scratching our heads trying to reproduce it.
 
 Thanks for understanding!
 
 ### License
 
-The MIT License (see the [LICENSE](https://github.com/ng-alain/delon/blob/master/LICENSE) file for the full text)
+The MIT License (see the [LICENSE](https://github.com/1ziton/pokemon/blob/master/LICENSE) file for the full text)

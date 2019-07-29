@@ -5,9 +5,9 @@ subtitle: 菜单服务
 type: Service
 ---
 
-菜单服务的数据格式是一个 [Menu](https://github.com/ng-alain/pokemon/blob/master/packages/theme/src/services/menu/interface.ts) 数组，其中 `text` 属性表示菜单文本为必填项，而且本身并不受外部组件的影响（例如[sidebar-nav](/components/sidebar-nav)组件），这是因为菜单是贯穿整个项目必不可少的组成部分，而将其独立成一个服务可以更有效被使用，例如：动态生成导航、标题等。
+菜单服务的数据格式是一个 [Menu](https://github.com/1ziton/pokemon/blob/master/packages/theme/src/services/menu/interface.ts) 数组，其中 `text` 属性表示菜单文本为必填项，而且本身并不受外部组件的影响（例如[sidebar-nav](/components/sidebar-nav)组件），这是因为菜单是贯穿整个项目必不可少的组成部分，而将其独立成一个服务可以更有效被使用，例如：动态生成导航、标题等。
 
-**建议：** 在 Angular 启动服务（[startup.service.ts](https://github.com/ng-alain/ng-alain/blob/master/src/app/core/startup/startup.service.ts)）从远程获取到菜单数据后，调用 `add()` 方法。
+**建议：** 在 Angular 启动服务（[startup.service.ts](https://github.com/1ziton/1ziton/blob/master/src/app/core/startup/startup.service.ts)）从远程获取到菜单数据后，调用 `add()` 方法。
 
 ## API
 
@@ -31,12 +31,12 @@ type: Service
 ----|------|-----|------
 text | 文本，**必填项** | `string` | -
 i18n | i18n主键 | `string` | -
-group | 是否显示分组名，指[示例](//ng-alain.github.io/ng-alain/)中的【主导航】字样 | `boolean` | `true`
+group | 是否显示分组名，指[示例](//1ziton.github.io/1ziton/)中的【主导航】字样 | `boolean` | `true`
 link | 路由，`link`、`externalLink` 二选其一 | `string` | -
 externalLink | 外部链接，`link`、`externalLink` 二选其一 | `string` | -
 target | 链接 target | `_blank,_self,_parent,_top` | -
-icon | 图标，指[示例](//ng-alain.github.io/ng-alain/)中的【仪表盘】前图标，只对一级菜单有效 | `string | MenuIcon` | -
-badge | 徽标数，展示的数字，指[示例](//ng-alain.github.io/ng-alain/)中的【小部件】后的红色块。（注：`group:true` 时无效） | `number` | -
+icon | 图标，指[示例](//1ziton.github.io/1ziton/)中的【仪表盘】前图标，只对一级菜单有效 | `string | MenuIcon` | -
+badge | 徽标数，展示的数字，指[示例](//1ziton.github.io/1ziton/)中的【小部件】后的红色块。（注：`group:true` 时无效） | `number` | -
 badgeDot | 徽标数，显示小红点 | `boolean` | -
 badgeStatus | 徽标 Badge [颜色](https://ng.ant.design/components/badge/en#nz-badge) | `string` | -
 disabled | 是否禁用菜单 | `boolean` | `false`

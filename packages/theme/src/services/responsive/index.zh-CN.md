@@ -23,9 +23,9 @@ subtitle: 响应式服务
 通用配置项，例如统一对 `ResponsiveService` 设置响应式规则。
 
 ```ts
-import { AlainThemeConfig } from '@pokemon/theme';
-export function fnAlainThemeConfig(): AlainThemeConfig {
-  return Object.assign(new AlainThemeConfig(), <AlainThemeConfig>{
+import { PokemonThemeConfig } from '@pokemon/theme';
+export function fnPokemonThemeConfig(): PokemonThemeConfig {
+  return Object.assign(new PokemonThemeConfig(), <PokemonThemeConfig>{
     responsive: <ResponsiveConfig>{
       rules: {
         1: { xs: 24 },
@@ -40,12 +40,12 @@ export function fnAlainThemeConfig(): AlainThemeConfig {
 }
 
 @NgModule({})
-export class DelonModule {
+export class PokemonModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: DelonModule,
+      ngModule: PokemonModule,
       providers: [
-        { provide: AlainThemeConfig, useFactory: fnAlainThemeConfig },
+        { provide: PokemonThemeConfig, useFactory: fnPokemonThemeConfig },
       ],
     };
   }

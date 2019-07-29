@@ -9,7 +9,7 @@ registerLocaleData(localeZhHans);
 import { distanceInWordsToNow } from 'date-fns';
 import * as zh_cn from 'date-fns/locale/zh_cn';
 
-import { AlainThemeModule } from '../../theme.module';
+import { PokemonThemeModule } from '../../theme.module';
 
 describe('Pipe: _date', () => {
   let fixture: ComponentFixture<TestComponent>;
@@ -17,7 +17,7 @@ describe('Pipe: _date', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [AlainThemeModule.forRoot()],
+      imports: [PokemonThemeModule.forRoot()],
       declarations: [TestComponent],
     });
     fixture = TestBed.createComponent(TestComponent);

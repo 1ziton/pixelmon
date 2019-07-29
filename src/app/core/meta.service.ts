@@ -7,10 +7,11 @@ import { META as ChartMeta } from '../routes/gen/chart/meta';
 import { META as CliMeta } from '../routes/gen/cli/meta';
 import { META as ComponentsMeta } from '../routes/gen/components/meta';
 import { META as DocsMeta } from '../routes/gen/docs/meta';
-import { META as FormMeta } from '../routes/gen/form/meta';
 import { META as MockMeta } from '../routes/gen/mock/meta';
 import { META as ThemeMeta } from '../routes/gen/theme/meta';
 import { META as UtilMeta } from '../routes/gen/util/meta';
+import { ALAIN_I18N_TOKEN } from '@pokemon/theme';
+import { I18NService } from './i18n/service';
 
 const FULLMETAS: Meta[] = [
   DocsMeta,
@@ -21,13 +22,15 @@ const FULLMETAS: Meta[] = [
   ChartMeta,
   MockMeta,
   UtilMeta,
-  FormMeta,
   CliMeta,
   ThemeMeta,
 ] as any;
 
 @Injectable({ providedIn: 'root' })
 export class MetaService {
+  next: any;
+  prev: any;
+
   constructor(@Inject(ALAIN_I18N_TOKEN) private i18n: I18NService) {
     // plat titles
     for (const g of FULLMETAS) {
@@ -45,6 +48,10 @@ export class MetaService {
 
   private _data: any;
   private _isPages = false;
+
+  private _platMenus: any[];
+  private _menus: any[] | null;
+  private _type: string;
 
   private getCatgory(url: string) {
     const arr = url.split('?')[0].split('/');
@@ -112,9 +119,6 @@ export class MetaService {
     return this._isPages;
   }
 
-  private _platMenus: any[];
-  private _menus: any[] | null;
-  private _type: string;
   get menus() {
     return this._menus;
   }
@@ -211,8 +215,6 @@ export class MetaService {
     return ret;
   }
 
-  next: any;
-  prev: any;
   private refPage(url: string) {
     this.next = null;
     this.prev = null;

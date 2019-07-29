@@ -1,6 +1,6 @@
 import { copy, deepCopy, deepGet, deepMerge, deepMergeKey } from './other';
 
-describe('abc: utils', () => {
+describe('pikachu: utils', () => {
   describe('#deepGet', () => {
     const tree = {
       responsne: {

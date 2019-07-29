@@ -36,7 +36,7 @@ declare var Slider: any;
       {
         title,
         description: `${title}-${summary.replace(/<[^>]+>/g, '')}`,
-        tags: ['ng-alain', '@pokemon'],
+        tags: ['1ziton', '@pokemon'],
         files: {
           'angular.json': `{
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
@@ -63,7 +63,7 @@ declare var Slider: any;
               "src/assets"
             ],
             "styles": [
-              "node_modules/@pokemon/theme/styles/ng-alain.css",
+              "node_modules/@pokemon/theme/styles/1ziton.css",
               "src/styles.less"
             ],
             "scripts": [
@@ -196,15 +196,15 @@ import localeZh from '@angular/common/locales/zh';
 registerLocaleData(localeZh);
 
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { AlainThemeModule } from '@pokemon/theme';
-import { DelonABCModule } from '@pokemon/pikachu';
-import { DelonChartModule } from '@pokemon/chart';
-import { DelonFormModule } from '@pokemon/form';
-import { DelonAuthModule } from '@pokemon/auth';
-import { DelonACLModule } from '@pokemon/acl';
-import { DelonCacheModule } from '@pokemon/cache';
-import { DelonUtilModule, LazyService } from '@pokemon/util';
-import { DelonMockModule } from '@pokemon/mock';
+import { PokemonThemeModule } from '@pokemon/theme';
+import { PokemonABCModule } from '@pokemon/pikachu';
+import { PokemonChartModule } from '@pokemon/chart';
+import { PokemonFormModule } from '@pokemon/form';
+import { PokemonAuthModule } from '@pokemon/auth';
+import { PokemonACLModule } from '@pokemon/acl';
+import { PokemonCacheModule } from '@pokemon/cache';
+import { PokemonUtilModule, LazyService } from '@pokemon/util';
+import { PokemonMockModule } from '@pokemon/mock';
 import * as MOCKDATA from '../../_mock';
 
 @Injectable()
@@ -237,15 +237,15 @@ imports: [
     BrowserAnimationsModule,
     RouterModule.forRoot([]),
     NgZorroAntdModule,
-    AlainThemeModule.forRoot(),
-    DelonABCModule,
-    DelonChartModule,
-    DelonACLModule,
-    DelonCacheModule,
-    DelonUtilModule,
-    DelonAuthModule,
-    DelonFormModule.forRoot(),
-    DelonMockModule.forRoot({ data: MOCKDATA }),
+    PokemonThemeModule.forRoot(),
+    PokemonABCModule,
+    PokemonChartModule,
+    PokemonACLModule,
+    PokemonCacheModule,
+    PokemonUtilModule,
+    PokemonAuthModule,
+    PokemonFormModule.forRoot(),
+    PokemonMockModule.forRoot({ data: MOCKDATA }),
 ],
 providers: [
   StartupService,

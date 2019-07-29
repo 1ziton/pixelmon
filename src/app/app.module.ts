@@ -23,12 +23,11 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { LayoutComponent } from './layout/layout.component';
 
-import { DelonModule } from './pokemon.module';
+import { PokemonModule } from './pokemon.module';
 
 import { SimplemdeModule } from 'ngx-simplemde';
 import { NgxTinymceModule } from 'ngx-tinymce';
 import { UEditorModule } from 'ngx-ueditor';
-import { JsonSchemaModule } from './shared/json-schema/json-schema.module';
 
 import { ExampleModule, EXAMPLE_COMPONENTS } from './routes/gen/examples';
 import { IconComponent } from './shared/components/icon/icon.component';
@@ -42,10 +41,9 @@ export function StartupServiceFactory(startupService: StartupService) {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    DelonModule.forRoot(),
+    PokemonModule.forRoot(),
     LayoutModule,
     SharedModule,
-    JsonSchemaModule,
     RoutesModule,
     ExampleModule,
     // i18n
@@ -54,7 +52,7 @@ export function StartupServiceFactory(startupService: StartupService) {
       baseURL: 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/4.9.2/',
     }),
     UEditorModule.forRoot({
-      // **注：** 建议使用本地路径；以下为了减少 ng-alain 脚手架的包体大小引用了CDN，可能会有部分功能受影响
+      // **注：** 建议使用本地路径；以下为了减少 1ziton 脚手架的包体大小引用了CDN，可能会有部分功能受影响
       js: [`//apps.bdimg.com/libs/ueditor/1.4.3.1/ueditor.config.js`, `//apps.bdimg.com/libs/ueditor/1.4.3.1/ueditor.all.min.js`],
       options: {
         UEDITOR_HOME_URL: `//apps.bdimg.com/libs/ueditor/1.4.3.1/`,

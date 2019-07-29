@@ -2,7 +2,7 @@ import { Injectable, InjectionToken } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-export interface AlainI18NService {
+export interface PokemonI18NService {
   [key: string]: any;
 
   /**
@@ -30,17 +30,17 @@ export interface AlainI18NService {
   fanyi(key: string, params?: {}, isSafe?: boolean): string;
 }
 
-export const ALAIN_I18N_TOKEN = new InjectionToken<AlainI18NService>('alainTranslatorToken', {
+export const ALAIN_I18N_TOKEN = new InjectionToken<PokemonI18NService>('pokemonTranslatorToken', {
   providedIn: 'root',
   factory: ALAIN_I18N_TOKEN_FACTORY,
 });
 
 export function ALAIN_I18N_TOKEN_FACTORY() {
-  return new AlainI18NServiceFake();
+  return new PokemonI18NServiceFake();
 }
 
 @Injectable({ providedIn: 'root' })
-export class AlainI18NServiceFake implements AlainI18NService {
+export class PokemonI18NServiceFake implements PokemonI18NService {
   private change$ = new BehaviorSubject<string | null>(null);
 
   get change(): Observable<string> {

@@ -31,7 +31,7 @@ export class AppComponent {
     private mobileSrv: MobileService,
     breakpointObserver: BreakpointObserver,
   ) {
-    renderer.setAttribute(el.nativeElement, 'ng-alain-version', VERSION_ALAIN.full);
+    renderer.setAttribute(el.nativeElement, '1ziton-version', VERSION_ALAIN.full);
     renderer.setAttribute(el.nativeElement, 'ng-zorro-version', VERSION_ZORRO.full);
 
     breakpointObserver.observe(this.query).subscribe(res => {

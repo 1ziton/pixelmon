@@ -27,7 +27,7 @@
           </ul>
         </li>
         <li nz-menu-item>
-          <a href="https://e.ng-alain.com/" target="_blank">
+          <a href="https://e.1ziton.com/" target="_blank">
             {{'app.header.menu.themes' | translate}}
           </a>
         </li>
@@ -41,7 +41,7 @@
       <nz-tooltip nzTitle="{{ 'app.footer.qqgroup' | translate}}: 428749721">
         <span nz-tooltip (click)="onCopy('428749721')" id="logo">
           <img src="./assets/img/logo-color.svg" style="max-height: 32px;" />
-          <img src="./assets/img/ng-alain.svg" style="max-height: 32px;" />
+          <img src="./assets/img/1ziton.svg" style="max-height: 32px;" />
         </span>
       </nz-tooltip>
     </a>
@@ -66,8 +66,8 @@
             {{'app.header.menu.components' | translate}}
           </li>
           <li nz-menu-item>
-            <div nz-dropdown nzPlacement="bottomRight" [nzDropdownMenu]="delonMenu">{{'app.header.menu.pokemon' | translate}}</div>
-            <nz-dropdown-menu #delonMenu="nzDropdownMenu">
+            <div nz-dropdown nzPlacement="bottomRight" [nzDropdownMenu]="pokemonMenu">{{'app.header.menu.pokemon' | translate}}</div>
+            <nz-dropdown-menu #pokemonMenu="nzDropdownMenu">
               <ul nz-menu>
                 <li *ngFor="let i of pokemon" nz-menu-item routerLink="/{{i}}/getting-started/{{i18n.zone}}">
                   {{'app.header.menu.' + i | translate}}
@@ -76,7 +76,7 @@
             </nz-dropdown-menu>
           </li>
           <li nz-menu-item>
-            <a href="https://e.ng-alain.com/" target="_blank">
+            <a href="https://e.1ziton.com/" target="_blank">
               {{'app.header.menu.themes' | translate}}
             </a>
           </li>

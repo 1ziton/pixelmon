@@ -52,7 +52,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   toVersion(version: string) {
     if (version !== this.currentVersion) {
-      window.location.href = `https://ng-alain.github.io/${version}-doc/`;
+      window.location.href = `https://1ziton.github.io/${version}-doc/`;
     }
   }
 
@@ -78,7 +78,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     docsearch({
       appId: '2WSH9IUML3',
       apiKey: '6356fe022dba23c6bfc63427b2042bf8',
-      indexName: 'ng-alain',
+      indexName: '1ziton',
       inputSelector: '#search-box input',
       algoliaOptions: {
         hitsPerPage: 5,

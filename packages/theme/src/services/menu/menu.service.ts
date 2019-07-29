@@ -4,7 +4,7 @@ import { share } from 'rxjs/operators';
 
 import { ACLService } from '@pokemon/acl';
 
-import { AlainI18NService, ALAIN_I18N_TOKEN } from '../i18n/i18n';
+import { PokemonI18NService, ALAIN_I18N_TOKEN } from '../i18n/i18n';
 import { Menu, MenuIcon } from './interface';
 
 @Injectable({ providedIn: 'root' })
@@ -17,7 +17,7 @@ export class MenuService implements OnDestroy {
   constructor(
     @Optional()
     @Inject(ALAIN_I18N_TOKEN)
-    private i18nSrv: AlainI18NService,
+    private i18nSrv: PokemonI18NService,
     @Optional() private aclService: ACLService,
   ) {
     this.i18n$ = this.i18nSrv.change.subscribe(() => this.resume());

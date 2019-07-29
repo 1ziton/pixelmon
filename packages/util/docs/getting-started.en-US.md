@@ -2,41 +2,41 @@
 order: 1
 title: Getting Started
 type: Documents
-module: DelonUtilModule
-config: DelonUtilConfig
+module: PokemonUtilModule
+config: PokemonUtilConfig
 ---
 
-`@delon/util` is a collection of tool functions.
+`@pokemon/util` is a collection of tool functions.
 
 ## Usage
 
-Installing `@delon/util` dependency package:
+Installing `@pokemon/util` dependency package:
 
 ```bash
-yarn add @delon/util
+yarn add @pokemon/util
 ```
 
-Import the `DelonUtilModule` in to your root AppModule.
+Import the `PokemonUtilModule` in to your root AppModule.
 
 ```typescript
-import { DelonUtilModule } from '@delon/util';
+import { PokemonUtilModule } from '@pokemon/util';
 
 @NgModule({
   imports: [
-    DelonUtilModule
+    PokemonUtilModule
   ]
 })
 export class AppModule { }
 ```
 
-## DelonUtilConfig
+## PokemonUtilConfig
 
 Common configuration, such as unifying mapping name for `ArrayService`.
 
 ```ts
-import { DelonUtilConfig } from '@delon/abc';
-export function fnDelonUtilConfig(): DelonUtilConfig {
-  return Object.assign(new DelonUtilConfig(), <DelonUtilConfig>{
+import { PokemonUtilConfig } from '@pokemon/pikachu';
+export function fnPokemonUtilConfig(): PokemonUtilConfig {
+  return Object.assign(new PokemonUtilConfig(), <PokemonUtilConfig>{
     array: {
       idMapName: 'Id',
       parentIdMapName: 'ParentId'
@@ -45,12 +45,12 @@ export function fnDelonUtilConfig(): DelonUtilConfig {
 }
 
 @NgModule({ })
-export class DelonModule {
+export class PokemonModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: DelonModule,
+      ngModule: PokemonModule,
       providers: [
-        { provide: DelonUtilConfig, useFactory: fnDelonUtilConfig }
+        { provide: PokemonUtilConfig, useFactory: fnPokemonUtilConfig }
       ]
     };
   }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { DelonLocaleModule } from './locale/locale.module';
+import { PokemonLocaleModule } from './locale/locale.module';
 
 // #region import
 
@@ -39,7 +39,7 @@ const ICONS = [BellOutline, DeleteOutline, PlusOutline, InboxOutline];
 @NgModule({
   imports: [CommonModule, RouterModule, OverlayModule],
   declarations: [...COMPONENTS, ...PIPES],
-  exports: [...COMPONENTS, ...PIPES, DelonLocaleModule],
+  exports: [...COMPONENTS, ...PIPES, PokemonLocaleModule],
 })
 export class PokemonThemeModule {
   constructor(iconSrv: NzIconService) {

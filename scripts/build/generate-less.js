@@ -12,18 +12,12 @@ function copyLess(name) {
   // modules less
   fs.readdirSync(targetPath).forEach(name => {
     if (fs.existsSync(`${sourcePath}/${name}/style/index.less`)) {
-      fse.copySync(
-        `${sourcePath}/${name}/style`,
-        `${targetPath}/${name}/style`,
-      );
+      fse.copySync(`${sourcePath}/${name}/style`, `${targetPath}/${name}/style`);
     }
   });
 }
 
-['abc', 'chart'].forEach(name => copyLess(name));
+['pikachu', 'chart'].forEach(name => copyLess(name));
 
 // copy theme
-fse.copySync(
-  path.join(root, `packages/theme/styles`),
-  path.join(root, `dist/@pokemon/theme/styles`),
-);
+fse.copySync(path.join(root, `packages/theme/styles`), path.join(root, `dist/@pokemon/theme/styles`));

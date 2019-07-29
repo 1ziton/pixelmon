@@ -5,7 +5,7 @@
     "rootDir": "..",
     "baseUrl": ".",
     "paths": {
-      "@pokemon/abc/*": ["./*"],
+      "@pokemon/pikachu/*": ["./*"],
       "@pokemon/*": [ "../*" ]
     }
   },

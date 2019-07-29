@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-import { AlainI18NService, ALAIN_I18N_TOKEN } from '../i18n/i18n';
+import { PokemonI18NService, ALAIN_I18N_TOKEN } from '../i18n/i18n';
 import { MenuService } from '../menu/menu.service';
 
 @Injectable({ providedIn: 'root' })
@@ -22,7 +22,7 @@ export class TitleService implements OnDestroy {
     private menuSrv: MenuService,
     @Optional()
     @Inject(ALAIN_I18N_TOKEN)
-    private i18nSrv: AlainI18NService,
+    private i18nSrv: PokemonI18NService,
     @Inject(DOCUMENT) private doc: any,
   ) {
     this.i18n$ = this.i18nSrv.change.pipe(filter(() => !!this.i18n$)).subscribe(() => this.setTitle());
@@ -53,7 +53,7 @@ export class TitleService implements OnDestroy {
 
   private getByElement(): string {
     const el =
-      this.doc.querySelector('.alain-default__content-title h1') || this.doc.querySelector('.page-header__title');
+      this.doc.querySelector('.pokemon-default__content-title h1') || this.doc.querySelector('.page-header__title');
     if (el) {
       return el.firstChild.textContent.trim();
     }

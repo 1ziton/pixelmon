@@ -18,9 +18,10 @@ import {
   TemplateRef,
   ElementRef,
   Renderer2,
-  OnChanges
+  OnChanges,
 } from '@angular/core';
 import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 import { AdvancedCellComponent } from './advanced-cell.component';
 import { AdvancedFilterComponent } from './advanced-filter.component';
 import { formatDate } from '@angular/common';
@@ -30,13 +31,13 @@ import { Column, PageParams } from './advanced-table.module';
   selector: 'advanced-table',
   templateUrl: './advanced-table.component.html',
   styleUrls: ['./advanced-table.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit, AfterContentInit, OnDestroy {
   @Input() columns: Column[] = []; // 列数据
   @Input() data: { content: object[]; totalElements: number } = { content: [], totalElements: 0 }; // 表格数据
   @Input() selections: object[] = []; // 已选项
-  @Input() scroll: { x?: string | null; y?: string | null } = null; // 固定表头，滚动
+  @Input() scroll: { x?: string | null; y?: string | null }; // 固定表头，滚动
   @Input() loading = false; // 表格loading
   @Input() pageSize = 10; // 显示条数
   @Input() frontPagination = false; // 是否前端分页
@@ -47,7 +48,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
   @Input() pageSizeOptions = [10, 30, 50, 100]; // 页数选择器可选值
   @Input() showCheckbox = false; // 是否显示复选框
   @Input() showTitle = true; // 是否有title
-  @Input() titleTemplate: TemplateRef<void> = null; // title模板
+  @Input() titleTemplate: TemplateRef<void>; // title模板
 
   @Output() columnsChange: EventEmitter<Column[]> = new EventEmitter(); // 列数据改变事件 用于双向绑定
   @Output() selectionsChange: EventEmitter<object[]> = new EventEmitter(); // 已选项改变事件 用于双向绑定
@@ -63,7 +64,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
   displayData: any[] = []; // 当前显示数据
   pageIndex = 1; // 当前页码
   queryParams: { [key: string]: any } = {};
-  sortParams: { key: string; value: 'descend' | 'ascend' | null } = null;
+  sortParams: { key: string; value: 'descend' | 'ascend' | null };
 
   constructor(private _elementRef: ElementRef, private _renderer2: Renderer2) {}
 
@@ -85,7 +86,8 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
   }
 
   ngOnInit() {
-    this.load$.debounceTime(20).subscribe(() => {
+    /* tslint:disable */
+    this.load$.pipe(debounceTime(20)).subscribe(() => {
       // 清空selections
       this.selections = [];
       this.selectionsChange.emit(this.selections);
@@ -106,13 +108,15 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
     // 赋值自定义单元格
     this.customCells.forEach(customCell => {
       const findedColumn = this.columns.find(column => column.field === customCell.field);
-      findedColumn.customCell = customCell.templateRef;
+      if (findedColumn) findedColumn.customCell = customCell.templateRef;
     });
     // 赋值自定义搜索组件
     this.customFilters.forEach(customFilter => {
       const findedColumn = this.columns.find(column => column.field === customFilter.field);
-      findedColumn.showFilter = true;
-      findedColumn.customFilter = customFilter.templateRef;
+      if (findedColumn) {
+        findedColumn.showFilter = true;
+        findedColumn.customFilter = customFilter.templateRef;
+      }
     });
   }
 
@@ -180,7 +184,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
     const sortColumn = this.columns.find(column => column.field === sortParams.key);
 
     // 如果没有自定义排序，自动前端排序
-    if (!sortColumn.customSort) {
+    if (sortColumn && !sortColumn.customSort) {
       this.data.content.sort((previous, further) =>
         sortParams.value === 'descend'
           ? further[sortParams.key] > previous[sortParams.key]
@@ -188,7 +192,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
             : -1
           : previous[sortParams.key] > further[sortParams.key]
           ? 1
-          : -1
+          : -1,
       );
       this.data.content = [...this.data.content];
     }
@@ -204,10 +208,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
     if (isOpen === false) {
       const date = column.searchValue;
       if (date && Array.isArray(date) && date.length === 2) {
-        column.searchValue = [
-          formatDate(date[0], 'yyyy-MM-dd 00:00:00', 'zh_CN'),
-          formatDate(date[1], 'yyyy-MM-dd 23:59:59', 'zh_CN')
-        ];
+        column.searchValue = [formatDate(date[0], 'yyyy-MM-dd 00:00:00', 'zh_CN'), formatDate(date[1], 'yyyy-MM-dd 23:59:59', 'zh_CN')];
         column.displayValue = [formatDate(date[0], 'yyyy-MM-dd', 'zh_CN'), formatDate(date[1], 'yyyy-MM-dd', 'zh_CN')];
       }
     }

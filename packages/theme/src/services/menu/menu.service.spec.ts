@@ -3,7 +3,7 @@ import { filter } from 'rxjs/operators';
 
 import { ACLService } from '@pokemon/acl';
 import { deepCopy } from '@pokemon/util';
-import { AlainI18NServiceFake, ALAIN_I18N_TOKEN } from '../i18n/i18n';
+import { PokemonI18NServiceFake, ALAIN_I18N_TOKEN } from '../i18n/i18n';
 
 import { Menu } from './interface';
 import { MenuService } from './menu.service';
@@ -35,7 +35,7 @@ describe('Service: Menu', () => {
       badgeDot: true,
       badgeStatus: 'success',
     },
-    { text: 'text', externalLink: '//ng-alain.com' },
+    { text: 'text', externalLink: '//1ziton.com' },
     { text: 'text', link: '/demo2', i18n: 'text' },
     { text: 'sub', children: [] },
   ];
@@ -47,7 +47,7 @@ describe('Service: Menu', () => {
       injector = TestBed.configureTestingModule({
         providers: [
           MenuService,
-          { provide: ALAIN_I18N_TOKEN, useClass: AlainI18NServiceFake },
+          { provide: ALAIN_I18N_TOKEN, useClass: PokemonI18NServiceFake },
           { provide: ACLService, useClass: MockACLService },
         ],
       });
@@ -228,7 +228,7 @@ describe('Service: Menu', () => {
     });
 
     describe('ISSUES', () => {
-      it('ng-alain #107', () => {
+      it('1ziton #107', () => {
         srv.add(deepCopy(DATA));
         expect(srv.menus[0].children!.filter(w => w.shortcutRoot === true).length).toBe(1);
         expect(srv.menus[0].children![1].children!.length).toBe(1);
@@ -303,7 +303,7 @@ describe('Service: Menu', () => {
           {
             text: 'dashboard',
             link: '/dashboard',
-            icon: `http://ng-alain.com/1.jpg`,
+            icon: `http://1ziton.com/1.jpg`,
           },
         ]);
         const icon: any = srv.menus[0].icon;
@@ -318,7 +318,7 @@ describe('Service: Menu', () => {
       injector = TestBed.configureTestingModule({
         providers: [
           MenuService,
-          { provide: ALAIN_I18N_TOKEN, useClass: AlainI18NServiceFake },
+          { provide: ALAIN_I18N_TOKEN, useClass: PokemonI18NServiceFake },
           { provide: ACLService, useClass: MockACLService },
         ],
       });

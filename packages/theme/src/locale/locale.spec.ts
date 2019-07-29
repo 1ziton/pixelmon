@@ -1,12 +1,12 @@
 import { filter } from 'rxjs/operators';
-import { DelonLocaleService } from './locale.service';
+import { PokemonLocaleService } from './locale.service';
 
 import enUS from './languages/en-US';
 import zhCN from './languages/zh-CN';
 
 describe('theme: locale', () => {
-  let locale: DelonLocaleService;
-  beforeEach(() => (locale = new DelonLocaleService(zhCN)));
+  let locale: PokemonLocaleService;
+  beforeEach(() => (locale = new PokemonLocaleService(zhCN)));
 
   describe('#setLocale', () => {
     it('should working', () => {
@@ -14,7 +14,7 @@ describe('theme: locale', () => {
       expect(locale.locale.abbr).toBe(enUS.abbr);
     });
     it('should be default language is zh-cn', () => {
-      locale = new DelonLocaleService(null);
+      locale = new PokemonLocaleService(null);
       expect(locale.locale.abbr).toBe(zhCN.abbr);
     });
     it('should be ingore change when new and old are the same', () => {

@@ -3,7 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 
-import { en_US as delonEnUS, zh_CN as delonZhCn, AlainI18NService, DelonLocaleService } from '@pokemon/theme';
+import { en_US as pokemonEnUS, zh_CN as pokemonZhCn, PokemonI18NService, PokemonLocaleService } from '@pokemon/theme';
 import { en_US, zh_CN, NzI18nService } from 'ng-zorro-antd';
 
 import { ENUS } from './en-US';
@@ -12,14 +12,14 @@ import { ZHCN } from './zh-CN';
 export type LangType = 'en-US' | 'zh-CN';
 
 @Injectable({ providedIn: 'root' })
-export class I18NService implements AlainI18NService {
+export class I18NService implements PokemonI18NService {
   private change$: Subject<LangType> = new Subject<LangType>();
 
   private _langs = [{ code: 'en-US', text: 'English' }, { code: 'zh-CN', text: '中文' }];
 
   constructor(
     private zorroI18n: NzI18nService,
-    private delonI18n: DelonLocaleService,
+    private pokemonI18n: PokemonLocaleService,
     private translate: TranslateService,
     private dom: DomSanitizer,
   ) {
@@ -58,7 +58,7 @@ export class I18NService implements AlainI18NService {
   use(lang: LangType, emit = true) {
     this.translate.use(lang);
     this.zorroI18n.setLocale(lang === 'en-US' ? en_US : zh_CN);
-    this.delonI18n.setLocale(lang === 'en-US' ? delonEnUS : delonZhCn);
+    this.pokemonI18n.setLocale(lang === 'en-US' ? pokemonEnUS : pokemonZhCn);
     if (emit) this.change$.next(lang);
   }
 

@@ -50,20 +50,20 @@ const ICONS = [
   selector: 'dev-layout',
   templateUrl: './layout.component.html',
   host: {
-    '[class.alain-default]': 'true',
+    '[class.pokemon-default]': 'true',
   },
   preserveWhitespaces: false,
 })
 export class DevLayoutComponent implements OnInit {
-  @HostBinding('class.alain-default__fixed')
+  @HostBinding('class.pokemon-default__fixed')
   get isFixed() {
     return this.settings.layout.fixed;
   }
-  @HostBinding('class.alain-default__boxed')
+  @HostBinding('class.pokemon-default__boxed')
   get isBoxed() {
     return this.settings.layout.boxed;
   }
-  @HostBinding('class.alain-default__collapsed')
+  @HostBinding('class.pokemon-default__collapsed')
   get isCollapsed() {
     return this.settings.layout.collapsed;
   }

@@ -14,7 +14,7 @@ const content = `
 @import "${path.join(ROOT_DIR, 'theme/styles/index.less')}";\n
 @import "${path.join(ROOT_DIR, 'theme/styles/layout/default/index.less')}";\n
 @import "${path.join(ROOT_DIR, 'theme/styles/layout/fullscreen/index.less')}";\n
-@import "${path.join(ROOT_DIR, 'abc/index.less')}";\n
+@import "${path.join(ROOT_DIR, 'pikachu/index.less')}";\n
 @import "${path.join(ROOT_DIR, 'chart/index.less')}";\n
 `;
 
@@ -30,9 +30,6 @@ less.render
     javascriptEnabled: true,
   })
   .then(({ css }) => {
-    fs.writeFileSync(
-      path.join(ROOT_DIR, `theme/styles/ng-alain${min ? '.min' : ''}.css`),
-      css,
-    );
+    fs.writeFileSync(path.join(ROOT_DIR, `theme/styles/1ziton${min ? '.min' : ''}.css`), css);
   })
   .catch(err => console.warn(err));

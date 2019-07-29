@@ -1,0 +1,29 @@
+{
+  "name": "@pokemon/mock",
+  "version": "0.0.0-PLACEHOLDER",
+  "author": "cipchk<cipchk@qq.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ng-pokemon/pokemon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ng-pokemon/ng-pokemon/issues"
+  },
+  "homepage": "https://ng-pokemon.com",
+  "keywords": [
+    "pokemon",
+    "ng-pokemon",
+    "pokemon",
+    "mock",
+    "mockjs",
+    "angular-mock",
+    "ng mock",
+    "ngx-mock",
+    "antd",
+    "ng-zorro-antd",
+    "angular",
+    "component"
+  ],
+  "sideEffects": false
+}

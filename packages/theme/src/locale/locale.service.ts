@@ -6,7 +6,7 @@ import { DELON_LOCALE } from './locale.tokens';
 import { FullLocaleData, LocaleData } from './locale.types';
 
 @Injectable()
-export class DelonLocaleService {
+export class PokemonLocaleService {
   private _locale: FullLocaleData;
   private change$ = new BehaviorSubject<FullLocaleData>(this._locale);
 
@@ -36,14 +36,14 @@ export class DelonLocaleService {
 }
 
 export function DELON_LOCALE_SERVICE_PROVIDER_FACTORY(
-  exist: DelonLocaleService,
+  exist: PokemonLocaleService,
   locale: FullLocaleData,
-): DelonLocaleService {
-  return exist || new DelonLocaleService(locale);
+): PokemonLocaleService {
+  return exist || new PokemonLocaleService(locale);
 }
 
 export const DELON_LOCALE_SERVICE_PROVIDER: Provider = {
-  provide: DelonLocaleService,
+  provide: PokemonLocaleService,
   useFactory: DELON_LOCALE_SERVICE_PROVIDER_FACTORY,
-  deps: [[new Optional(), new SkipSelf(), DelonLocaleService], DELON_LOCALE],
+  deps: [[new Optional(), new SkipSelf(), PokemonLocaleService], DELON_LOCALE],
 };

@@ -6,10 +6,10 @@ export function fn{{ meta.item.config }}(): {{ meta.item.config }} &#123;
 &#125;
 
 @NgModule(&#123; &#125;)
-export class DelonModule &#123;
+export class PokemonModule &#123;
   static forRoot(): ModuleWithProviders &#123;
     return &#123;
-      ngModule: DelonModule,
+      ngModule: PokemonModule,
       providers: [
         &#123; provide: {{ meta.item.config }}, useFactory: fn{{ meta.item.config }} &#125;
       ]

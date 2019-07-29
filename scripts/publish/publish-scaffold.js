@@ -4,7 +4,7 @@ const path = require('path');
 
 const nextVersion = fs.readJSONSync(path.join(__dirname, '../../package.json'))
   .version;
-const root = path.resolve(__dirname, `../../../ng-alain`);
+const root = path.resolve(__dirname, `../../../1ziton`);
 
 /* Shortcut methods */
 const execSync = require('child_process').execSync;

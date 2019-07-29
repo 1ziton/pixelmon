@@ -14,7 +14,7 @@ export class StartupService {
   load(): Promise<any> {
     return new Promise(resolve => {
       this.doc.querySelector('#_slow')!.remove();
-      this.injector.get(TitleService).suffix = 'Ng Alain';
+      this.injector.get(TitleService).suffix = 'Ng Pokemon';
       resolve();
     });
   }

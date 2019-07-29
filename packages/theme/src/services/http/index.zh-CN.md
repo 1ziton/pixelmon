@@ -4,7 +4,7 @@ title: _HttpClient
 type: Service
 ---
 
-`@pokemon/theme` 包含了一个叫 [\_HttpClient](https://github.com/ng-alain/pokemon/blob/master/packages/theme/src/services/http/http.client.ts) 类，其本质还是调用 Angular 的 `HttpClient`。
+`@pokemon/theme` 包含了一个叫 [\_HttpClient](https://github.com/1ziton/pokemon/blob/master/packages/theme/src/services/http/http.client.ts) 类，其本质还是调用 Angular 的 `HttpClient`。
 
 ## 特性
 
@@ -28,14 +28,14 @@ HttpClient.get(url, { params: { pi: 1 } });
 _HttpClient.get(url, { pi: 1 });
 ```
 
-## AlainThemeConfig
+## PokemonThemeConfig
 
 通用配置项，例如统一对 `_HttpClient` 设置空值、时间处理方式。
 
 ```ts
-import { AlainThemeConfig } from '@pokemon/theme';
-export function fnAlainThemeConfig(): AlainThemeConfig {
-  return Object.assign(new AlainThemeConfig(), <AlainThemeConfig>{
+import { PokemonThemeConfig } from '@pokemon/theme';
+export function fnPokemonThemeConfig(): PokemonThemeConfig {
+  return Object.assign(new PokemonThemeConfig(), <PokemonThemeConfig>{
     http: {
       nullValueHandling: 'ignore',
     },
@@ -43,12 +43,12 @@ export function fnAlainThemeConfig(): AlainThemeConfig {
 }
 
 @NgModule({})
-export class DelonModule {
+export class PokemonModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: DelonModule,
+      ngModule: PokemonModule,
       providers: [
-        { provide: AlainThemeConfig, useFactory: fnAlainThemeConfig },
+        { provide: PokemonThemeConfig, useFactory: fnPokemonThemeConfig },
       ],
     };
   }

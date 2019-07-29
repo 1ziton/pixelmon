@@ -13,9 +13,9 @@ import { I18NService } from '../../core/i18n/service';
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   list = [
-    { type: 'basic', url: 'https://ng-alain.github.io/ng-alain' },
-    { type: 'pro', url: 'https://e.ng-alain.com/theme/pro' },
-    { type: 'ms', url: 'https://e.ng-alain.com/theme/ms' },
+    { type: 'basic', url: 'https://1ziton.github.io/1ziton' },
+    { type: 'pro', url: 'https://e.1ziton.com/theme/pro' },
+    { type: 'ms', url: 'https://e.1ziton.com/theme/ms' },
   ];
   constructor(
     @Inject(ALAIN_I18N_TOKEN) public i18n: I18NService,

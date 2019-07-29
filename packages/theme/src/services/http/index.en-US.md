@@ -4,7 +4,7 @@ title: _HttpClient
 type: Service
 ---
 
-[\_HttpClient](https://github.com/ng-alain/pokemon/blob/master/packages/theme/src/services/http/http.client.ts) service is based on Angular `HttpClient`.
+[\_HttpClient](https://github.com/1ziton/pokemon/blob/master/packages/theme/src/services/http/http.client.ts) service is based on Angular `HttpClient`.
 
 ## Features
 
@@ -28,14 +28,14 @@ For `_HttpClient`:
 _HttpClient.get(url, { pi: 1 });
 ```
 
-## AlainThemeConfig
+## PokemonThemeConfig
 
 Common configuration, such as unifying null and time processing for `_HttpClient`.
 
 ```ts
-import { AlainThemeConfig } from '@pokemon/theme';
-export function fnAlainThemeConfig(): AlainThemeConfig {
-  return Object.assign(new AlainThemeConfig(), <AlainThemeConfig>{
+import { PokemonThemeConfig } from '@pokemon/theme';
+export function fnPokemonThemeConfig(): PokemonThemeConfig {
+  return Object.assign(new PokemonThemeConfig(), <PokemonThemeConfig>{
     http: {
       nullValueHandling: 'ignore',
     },
@@ -43,12 +43,12 @@ export function fnAlainThemeConfig(): AlainThemeConfig {
 }
 
 @NgModule({})
-export class DelonModule {
+export class PokemonModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: DelonModule,
+      ngModule: PokemonModule,
       providers: [
-        { provide: AlainThemeConfig, useFactory: fnAlainThemeConfig },
+        { provide: PokemonThemeConfig, useFactory: fnPokemonThemeConfig },
       ],
     };
   }

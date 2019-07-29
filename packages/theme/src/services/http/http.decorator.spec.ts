@@ -139,7 +139,7 @@ describe('theme: http.decorator', () => {
     expect(request.calls.mostRecent().args[1]).toBe('/user/1');
   });
 
-  it('should be throw error when not import AlainThemeModule', () => {
+  it('should be throw error when not import PokemonThemeModule', () => {
     expect(() => {
       delete tokens._HttpClient;
       srv.GET(1);

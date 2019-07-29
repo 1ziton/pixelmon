@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { AlainThemeModule } from '../../theme.module';
-import { AlainI18NService, AlainI18NServiceFake, ALAIN_I18N_TOKEN } from './i18n';
+import { PokemonThemeModule } from '../../theme.module';
+import { PokemonI18NService, PokemonI18NServiceFake, ALAIN_I18N_TOKEN } from './i18n';
 
 describe('theme: i18n', () => {
-  const i18n = new AlainI18NServiceFake();
+  const i18n = new PokemonI18NServiceFake();
 
   it('#use', () => {
     i18n.use('zh-CN');
@@ -22,9 +22,9 @@ describe('theme: i18n', () => {
 
   describe('[i18n pipe]', () => {
     let fixture: ComponentFixture<TestComponent>;
-    let srv: AlainI18NService;
+    let srv: PokemonI18NService;
 
-    class MockI18NService extends AlainI18NServiceFake {
+    class MockI18NService extends PokemonI18NServiceFake {
       data: any = {};
       use(_lang: string) {
         this.data = {
@@ -44,7 +44,7 @@ describe('theme: i18n', () => {
 
     function genModule() {
       TestBed.configureTestingModule({
-        imports: [AlainThemeModule.forRoot()],
+        imports: [PokemonThemeModule.forRoot()],
         declarations: [TestComponent],
         providers: [
           {
