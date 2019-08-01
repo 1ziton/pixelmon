@@ -7,7 +7,7 @@ type: Service
 
 Project config data, includes [App](https://github.com/1ziton/pokemon/blob/master/packages/theme/src/services/settings/interface.ts#L1), [Layout](https://github.com/1ziton/pokemon/blob/master/packages/theme/src/services/settings/interface.ts#L15), [User](https://github.com/1ziton/pokemon/blob/master/packages/theme/src/services/settings/interface.ts#L8), three data types And store persistence in `localStorage`.
 
-**Suggest:** Call the `setApp()`, `setUser()` methods to restore project config data, via Angular startup service ([startup.service.ts](https://github.com/1ziton/1ziton/blob/master/src/app/core/startup/startup.service.ts)).
+**Suggest:** Call the `setApp()`, `setUser()` methods to restore project config data, via Angular startup service ([startup.service.ts](https://github.com/1ziton/pokemon/blob/master/src/app/core/startup/startup.service.ts)).
 
 ## API
 

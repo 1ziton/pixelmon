@@ -7,7 +7,7 @@ title: 带浮层卡片
 
 ```ts
 import { Component } from '@angular/core';
-import { NoticeIconList, NoticeItem } from '@pokemon/abc';
+import { NoticeIconList, NoticeItem } from '@pokemon/pikachu';
 import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
 import { NzMessageService } from 'ng-zorro-antd';
 
@@ -168,7 +168,7 @@ export class DemoComponent {
         },
         {
           id: '000000012',
-          title: 'ABCD 版本发布',
+          title: 'PokemonD 版本发布',
           description: '冠霖提交于 2017-01-06，需在 2017-01-07 前完成代码变更任务',
           extra: '进行中',
           status: 'processing',

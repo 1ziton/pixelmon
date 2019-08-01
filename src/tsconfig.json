@@ -1,25 +1,20 @@
 {
-
   "extends": "../tsconfig.json",
   "compilerOptions": {
-
     "sourceMap": false,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "module": "esnext",
     "outDir": "../out-tsc/app",
     "baseUrl": ".",
-    "types": [],
+    "types": ["node"],
     "paths": {
       "@core/*": ["app/core/*"],
-        "@shared": ["app/shared"],
-        "@shared/*": ["app/shared/*"],
-        "@pokemon/*": ["../packages/*"]
+      "@shared": ["app/shared"],
+      "@shared/*": ["app/shared/*"],
+      "@pokemon/*": ["../packages/*"]
     }
-  }
+  },
 
-  ,
-  "exclude": ["test.ts",
-  "**/*.spec.ts",
-  "templates/*.ts"]
+  "exclude": ["test.ts", "**/*.spec.ts", "templates/*.ts"]
 }

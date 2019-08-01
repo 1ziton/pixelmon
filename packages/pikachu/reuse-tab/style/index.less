@@ -1,0 +1,41 @@
+@import '../../../theme/styles/default.less';
+@import './variable.less';
+
+@{reuse-tab-prefix} {
+  display: block;
+  padding: @reuse-tab-padding;
+  background-color: @reuse-tab-bg;
+  border-bottom: 1px solid @reuse-tab-border-color;
+  outline: none;
+  user-select: none;
+  .@{ant-prefix}-tabs-bar {
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+  .@{ant-prefix}-tabs-nav .@{ant-prefix}-tabs-tab {
+    padding: 0;
+    @{reuse-tab-prefix}__name {
+      display: inline-block;
+      padding: 8px 20px;
+    }
+    @{reuse-tab-prefix}__op {
+      position: absolute;
+      top: 14px;
+      right: 2px;
+      display: none;
+      margin: 0;
+      font-size: 10px;
+    }
+    &:hover {
+      @{reuse-tab-prefix}__op {
+        display: block;
+      }
+    }
+  }
+}
+
+@{reuse-tab-prefix}__cm {
+  .@{ant-prefix}-menu {
+    border: 1px solid #e9e9e9;
+  }
+}

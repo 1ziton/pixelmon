@@ -1,0 +1,14 @@
+{
+  "ngPackage": {
+    "lib": {
+      "flatModuleFile": "sidebarNav",
+      "entryFile": "public_api.ts",
+      "umdModuleIds": {
+        "ng-zorro-antd/icon": "ng-zorro-antd/icon",
+        "ng-zorro-antd/tooltip": "ng-zorro-antd/tooltip",
+        "@pokemon/theme": "pokemon.theme",
+        "@pokemon/util": "pokemon.util"
+      }
+    }
+  }
+}

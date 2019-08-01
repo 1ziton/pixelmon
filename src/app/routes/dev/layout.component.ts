@@ -97,7 +97,7 @@ export class DevLayoutComponent implements OnInit {
           ],
         },
         {
-          text: 'ABC',
+          text: 'Pokemon',
           icon: 'anticon anticon-appstore',
           children: [
             { text: 'Reuse Tab1', link: '/dev/l1', i18n: 'app.header.menu.docs' },

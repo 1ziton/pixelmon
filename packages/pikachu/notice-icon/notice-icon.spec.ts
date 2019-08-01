@@ -10,7 +10,7 @@ import { NoticeIconComponent } from './notice-icon.component';
 import { NoticeIconModule } from './notice-icon.module';
 import { NoticeItem } from './notice-icon.types';
 
-describe('abc: notice-icon', () => {
+describe('pikachu: notice-icon', () => {
   let injector: TestBedStatic;
   let fixture: ComponentFixture<TestComponent>;
   let dl: DebugElement;

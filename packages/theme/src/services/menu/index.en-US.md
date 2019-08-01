@@ -9,7 +9,7 @@ The data format is an array of [Menu](https://github.com/1ziton/pokemon/blob/mas
 
 This is because menus it's essential part of the applications, And it can be used more effectively as a service, such as: dynamically generate navigation, title etc.
 
-**Suggest:** Start up Angular ([startup.service.ts](https://github.com/1ziton/1ziton/blob/master/src/app/core/startup/startup.service .ts)) After get menu data from remote, call the `add()` method.
+**Suggest:** Start up Angular ([startup.service.ts](https://github.com/1ziton/pokemon/blob/master/src/app/core/startup/startup.service .ts)) After get menu data from remote, call the `add()` method.
 
 ## API
 

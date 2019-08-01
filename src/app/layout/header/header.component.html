@@ -1,5 +1,15 @@
 <ng-container *ngIf="isMobile">
-  <i nz-icon type="menu" class="header-menu-icon" nz-popover [(nzVisible)]="menuVisible" [nzTitle]="null" nzTrigger="click" nzPlacement="bottomRight" [nzContent]="mobileMenu"></i>
+  <i
+    nz-icon
+    type="menu"
+    class="header-menu-icon"
+    nz-popover
+    [(nzVisible)]="menuVisible"
+    [nzTitle]="null"
+    nzTrigger="click"
+    nzPlacement="bottomRight"
+    [nzContent]="mobileMenu"
+  ></i>
   <ng-template #mobileMenu>
     <div class="header-menu">
       <div class="d-flex justify-content-between align-items-center">
@@ -7,28 +17,28 @@
           <nz-option *ngFor="let version of oldVersionList" [nzLabel]="version" [nzValue]="version"></nz-option>
           <nz-option [nzLabel]="currentVersion" [nzValue]="currentVersion"></nz-option>
         </nz-select>
-        <button nz-button nzType="default" nzSize="small" (click)="langChange(i18n.zone==='zh'?'en':'zh')">
-          {{ 'app.header.lang' | translate}}
+        <button nz-button nzType="default" nzSize="small" (click)="langChange(i18n.zone === 'zh' ? 'en' : 'zh')">
+          {{ 'app.header.lang' | translate }}
         </button>
       </div>
       <ul nz-menu nzMode="inline" class="text-center menu-site">
         <li nz-menu-item (click)="toViaMobile('/docs/getting-started')">
-          {{'app.header.menu.docs' | translate}}
+          {{ 'app.header.menu.docs' | translate }}
         </li>
         <li nz-menu-item (click)="toViaMobile('/components/view')">
-          {{'app.header.menu.components' | translate}}
+          {{ 'app.header.menu.components' | translate }}
         </li>
         <li nz-submenu>
-          <span title>{{'app.header.menu.pokemon' | translate}}</span>
+          <span title>{{ 'app.header.menu.pokemon' | translate }}</span>
           <ul>
             <li *ngFor="let i of pokemon" nz-menu-item (click)="toViaMobile(i)">
-              {{'app.header.menu.' + i | translate}}
+              {{ 'app.header.menu.' + i | translate }}
             </li>
           </ul>
         </li>
         <li nz-menu-item>
           <a href="https://e.1ziton.com/" target="_blank">
-            {{'app.header.menu.themes' | translate}}
+            {{ 'app.header.menu.themes' | translate }}
           </a>
         </li>
       </ul>
@@ -36,22 +46,32 @@
   </ng-template>
 </ng-container>
 <nz-row>
-  <nz-col nzXs="24" nzSm="24" nzMd="6" nzLg="5" nzXl="5" nzXXl="4">
-    <a routerLink="/{{i18n.zone}}">
-      <nz-tooltip nzTitle="{{ 'app.footer.qqgroup' | translate}}: 428749721">
-        <span nz-tooltip (click)="onCopy('428749721')" id="logo">
-          <img src="./assets/img/logo-color.svg" style="max-height: 32px;" />
-          <img src="./assets/img/1ziton.svg" style="max-height: 32px;" />
-        </span>
-      </nz-tooltip>
+  <nz-col nzXs="24" nzSm="24" nzMd="7" nzLg="6" nzXl="6" nzXXl="5">
+    <a routerLink="/{{ i18n.zone }}">
+      <!-- <nz-tooltip nzTitle="{{ 'app.home.slogan' | translate }}"> -->
+      <span nz-tooltip id="logo">
+        <img src="./assets/img/logo.png" />
+        <span class="title">Pokemon</span>
+      </span>
+      <!-- </nz-tooltip> -->
     </a>
   </nz-col>
-  <nz-col nz-col nzXs="0" nzSm="0" nzMd="18" nzLg="19" nzXl="19" nzXXl="20">
+  <nz-col nz-col nzXs="0" nzSm="0" nzMd="17" nzLg="18" nzXl="18" nzXXl="19">
     <div class="header-menu-container">
       <div id="search-box">
         <i nz-icon type="search"></i>
-        <input *ngIf="useDocsearch" nz-input #searchInput [placeholder]="'app.header.search' | translate">
-        <nz-select *ngIf="!useDocsearch" style="width: 200px;" [ngModel]="q" (ngModelChange)="to($event)" nzAllowClear nzShowSearch [nzServerSearch]="true" (nzOnSearch)="changeQ($event)" [nzPlaceHolder]="'app.header.search' | translate">
+        <input *ngIf="useDocsearch" nz-input #searchInput [placeholder]="'app.header.search' | translate" />
+        <nz-select
+          *ngIf="!useDocsearch"
+          style="width: 200px;"
+          [ngModel]="q"
+          (ngModelChange)="to($event)"
+          nzAllowClear
+          nzShowSearch
+          [nzServerSearch]="true"
+          (nzOnSearch)="changeQ($event)"
+          [nzPlaceHolder]="'app.header.search' | translate"
+        >
           <nz-option-group *ngFor="let group of list" [nzLabel]="group.title">
             <nz-option *ngFor="let option of group.children" [nzValue]="option" [nzLabel]="option.title"></nz-option>
           </nz-option-group>
@@ -59,25 +79,25 @@
       </div>
       <div *ngIf="!isMobile" class="header-menu">
         <ul nz-menu nzMode="horizontal" class="menu-site" id="nav">
-          <li nz-menu-item routerLink="/docs/getting-started/{{i18n.zone}}">
-            {{'app.header.menu.docs' | translate}}
+          <li nz-menu-item routerLink="/docs/getting-started/{{ i18n.zone }}">
+            {{ 'app.header.menu.docs' | translate }}
           </li>
-          <li nz-menu-item routerLink="/components/view/{{i18n.zone}}">
-            {{'app.header.menu.components' | translate}}
+          <li nz-menu-item routerLink="/components/view/{{ i18n.zone }}">
+            {{ 'app.header.menu.components' | translate }}
           </li>
           <li nz-menu-item>
-            <div nz-dropdown nzPlacement="bottomRight" [nzDropdownMenu]="pokemonMenu">{{'app.header.menu.pokemon' | translate}}</div>
+            <div nz-dropdown nzPlacement="bottomRight" [nzDropdownMenu]="pokemonMenu">{{ 'app.header.menu.pokemon' | translate }}</div>
             <nz-dropdown-menu #pokemonMenu="nzDropdownMenu">
               <ul nz-menu>
-                <li *ngFor="let i of pokemon" nz-menu-item routerLink="/{{i}}/getting-started/{{i18n.zone}}">
-                  {{'app.header.menu.' + i | translate}}
+                <li *ngFor="let i of pokemon" nz-menu-item routerLink="/{{ i }}/getting-started/{{ i18n.zone }}">
+                  {{ 'app.header.menu.' + i | translate }}
                 </li>
               </ul>
             </nz-dropdown-menu>
           </li>
           <li nz-menu-item>
             <a href="https://e.1ziton.com/" target="_blank">
-              {{'app.header.menu.themes' | translate}}
+              {{ 'app.header.menu.themes' | translate }}
             </a>
           </li>
         </ul>
@@ -85,8 +105,8 @@
           <nz-option *ngFor="let version of oldVersionList" [nzLabel]="version" [nzValue]="version"></nz-option>
           <nz-option [nzLabel]="currentVersion" [nzValue]="currentVersion"></nz-option>
         </nz-select>
-        <button nz-button nzGhost nzSize="small" (click)="langChange(i18n.zone==='zh'?'en':'zh')" class="header-lang-button">
-          {{ 'app.header.lang' | translate}}
+        <button nz-button nzGhost nzSize="small" (click)="langChange(i18n.zone === 'zh' ? 'en' : 'zh')" class="header-lang-button">
+          {{ 'app.header.lang' | translate }}
         </button>
       </div>
     </div>

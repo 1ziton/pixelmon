@@ -197,7 +197,7 @@ registerLocaleData(localeZh);
 
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { PokemonThemeModule } from '@pokemon/theme';
-import { PokemonABCModule } from '@pokemon/pikachu';
+import { PokemonPokemonModule } from '@pokemon/pikachu';
 import { PokemonChartModule } from '@pokemon/chart';
 import { PokemonFormModule } from '@pokemon/form';
 import { PokemonAuthModule } from '@pokemon/auth';
@@ -238,7 +238,7 @@ imports: [
     RouterModule.forRoot([]),
     NgZorroAntdModule,
     PokemonThemeModule.forRoot(),
-    PokemonABCModule,
+    PokemonPokemonModule,
     PokemonChartModule,
     PokemonACLModule,
     PokemonCacheModule,

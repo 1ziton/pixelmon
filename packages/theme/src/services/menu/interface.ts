@@ -25,7 +25,7 @@ export interface Menu {
   /**
    * @deprecated
    * 路由是否精准匹配，默认：`false`，see:
-   * - [#344](https://github.com/1ziton/1ziton/issues/344)
+   * - [#344](https://github.com/1ziton/pokemon/issues/344)
    * - [RouterLinkActive](https://angular.io/api/router/RouterLinkActive#routerLinkActiveOptions)
    */
   linkExact?: boolean;
@@ -39,7 +39,7 @@ export interface Menu {
   badge?: number;
   /** 徽标数，显示小红点 */
   badgeDot?: boolean;
-  /** 徽标 Badge 颜色 （默认：error， 所有颜色值见：https://github.com/1ziton/1ziton/blob/master/_documents/utils.md#色彩） */
+  /** 徽标 Badge 颜色 （默认：error， 所有颜色值见：https://github.com/1ziton/pokemon/blob/master/_documents/utils.md#色彩） */
   badgeStatus?: string;
   /** 是否禁用 */
   disabled?: boolean;

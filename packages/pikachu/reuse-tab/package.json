@@ -1,0 +1,17 @@
+{
+  "ngPackage": {
+    "lib": {
+      "flatModuleFile": "reuseTab",
+      "entryFile": "public_api.ts",
+      "umdModuleIds": {
+        "@angular/cdk/overlay": "ng.cdk.overlay",
+        "@angular/cdk/portal": "ng.cdk.portal",
+        "ng-zorro-antd/icon": "ng-zorro-antd/icon",
+        "ng-zorro-antd/menu": "ng-zorro-antd/menu",
+        "ng-zorro-antd/tabs": "ng-zorro-antd/tabs",
+        "@pokemon/theme": "pokemon.theme",
+        "@pokemon/util": "pokemon.util"
+      }
+    }
+  }
+}
