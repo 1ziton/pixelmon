@@ -18,11 +18,9 @@ Pokemon
 [![Codecov](https://img.shields.io/codecov/c/github/1ziton/pokemon.svg?style=flat-square)](https://codecov.io/gh/1ziton/pokemon)
 [![Dependency Status](https://david-dm.org/1ziton/pokemon/status.svg?style=flat-square)](https://david-dm.org/1ziton/pokemon)
 [![GitHub Release Date](https://img.shields.io/github/release-date/1ziton/pokemon.svg?style=flat-square)](https://github.com/1ziton/pokemon/releases)
-[![NPM version](https://img.shields.io/npm/v/pokemon.svg?style=flat-square)](https://www.npmjs.com/package/pokemon)
+[![NPM version](https://img.shields.io/npm/v/pokemon.svg?style=flat-square)](https://www.npmjs.com/package/@pokemon/pikachu)
 [![prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://prettier.io/)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/1ziton/pokemon/blob/master/LICENSE)
-[![Gitter](https://img.shields.io/gitter/room/1ziton/pokemon.svg?style=flat-square)](https://gitter.im/1ziton/pokemon)
-[![pokemon-vscode](https://img.shields.io/badge/ng--alain-VSCODE-brightgreen.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=cipchk.pokemon-vscode)
 
 </div>
 
@@ -44,4 +42,4 @@ _基于 [delon](https://github.com/ng-alain/delon) 修改维护为符合自身�
 
 ### License
 
-The MIT License (see the [LICENSE](https://github.com/1ziton/pokemon/blob/master/LICENSE) file for the full text)
+MIT License
