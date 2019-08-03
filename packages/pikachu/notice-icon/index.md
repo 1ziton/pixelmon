@@ -1,7 +1,7 @@
 ---
 type: Business
-title: advanced-table
-subtitle: 表格组件
+title: notice-icon
+subtitle: 通知菜单
 cols: 1
 module: NoticeIconModule
 ---
