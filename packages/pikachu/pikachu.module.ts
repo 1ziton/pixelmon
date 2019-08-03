@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { LodopModule } from '@pokemon/pikachu/lodop';
 import { AdvancedTableModule } from './advanced-table/advanced-table.module';
 import { NoticeIconModule } from './notice-icon';
+import { PageHeaderModule } from './page-header';
 import { QueryDisplayModule } from './query-display/query-display.module';
 import { ReuseTabModule } from './reuse-tab';
 import { SidebarNavModule } from './sidebar-nav';
@@ -17,6 +18,7 @@ const MODULES = [
   NoticeIconModule,
   SidebarNavModule,
   SVModule,
+  PageHeaderModule,
 ];
 
 @NgModule({ exports: MODULES })

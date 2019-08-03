@@ -4,23 +4,14 @@
  * @Date: 2019-05-15 14:42:17
  */
 
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  OnChanges,
-  SimpleChanges,
-  ChangeDetectionStrategy
-} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 import { Column } from '../advanced-table/advanced-table.module';
 
 @Component({
   selector: 'query-display',
   templateUrl: './query-display.component.html',
   styleUrls: ['./query-display.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QueryDisplayComponent implements OnInit, OnChanges {
   @Input() columns: Column[] = [];
@@ -78,5 +69,9 @@ export class QueryDisplayComponent implements OnInit, OnChanges {
       }
     });
     this.queryChange.emit(query);
+  }
+
+  closeTab(column) {
+    console.log(column);
   }
 }

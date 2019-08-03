@@ -1,24 +1,24 @@
 {
-  "name": "pikachu",
-  "version": "1.0.0",
+  "name": "pokemon",
+  "version": "0.1.0",
   "typings": "index.d.ts",
   "description": "基于 Angular 和 ng-zorro-antd 的组件库",
   "keywords": [
-    "pikachu",
+    "pokemon",
     "antd",
     "ng-zorro-antd",
     "angular"
   ],
-  "author": "cipchk <cipchk@qq.com>",
+  "author": "giscafer <giscafer@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://git.1ziton.com/front-end/pikachu/issues"
+    "url": "https://github.com/1ziton/pokemon/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://git.1ziton.com/front-end/pikachu.git"
+    "url": "git+https://github.com/1ziton/pokemon.git"
   },
-  "homepage": "https://pikachu.1ziton.com",
+  "homepage": "https://fex.1ziton.com/pokemon",
   "scripts": {
     "lint": "bash scripts/ci/lint.sh -ts -less",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",

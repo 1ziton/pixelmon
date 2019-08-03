@@ -49,6 +49,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
   @Input() showCheckbox = false; // 是否显示复选框
   @Input() showTitle = true; // 是否有title
   @Input() titleTemplate: TemplateRef<void>; // title模板
+  @Input() filterMultiple: string;
 
   @Output() columnsChange: EventEmitter<Column[]> = new EventEmitter(); // 列数据改变事件 用于双向绑定
   @Output() selectionsChange: EventEmitter<object[]> = new EventEmitter(); // 已选项改变事件 用于双向绑定
