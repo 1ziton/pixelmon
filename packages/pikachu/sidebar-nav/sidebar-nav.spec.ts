@@ -29,12 +29,12 @@ const MOCKMENUS = [
           { text: 'v3' },
           {
             text: 'externalLink-blank',
-            externalLink: '//ng-alain.com/blank',
+            externalLink: '//pokemon.1ziton.com/blank',
             target: '_blank',
           },
           {
             text: 'externalLink-top',
-            externalLink: '//ng-alain.com/top',
+            externalLink: '//pokemon.1ziton.com/top',
             target: '_top',
           },
         ],
@@ -131,7 +131,7 @@ describe('pikachu: sidebar-nav', () => {
           const win = injector.get(WINDOW) as MockWindow;
           const itemEl = page.getEl<HTMLElement>('.sidebar-nav__item [data-id="7"]');
           itemEl!.click();
-          expect(win.location.href).toBe(`//ng-alain.com/top`);
+          expect(win.location.href).toBe(`//pokemon.1ziton.com/top`);
         });
       });
 
@@ -210,7 +210,7 @@ describe('pikachu: sidebar-nav', () => {
           expect(el.classList).toContain('anticon-edit');
         });
         it('when is string and http prefix', () => {
-          updateIcon('http://ng-alain/1.jpg');
+          updateIcon('http://1ziton/1.jpg');
           page.checkCount('.sidebar-nav__item-img', 1);
         });
         it('when is class string', () => {

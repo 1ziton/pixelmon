@@ -504,7 +504,7 @@ describe('pikachu: reuse-tab', () => {
     });
 
     describe('[routing]', () => {
-      it('[ng-alain #326] should be restricted by canDeactivate when changing tab', fakeAsync(() => {
+      it('[pokemon #326] should be restricted by canDeactivate when changing tab', fakeAsync(() => {
         let lTime = '';
         page
           .to('#leave')

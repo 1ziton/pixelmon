@@ -89,7 +89,7 @@ export class SidebarNavComponent implements OnInit, OnDestroy {
   private clearFloatingContainer() {
     if (!this.floatingEl) return;
     this.floatingEl.removeEventListener('click', this.floatingAreaClickHandle.bind(this));
-    // fix ie: https://github.com/ng-alain/pokemon/issues/52
+    // fix ie: https://github.com/1ziton/pokemon/issues/52
     if (this.floatingEl.hasOwnProperty('remove')) {
       this.floatingEl.remove();
     } else if (this.floatingEl.parentNode) {

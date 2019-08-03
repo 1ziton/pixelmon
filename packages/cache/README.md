@@ -1,6 +1,11 @@
-# @pokemon/testing module [![Build Status](https://img.shields.io/travis/1ziton/pokemon/master.svg?style=flat-square)](https://travis-ci.org/1ziton/pokemon) [![NPM version](https://img.shields.io/npm/v/@pokemon/testing.svg?style=flat-square)](https://www.npmjs.com/package/@pokemon/testing)
+# @pokemon/cache module [![Build Status](https://img.shields.io/travis/1ziton/pokemon/master.svg?style=flat-square)](https://travis-ci.org/1ziton/pokemon) [![NPM version](https://img.shields.io/npm/v/@pokemon/cache.svg?style=flat-square)](https://www.npmjs.com/package/@pokemon/cache)
 
-Test suite for Pokemon.
+Cache the dictionary, city data etc.
+
+## Links
+
+- [Api Document](https://pokemon.1ziton.com/cache)
+- [Demo](//1ziton.github.io/1ziton/)
 
 ## Architecture
 

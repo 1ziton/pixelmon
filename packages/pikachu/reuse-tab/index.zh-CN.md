@@ -17,7 +17,7 @@ module: ReuseTabModule
 
 **注册RouteReuseStrategy**
 
-> ng-alain 使用方式参考：[pokemon.module.ts](https://github.com/ng-alain/ng-alain/blob/master/src/app/pokemon.module.ts#L33)。
+> pokemon 使用方式参考：[pokemon.module.ts](https://github.com/1ziton/pokemon/blob/master/src/app/pokemon.module.ts#L33)。
 
 ```ts
 // pokemon.module.ts or app.module.ts

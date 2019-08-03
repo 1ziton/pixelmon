@@ -29,7 +29,7 @@ import { SimplemdeModule } from 'ngx-simplemde';
 import { NgxTinymceModule } from 'ngx-tinymce';
 import { UEditorModule } from 'ngx-ueditor';
 
-import { ExampleModule, EXAMPLE_COMPONENTS } from './routes/gen/examples';
+// import { ExampleModule, EXAMPLE_COMPONENTS } from './routes/gen/examples';
 import { IconComponent } from './shared/components/icon/icon.component';
 
 export function StartupServiceFactory(startupService: StartupService) {
@@ -45,7 +45,7 @@ export function StartupServiceFactory(startupService: StartupService) {
     LayoutModule,
     SharedModule,
     RoutesModule,
-    ExampleModule,
+    // ExampleModule,
     // i18n
     TranslateModule.forRoot(),
     NgxTinymceModule.forRoot({
@@ -77,12 +77,12 @@ export function StartupServiceFactory(startupService: StartupService) {
 })
 export class AppModule {
   constructor(injector: Injector) {
-    Object.keys(EXAMPLE_COMPONENTS).forEach(key => {
+    /*  Object.keys(EXAMPLE_COMPONENTS).forEach(key => {
       const element = createCustomElement(EXAMPLE_COMPONENTS[key].component, {
         injector,
       });
       customElements.define(key, element);
-    });
+    }); */
     // icon
     customElements.define('nz-icon', createCustomElement(IconComponent, { injector }));
   }

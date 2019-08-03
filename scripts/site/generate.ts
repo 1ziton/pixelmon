@@ -175,7 +175,7 @@ function generateModule(config: ModuleConfig) {
 
   const metaObj = { types: [], ...includeAttributes(config, {}) };
   metaObj.list = metas;
-
+  console.log(config.template.meta);
   generateDoc(
     { data: JSON.stringify(metaObj) } as MetaTemplateData,
     fs.readFileSync(path.join(rootDir, config.template.meta)).toString('utf8'),

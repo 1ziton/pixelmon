@@ -72,7 +72,7 @@ module.exports = {
         },
       ],
       extraRouteMeta: [
-        {
+        /*  {
           name: 'form',
           route: '/form/getting-started',
           order: 4,
@@ -91,7 +91,7 @@ module.exports = {
             },
           },
         },
-        {
+         {
           name: 'chart',
           route: '/chart/getting-started',
           order: 100,
@@ -110,7 +110,7 @@ module.exports = {
             },
           },
         },
-        {
+          {
           name: 'auth',
           route: '/auth/getting-started',
           order: 100,
@@ -126,7 +126,7 @@ module.exports = {
               title: 'Authentication',
             },
           },
-        },
+        }, */
         {
           name: 'acl',
           route: '/acl/getting-started',
@@ -231,34 +231,7 @@ module.exports = {
         },
       ],
     },
-    /*    {
-      name: 'auth',
-      github: 'https://github.com/1ziton/pokemon',
-      dist: './src/app/routes/gen/auth',
-      types: [
-        {
-          'zh-CN': '文档',
-          'en-US': 'Documents',
-        },
-      ],
-      module: '@pokemon/auth',
-      defaultRoute: 'getting-started',
-      extraRouteMeta: [],
-      metaIncludeAttributes: ['name', 'types', 'github', 'module'],
-      template: {
-        meta: './src/templates/meta.ts',
-        module: './src/templates/module.ts',
-      },
-      dir: [
-        {
-          src: ['./packages/auth/docs'],
-          template: {
-            content: './src/templates/content.ts',
-          },
-          hasSubDir: false,
-        },
-      ],
-    },
+
     {
       name: 'acl',
       github: 'https://github.com/1ziton/pokemon',
@@ -384,6 +357,35 @@ module.exports = {
             content: './src/templates/content.ts',
           },
           hasSubDir: true,
+        },
+      ],
+    },
+    /*
+    {
+      name: 'auth',
+      github: 'https://github.com/1ziton/pokemon',
+      dist: './src/app/routes/gen/auth',
+      types: [
+        {
+          'zh-CN': '文档',
+          'en-US': 'Documents',
+        },
+      ],
+      module: '@pokemon/auth',
+      defaultRoute: 'getting-started',
+      extraRouteMeta: [],
+      metaIncludeAttributes: ['name', 'types', 'github', 'module'],
+      template: {
+        meta: './src/templates/meta.ts',
+        module: './src/templates/module.ts',
+      },
+      dir: [
+        {
+          src: ['./packages/auth/docs'],
+          template: {
+            content: './src/templates/content.ts',
+          },
+          hasSubDir: false,
         },
       ],
     },

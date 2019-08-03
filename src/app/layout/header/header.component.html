@@ -105,9 +105,9 @@
           <nz-option *ngFor="let version of oldVersionList" [nzLabel]="version" [nzValue]="version"></nz-option>
           <nz-option [nzLabel]="currentVersion" [nzValue]="currentVersion"></nz-option>
         </nz-select>
-        <button nz-button nzGhost nzSize="small" (click)="langChange(i18n.zone === 'zh' ? 'en' : 'zh')" class="header-lang-button">
+        <!--   <button nz-button nzGhost nzSize="small" (click)="langChange(i18n.zone === 'zh' ? 'en' : 'zh')" class="header-lang-button">
           {{ 'app.header.lang' | translate }}
-        </button>
+        </button> -->
       </div>
     </div>
   </nz-col>

@@ -1,3 +1,11 @@
+---
+type: Business
+title: advanced-table
+subtitle: 通知菜单
+cols: 1
+module: AdvancedTableModule
+---
+
 ### 基本功能：
 
 - 单元格属性
@@ -94,8 +102,8 @@ this.tableData.content = [
     key: `${this.i}`,
     name: `Edward King ${this.i}`,
     age: '32',
-    address: `London, Park Lane no. ${this.i}`
-  }
+    address: `London, Park Lane no. ${this.i}`,
+  },
 ]; // 传入nz-table
 this.tableData = { ...this.tableData }; // 传入advanced-table
 

@@ -1,3 +1,11 @@
+---
+type: Business
+title: query-display
+subtitle: 查询条件
+cols: 1
+module: QueryDisplayModule
+---
+
 API:
 
 | 参数 | 说明 | 类型 | 默认值 |

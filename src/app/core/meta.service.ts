@@ -2,9 +2,6 @@ import { Inject, Injectable } from '@angular/core';
 import { ALAIN_I18N_TOKEN } from '@pokemon/theme';
 import { Meta, MetaList, MetaSearchGroup, MetaSearchGroupItem } from '../interfaces';
 import { META as ACLMeta } from '../routes/gen/acl/meta';
-import { META as AuthMeta } from '../routes/gen/auth/meta';
-import { META as ChartMeta } from '../routes/gen/chart/meta';
-import { META as CliMeta } from '../routes/gen/cli/meta';
 import { META as ComponentsMeta } from '../routes/gen/components/meta';
 import { META as DocsMeta } from '../routes/gen/docs/meta';
 import { META as MockMeta } from '../routes/gen/mock/meta';
@@ -12,7 +9,7 @@ import { META as ThemeMeta } from '../routes/gen/theme/meta';
 import { META as UtilMeta } from '../routes/gen/util/meta';
 import { I18NService } from './i18n/service';
 
-const FULLMETAS: Meta[] = [DocsMeta, ComponentsMeta, AuthMeta, ACLMeta, ChartMeta, MockMeta, UtilMeta, CliMeta, ThemeMeta] as any;
+const FULLMETAS: Meta[] = [DocsMeta, ComponentsMeta, ACLMeta, MockMeta, UtilMeta, ThemeMeta] as any;
 
 @Injectable({ providedIn: 'root' })
 export class MetaService {
