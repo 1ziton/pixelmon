@@ -22,8 +22,8 @@ commitMessageCheck=$(git log --oneline -n 2)
 
 echo "Current commit author name: ${commitAuthorName}"
 
-if [ ${commitAuthorName} != '卡色' ]; then
-  echo "Warning: Just only 卡色 user"
+if [ ${commitAuthorName} != 'giscafer' ]; then
+  echo "Warning: Just only giscafer user"
   exit 0
 fi
 
@@ -38,7 +38,6 @@ buildDir=${DIST}/publish
 rm -rf ${buildDir}
 mkdir -p ${buildDir}
 cp -r ${DIST}/@pokemon ${buildDir}/@pokemon
-cp -r ${DIST}/ng-alain ${buildDir}/ng-alain
 
 packageRepo=pokemon-builds
 buildVersion=$(node -pe "require('./package.json').version")
