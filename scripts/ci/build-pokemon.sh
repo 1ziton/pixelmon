@@ -9,12 +9,11 @@ PACKAGES=(util
   testing
   acl
   theme
-  abc
-  auth
+  pikachu
+  # auth
   cache
-  chart
-  mock
-  form)
+  # chart
+  mock)
 NODE_PACKAGES=(cli)
 
 for ARG in "$@"; do
