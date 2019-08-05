@@ -30,7 +30,7 @@ cloneScaffold() {
   fi
 }
 
-buildDelon() {
+buildPokemon() {
   travisFoldStart "@pokemon"
   ./scripts/ci/build-pokemon.sh
   travisFoldEnd "@pokemon"
@@ -42,6 +42,6 @@ buildSchematies() {
   travisFoldEnd "schematies"
 }
 
-cloneScaffold
-buildDelon
-buildSchematies
+# cloneScaffold
+buildPokemon
+# buildSchematies
