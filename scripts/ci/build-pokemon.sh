@@ -10,9 +10,7 @@ PACKAGES=(util
   acl
   theme
   pikachu
-  # auth
   cache
-  # chart
   mock)
 NODE_PACKAGES=(cli)
 
