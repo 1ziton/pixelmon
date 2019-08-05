@@ -6,23 +6,12 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "target": "es5",
-    "types": [
-      "jasmine",
-      "node"
-    ],
+    "types": ["jasmine", "node"],
     "paths": {
-      "@delon/*": ["./*"]
+      "@pokemon/*": ["./*"]
     }
   },
-  "files": [
-    "test.ts",
-    "polyfills.ts"
-  ],
-  "include": [
-    "**/*.spec.ts",
-    "**/*.d.ts"
-  ],
-  "exclude": [
-    "**/schematics/**/*"
-  ]
+  "files": ["test.ts", "polyfills.ts"],
+  "include": ["**/*.spec.ts", "**/*.d.ts"],
+  "exclude": ["**/schematics/**/*"]
 }

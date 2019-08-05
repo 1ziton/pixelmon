@@ -24,11 +24,11 @@ Angular 下常见错误，使用 Reactive Forms 需要额外引入 `ReactiveForm
 
 ### 数据修改后页面为什么没有更新
 
-NG-ZORRO 及 @delon/* 组件默认在 OnPush 模式下工作，mutate 对象或者数组不会触发 Angular 的变更检测，请使用 immutable 方式。
+NG-ZORRO 及 @pokemon/\* 组件默认在 OnPush 模式下工作，mutate 对象或者数组不会触发 Angular 的变更检测，请使用 immutable 方式。
 
 ## 安装
 
-### 为什么找不到 ng-zorro-antd/src/*.less 样式？
+### 为什么找不到 ng-zorro-antd/src/\*.less 样式？
 
 两种情况：
 
@@ -73,14 +73,14 @@ npm config delete sass_binary_site
 
 ## 配置
 
-### 如何覆盖 @delon/* 的配置
+### 如何覆盖 @pokemon/\* 的配置
 
 ```ts
-// delon.module.ts
-import { DelonAuthConfig } from '@delon/auth';
+// pokemon.module.ts
+import { DelonAuthConfig } from '@pokemon/auth';
 export function delonAuthConfig(): DelonAuthConfig {
   return Object.assign(new DelonAuthConfig(), <DelonAuthConfig>{
-    login_url: '/passport/login'
+    login_url: '/passport/login',
   });
 }
 
@@ -89,9 +89,7 @@ export class DelonModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: DelonModule,
-      providers: [
-        { provide: DelonAuthConfig, useFactory: delonAuthConfig}
-      ]
+      providers: [{ provide: DelonAuthConfig, useFactory: delonAuthConfig }],
     };
   }
 }
@@ -104,10 +102,10 @@ export class DelonModule {
 最后，在 `src/styles/theme.less` 重新定义新的路径：
 
 ```less
-@icon-url: "/assets/iconfont";
+@icon-url: '/assets/iconfont';
 ```
 
-> 使用绝对路径或CDN地址。
+> 使用绝对路径或 CDN 地址。
 
 ### Missing locale data for the locale "zh-cn"
 

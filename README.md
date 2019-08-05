@@ -24,7 +24,7 @@ Pokemon
 
 </div>
 
-_基于 [delon](https://github.com/ng-alain/delon) 修改维护为符合自身业务&技术栈情况的组件库_
+_基于 [pokemon](https://github.com/ng-alain/pokemon) 修改维护为符合自身业务&技术栈情况的组件库_
 
 ## Links
 

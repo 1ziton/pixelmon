@@ -296,7 +296,6 @@ fi
 
 echo "Finished!!"
 
-# TODO: just only cipchk
 # clear | bash ./scripts/ci/build-schematics.sh -b -t
 # clear | bash ./scripts/ci/build-schematics.sh -b -copy
 # clear | bash ./scripts/ci/build-schematics.sh -b -copy -debug
