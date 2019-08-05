@@ -92,7 +92,12 @@ export function genUrl(rootDir: string, filePath: string) {
 }
 
 export function genComponentName(...names) {
-  return `${names.map(key => genUpperName(key)).join('')}Component`;
+  let compName = `${names.map(key => genUpperName(key)).join('')}Component`;
+  if (compName.includes('\\')) {
+    let v = compName.split('\\')[1];
+    return v.charAt(0).toUpperCase() + v.slice(1);
+  }
+  return compName;
 }
 
 export function genSelector(...names: string[]) {

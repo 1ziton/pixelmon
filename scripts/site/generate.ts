@@ -41,6 +41,7 @@ function generateModule(config: ModuleConfig) {
   };
 
   function appendToModule(componentName: string, name: string, filename: string, needRouter: boolean = true) {
+    name = name.replace('\\', '/');
     modules.imports.push(`import { ${componentName} } from './${name}/${filename}';`);
     modules.components.push(componentName);
     if (needRouter) {
