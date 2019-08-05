@@ -15,7 +15,6 @@ const content = `
 @import "${path.join(ROOT_DIR, 'theme/styles/layout/default/index.less')}";\n
 @import "${path.join(ROOT_DIR, 'theme/styles/layout/fullscreen/index.less')}";\n
 @import "${path.join(ROOT_DIR, 'pikachu/index.less')}";\n
-@import "${path.join(ROOT_DIR, 'chart/index.less')}";\n
 `;
 
 const plugins = [];

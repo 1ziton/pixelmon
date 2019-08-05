@@ -17,7 +17,7 @@ function copyLess(name) {
   });
 }
 
-['pikachu', 'chart'].forEach(name => copyLess(name));
+['pikachu'].forEach(name => copyLess(name));
 
 // copy theme
 fse.copySync(path.join(root, `packages/theme/styles`), path.join(root, `dist/@pokemon/theme/styles`));
