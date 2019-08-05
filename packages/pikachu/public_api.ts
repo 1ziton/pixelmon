@@ -3,9 +3,9 @@ export * from '@pokemon/pikachu/reuse-tab';
 export * from '@pokemon/pikachu/notice-icon';
 export * from '@pokemon/pikachu/sidebar-nav';
 export * from '@pokemon/pikachu/view';
-export * from '@pokemon/pikachu/smart-text';
 export * from '@pokemon/pikachu/page-header';
-export * from '@pokemon/pikachu/advanced-table/query-display';
-export * from '@pokemon/pikachu/smart-text';
+export * from '@pokemon/pikachu/advanced-table';
+export * from '@pokemon/pikachu/advanced-table/smart-text/smart-text.module';
+export * from '@pokemon/pikachu/advanced-table/query-display/query-display.module';
 
 export * from './pikachu.module';

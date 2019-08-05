@@ -9,7 +9,6 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'smart-text',
   templateUrl: './smart-text.component.html',
-  styleUrls: ['./smart-text.component.less']
 })
 export class SmartTextComponent {
   @Input() text = '';

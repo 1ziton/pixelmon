@@ -5,5 +5,14 @@
     "flatModuleFile": "pikachu",
     "entryFile": "public_api.ts"
   },
-  "whitelistedNonPeerDependencies": ["tslib", "file-saver", "date-fns"]
+  "whitelistedNonPeerDependencies": [
+    "tslib",
+    "file-saver",
+    "date-fns",
+    "ngx-countdown",
+    "qrious",
+    "@pokemon/util",
+    "@pokemon/theme",
+    "@pokemon/acl"
+  ]
 }

@@ -1,17 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, TemplateRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { SmartTextModule } from '@pokemon/pikachu/smart-text';
 import { ViewerDirectiveModule } from '@pokemon/pikachu/viewer';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { AdvancedCellComponent } from './advanced-cell.component';
 import { AdvancedFilterComponent } from './advanced-filter.component';
 import { AdvancedTableComponent } from './advanced-table.component';
-import { QueryDisplayModule } from './query-display';
+import { QueryDisplayModule } from './query-display/query-display.module';
+import { SmartTextModule } from './smart-text/smart-text.module';
 
 const COMPONENT = [AdvancedTableComponent, AdvancedCellComponent, AdvancedFilterComponent];
 
-const MODULE = [CommonModule, FormsModule, NgZorroAntdModule, QueryDisplayModule, SmartTextModule, ViewerDirectiveModule];
+const MODULE = [
+  CommonModule,
+  FormsModule,
+  NgZorroAntdModule,
+  QueryDisplayModule,
+  SmartTextModule,
+  ViewerDirectiveModule,
+  QueryDisplayModule,
+];
 
 @NgModule({
   declarations: [...COMPONENT],

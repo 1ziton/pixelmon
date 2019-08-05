@@ -6,7 +6,7 @@ import { QueryDisplayComponent } from './query-display.component';
 
 @NgModule({
   declarations: [QueryDisplayComponent],
-  imports: [CommonModule, NgZorroAntdModule, FilterPipeModule, TranslatePipeModule],
-  exports: [CommonModule, NgZorroAntdModule, FilterPipeModule, TranslatePipeModule, QueryDisplayComponent],
+  imports: [CommonModule, TranslatePipeModule, FilterPipeModule, NgZorroAntdModule],
+  exports: [QueryDisplayComponent],
 })
 export class QueryDisplayModule {}

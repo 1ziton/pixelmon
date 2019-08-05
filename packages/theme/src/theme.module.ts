@@ -8,37 +8,35 @@ import { RouterModule } from '@angular/router';
 import { BellOutline, DeleteOutline, InboxOutline, PlusOutline } from '@ant-design/icons-angular/icons';
 import { NzIconService } from 'ng-zorro-antd/icon';
 import { PokemonLocaleModule } from './locale/locale.module';
-// pipes
-import {
-  CNCurrencyPipe,
-  DatePipe,
-  FilterPipe,
-  HTMLPipe,
-  KeysPipe,
-  ShortcutPipe,
-  ShortcutPipeModule,
-  TranslatePipe,
-  URLPipe,
-  YNPipe,
-} from './pipes';
 // #region import
 import { DrawerHelper } from './services/drawer/drawer.helper';
-import { I18nPipe } from './services/i18n/i18n.pipe';
 import { ModalHelper } from './services/modal/modal.helper';
+
+// pipes
+import { CNCurrencyPipe } from './pipes/currency/cn-currency.pipe';
+import { DatePipe } from './pipes/date/date.pipe';
+import { KeysPipe } from './pipes/keys/keys.pipe';
+import { HTMLPipe } from './pipes/safe/html.pipe';
+import { URLPipe } from './pipes/safe/url.pipe';
+import { YNPipe } from './pipes/yn/yn.pipe';
+import { ShortcutPipeModule } from './pipes/shortcut/shortcut.pipe';
+import { FilterPipeModule } from './pipes/filter/filter.pipe';
+import { TranslatePipeModule } from './pipes/translate/translate.pipe';
+import { I18nPipe } from './services/i18n/i18n.pipe';
+
+const PIPES = [DatePipe, CNCurrencyPipe, KeysPipe, YNPipe, I18nPipe, HTMLPipe, URLPipe];
 
 const HELPERS = [ModalHelper, DrawerHelper];
 
 // components
 const COMPONENTS = [];
 
-const PIPES = [DatePipe, CNCurrencyPipe, KeysPipe, YNPipe, I18nPipe, HTMLPipe, URLPipe, FilterPipe, TranslatePipe, ShortcutPipe];
-
 const ICONS = [BellOutline, DeleteOutline, PlusOutline, InboxOutline];
 
 // #endregion
 
 @NgModule({
-  imports: [CommonModule, RouterModule, OverlayModule, ShortcutPipeModule],
+  imports: [CommonModule, RouterModule, OverlayModule, FilterPipeModule, TranslatePipeModule, ShortcutPipeModule],
   declarations: [...COMPONENTS, ...PIPES],
   exports: [...COMPONENTS, ...PIPES, PokemonLocaleModule],
 })
