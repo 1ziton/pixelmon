@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule, TemplateRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { QueryDisplayModule } from '../query-display/query-display.module';
-import { SmartTextModule } from '../smart-text/smart-text.module';
-import { ViewerDirectiveModule } from './../directives/viewer.directive';
+import { SmartTextModule } from '@pokemon/pikachu/smart-text';
+import { ViewerDirectiveModule } from '@pokemon/pikachu/viewer';
 import { AdvancedCellComponent } from './advanced-cell.component';
 import { AdvancedFilterComponent } from './advanced-filter.component';
 import { AdvancedTableComponent } from './advanced-table.component';
+import { QueryDisplayModule } from './query-display';
 
 const COMPONENT = [AdvancedTableComponent, AdvancedCellComponent, AdvancedFilterComponent];
 

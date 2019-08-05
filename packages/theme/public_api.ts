@@ -14,7 +14,7 @@ export * from './src/services/modal/modal.helper';
 export { _HttpClient } from './src/services/http/http.client';
 export { HttpClientConfig } from './src/services/http/http.config';
 export * from './src/services/http/http.decorator';
-export { CNCurrencyPipe } from './src/pipes/currency/cn-currency.pipe';
+export * from './src/pipes';
 export { PokemonThemeConfig } from './src/theme.config';
 export { PokemonThemeModule } from './src/theme.module';
 export { VERSION } from './src/version';

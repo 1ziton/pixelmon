@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ShortcutPipeModule } from '@pokemon/theme/src/pipes/shortcut.pipe';
+import { ShortcutPipeModule } from '@pokemon/theme';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { SmartTextComponent } from './smart-text.component';
 

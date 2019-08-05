@@ -4,8 +4,8 @@
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
-      "@pokeman/pikachu/*": ["../../dist/@pokeman/pikachu/*"],
-      "@pokeman/*": ["../../dist/@pokeman/*"]
+      "@pokemon/pikachu/*": ["../../dist/@pokemon/pikachu/*"],
+      "@pokemon/*": ["../../dist/@pokemon/*"]
     }
   },
   "files": ["public_api.ts", "../typings.d.ts"],

@@ -5,7 +5,7 @@
  */
 
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
-import { Column } from '../advanced-table/advanced-table.module';
+import { Column } from '../advanced-table.module';
 
 @Component({
   selector: 'query-display',

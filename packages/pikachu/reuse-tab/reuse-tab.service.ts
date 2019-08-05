@@ -8,9 +8,8 @@ import {
   Router,
   ROUTER_CONFIGURATION,
 } from '@angular/router';
-import { BehaviorSubject, Observable, Unsubscribable } from 'rxjs';
-
 import { MenuService, ScrollService } from '@pokemon/theme';
+import { BehaviorSubject, Observable, Unsubscribable } from 'rxjs';
 import { ReuseTabCached, ReuseTabMatchMode, ReuseTabNotify, ReuseTitle } from './reuse-tab.interfaces';
 
 /**
