@@ -39,8 +39,8 @@ jobs:
       env: 'TASK=site:build'
     - stage: test
       env: 'TASK=build'
-    - stage: test
-      env: 'TASK=test:cli'
+    # - stage: test
+    #   env: 'TASK=test:cli'
 
 stages:
   - name: pre

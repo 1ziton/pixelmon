@@ -21,15 +21,6 @@ cd $(dirname $0)/../..
 
 DIST="$(pwd)/dist"
 
-cloneScaffold() {
-  if [[ ! -d ng-alain ]]; then
-    echo ">>> Not found scaffold source files, must be clone ng-alain ..."
-    git clone --depth 1 https://github.com/ng-alain/ng-alain.git
-  else
-    echo ">>> Found scaffold source files"
-  fi
-}
-
 buildPokemon() {
   travisFoldStart "@pokemon"
   ./scripts/ci/build-pokemon.sh
@@ -42,6 +33,5 @@ buildSchematies() {
   travisFoldEnd "schematies"
 }
 
-# cloneScaffold
 buildPokemon
 # buildSchematies
