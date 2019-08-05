@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-import { ALAIN_I18N_TOKEN } from '@pokemon/theme';
+import { POKEMON_I18N_TOKEN } from '@pokemon/theme';
 import { deepCopy } from '@pokemon/util';
 
 import { I18NService } from '../../../core/i18n/service';
@@ -28,7 +28,7 @@ export class DocsComponent implements OnInit, OnDestroy {
 
   constructor(
     public meta: MetaService,
-    @Inject(ALAIN_I18N_TOKEN) private i18n: I18NService,
+    @Inject(POKEMON_I18N_TOKEN) private i18n: I18NService,
     private router: Router,
     private sanitizer: DomSanitizer,
   ) {

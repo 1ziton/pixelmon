@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Input, NgZone, OnInit } from '@angular/core';
-import { ALAIN_I18N_TOKEN } from '@pokemon/theme';
+import { POKEMON_I18N_TOKEN } from '@pokemon/theme';
 import { copy, InputBoolean, LazyService } from '@pokemon/util';
 import { NzIconService, NzMessageService } from 'ng-zorro-antd';
 import { I18NService } from '../../../core/i18n/service';
@@ -18,7 +18,7 @@ export class FooterComponent implements OnInit {
   @Input() @InputBoolean() small = false;
 
   constructor(
-    @Inject(ALAIN_I18N_TOKEN) public i18n: I18NService,
+    @Inject(POKEMON_I18N_TOKEN) public i18n: I18NService,
     private msg: NzMessageService,
     private lazy: LazyService,
     private iconSrv: NzIconService,

@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { ALAIN_I18N_TOKEN } from '@pokemon/theme';
+import { POKEMON_I18N_TOKEN } from '@pokemon/theme';
 import { Meta, MetaList, MetaSearchGroup, MetaSearchGroupItem } from '../interfaces';
 import { META as ACLMeta } from '../routes/gen/acl/meta';
 import { META as ComponentsMeta } from '../routes/gen/components/meta';
@@ -16,7 +16,7 @@ export class MetaService {
   next: any;
   prev: any;
 
-  constructor(@Inject(ALAIN_I18N_TOKEN) private i18n: I18NService) {
+  constructor(@Inject(POKEMON_I18N_TOKEN) private i18n: I18NService) {
     // plat titles
     for (const g of FULLMETAS) {
       for (const item of g.list!) {

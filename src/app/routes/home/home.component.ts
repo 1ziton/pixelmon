@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { AfterViewInit, Component, Inject, NgZone, OnDestroy, OnInit } from '@angular/core';
-import { ALAIN_I18N_TOKEN } from '@pokemon/theme';
+import { POKEMON_I18N_TOKEN } from '@pokemon/theme';
 import AOS from 'aos';
 import { I18NService } from '../../core/i18n/service';
 
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     { type: 'ms', url: 'https://e.1ziton.com/theme/ms' },
   ];
   constructor(
-    @Inject(ALAIN_I18N_TOKEN) public i18n: I18NService,
+    @Inject(POKEMON_I18N_TOKEN) public i18n: I18NService,
     private ngZone: NgZone,
     @Inject(DOCUMENT) private doc: Document,
   ) {}

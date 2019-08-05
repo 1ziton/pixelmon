@@ -1,5 +1,5 @@
 import { Component, HostBinding, Inject, OnInit } from '@angular/core';
-import { ALAIN_I18N_TOKEN, Menu, MenuService, SettingsService } from '@pokemon/theme';
+import { POKEMON_I18N_TOKEN, Menu, MenuService, SettingsService } from '@pokemon/theme';
 import { NzIconService, NzMessageService } from 'ng-zorro-antd';
 
 // #region icons
@@ -137,7 +137,7 @@ export class DevLayoutComponent implements OnInit {
     private menuSrv: MenuService,
     public settings: SettingsService,
     public msgSrv: NzMessageService,
-    @Inject(ALAIN_I18N_TOKEN) private i18n: I18NService,
+    @Inject(POKEMON_I18N_TOKEN) private i18n: I18NService,
   ) {
     iconSrv.addIcon(...ICONS);
   }

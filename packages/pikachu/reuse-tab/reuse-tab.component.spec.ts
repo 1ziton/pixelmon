@@ -9,7 +9,7 @@ import { configureTestSuite } from '@pokemon/testing';
 import {
   en_US,
   zh_CN,
-  ALAIN_I18N_TOKEN,
+  POKEMON_I18N_TOKEN,
   PokemonLocaleModule,
   PokemonLocaleService,
   MenuService,
@@ -88,7 +88,7 @@ describe('pikachu: reuse-tab', () => {
           ? []
           : [
               {
-                provide: ALAIN_I18N_TOKEN,
+                provide: POKEMON_I18N_TOKEN,
                 useClass: MockI18NServiceFake,
               } as any,
             ],
@@ -659,7 +659,7 @@ describe('pikachu: reuse-tab', () => {
       page.to('#e').expectAttr(1, 'title', 'zh');
 
       i18nResult = 'en';
-      injector.get(ALAIN_I18N_TOKEN).use('en');
+      injector.get(POKEMON_I18N_TOKEN).use('en');
       tick(101);
       page.expectAttr(1, 'title', 'en');
     }));

@@ -8,7 +8,7 @@ export * from './src/services/settings/settings.service';
 export * from './src/services/responsive/responsive.config';
 export * from './src/services/responsive/responsive';
 export { TitleService } from './src/services/title/title.service';
-export { ALAIN_I18N_TOKEN, PokemonI18NService, PokemonI18NServiceFake } from './src/services/i18n/i18n';
+export { POKEMON_I18N_TOKEN, PokemonI18NService, PokemonI18NServiceFake } from './src/services/i18n/i18n';
 export * from './src/locale/index';
 export * from './src/services/modal/modal.helper';
 export { _HttpClient } from './src/services/http/http.client';

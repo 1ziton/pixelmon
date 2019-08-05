@@ -19,7 +19,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { PokemonI18NService, ALAIN_I18N_TOKEN } from '@pokemon/theme';
+import { PokemonI18NService, POKEMON_I18N_TOKEN } from '@pokemon/theme';
 import { InputBoolean, InputNumber } from '@pokemon/util';
 import { Subject } from 'rxjs';
 import { debounceTime, filter, takeUntil } from 'rxjs/operators';
@@ -87,7 +87,7 @@ export class ReuseTabComponent implements OnInit, OnChanges, OnDestroy {
     private router: Router,
     private route: ActivatedRoute,
     private render: Renderer2,
-    @Optional() @Inject(ALAIN_I18N_TOKEN) private i18nSrv: PokemonI18NService,
+    @Optional() @Inject(POKEMON_I18N_TOKEN) private i18nSrv: PokemonI18NService,
     @Inject(DOCUMENT) private doc: any,
   ) {
     this.el = el.nativeElement;

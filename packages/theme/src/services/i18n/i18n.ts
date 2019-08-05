@@ -30,12 +30,12 @@ export interface PokemonI18NService {
   fanyi(key: string, params?: {}, isSafe?: boolean): string;
 }
 
-export const ALAIN_I18N_TOKEN = new InjectionToken<PokemonI18NService>('pokemonTranslatorToken', {
+export const POKEMON_I18N_TOKEN = new InjectionToken<PokemonI18NService>('pokemonTranslatorToken', {
   providedIn: 'root',
-  factory: ALAIN_I18N_TOKEN_FACTORY,
+  factory: POKEMON_I18N_TOKEN_FACTORY,
 });
 
-export function ALAIN_I18N_TOKEN_FACTORY() {
+export function POKEMON_I18N_TOKEN_FACTORY() {
   return new PokemonI18NServiceFake();
 }
 

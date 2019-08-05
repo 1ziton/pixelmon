@@ -3,7 +3,7 @@ import { filter } from 'rxjs/operators';
 
 import { ACLService } from '@pokemon/acl';
 import { deepCopy } from '@pokemon/util';
-import { PokemonI18NServiceFake, ALAIN_I18N_TOKEN } from '../i18n/i18n';
+import { PokemonI18NServiceFake, POKEMON_I18N_TOKEN } from '../i18n/i18n';
 
 import { Menu } from './interface';
 import { MenuService } from './menu.service';
@@ -47,7 +47,7 @@ describe('Service: Menu', () => {
       injector = TestBed.configureTestingModule({
         providers: [
           MenuService,
-          { provide: ALAIN_I18N_TOKEN, useClass: PokemonI18NServiceFake },
+          { provide: POKEMON_I18N_TOKEN, useClass: PokemonI18NServiceFake },
           { provide: ACLService, useClass: MockACLService },
         ],
       });
@@ -314,22 +314,22 @@ describe('Service: Menu', () => {
   });
 
   describe('[i18n changed]', () => {
-    it('with ALAIN_I18N_TOKEN', () => {
+    it('with POKEMON_I18N_TOKEN', () => {
       injector = TestBed.configureTestingModule({
         providers: [
           MenuService,
-          { provide: ALAIN_I18N_TOKEN, useClass: PokemonI18NServiceFake },
+          { provide: POKEMON_I18N_TOKEN, useClass: PokemonI18NServiceFake },
           { provide: ACLService, useClass: MockACLService },
         ],
       });
       srv = injector.get<MenuService>(MenuService);
       spyOn(srv, 'resume');
       expect(srv.resume).not.toHaveBeenCalled();
-      injector.get(ALAIN_I18N_TOKEN).use('en');
+      injector.get(POKEMON_I18N_TOKEN).use('en');
       expect(srv.resume).toHaveBeenCalled();
     });
 
-    it('without ALAIN_I18N_TOKEN', () => {
+    it('without POKEMON_I18N_TOKEN', () => {
       injector = TestBed.configureTestingModule({
         providers: [MenuService, { provide: ACLService, useClass: MockACLService }],
       });

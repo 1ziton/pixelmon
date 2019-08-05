@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { configureTestSuite, createTestContext } from '@pokemon/testing';
-import { PokemonI18NService, PokemonI18NServiceFake, ALAIN_I18N_TOKEN, MenuService, SettingsService, TitleService } from '@pokemon/theme';
+import { PokemonI18NService, PokemonI18NServiceFake, POKEMON_I18N_TOKEN, MenuService, SettingsService, TitleService } from '@pokemon/theme';
 
 import { NzAffixComponent } from 'ng-zorro-antd';
 import { ReuseTabService } from '../reuse-tab/reuse-tab.service';
@@ -220,11 +220,11 @@ describe('pikachu: page-header', () => {
     describe('[i18n]', () => {
       let i18n: PokemonI18NService;
       beforeEach(() => {
-        TestBed.overrideProvider(ALAIN_I18N_TOKEN, {
+        TestBed.overrideProvider(POKEMON_I18N_TOKEN, {
           useFactory: () => new MockI18NServiceFake(),
         });
         ({ fixture, dl, context } = createTestContext(TestI18nComponent));
-        i18n = injector.get(ALAIN_I18N_TOKEN);
+        i18n = injector.get(POKEMON_I18N_TOKEN);
         menuSrv = injector.get<MenuService>(MenuService);
         router = injector.get<Router>(Router);
         fixture.detectChanges();

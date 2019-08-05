@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-import { PokemonI18NService, ALAIN_I18N_TOKEN } from '../i18n/i18n';
+import { PokemonI18NService, POKEMON_I18N_TOKEN } from '../i18n/i18n';
 import { MenuService } from '../menu/menu.service';
 
 @Injectable({ providedIn: 'root' })
@@ -21,7 +21,7 @@ export class TitleService implements OnDestroy {
     private title: Title,
     private menuSrv: MenuService,
     @Optional()
-    @Inject(ALAIN_I18N_TOKEN)
+    @Inject(POKEMON_I18N_TOKEN)
     private i18nSrv: PokemonI18NService,
     @Inject(DOCUMENT) private doc: any,
   ) {

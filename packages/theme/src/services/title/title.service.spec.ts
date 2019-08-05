@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { PokemonThemeModule } from '../../theme.module';
-import { PokemonI18NService, PokemonI18NServiceFake, ALAIN_I18N_TOKEN } from '../i18n/i18n';
+import { PokemonI18NService, PokemonI18NServiceFake, POKEMON_I18N_TOKEN } from '../i18n/i18n';
 import { Menu } from '../menu/interface';
 import { MenuService } from '../menu/menu.service';
 import { TitleService } from './title.service';
@@ -40,7 +40,7 @@ describe('Service: Title', () => {
 
   function genModule(providers: any[] = [], loadI18n = true) {
     const i18nProvider: any[] = loadI18n
-      ? [{ provide: ALAIN_I18N_TOKEN, useClass: PokemonI18NServiceFake }]
+      ? [{ provide: POKEMON_I18N_TOKEN, useClass: PokemonI18NServiceFake }]
       : [];
     TestBed.configureTestingModule({
       imports: [PokemonThemeModule, RouterTestingModule],
@@ -53,7 +53,7 @@ describe('Service: Title', () => {
     });
     title = TestBed.get(Title);
     srv = TestBed.get<TitleService>(TitleService);
-    i18n = TestBed.get(ALAIN_I18N_TOKEN);
+    i18n = TestBed.get(POKEMON_I18N_TOKEN);
   }
 
   afterEach(() => srv.ngOnDestroy());

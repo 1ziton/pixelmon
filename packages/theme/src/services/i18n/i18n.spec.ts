@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { PokemonThemeModule } from '../../theme.module';
-import { PokemonI18NService, PokemonI18NServiceFake, ALAIN_I18N_TOKEN } from './i18n';
+import { PokemonI18NService, PokemonI18NServiceFake, POKEMON_I18N_TOKEN } from './i18n';
 
 describe('theme: i18n', () => {
   const i18n = new PokemonI18NServiceFake();
@@ -48,14 +48,14 @@ describe('theme: i18n', () => {
         declarations: [TestComponent],
         providers: [
           {
-            provide: ALAIN_I18N_TOKEN,
+            provide: POKEMON_I18N_TOKEN,
             useClass: MockI18NService,
             multi: false,
           },
         ],
       });
       fixture = TestBed.createComponent(TestComponent);
-      srv = fixture.debugElement.injector.get(ALAIN_I18N_TOKEN);
+      srv = fixture.debugElement.injector.get(POKEMON_I18N_TOKEN);
       srv.use('en');
       fixture.detectChanges();
     }
