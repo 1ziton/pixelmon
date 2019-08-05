@@ -2,7 +2,10 @@
 
 # set -u -e -o pipefail
 
-readonly thisDir=$(cd $(dirname $0); pwd)
+readonly thisDir=$(
+  cd $(dirname $0)
+  pwd
+)
 
 cd $(dirname $0)/../..
 
@@ -12,9 +15,9 @@ ROOT=${DIST}/pokemon-builds
 NEXT=false
 for ARG in "$@"; do
   case "$ARG" in
-    -next)
-      NEXT=true
-      ;;
+  -next)
+    NEXT=true
+    ;;
   esac
 done
 
@@ -30,19 +33,27 @@ clone() {
 }
 
 publishToMaster() {
-  (cd ${ROOT}/@pokemon; for p in `ls .`; do npm publish --access public $p; done)
+  (
+    cd ${ROOT}/@pokemon
+    for p in $(ls .); do npm publish --access public $p; done
+  )
   cd ${ROOT}/1ziton
   npm publish --access public
 }
 
 publishToNext() {
-  (cd ${ROOT}/@pokemon; for p in `ls .`; do npm publish $p --access public --tag next; done)
-  cd ${ROOT}/1ziton
+  (
+    cd ${ROOT}/@pokemon
+    for p in $(ls .); do npm publish $p --access public --tag next; done
+  )
   npm publish --access public --tag next
 }
 
 syncTaobao() {
-  (cd ${ROOT}/@pokemon; for p in `ls .`; do curl -X PUT https://npm.taobao.org/sync/@pokemon/$p?sync_upstream=true; done)
+  (
+    cd ${ROOT}/@pokemon
+    for p in $(ls .); do curl -X PUT https://npm.taobao.org/sync/@pokemon/$p?sync_upstream=true; done
+  )
   curl -X PUT https://npm.taobao.org/sync/1ziton?sync_upstream=true
 }
 
