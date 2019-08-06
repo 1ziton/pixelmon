@@ -25,8 +25,8 @@ export function groupFiles(
       .forEach(item => {
 
         const key = path.relative(srcPath, config.hasSubDir ? path.dirname(item.path) : getPath(item.path)).trim();
-        // console.log(`item.path:${item.path}`)
-        // console.log(`key:${key}`)
+        console.log(`item.path:${item.path}`)
+        console.log(`key:${key}`)
         if (key.length === 0) return;
         if (isSyncSpecific && key !== target) return;
         if (config.ignores && ~config.ignores.indexOf(key)) return;
