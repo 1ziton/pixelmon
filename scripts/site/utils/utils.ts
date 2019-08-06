@@ -67,6 +67,7 @@ export function genAttr(attr: any) {
 export function generateDoc(data: any, tpl: string, savePath: string) {
   fse.ensureDirSync(path.dirname(savePath));
   const content = mustache.render(tpl, data);
+  // console.log(savePath)
   fs.writeFileSync(savePath, content, { flag: 'w+' });
 }
 
@@ -95,6 +96,10 @@ export function genComponentName(...names) {
   let compName = `${names.map(key => genUpperName(key)).join('')}Component`;
   if (compName.includes('\\')) {
     let v = compName.split('\\')[1];
+    return v.charAt(0).toUpperCase() + v.slice(1);
+  }
+  if (compName.includes('/')) {
+    let v = compName.split('/')[1];
     return v.charAt(0).toUpperCase() + v.slice(1);
   }
   return compName;

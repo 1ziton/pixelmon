@@ -105,7 +105,6 @@ function generateModule(config: ModuleConfig) {
 
     files.forEach(item => {
       // #region generate document file
-
       const content = {};
       const urls = {};
       const contentMetas: any = {};
@@ -138,6 +137,8 @@ function generateModule(config: ModuleConfig) {
       const demoList = demos.data.filter(w => w.type !== 'example');
       const isDemo = demoList.length > 0;
       const isExample = demos.data.filter(w => w.type === 'example').length > 0;
+      // console.log(config.name+'----config.nameß')
+      // console.log(meta.name+'----meta.nameß')
       const fileObject: ContentTemplateData = {
         componentName: genComponentName(config.name, meta.name),
         selector: genSelector(config.name, meta.name),
