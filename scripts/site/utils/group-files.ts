@@ -60,9 +60,11 @@ function getPath(path) {
     path2 = path.substring(deskIdx);
     path3 = path.substring(0, deskIdx);
   }
- 
+
   if (deskIdx > dotIdx) {
     resultPath = path3 + path2.split('.')[0];
+  } else {
+    resultPath = path.split('.')[0];
   }
   return resultPath;
 }
