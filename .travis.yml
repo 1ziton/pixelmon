@@ -41,10 +41,10 @@ jobs:
       env: 'TASK=build'
     # - stage: test
     #   env: 'TASK=test:cli'
-    - stage: publish
-      env: 'TASK=pre-publish'
-    - stage: publish
-      env: 'TASK=publish'
+    # - stage: publish
+    #   env: 'TASK=pre-publish'
+    # - stage: publish
+    #   env: 'TASK=publish'
 
 stages:
   - name: pre
@@ -63,4 +63,7 @@ script:
   - |
     if [ "$TASK" = "test" ]; then
       cat ./coverage/lcov.info | ./node_modules/.bin/codecov
+    fi
+    if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]  && [[ $TRAVIS_COMMIT_MESSAGE == "release("* ]]; then 
+      npm run publish
     fi
