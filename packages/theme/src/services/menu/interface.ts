@@ -25,7 +25,7 @@ export interface Menu {
   /**
    * @deprecated
    * 路由是否精准匹配，默认：`false`，see:
-   * - [#344](https://github.com/1ziton/pokemon/issues/344)
+   * - [#344](https://github.com/1ziton/pixelmon/issues/344)
    * - [RouterLinkActive](https://angular.io/api/router/RouterLinkActive#routerLinkActiveOptions)
    */
   linkExact?: boolean;
@@ -39,7 +39,7 @@ export interface Menu {
   badge?: number;
   /** 徽标数，显示小红点 */
   badgeDot?: boolean;
-  /** 徽标 Badge 颜色 （默认：error， 所有颜色值见：https://github.com/1ziton/pokemon/blob/master/_documents/utils.md#色彩） */
+  /** 徽标 Badge 颜色 （默认：error， 所有颜色值见：https://github.com/1ziton/pixelmon/blob/master/_documents/utils.md#色彩） */
   badgeStatus?: string;
   /** 是否禁用 */
   disabled?: boolean;
@@ -47,7 +47,7 @@ export interface Menu {
   hide?: boolean;
   /** 隐藏面包屑，指 `page-header` 组件的自动生成面包屑时有效 */
   hideInBreadcrumb?: boolean;
-  /** ACL配置，若导入 `@pokemon/acl` 时自动有效，等同于 `ACLService.can(roleOrAbility: ACLCanType)` 参数值 */
+  /** ACL配置，若导入 `@pixelmon/acl` 时自动有效，等同于 `ACLService.can(roleOrAbility: ACLCanType)` 参数值 */
   acl?: any;
   /** 是否快捷菜单项 */
   shortcut?: boolean;

@@ -29,9 +29,9 @@
           {{ 'app.header.menu.components' | translate }}
         </li>
         <li nz-submenu>
-          <span title>{{ 'app.header.menu.pokemon' | translate }}</span>
+          <span title>{{ 'app.header.menu.pixelmon' | translate }}</span>
           <ul>
-            <li *ngFor="let i of pokemon" nz-menu-item (click)="toViaMobile(i)">
+            <li *ngFor="let i of pixelmon" nz-menu-item (click)="toViaMobile(i)">
               {{ 'app.header.menu.' + i | translate }}
             </li>
           </ul>
@@ -51,7 +51,7 @@
       <!-- <nz-tooltip nzTitle="{{ 'app.home.slogan' | translate }}"> -->
       <span nz-tooltip id="logo">
         <img src="./assets/img/logo.png" />
-        <span class="title">Pokemon</span>
+        <span class="title">Pixelmon</span>
       </span>
       <!-- </nz-tooltip> -->
     </a>
@@ -86,10 +86,10 @@
             {{ 'app.header.menu.components' | translate }}
           </li>
           <li nz-menu-item>
-            <div nz-dropdown nzPlacement="bottomRight" [nzDropdownMenu]="pokemonMenu">{{ 'app.header.menu.pokemon' | translate }}</div>
-            <nz-dropdown-menu #pokemonMenu="nzDropdownMenu">
+            <div nz-dropdown nzPlacement="bottomRight" [nzDropdownMenu]="pixelmonMenu">{{ 'app.header.menu.pixelmon' | translate }}</div>
+            <nz-dropdown-menu #pixelmonMenu="nzDropdownMenu">
               <ul nz-menu>
-                <li *ngFor="let i of pokemon" nz-menu-item routerLink="/{{ i }}/getting-started/{{ i18n.zone }}">
+                <li *ngFor="let i of pixelmon" nz-menu-item routerLink="/{{ i }}/getting-started/{{ i18n.zone }}">
                   {{ 'app.header.menu.' + i | translate }}
                 </li>
               </ul>

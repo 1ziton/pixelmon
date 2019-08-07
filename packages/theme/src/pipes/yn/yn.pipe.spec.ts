@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { PokemonThemeModule } from '../../theme.module';
+import { PixelmonThemeModule } from '../../theme.module';
 import { YNMode } from './yn.pipe';
 
 describe('Pipe: yn', () => {
@@ -10,7 +10,7 @@ describe('Pipe: yn', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [PokemonThemeModule.forRoot()],
+      imports: [PixelmonThemeModule.forRoot()],
       declarations: [TestComponent],
     });
     fixture = TestBed.createComponent(TestComponent);

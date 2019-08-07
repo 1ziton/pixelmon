@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { PokemonUtilModule } from '@pokemon/util';
+import { PixelmonUtilModule } from '@pixelmon/util';
 
 @NgModule({
-  imports: [PokemonUtilModule],
+  imports: [PixelmonUtilModule],
 })
 export class LodopModule {}

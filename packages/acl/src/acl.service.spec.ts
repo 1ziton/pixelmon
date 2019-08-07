@@ -1,4 +1,4 @@
-import { PokemonACLConfig } from './acl.config';
+import { PixelmonACLConfig } from './acl.config';
 import { ACLService } from './acl.service';
 import { ACLType } from './acl.type';
 
@@ -10,7 +10,7 @@ describe('acl: service', () => {
   const ABILITY_NUMBER = 1;
 
   let srv: ACLService;
-  const mockOptions = new PokemonACLConfig();
+  const mockOptions = new PixelmonACLConfig();
 
   beforeEach(() => {
     mockOptions.preCan = null;

@@ -8,7 +8,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { POKEMON_I18N_TOKEN } from '@pokemon/theme';
+import { PIXELMON_I18N_TOKEN } from '@pixelmon/theme';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { I18NService } from '../../../core/i18n/service';
@@ -28,7 +28,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
   constructor(
     public meta: MetaService,
-    @Inject(POKEMON_I18N_TOKEN) private i18n: I18NService,
+    @Inject(PIXELMON_I18N_TOKEN) private i18n: I18NService,
     private mobileSrv: MobileService,
     private cdr: ChangeDetectorRef,
   ) {

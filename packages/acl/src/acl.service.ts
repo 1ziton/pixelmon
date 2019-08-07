@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { PokemonACLConfig } from './acl.config';
+import { PixelmonACLConfig } from './acl.config';
 import { ACLCanType, ACLType } from './acl.type';
 
 /**
@@ -27,7 +27,7 @@ export class ACLService {
     };
   }
 
-  constructor(private options: PokemonACLConfig) {}
+  constructor(private options: PixelmonACLConfig) {}
 
   private parseACLType(val: string | string[] | number | number[] | ACLType | null): ACLType {
     let t: ACLType;

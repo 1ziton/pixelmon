@@ -37,9 +37,9 @@ travisFoldStart "publish.dist"
 buildDir=${DIST}/publish
 rm -rf ${buildDir}
 mkdir -p ${buildDir}
-cp -r ${DIST}/@pokemon ${buildDir}/@pokemon
+cp -r ${DIST}/@pixelmon ${buildDir}/@pixelmon
 
-packageRepo=pokemon-builds
+packageRepo=pixelmon-builds
 buildVersion=$(node -pe "require('./package.json').version")
 branchName=${TRAVIS_BRANCH:-'master'}
 
@@ -118,4 +118,4 @@ if [[ $commitMessageCheck =~ "release(" ]]; then
 fi
 
 echo "Download link:"
-echo "https://github.com/1ziton/pokemon-builds/archive/${buildTagName}.zip"
+echo "https://github.com/1ziton/pixelmon-builds/archive/${buildTagName}.zip"

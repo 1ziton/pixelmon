@@ -1,4 +1,4 @@
-import { Menu } from '@pokemon/theme';
+import { Menu } from '@pixelmon/theme';
 
 export interface Nav extends Menu {
   /**

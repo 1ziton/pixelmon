@@ -19,7 +19,7 @@
     "lib": ["es2018", "dom"],
     "baseUrl": ".",
     "paths": {
-      "@pokemon/*": ["./packages/*"],
+      "@pixelmon/*": ["./packages/*"],
       "@core/*": ["./src/app/core/*"]
     }
   },

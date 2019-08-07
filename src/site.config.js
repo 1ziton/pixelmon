@@ -9,7 +9,7 @@ module.exports = {
   modules: [
     {
       name: 'docs',
-      github: 'https://github.com/1ziton/pokemon',
+      github: 'https://github.com/1ziton/pixelmon',
       dist: './src/app/routes/gen/docs',
       types: [
         {
@@ -47,7 +47,7 @@ module.exports = {
     },
     {
       name: 'components',
-      github: 'https://github.com/1ziton/pokemon',
+      github: 'https://github.com/1ziton/pixelmon',
       dist: './src/app/routes/gen/components',
       types: [
         {
@@ -213,7 +213,7 @@ module.exports = {
           },
         },
       ],
-      module: '@pokemon/pikachu',
+      module: '@pixelmon/pikachu',
       defaultRoute: 'view',
       metaIncludeAttributes: ['name', 'types', 'github', 'module'],
       template: {
@@ -234,7 +234,7 @@ module.exports = {
 
     {
       name: 'acl',
-      github: 'https://github.com/1ziton/pokemon',
+      github: 'https://github.com/1ziton/pixelmon',
       dist: './src/app/routes/gen/acl',
       types: [
         {
@@ -242,7 +242,7 @@ module.exports = {
           'en-US': 'Documents',
         },
       ],
-      module: '@pokemon/acl',
+      module: '@pixelmon/acl',
       defaultRoute: 'getting-started',
       extraRouteMeta: [],
       metaIncludeAttributes: ['name', 'types', 'github', 'module'],
@@ -262,7 +262,7 @@ module.exports = {
     },
     {
       name: 'cache',
-      github: 'https://github.com/1ziton/pokemon',
+      github: 'https://github.com/1ziton/pixelmon',
       dist: './src/app/routes/gen/cache',
       types: [
         {
@@ -270,7 +270,7 @@ module.exports = {
           'en-US': 'Documents',
         },
       ],
-      module: '@pokemon/cache',
+      module: '@pixelmon/cache',
       defaultRoute: 'getting-started',
       extraRouteMeta: [],
       metaIncludeAttributes: ['name', 'types', 'github', 'module'],
@@ -290,7 +290,7 @@ module.exports = {
     },
     {
       name: 'mock',
-      github: 'https://github.com/1ziton/pokemon',
+      github: 'https://github.com/1ziton/pixelmon',
       dist: './src/app/routes/gen/mock',
       types: [
         {
@@ -298,7 +298,7 @@ module.exports = {
           'en-US': 'Documents',
         },
       ],
-      module: '@pokemon/mock',
+      module: '@pixelmon/mock',
       defaultRoute: 'getting-started',
       extraRouteMeta: [],
       metaIncludeAttributes: ['name', 'types', 'github', 'module'],
@@ -318,7 +318,7 @@ module.exports = {
     },
     {
       name: 'util',
-      github: 'https://github.com/1ziton/pokemon',
+      github: 'https://github.com/1ziton/pixelmon',
       dist: './src/app/routes/gen/util',
       types: [
         {
@@ -334,7 +334,7 @@ module.exports = {
           'en-US': 'Template',
         },
       ],
-      module: '@pokemon/util',
+      module: '@pixelmon/util',
       defaultRoute: 'getting-started',
       extraRouteMeta: [],
       metaIncludeAttributes: ['name', 'types', 'github', 'module'],
@@ -363,7 +363,7 @@ module.exports = {
     /*
     {
       name: 'auth',
-      github: 'https://github.com/1ziton/pokemon',
+      github: 'https://github.com/1ziton/pixelmon',
       dist: './src/app/routes/gen/auth',
       types: [
         {
@@ -371,7 +371,7 @@ module.exports = {
           'en-US': 'Documents',
         },
       ],
-      module: '@pokemon/auth',
+      module: '@pixelmon/auth',
       defaultRoute: 'getting-started',
       extraRouteMeta: [],
       metaIncludeAttributes: ['name', 'types', 'github', 'module'],
@@ -391,7 +391,7 @@ module.exports = {
     },
     {
       name: 'form',
-      github: 'https://github.com/1ziton/pokemon',
+      github: 'https://github.com/1ziton/pixelmon',
       dist: './src/app/routes/gen/form',
       types: [
         {
@@ -411,7 +411,7 @@ module.exports = {
           'en-US': 'Third Widgets',
         },
       ],
-      module: '@pokemon/form',
+      module: '@pixelmon/form',
       defaultRoute: 'getting-started',
       extraRouteMeta: [
         {
@@ -459,7 +459,7 @@ module.exports = {
     },
     {
       name: 'chart',
-      github: 'https://github.com/1ziton/pokemon',
+      github: 'https://github.com/1ziton/pixelmon',
       dist: './src/app/routes/gen/chart',
       types: [
         {
@@ -471,7 +471,7 @@ module.exports = {
           'en-US': 'Components',
         },
       ],
-      module: '@pokemon/chart',
+      module: '@pixelmon/chart',
       defaultRoute: 'getting-started',
       extraRouteMeta: [],
       metaIncludeAttributes: ['name', 'types', 'github', 'module'],
@@ -498,7 +498,7 @@ module.exports = {
     },
     {
       name: 'cli',
-      github: 'https://github.com/1ziton/pokemon',
+      github: 'https://github.com/1ziton/pixelmon',
       dist: './src/app/routes/gen/cli',
       types: [
         {
@@ -526,7 +526,7 @@ module.exports = {
     },*/
     {
       name: 'theme',
-      github: 'https://github.com/1ziton/pokemon',
+      github: 'https://github.com/1ziton/pixelmon',
       dist: './src/app/routes/gen/theme',
       types: [
         {

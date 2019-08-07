@@ -1,1 +1,1 @@
-export * from '@pokemon/pikachu/viewer';
+export * from '@pixelmon/pikachu/viewer';

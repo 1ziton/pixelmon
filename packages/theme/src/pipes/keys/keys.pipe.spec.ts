@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { PokemonThemeModule } from '../../theme.module';
+import { PixelmonThemeModule } from '../../theme.module';
 
 describe('Pipe: keys', () => {
   let fixture: ComponentFixture<TestComponent>;
 
   function genModule(template?: string) {
     TestBed.configureTestingModule({
-      imports: [PokemonThemeModule.forRoot()],
+      imports: [PixelmonThemeModule.forRoot()],
       declarations: [TestComponent],
     });
     if (template) TestBed.overrideTemplate(TestComponent, template);

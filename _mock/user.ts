@@ -1,4 +1,4 @@
-import { MockRequest, MockStatusError } from '@pokemon/mock';
+import { MockRequest, MockStatusError } from '@pixelmon/mock';
 // import * as Mock from 'mockjs';
 
 const r = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min);

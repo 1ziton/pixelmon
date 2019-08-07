@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PokemonLocaleModule } from '@pokemon/theme';
+import { PixelmonLocaleModule } from '@pixelmon/theme';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzIconModule } from 'ng-zorro-antd/icon';
@@ -17,7 +17,7 @@ const COMPONENTS = [NoticeIconComponent];
 @NgModule({
   imports: [
     CommonModule,
-    PokemonLocaleModule,
+    PixelmonLocaleModule,
     NzBadgeModule,
     NzDropDownModule,
     NzIconModule,

@@ -5,7 +5,7 @@
   display: block;
   margin: 0;
   padding: 0;
-  font-size: @pokemon-default-aside-nav-fs;
+  font-size: @pixelmon-default-aside-nav-fs;
   &__item {
     position: relative;
     display: flex;
@@ -15,26 +15,26 @@
     &-link {
       position: relative;
       display: block;
-      padding: @pokemon-default-aside-nav-padding-top-bottom @layout-gutter * 2;
+      padding: @pixelmon-default-aside-nav-padding-top-bottom @layout-gutter * 2;
       overflow: hidden;
-      color: @pokemon-default-aside-nav-text-color;
+      color: @pixelmon-default-aside-nav-text-color;
       white-space: nowrap;
       text-decoration: none !important;
       text-overflow: ellipsis;
       user-select: none;
       &:hover {
-        color: @pokemon-default-aside-nav-text-hover-color;
+        color: @pixelmon-default-aside-nav-text-hover-color;
       }
     }
     &-icon {
       display: inline-block;
-      min-width: @pokemon-default-aside-nav-icon-width;
+      min-width: @pixelmon-default-aside-nav-icon-width;
       margin-right: @layout-gutter;
       transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out;
     }
     &-img {
-      width: @pokemon-default-aside-nav-img-wh;
-      height: @pokemon-default-aside-nav-img-wh;
+      width: @pixelmon-default-aside-nav-img-wh;
+      height: @pixelmon-default-aside-nav-img-wh;
     }
     &-text {
       opacity: 1;
@@ -49,10 +49,10 @@
   }
   // Selected
   &__selected {
-    background-color: @pokemon-default-aside-nav-selected-bg;
-    border-left-color: @pokemon-default-aside-nav-selected-text-color;
+    background-color: @pixelmon-default-aside-nav-selected-bg;
+    border-left-color: @pixelmon-default-aside-nav-selected-text-color;
     > .@{sidebar-nav-prefix-cls}__item-link {
-      color: @pokemon-default-aside-nav-selected-text-color;
+      color: @pixelmon-default-aside-nav-selected-text-color;
     }
   }
   // Open Submenu
@@ -74,8 +74,8 @@
     }
   }
   &__group-title {
-    padding: @pokemon-default-aside-nav-padding-top-bottom @layout-gutter * 2;
-    color: @pokemon-default-aside-nav-group-text-color;
+    padding: @pixelmon-default-aside-nav-padding-top-bottom @layout-gutter * 2;
+    color: @pixelmon-default-aside-nav-group-text-color;
   }
   &__sub {
     display: none;
@@ -114,7 +114,7 @@
     right: @layout-gutter * 2;
     @badge-height: @layout-gutter * 2;
     &:not(.badge-dot) {
-      top: (@pokemon-default-aside-nav-item-height - @badge-height) / 2;
+      top: (@pixelmon-default-aside-nav-item-height - @badge-height) / 2;
       width: @badge-height;
       height: @badge-height;
       padding: 0;
@@ -122,28 +122,28 @@
       line-height: @badge-height;
     }
     &-dot {
-      top: (@pokemon-default-aside-nav-item-height - @layout-gutter) / 2;
+      top: (@pixelmon-default-aside-nav-item-height - @layout-gutter) / 2;
     }
   }
   // Dept
   &__depth1 {
     .@{sidebar-nav-prefix-cls}__item-link {
-      padding-left: (@layout-gutter * 3) + @pokemon-default-aside-nav-icon-width;
+      padding-left: (@layout-gutter * 3) + @pixelmon-default-aside-nav-icon-width;
     }
   }
   &__depth2 {
     .@{sidebar-nav-prefix-cls}__item-link {
-      padding-left: (@layout-gutter * 4) + @pokemon-default-aside-nav-icon-width;
+      padding-left: (@layout-gutter * 4) + @pixelmon-default-aside-nav-icon-width;
     }
   }
   &__depth3 {
     .@{sidebar-nav-prefix-cls}__item-link {
-      padding-left: (@layout-gutter * 5) + @pokemon-default-aside-nav-icon-width;
+      padding-left: (@layout-gutter * 5) + @pixelmon-default-aside-nav-icon-width;
     }
   }
   &__depth4 {
     .@{sidebar-nav-prefix-cls}__item-link {
-      padding-left: (@layout-gutter * 6) + @pokemon-default-aside-nav-icon-width;
+      padding-left: (@layout-gutter * 6) + @pixelmon-default-aside-nav-icon-width;
     }
   }
   // Floating
@@ -152,8 +152,8 @@
     z-index: @zindex + 7;
     display: none;
     min-width: 160px;
-    background-color: @pokemon-default-aside-bg;
-    border: 1px solid @pokemon-default-content-heading-border;
+    background-color: @pixelmon-default-aside-bg;
+    border: 1px solid @pixelmon-default-content-heading-border;
     border-radius: 4px;
     .@{sidebar-nav-prefix-cls}__item {
       &-link {
@@ -189,7 +189,7 @@
 }
 
 @media (min-width: @mobile-min) {
-  @{pokemon-default-prefix}__collapsed {
+  @{pixelmon-default-prefix}__collapsed {
     .@{sidebar-nav-prefix-cls}:not(.@{sidebar-nav-prefix-cls}__sub) {
       .@{sidebar-nav-prefix-cls}__item {
         border: none;
@@ -199,11 +199,11 @@
           padding: (@layout-gutter * 3) 0;
           .@{sidebar-nav-prefix-cls}__item-icon {
             margin-right: 0;
-            font-size: @pokemon-default-aside-collapsed-nav-fs;
+            font-size: @pixelmon-default-aside-collapsed-nav-fs;
           }
           .@{sidebar-nav-prefix-cls}__item-img {
-            width: @pokemon-default-aside-collapsed-nav-img-wh;
-            height: @pokemon-default-aside-collapsed-nav-img-wh;
+            width: @pixelmon-default-aside-collapsed-nav-img-wh;
+            height: @pixelmon-default-aside-collapsed-nav-img-wh;
           }
           .@{sidebar-nav-prefix-cls}__item-text {
             display: none;

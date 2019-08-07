@@ -20,9 +20,9 @@ import { NzAffixComponent } from 'ng-zorro-antd/affix';
 import { merge, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 
-import { ReuseTabService } from '@pokemon/pikachu/reuse-tab';
-import { PokemonI18NService, POKEMON_I18N_TOKEN, Menu, MenuService, SettingsService, TitleService } from '@pokemon/theme';
-import { isEmpty, InputBoolean, InputNumber } from '@pokemon/util';
+import { ReuseTabService } from '@pixelmon/pikachu/reuse-tab';
+import { PixelmonI18NService, PIXELMON_I18N_TOKEN, Menu, MenuService, SettingsService, TitleService } from '@pixelmon/theme';
+import { isEmpty, InputBoolean, InputNumber } from '@pixelmon/util';
 
 import { PageHeaderConfig } from './page-header.config';
 
@@ -100,7 +100,7 @@ export class PageHeaderComponent implements OnInit, OnChanges, AfterViewInit, On
     private renderer: Renderer2,
     private router: Router,
     private menuSrv: MenuService,
-    @Optional() @Inject(POKEMON_I18N_TOKEN) private i18nSrv: PokemonI18NService,
+    @Optional() @Inject(PIXELMON_I18N_TOKEN) private i18nSrv: PixelmonI18NService,
     @Optional() @Inject(TitleService) private titleSrv: TitleService,
     @Optional() @Inject(ReuseTabService) private reuseSrv: ReuseTabService,
     private cdr: ChangeDetectorRef,

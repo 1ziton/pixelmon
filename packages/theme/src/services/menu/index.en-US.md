@@ -5,11 +5,11 @@ subtitle: Menu Service
 type: Service
 ---
 
-The data format is an array of [Menu](https://github.com/1ziton/pokemon/blob/master/packages/theme/src/services/menu/interface.ts), where `text` text property muse be required, And it's not affected by external components (such as [sidebar-nav](/components/sidebar-nav)),
+The data format is an array of [Menu](https://github.com/1ziton/pixelmon/blob/master/packages/theme/src/services/menu/interface.ts), where `text` text property muse be required, And it's not affected by external components (such as [sidebar-nav](/components/sidebar-nav)),
 
 This is because menus it's essential part of the applications, And it can be used more effectively as a service, such as: dynamically generate navigation, title etc.
 
-**Suggest:** Start up Angular ([startup.service.ts](https://github.com/1ziton/pokemon/blob/master/src/app/core/startup/startup.service .ts)) After get menu data from remote, call the `add()` method.
+**Suggest:** Start up Angular ([startup.service.ts](https://github.com/1ziton/pixelmon/blob/master/src/app/core/startup/startup.service .ts)) After get menu data from remote, call the `add()` method.
 
 ## API
 

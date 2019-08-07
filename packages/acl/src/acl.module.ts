@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { PokemonUtilModule } from '@pokemon/util';
+import { PixelmonUtilModule } from '@pixelmon/util';
 
 import { ACLIfDirective } from './acl-if.directive';
 import { ACLDirective } from './acl.directive';
@@ -9,14 +9,14 @@ import { ACLService } from './acl.service';
 const COMPONENTS = [ACLDirective, ACLIfDirective];
 
 @NgModule({
-  imports: [CommonModule, PokemonUtilModule],
+  imports: [CommonModule, PixelmonUtilModule],
   declarations: [...COMPONENTS],
   exports: [...COMPONENTS],
 })
-export class PokemonACLModule {
+export class PixelmonACLModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: PokemonACLModule,
+      ngModule: PixelmonACLModule,
       providers: [ACLService],
     };
   }

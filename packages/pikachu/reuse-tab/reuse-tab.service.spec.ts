@@ -2,7 +2,7 @@ import { TestBed, TestBedStatic } from '@angular/core/testing';
 import { ActivatedRoute, Router, RouteReuseStrategy } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
-import { MenuService } from '@pokemon/theme';
+import { MenuService } from '@pixelmon/theme';
 
 import { ReuseTabMatchMode, ReuseTitle } from './reuse-tab.interfaces';
 import { ReuseTabService } from './reuse-tab.service';

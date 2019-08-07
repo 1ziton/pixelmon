@@ -2,7 +2,7 @@ import { Injectable, InjectionToken } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-export interface PokemonI18NService {
+export interface PixelmonI18NService {
   [key: string]: any;
 
   /**
@@ -30,17 +30,17 @@ export interface PokemonI18NService {
   fanyi(key: string, params?: {}, isSafe?: boolean): string;
 }
 
-export const POKEMON_I18N_TOKEN = new InjectionToken<PokemonI18NService>('pokemonTranslatorToken', {
+export const PIXELMON_I18N_TOKEN = new InjectionToken<PixelmonI18NService>('pixelmonTranslatorToken', {
   providedIn: 'root',
-  factory: POKEMON_I18N_TOKEN_FACTORY,
+  factory: PIXELMON_I18N_TOKEN_FACTORY,
 });
 
-export function POKEMON_I18N_TOKEN_FACTORY() {
-  return new PokemonI18NServiceFake();
+export function PIXELMON_I18N_TOKEN_FACTORY() {
+  return new PixelmonI18NServiceFake();
 }
 
 @Injectable({ providedIn: 'root' })
-export class PokemonI18NServiceFake implements PokemonI18NService {
+export class PixelmonI18NServiceFake implements PixelmonI18NService {
   private change$ = new BehaviorSubject<string | null>(null);
 
   get change(): Observable<string> {

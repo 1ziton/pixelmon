@@ -7,8 +7,8 @@
         "@angular/cdk/observers": "ng.cdk.observers",
         "ng-zorro-antd/tooltip": "ng-zorro-antd/tooltip",
         "ng-zorro-antd/icon": "ng-zorro-antd/icon",
-        "@pokemon/theme": "pokemon.theme",
-        "@pokemon/util": "pokemon.util"
+        "@pixelmon/theme": "pixelmon.theme",
+        "@pixelmon/util": "pixelmon.util"
       }
     }
   }

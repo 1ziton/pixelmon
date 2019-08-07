@@ -1,20 +1,20 @@
 {
-  "name": "@pokemon/theme",
+  "name": "@pixelmon/theme",
   "version": "0.0.0-PLACEHOLDER",
   "author": "giscafer<giscafer@outlook.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1ziton/pokemon.git"
+    "url": "git+https://github.com/1ziton/pixelmon.git"
   },
   "bugs": {
-    "url": "https://github.com/1ziton/pokemon/issues"
+    "url": "https://github.com/1ziton/pixelmon/issues"
   },
   "homepage": "https://1ziton.com",
   "keywords": [
-    "pokemon",
+    "pixelmon",
     "1ziton",
-    "pokemon",
+    "pixelmon",
     "antd",
     "ng-zorro-antd",
     "angular",
@@ -22,8 +22,8 @@
   ],
   "dependencies": {
     "ng-zorro-antd": "ZORRO-0.0.0-PLACEHOLDER",
-    "@pokemon/acl": "PEER-0.0.0-PLACEHOLDER",
-    "@pokemon/util": "PEER-0.0.0-PLACEHOLDER"
+    "@pixelmon/acl": "PEER-0.0.0-PLACEHOLDER",
+    "@pixelmon/util": "PEER-0.0.0-PLACEHOLDER"
   },
   "sideEffects": false
 }

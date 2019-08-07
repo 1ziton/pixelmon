@@ -2,7 +2,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PokemonLocaleModule } from '@pokemon/theme';
+import { PixelmonLocaleModule } from '@pixelmon/theme';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
@@ -16,7 +16,7 @@ const COMPONENTS = [ReuseTabComponent];
 const NOEXPORTS = [ReuseTabContextMenuComponent, ReuseTabContextComponent, ReuseTabContextDirective];
 
 @NgModule({
-  imports: [CommonModule, RouterModule, PokemonLocaleModule, NzMenuModule, NzTabsModule, NzIconModule, OverlayModule],
+  imports: [CommonModule, RouterModule, PixelmonLocaleModule, NzMenuModule, NzTabsModule, NzIconModule, OverlayModule],
   declarations: [...COMPONENTS, ...NOEXPORTS],
   entryComponents: [ReuseTabContextMenuComponent],
   exports: [...COMPONENTS],

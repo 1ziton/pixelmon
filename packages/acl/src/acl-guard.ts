@@ -11,13 +11,13 @@ import {
 import { of, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
-import { PokemonACLConfig } from './acl.config';
+import { PixelmonACLConfig } from './acl.config';
 import { ACLService } from './acl.service';
 import { ACLCanType } from './acl.type';
 
 @Injectable({ providedIn: 'root' })
 export class ACLGuard implements CanActivate, CanActivateChild, CanLoad {
-  constructor(private srv: ACLService, private router: Router, private options: PokemonACLConfig) {}
+  constructor(private srv: ACLService, private router: Router, private options: PixelmonACLConfig) {}
 
   private process(guard: ACLCanType | Observable<ACLCanType>): Observable<boolean> {
     return (guard && guard instanceof Observable

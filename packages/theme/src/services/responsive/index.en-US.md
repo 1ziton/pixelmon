@@ -21,9 +21,9 @@ In order to better develop responsives this view or edit pages, the rule will be
 ## ResponsiveConfig
 
 ```ts
-import { PokemonThemeConfig } from '@pokemon/theme';
-export function fnPokemonThemeConfig(): PokemonThemeConfig {
-  return Object.assign(new PokemonThemeConfig(), <PokemonThemeConfig>{
+import { PixelmonThemeConfig } from '@pixelmon/theme';
+export function fnPixelmonThemeConfig(): PixelmonThemeConfig {
+  return Object.assign(new PixelmonThemeConfig(), <PixelmonThemeConfig>{
     responsive: <ResponsiveConfig>{
       rules: {
         1: { xs: 24 },
@@ -38,12 +38,12 @@ export function fnPokemonThemeConfig(): PokemonThemeConfig {
 }
 
 @NgModule({})
-export class PokemonModule {
+export class PixelmonModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: PokemonModule,
+      ngModule: PixelmonModule,
       providers: [
-        { provide: PokemonThemeConfig, useFactory: fnPokemonThemeConfig },
+        { provide: PixelmonThemeConfig, useFactory: fnPixelmonThemeConfig },
       ],
     };
   }

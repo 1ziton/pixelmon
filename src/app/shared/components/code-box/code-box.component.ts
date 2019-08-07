@@ -1,7 +1,7 @@
 import { Component, Inject, Input, OnDestroy } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { POKEMON_I18N_TOKEN } from '@pokemon/theme';
-import { copy, deepCopy } from '@pokemon/util';
+import { PIXELMON_I18N_TOKEN } from '@pixelmon/theme';
+import { copy, deepCopy } from '@pixelmon/util';
 import { NzMessageService } from 'ng-zorro-antd';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -45,7 +45,7 @@ export class CodeBoxComponent implements OnDestroy {
   expand: boolean = false;
 
   constructor(
-    @Inject(POKEMON_I18N_TOKEN) private i18n: I18NService,
+    @Inject(PIXELMON_I18N_TOKEN) private i18n: I18NService,
     private msg: NzMessageService,
     private codeSrv: CodeService,
     private sanitizer: DomSanitizer,

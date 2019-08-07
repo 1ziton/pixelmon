@@ -4,8 +4,8 @@
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
-      "@pokemon/acl": ["../../dist/@pokemon/acl"],
-      "@pokemon/util": ["../../dist/@pokemon/util"]
+      "@pixelmon/acl": ["../../dist/@pixelmon/acl"],
+      "@pixelmon/util": ["../../dist/@pixelmon/util"]
     }
   },
   "angularCompilerOptions": {

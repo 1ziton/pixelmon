@@ -24,7 +24,7 @@ Angular 下常见错误，使用 Reactive Forms 需要额外引入 `ReactiveForm
 
 ### 数据修改后页面为什么没有更新
 
-NG-ZORRO 及 @pokemon/\* 组件默认在 OnPush 模式下工作，mutate 对象或者数组不会触发 Angular 的变更检测，请使用 immutable 方式。
+NG-ZORRO 及 @pixelmon/\* 组件默认在 OnPush 模式下工作，mutate 对象或者数组不会触发 Angular 的变更检测，请使用 immutable 方式。
 
 ## 安装
 
@@ -73,11 +73,11 @@ npm config delete sass_binary_site
 
 ## 配置
 
-### 如何覆盖 @pokemon/\* 的配置
+### 如何覆盖 @pixelmon/\* 的配置
 
 ```ts
-// pokemon.module.ts
-import { DelonAuthConfig } from '@pokemon/auth';
+// pixelmon.module.ts
+import { DelonAuthConfig } from '@pixelmon/auth';
 export function delonAuthConfig(): DelonAuthConfig {
   return Object.assign(new DelonAuthConfig(), <DelonAuthConfig>{
     login_url: '/passport/login',

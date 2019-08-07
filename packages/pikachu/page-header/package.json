@@ -7,9 +7,9 @@
         "ng-zorro-antd/affix": "ng-zorro-antd/affix",
         "ng-zorro-antd/breadcrumb": "ng-zorro-antd/breadcrumb",
         "ng-zorro-antd/skeleton": "ng-zorro-antd/skeleton",
-        "@pokemon/pikachu/reuse-tab": "pokemon.pikachu.reuseTab",
-        "@pokemon/theme": "pokemon.theme",
-        "@pokemon/util": "pokemon.util"
+        "@pixelmon/pikachu/reuse-tab": "pixelmon.pikachu.reuseTab",
+        "@pixelmon/theme": "pixelmon.theme",
+        "@pixelmon/util": "pixelmon.util"
       }
     }
   }

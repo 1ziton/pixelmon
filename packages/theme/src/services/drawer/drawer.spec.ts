@@ -3,7 +3,7 @@ import { Component, NgModule } from '@angular/core';
 import { ComponentFixture, TestBed, TestBedStatic } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NzDrawerModule, NzDrawerRef } from 'ng-zorro-antd/drawer';
-import { PokemonThemeModule } from '../../theme.module';
+import { PixelmonThemeModule } from '../../theme.module';
 import { DrawerHelper } from './drawer.helper';
 
 describe('theme: DrawerHelper', () => {
@@ -13,7 +13,7 @@ describe('theme: DrawerHelper', () => {
 
   beforeEach(() => {
     @NgModule({
-      imports: [CommonModule, NoopAnimationsModule, PokemonThemeModule.forChild(), NzDrawerModule],
+      imports: [CommonModule, NoopAnimationsModule, PixelmonThemeModule.forChild(), NzDrawerModule],
       declarations: [TestDrawerComponent, TestComponent],
       entryComponents: [TestDrawerComponent],
     })

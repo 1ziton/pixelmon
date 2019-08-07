@@ -21,10 +21,10 @@ cd $(dirname $0)/../..
 
 DIST="$(pwd)/dist"
 
-buildPokemon() {
-  travisFoldStart "@pokemon"
-  ./scripts/ci/build-pokemon.sh
-  travisFoldEnd "@pokemon"
+buildPixelmon() {
+  travisFoldStart "@pixelmon"
+  ./scripts/ci/build-pixelmon.sh
+  travisFoldEnd "@pixelmon"
 }
 
 buildSchematies() {
@@ -33,5 +33,5 @@ buildSchematies() {
   travisFoldEnd "schematies"
 }
 
-buildPokemon
+buildPixelmon
 # buildSchematies

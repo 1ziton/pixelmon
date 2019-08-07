@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ACLCanType, ACLType } from './acl.type';
 
 @Injectable({ providedIn: 'root' })
-export class PokemonACLConfig {
+export class PixelmonACLConfig {
   /**
    * 路由守卫失败后跳转，默认：`/403`
    */

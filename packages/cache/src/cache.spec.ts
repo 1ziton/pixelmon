@@ -3,9 +3,9 @@ import { TestBed, TestBedStatic } from '@angular/core/testing';
 import { of, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { Type } from '@angular/core';
-import { PokemonThemeModule } from '@pokemon/theme';
+import { PixelmonThemeModule } from '@pixelmon/theme';
 
-import { PokemonCacheModule } from './cache.module';
+import { PixelmonCacheModule } from './cache.module';
 import { CacheService } from './cache.service';
 import { ICache } from './interface';
 
@@ -37,7 +37,7 @@ describe('cache: service', () => {
 
   function genModule() {
     injector = TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, PokemonThemeModule.forRoot(), PokemonCacheModule],
+      imports: [HttpClientTestingModule, PixelmonThemeModule.forRoot(), PixelmonCacheModule],
       providers: [],
     });
 

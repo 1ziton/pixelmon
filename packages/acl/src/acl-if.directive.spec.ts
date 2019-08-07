@@ -2,7 +2,7 @@ import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, ComponentFixtureAutoDetect, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { PokemonACLModule } from './acl.module';
+import { PixelmonACLModule } from './acl.module';
 import { ACLService } from './acl.service';
 import { ACLCanType } from './acl.type';
 
@@ -16,7 +16,7 @@ describe('acl-if: directive', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [TestComponent],
-      imports: [PokemonACLModule.forRoot()],
+      imports: [PixelmonACLModule.forRoot()],
       providers: [{ provide: ComponentFixtureAutoDetect, useValue: true }],
     });
     fixture = TestBed.createComponent(TestComponent);

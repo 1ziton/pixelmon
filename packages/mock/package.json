@@ -1,20 +1,20 @@
 {
-  "name": "@pokemon/mock",
+  "name": "@pixelmon/mock",
   "version": "0.0.0-PLACEHOLDER",
   "author": "giscafer<giscafer@outlook.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ng-pokemon/pokemon.git"
+    "url": "git+https://github.com/ng-pixelmon/pixelmon.git"
   },
   "bugs": {
-    "url": "https://github.com/ng-pokemon/ng-pokemon/issues"
+    "url": "https://github.com/ng-pixelmon/ng-pixelmon/issues"
   },
-  "homepage": "https://ng-pokemon.com",
+  "homepage": "https://ng-pixelmon.com",
   "keywords": [
-    "pokemon",
-    "ng-pokemon",
-    "pokemon",
+    "pixelmon",
+    "ng-pixelmon",
+    "pixelmon",
     "mock",
     "mockjs",
     "angular-mock",

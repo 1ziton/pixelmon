@@ -3,8 +3,8 @@ import { Component, DebugElement, ViewChild } from '@angular/core';
 import { ComponentFixture, TestBed, TestBedStatic } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { configureTestSuite, createTestContext } from '@pokemon/testing';
-import { en_US, zh_CN, PokemonLocaleModule, PokemonLocaleService } from '@pokemon/theme';
+import { configureTestSuite, createTestContext } from '@pixelmon/testing';
+import { en_US, zh_CN, PixelmonLocaleModule, PixelmonLocaleService } from '@pixelmon/theme';
 
 import { NoticeIconComponent } from './notice-icon.component';
 import { NoticeIconModule } from './notice-icon.module';
@@ -18,7 +18,7 @@ describe('pikachu: notice-icon', () => {
 
   configureTestSuite(() => {
     injector = TestBed.configureTestingModule({
-      imports: [NoopAnimationsModule, NoticeIconModule, HttpClientTestingModule, PokemonLocaleModule],
+      imports: [NoopAnimationsModule, NoticeIconModule, HttpClientTestingModule, PixelmonLocaleModule],
       declarations: [TestComponent],
     });
   });
@@ -103,7 +103,7 @@ describe('pikachu: notice-icon', () => {
     fixture.detectChanges();
     const a = document.querySelector('.notice-icon__notfound')! as HTMLElement;
     expect(a.innerText).toBe(zh_CN.noticeIcon.emptyText);
-    const srv = injector.get<PokemonLocaleService>(PokemonLocaleService) as PokemonLocaleService;
+    const srv = injector.get<PixelmonLocaleService>(PixelmonLocaleService) as PixelmonLocaleService;
     srv.setLocale(en_US);
     fixture.detectChanges();
     expect(a.innerText).toBe(en_US.noticeIcon.emptyText);

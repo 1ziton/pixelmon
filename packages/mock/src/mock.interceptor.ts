@@ -14,7 +14,7 @@ import { of, throwError, Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 import { MockRequest } from './interface';
-import { PokemonMockConfig } from './mock.config';
+import { PixelmonMockConfig } from './mock.config';
 import { MockService } from './mock.service';
 import { MockStatusError } from './status.error';
 
@@ -37,7 +37,7 @@ export class MockInterceptor implements HttpInterceptor {
       force: false,
       log: true,
       executeOtherInterceptors: true,
-      ...this.injector.get<PokemonMockConfig>(PokemonMockConfig),
+      ...this.injector.get<PixelmonMockConfig>(PixelmonMockConfig),
     };
     const rule = src.getRule(req.method, req.url.split('?')[0]);
     if (!rule && !config.force) {

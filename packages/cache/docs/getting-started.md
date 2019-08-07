@@ -2,15 +2,15 @@
 order: 1
 title: 开始使用
 type: Documents
-module: pokemonCacheModule
-config: pokemonCacheConfig
+module: pixelmonCacheModule
+config: pixelmonCacheConfig
 ---
 
 ## 写在前面
 
 通常把一些远程数据缓存在内存或 `localStorage` 持久化，目的是为了减少 Http 请求的成本；这样的数据通常是字典、城市数据等。
 
-缓存的获取应该是非常简单的，我们不应该把时间浪费在如何保证加载这件事情上，因此 `@pokemon/cache` 更多是以**约定**为前提。`key` 作为缓存的唯一键值，它不应该只是单纯的一个标识符，如果遵守某种约定它的存在会更有价值。`@pokemon/cache` 默认情况下不光把 `key` 当作唯一标识符，同时它还是一个用于获取远程数据的有效HTTP，例如：
+缓存的获取应该是非常简单的，我们不应该把时间浪费在如何保证加载这件事情上，因此 `@pixelmon/cache` 更多是以**约定**为前提。`key` 作为缓存的唯一键值，它不应该只是单纯的一个标识符，如果遵守某种约定它的存在会更有价值。`@pixelmon/cache` 默认情况下不光把 `key` 当作唯一标识符，同时它还是一个用于获取远程数据的有效HTTP，例如：
 
 ```ts
 cacheService.get('/data/unit');
@@ -24,7 +24,7 @@ cacheService.set('/data/unit', [ '个', '件' ]);
 
 才能够确保获取到缓存数据。
 
-而对于 `@pokemon/cache` 而言，你无须 `set` 方法，直接使用 `get` 获取到单位字典，因为我们有一种**约定**，当缓存不存在透过 `key` 作为HTTP请求数据缓存后再返回。
+而对于 `@pixelmon/cache` 而言，你无须 `set` 方法，直接使用 `get` 获取到单位字典，因为我们有一种**约定**，当缓存不存在透过 `key` 作为HTTP请求数据缓存后再返回。
 
 缓存的获取与设置都是通过 [CacheService](/cache/service) 来操作，你只需要将 `CacheService` 导入对应的类当中即可。
 
@@ -33,26 +33,26 @@ cacheService.set('/data/unit', [ '个', '件' ]);
 **安装**
 
 ```bash
-yarn add @pokemon/cache
+yarn add @pixelmon/cache
 ```
 
 **注册**
 
-在根模块 `AppModule` 导入 `pokemonCacheModule`；
+在根模块 `AppModule` 导入 `pixelmonCacheModule`；
 
 ```ts
-import { pokemonCacheModule } from '@pokemon/cache';
+import { pixelmonCacheModule } from '@pixelmon/cache';
 
 @NgModule({
   imports: [
-    pokemonCacheModule
+    pixelmonCacheModule
   ]
 })
 ```
 
 **注** 建议在根模块中导入，因为它只有 Service 为了防止重复被导入。
 
-### pokemonCacheConfig
+### pixelmonCacheConfig
 
 | 参数名 | 类型 | 默认值 | 描述 |
 | ----- | --- | --- | --- |

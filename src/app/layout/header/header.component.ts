@@ -1,7 +1,7 @@
 // tslint:disable: member-ordering
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { copy, LazyService } from '@pokemon/util';
+import { copy, LazyService } from '@pixelmon/util';
 import { NzMessageService } from 'ng-zorro-antd';
 import { filter } from 'rxjs/operators';
 
@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   useDocsearch = false;
   oldVersionList = [`1.x`];
   currentVersion = 'stable';
-  pokemon = ['theme', 'auth', 'acl', 'form', 'cache', 'chart', 'mock', 'util', 'cli'];
+  pixelmon = ['theme', 'auth', 'acl', 'form', 'cache', 'chart', 'mock', 'util', 'cli'];
 
   @ViewChild('searchInput', { static: false })
   searchInput: ElementRef<HTMLInputElement>;

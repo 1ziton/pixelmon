@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable, Injector } from '@angular/core';
-import { TitleService } from '@pokemon/theme';
+import { TitleService } from '@pixelmon/theme';
 
 import { NzIconService } from 'ng-zorro-antd';
 import { ICONS } from '../../style-icons';
@@ -14,7 +14,7 @@ export class StartupService {
   load(): Promise<any> {
     return new Promise(resolve => {
       this.doc.querySelector('#_slow')!.remove();
-      this.injector.get(TitleService).suffix = 'Pokemon';
+      this.injector.get(TitleService).suffix = 'Pixelmon';
       resolve();
     });
   }

@@ -5,19 +5,19 @@ import { ExtraOptions, Router, RouteReuseStrategy, ROUTER_CONFIGURATION } from '
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable } from 'rxjs';
 
-import { configureTestSuite } from '@pokemon/testing';
+import { configureTestSuite } from '@pixelmon/testing';
 import {
   en_US,
   zh_CN,
-  POKEMON_I18N_TOKEN,
-  PokemonLocaleModule,
-  PokemonLocaleService,
+  PIXELMON_I18N_TOKEN,
+  PixelmonLocaleModule,
+  PixelmonLocaleService,
   MenuService,
   ScrollService,
   WINDOW,
-} from '@pokemon/theme';
+} from '@pixelmon/theme';
 
-import { PokemonI18NServiceFake } from '../../theme/src/services/i18n/i18n';
+import { PixelmonI18NServiceFake } from '../../theme/src/services/i18n/i18n';
 import { ReuseTabComponent } from './reuse-tab.component';
 import { ReuseCustomContextMenu, ReuseTabMatchMode } from './reuse-tab.interfaces';
 import { ReuseTabModule } from './reuse-tab.module';
@@ -25,7 +25,7 @@ import { ReuseTabService } from './reuse-tab.service';
 import { ReuseTabStrategy } from './reuse-tab.strategy';
 
 let i18nResult = 'zh';
-class MockI18NServiceFake extends PokemonI18NServiceFake {
+class MockI18NServiceFake extends PixelmonI18NServiceFake {
   fanyi(_key: string) {
     return i18nResult;
   }
@@ -44,7 +44,7 @@ describe('pikachu: reuse-tab', () => {
     injector = TestBed.configureTestingModule({
       declarations: [AppComponent, LayoutComponent, AComponent, BComponent, CComponent, DComponent, EComponent],
       imports: [
-        PokemonLocaleModule,
+        PixelmonLocaleModule,
         ReuseTabModule,
         RouterTestingModule.withRoutes(
           [
@@ -88,7 +88,7 @@ describe('pikachu: reuse-tab', () => {
           ? []
           : [
               {
-                provide: POKEMON_I18N_TOKEN,
+                provide: PIXELMON_I18N_TOKEN,
                 useClass: MockI18NServiceFake,
               } as any,
             ],
@@ -504,7 +504,7 @@ describe('pikachu: reuse-tab', () => {
     });
 
     describe('[routing]', () => {
-      it('[pokemon #326] should be restricted by canDeactivate when changing tab', fakeAsync(() => {
+      it('[pixelmon #326] should be restricted by canDeactivate when changing tab', fakeAsync(() => {
         let lTime = '';
         page
           .to('#leave')
@@ -659,7 +659,7 @@ describe('pikachu: reuse-tab', () => {
       page.to('#e').expectAttr(1, 'title', 'zh');
 
       i18nResult = 'en';
-      injector.get(POKEMON_I18N_TOKEN).use('en');
+      injector.get(PIXELMON_I18N_TOKEN).use('en');
       tick(101);
       page.expectAttr(1, 'title', 'en');
     }));
@@ -668,7 +668,7 @@ describe('pikachu: reuse-tab', () => {
       createComp();
       page.to('#b').openContextMenu(1);
       expect(document.querySelector('[data-type="close"]')!.textContent).toBe(zh_CN.reuseTab.close);
-      injector.get<PokemonLocaleService>(PokemonLocaleService).setLocale(en_US);
+      injector.get<PixelmonLocaleService>(PixelmonLocaleService).setLocale(en_US);
       fixture.detectChanges();
       page.to('#a').openContextMenu(1);
       expect(document.querySelector('[data-type="close"]')!.textContent).toBe(en_US.reuseTab.close);
@@ -680,7 +680,7 @@ describe('pikachu: reuse-tab', () => {
       injector = TestBed.configureTestingModule({
         declarations: [AppComponent, LayoutComponent, CComponent, DComponent],
         imports: [
-          PokemonLocaleModule,
+          PixelmonLocaleModule,
           ReuseTabModule,
           RouterTestingModule.withRoutes([
             {

@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { PikachuModule } from '@pokemon/pikachu';
-import { PokemonThemeModule } from '@pokemon/theme';
+import { PikachuModule } from '@pixelmon/pikachu';
+import { PixelmonThemeModule } from '@pixelmon/theme';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { GithubButtonModule } from 'ng-github-button';
@@ -58,7 +58,7 @@ const THIRDS = [
     RouterModule,
     ReactiveFormsModule,
     NgZorroAntdModule,
-    PokemonThemeModule.forChild(),
+    PixelmonThemeModule.forChild(),
     PikachuModule,
     ...THIRDS,
   ],
@@ -70,7 +70,7 @@ const THIRDS = [
     ReactiveFormsModule,
     RouterModule,
     NgZorroAntdModule,
-    PokemonThemeModule,
+    PixelmonThemeModule,
     PikachuModule,
     ...THIRDS,
     ...COMPONENTS,

@@ -1,18 +1,18 @@
 {
-  "name": "@pokemon/util",
+  "name": "@pixelmon/util",
   "version": "0.0.0-PLACEHOLDER",
   "author": "giscafer<giscafer@outlook.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1ziton/pokemon.git"
+    "url": "git+https://github.com/1ziton/pixelmon.git"
   },
   "bugs": {
-    "url": "https://github.com/1ziton/pokemon/issues"
+    "url": "https://github.com/1ziton/pixelmon/issues"
   },
   "homepage": "https://1ziton.com",
   "keywords": [
-    "pokemon",
+    "pixelmon",
     "1ziton",
     "utility",
     "utils",

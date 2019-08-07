@@ -2,19 +2,19 @@
 order: 1
 title: 开始使用
 type: Documents
-module: PokemonThemeModule
-config: PokemonThemeConfig
+module: PixelmonThemeModule
+config: PixelmonThemeConfig
 ---
 
-`@pokemon/theme` 是必须引入的模块。它包含了非常多[主题样式参数](/theme/global)，通过覆盖参数数值进而定制一些特别的需求；以及若干通用性[服务](/theme/menu)、[管道](/theme/date)。
+`@pixelmon/theme` 是必须引入的模块。它包含了非常多[主题样式参数](/theme/global)，通过覆盖参数数值进而定制一些特别的需求；以及若干通用性[服务](/theme/menu)、[管道](/theme/date)。
 
 ## 样式
 
-pokemon 默认使用 less 作为样式语言，建议在使用前或者遇到疑问时学习一下 [less](http://lesscss.org/) 的相关特性，如果想获取基础的 CSS 知识或查阅属性，可以参考 [MDN 文档](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)。
+pixelmon 默认使用 less 作为样式语言，建议在使用前或者遇到疑问时学习一下 [less](http://lesscss.org/) 的相关特性，如果想获取基础的 CSS 知识或查阅属性，可以参考 [MDN 文档](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference)。
 
 ## 布局
 
-脚手架提供两种布局：[默认布局](/theme/default)、[全屏布局](/theme/fullscreen)，脚手架并不包含两种布局样式文件，它位于 `@pokemon/theme` 类库当中。
+脚手架提供两种布局：[默认布局](/theme/default)、[全屏布局](/theme/fullscreen)，脚手架并不包含两种布局样式文件，它位于 `@pixelmon/theme` 类库当中。
 
 ## 脚手架样式
 

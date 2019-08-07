@@ -1,10 +1,10 @@
 {
-  "name": "pokemon",
+  "name": "pixelmon",
   "version": "0.1.1",
   "typings": "index.d.ts",
   "description": "基于 Angular 和 ng-zorro-antd 的组件库",
   "keywords": [
-    "pokemon",
+    "pixelmon",
     "antd",
     "ng-zorro-antd",
     "angular"
@@ -12,13 +12,13 @@
   "author": "giscafer <giscafer@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/1ziton/pokemon/issues"
+    "url": "https://github.com/1ziton/pixelmon/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1ziton/pokemon.git"
+    "url": "git+https://github.com/1ziton/pixelmon.git"
   },
-  "homepage": "https://fex.1ziton.com/pokemon",
+  "homepage": "https://fex.1ziton.com/pixelmon",
   "scripts": {
     "lint": "bash scripts/ci/lint.sh -ts -less",
     "tslint-check": "tslint-config-prettier-check ./tslint.json",

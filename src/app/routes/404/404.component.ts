@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { POKEMON_I18N_TOKEN } from '@pokemon/theme';
+import { PIXELMON_I18N_TOKEN } from '@pixelmon/theme';
 import { I18NService } from '../../core/i18n/service';
 
 @Component({
@@ -7,5 +7,5 @@ import { I18NService } from '../../core/i18n/service';
   templateUrl: './404.component.html',
 })
 export class NotFoundComponent {
-  constructor(@Inject(POKEMON_I18N_TOKEN) public i18n: I18NService) {}
+  constructor(@Inject(PIXELMON_I18N_TOKEN) public i18n: I18NService) {}
 }

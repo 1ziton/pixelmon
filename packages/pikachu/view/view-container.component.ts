@@ -9,7 +9,7 @@ import {
   TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
-import { updateHostClass, InputNumber } from '@pokemon/util';
+import { updateHostClass, InputNumber } from '@pixelmon/util';
 import { SVConfig } from './view.config';
 
 const prefixCls = `sv`;

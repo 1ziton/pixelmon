@@ -1,26 +1,26 @@
-# Pokemon
+# Pixelmon
 
 <p align="center">
-  <a href="https://1ziton.github.io/pokemon">
-    <img width="100" src="https://1ziton.github.io/pokemon/assets/img/logo.png">
+  <a href="https://1ziton.github.io/pixelmon">
+    <img width="100" src="https://1ziton.github.io/pixelmon/assets/img/logo.png">
   </a>
 </p>
 
 <h1 align="center">
-Pokemon
+Pixelmon
 </h1>
 
 <div align="center">
 
 一个基于 Antd 中后台前端解决方案，提供更多通用性业务模块，让开发者更加专注于业务。
 
-[![Build Status](https://img.shields.io/travis/1ziton/pokemon/master.svg?style=flat-square)](https://travis-ci.org/1ziton/pokemon)
-[![Codecov](https://img.shields.io/codecov/c/github/1ziton/pokemon.svg?style=flat-square)](https://codecov.io/gh/1ziton/pokemon)
-[![Dependency Status](https://david-dm.org/1ziton/pokemon/status.svg?style=flat-square)](https://david-dm.org/1ziton/pokemon)
-[![GitHub Release Date](https://img.shields.io/github/release-date/1ziton/pokemon.svg?style=flat-square)](https://github.com/1ziton/pokemon/releases)
-[![NPM version](https://img.shields.io/npm/v/pokemon.svg?style=flat-square)](https://www.npmjs.com/package/@pokemon/pikachu)
+[![Build Status](https://img.shields.io/travis/1ziton/pixelmon/master.svg?style=flat-square)](https://travis-ci.org/1ziton/pixelmon)
+[![Codecov](https://img.shields.io/codecov/c/github/1ziton/pixelmon.svg?style=flat-square)](https://codecov.io/gh/1ziton/pixelmon)
+[![Dependency Status](https://david-dm.org/1ziton/pixelmon/status.svg?style=flat-square)](https://david-dm.org/1ziton/pixelmon)
+[![GitHub Release Date](https://img.shields.io/github/release-date/1ziton/pixelmon.svg?style=flat-square)](https://github.com/1ziton/pixelmon/releases)
+[![NPM version](https://img.shields.io/npm/v/pixelmon.svg?style=flat-square)](https://www.npmjs.com/package/@pixelmon/pikachu)
 [![prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://prettier.io/)
-[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/1ziton/pokemon/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/1ziton/pixelmon/blob/master/LICENSE)
 
 </div>
 
@@ -28,7 +28,7 @@ _基于 [delon](https://github.com/ng-alain/delon) 修改维护为符合自身�
 
 ## Links
 
-- [Document](http://1ziton.github.io/pokemon)
+- [Document](http://1ziton.github.io/pixelmon)
 
 ## Feature & Libs
 

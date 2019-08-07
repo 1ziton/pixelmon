@@ -36,7 +36,7 @@ declare var Slider: any;
       {
         title,
         description: `${title}-${summary.replace(/<[^>]+>/g, '')}`,
-        tags: ['1ziton', '@pokemon'],
+        tags: ['1ziton', '@pixelmon'],
         files: {
           'angular.json': `{
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
@@ -63,7 +63,7 @@ declare var Slider: any;
               "src/assets"
             ],
             "styles": [
-              "node_modules/@pokemon/theme/styles/1ziton.css",
+              "node_modules/@pixelmon/theme/styles/1ziton.css",
               "src/styles.less"
             ],
             "scripts": [
@@ -196,15 +196,15 @@ import localeZh from '@angular/common/locales/zh';
 registerLocaleData(localeZh);
 
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { PokemonThemeModule } from '@pokemon/theme';
-import { PokemonPokemonModule } from '@pokemon/pikachu';
-import { PokemonChartModule } from '@pokemon/chart';
-import { PokemonFormModule } from '@pokemon/form';
-import { PokemonAuthModule } from '@pokemon/auth';
-import { PokemonACLModule } from '@pokemon/acl';
-import { PokemonCacheModule } from '@pokemon/cache';
-import { PokemonUtilModule, LazyService } from '@pokemon/util';
-import { PokemonMockModule } from '@pokemon/mock';
+import { PixelmonThemeModule } from '@pixelmon/theme';
+import { PixelmonPixelmonModule } from '@pixelmon/pikachu';
+import { PixelmonChartModule } from '@pixelmon/chart';
+import { PixelmonFormModule } from '@pixelmon/form';
+import { PixelmonAuthModule } from '@pixelmon/auth';
+import { PixelmonACLModule } from '@pixelmon/acl';
+import { PixelmonCacheModule } from '@pixelmon/cache';
+import { PixelmonUtilModule, LazyService } from '@pixelmon/util';
+import { PixelmonMockModule } from '@pixelmon/mock';
 import * as MOCKDATA from '../../_mock';
 
 @Injectable()
@@ -225,7 +225,7 @@ export function StartupServiceFactory(startupService: StartupService): Function 
   return () => startupService.load();
 }
 
-import { VERSION as VERSION_ALAIN } from '@pokemon/theme';
+import { VERSION as VERSION_ALAIN } from '@pixelmon/theme';
 import { VERSION as VERSION_ZORRO } from 'ng-zorro-antd';
 import { ${componentName} } from './app.component';
 
@@ -237,15 +237,15 @@ imports: [
     BrowserAnimationsModule,
     RouterModule.forRoot([]),
     NgZorroAntdModule,
-    PokemonThemeModule.forRoot(),
-    PokemonPokemonModule,
-    PokemonChartModule,
-    PokemonACLModule,
-    PokemonCacheModule,
-    PokemonUtilModule,
-    PokemonAuthModule,
-    PokemonFormModule.forRoot(),
-    PokemonMockModule.forRoot({ data: MOCKDATA }),
+    PixelmonThemeModule.forRoot(),
+    PixelmonPixelmonModule,
+    PixelmonChartModule,
+    PixelmonACLModule,
+    PixelmonCacheModule,
+    PixelmonUtilModule,
+    PixelmonAuthModule,
+    PixelmonFormModule.forRoot(),
+    PixelmonMockModule.forRoot({ data: MOCKDATA }),
 ],
 providers: [
   StartupService,
@@ -263,7 +263,7 @@ export class AppModule {
   constructor() {
     setTimeout(() => {
       document.querySelector('#VERSION').innerHTML = \`
-      VERSIONS: ng-zorro-antd(\${VERSION_ZORRO.full}), @pokemon(\${VERSION_ALAIN.full})
+      VERSIONS: ng-zorro-antd(\${VERSION_ZORRO.full}), @pixelmon(\${VERSION_ALAIN.full})
       \`;
     }, 1000);
   }
@@ -290,15 +290,15 @@ export class AppModule {
           'file-saver': '^1.3.3',
           'ngx-countdown': '*',
           'ng-zorro-antd': '*',
-          '@pokemon/theme': 'latest',
-          '@pokemon/pikachu': 'latest',
-          '@pokemon/chart': 'latest',
-          '@pokemon/acl': 'latest',
-          '@pokemon/auth': 'latest',
-          '@pokemon/cache': 'latest',
-          '@pokemon/mock': 'latest',
-          '@pokemon/form': 'latest',
-          '@pokemon/util': 'latest',
+          '@pixelmon/theme': 'latest',
+          '@pixelmon/pikachu': 'latest',
+          '@pixelmon/chart': 'latest',
+          '@pixelmon/acl': 'latest',
+          '@pixelmon/auth': 'latest',
+          '@pixelmon/cache': 'latest',
+          '@pixelmon/mock': 'latest',
+          '@pixelmon/form': 'latest',
+          '@pixelmon/util': 'latest',
           extend: '*',
           qrious: '*',
         },

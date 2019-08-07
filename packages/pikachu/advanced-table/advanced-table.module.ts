@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, TemplateRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ViewerDirectiveModule } from '@pokemon/pikachu/viewer';
+import { ViewerDirectiveModule } from '@pixelmon/pikachu/viewer';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { AdvancedCellComponent } from './advanced-cell.component';
 import { AdvancedFilterComponent } from './advanced-filter.component';

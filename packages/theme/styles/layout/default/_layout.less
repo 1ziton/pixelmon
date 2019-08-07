@@ -13,10 +13,10 @@ app-root {
 
 body {
   color: @text-color;
-  background-color: @pokemon-default-content-bg;
+  background-color: @pixelmon-default-content-bg;
 }
 
-@{pokemon-default-prefix} {
+@{pixelmon-default-prefix} {
   position: relative;
   display: block;
   width: 100%;
@@ -24,28 +24,28 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   &__unwrap {
-    margin-right: -@pokemon-default-content-padding;
-    margin-left: -@pokemon-default-content-padding;
+    margin-right: -@pixelmon-default-content-padding;
+    margin-left: -@pixelmon-default-content-padding;
     @media (max-width: @mobile-max) {
       margin-right: 0;
       margin-left: 0;
     }
   }
   &__content {
-    margin: 0 @pokemon-default-content-padding @pokemon-default-content-padding @pokemon-default-content-padding;
+    margin: 0 @pixelmon-default-content-padding @pixelmon-default-content-padding @pixelmon-default-content-padding;
     &-title {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-right: -@pokemon-default-content-padding;
-      margin-bottom: @pokemon-default-content-padding;
-      margin-left: -@pokemon-default-content-padding;
-      padding: @pokemon-default-content-padding;
-      padding-top: @pokemon-default-content-padding - 12;
-      padding-bottom: @pokemon-default-content-padding - 12;
+      margin-right: -@pixelmon-default-content-padding;
+      margin-bottom: @pixelmon-default-content-padding;
+      margin-left: -@pixelmon-default-content-padding;
+      padding: @pixelmon-default-content-padding;
+      padding-top: @pixelmon-default-content-padding - 12;
+      padding-bottom: @pixelmon-default-content-padding - 12;
       color: #929292;
-      background-color: @pokemon-default-content-heading-bg;
-      border-bottom: 1px solid @pokemon-default-content-heading-border;
+      background-color: @pixelmon-default-content-heading-bg;
+      border-bottom: 1px solid @pixelmon-default-content-heading-border;
       > h1 {
         margin-bottom: 0;
         font-weight: normal;
@@ -66,16 +66,16 @@ body {
 
 // Desktop
 @media (min-width: @mobile-min) {
-  @{pokemon-default-prefix}__content {
-    margin-left: (@pokemon-default-aside-wd + @pokemon-default-content-padding);
+  @{pixelmon-default-prefix}__content {
+    margin-left: (@pixelmon-default-aside-wd + @pixelmon-default-content-padding);
   }
-  @{pokemon-default-prefix}__collapsed {
-    @{pokemon-default-prefix} {
+  @{pixelmon-default-prefix}__collapsed {
+    @{pixelmon-default-prefix} {
       &__sidebar {
-        width: @pokemon-default-aside-collapsed-wd;
+        width: @pixelmon-default-aside-collapsed-wd;
       }
       &__content {
-        margin-left: (@pokemon-default-aside-collapsed-wd + @pokemon-default-content-padding);
+        margin-left: (@pixelmon-default-aside-collapsed-wd + @pixelmon-default-content-padding);
       }
     }
   }

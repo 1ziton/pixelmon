@@ -2,41 +2,41 @@
 order: 1
 title: 开始使用
 type: Documents
-module: PokemonUtilModule
-config: PokemonUtilConfig
+module: PixelmonUtilModule
+config: PixelmonUtilConfig
 ---
 
-@pokemon/util 是一组日常普通使用的工具函数的集合。
+@pixelmon/util 是一组日常普通使用的工具函数的集合。
 
 ## 如何使用
 
-安装 `@pokemon/util` 依赖包：
+安装 `@pixelmon/util` 依赖包：
 
 ```bash
-yarn add @pokemon/util
+yarn add @pixelmon/util
 ```
 
-导入 `PokemonUtilModule` 模块：
+导入 `PixelmonUtilModule` 模块：
 
 ```typescript
-import { PokemonUtilModule } from '@pokemon/util';
+import { PixelmonUtilModule } from '@pixelmon/util';
 
 @NgModule({
   imports: [
-    PokemonUtilModule
+    PixelmonUtilModule
   ]
 })
 export class AppModule { }
 ```
 
-## PokemonUtilConfig
+## PixelmonUtilConfig
 
 通用配置项，例如统一对 `ArrayService` 设置映射名称。
 
 ```ts
-import { PokemonUtilConfig } from '@pokemon/pikachu';
-export function fnPokemonUtilConfig(): PokemonUtilConfig {
-  return Object.assign(new PokemonUtilConfig(), <PokemonUtilConfig>{
+import { PixelmonUtilConfig } from '@pixelmon/pikachu';
+export function fnPixelmonUtilConfig(): PixelmonUtilConfig {
+  return Object.assign(new PixelmonUtilConfig(), <PixelmonUtilConfig>{
     array: {
       idMapName: 'Id',
       parentIdMapName: 'ParentId'
@@ -45,12 +45,12 @@ export function fnPokemonUtilConfig(): PokemonUtilConfig {
 }
 
 @NgModule({ })
-export class PokemonModule {
+export class PixelmonModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: PokemonModule,
+      ngModule: PixelmonModule,
       providers: [
-        { provide: PokemonUtilConfig, useFactory: fnPokemonUtilConfig }
+        { provide: PixelmonUtilConfig, useFactory: fnPixelmonUtilConfig }
       ]
     };
   }

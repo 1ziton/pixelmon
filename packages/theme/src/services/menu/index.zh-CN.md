@@ -5,9 +5,9 @@ subtitle: 菜单服务
 type: Service
 ---
 
-菜单服务的数据格式是一个 [Menu](https://github.com/1ziton/pokemon/blob/master/packages/theme/src/services/menu/interface.ts) 数组，其中 `text` 属性表示菜单文本为必填项，而且本身并不受外部组件的影响（例如[sidebar-nav](/components/sidebar-nav)组件），这是因为菜单是贯穿整个项目必不可少的组成部分，而将其独立成一个服务可以更有效被使用，例如：动态生成导航、标题等。
+菜单服务的数据格式是一个 [Menu](https://github.com/1ziton/pixelmon/blob/master/packages/theme/src/services/menu/interface.ts) 数组，其中 `text` 属性表示菜单文本为必填项，而且本身并不受外部组件的影响（例如[sidebar-nav](/components/sidebar-nav)组件），这是因为菜单是贯穿整个项目必不可少的组成部分，而将其独立成一个服务可以更有效被使用，例如：动态生成导航、标题等。
 
-**建议：** 在 Angular 启动服务（[startup.service.ts](https://github.com/1ziton/pokemon/blob/master/src/app/core/startup/startup.service.ts)）从远程获取到菜单数据后，调用 `add()` 方法。
+**建议：** 在 Angular 启动服务（[startup.service.ts](https://github.com/1ziton/pixelmon/blob/master/src/app/core/startup/startup.service.ts)）从远程获取到菜单数据后，调用 `add()` 方法。
 
 ## API
 
@@ -42,7 +42,7 @@ badgeStatus | 徽标 Badge [颜色](https://ng.ant.design/components/badge/en#nz
 disabled | 是否禁用菜单 | `boolean` | `false`
 hide | 是否隐藏菜单 | `boolean` | `false`
 hideInBreadcrumb | 隐藏面包屑，指 `page-header` 组件的自动生成面包屑时有效 | `boolean` | -
-acl | ACL配置，若导入 `@pokemon/acl` 时自动有效，等同于 `ACLService.can(roleOrAbility: ACLCanType)` 参数值 | `any` | -
+acl | ACL配置，若导入 `@pixelmon/acl` 时自动有效，等同于 `ACLService.can(roleOrAbility: ACLCanType)` 参数值 | `any` | -
 shortcut | 是否快捷菜单项 | `boolean` | -
 shortcutRoot | 快捷菜单根节点 | `boolean` | -
 reuse | 是否允许复用，需配合 `reuse-tab` 组件 | `boolean` | -

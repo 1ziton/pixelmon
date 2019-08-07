@@ -2,8 +2,8 @@
 order: 1
 title: Getting Started
 type: Documents
-module: PokemonACLModule
-config: PokemonACLConfig
+module: PixelmonACLModule
+config: PixelmonACLConfig
 ---
 
 ACL (Access Control List) is a very simple role-based permission control method, you can use in any Angular projects, a online [DEMO](//1ziton.github.io/1ziton/#/logics/acl)
@@ -14,26 +14,26 @@ The `ACLService` service class contains a set of methods based on role permissio
 
 ## Usage
 
-Install `@pokemon/acl`:
+Install `@pixelmon/acl`:
 
 ```bash
-yarn add @pokemon/acl
+yarn add @pixelmon/acl
 ```
 
-Import `PokemonACLModule` module:
+Import `PixelmonACLModule` module:
 
 ```typescript
-import { PokemonACLModule } from '@pokemon/acl';
+import { PixelmonACLModule } from '@pixelmon/acl';
 
 @NgModule({
-  imports: [PokemonACLModule.forRoot()],
+  imports: [PixelmonACLModule.forRoot()],
 })
 export class AppModule {}
 ```
 
 ## API
 
-### PokemonACLConfig
+### PixelmonACLConfig
 
 | Name          | Type                                     | Summary                         | Default |
 | ------------- | ---------------------------------------- | ------------------------------- | ------- |

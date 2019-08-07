@@ -1,8 +1,8 @@
 import { Component, DebugElement, TemplateRef, ViewChild } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { configureTestSuite, createTestContext } from '@pokemon/testing';
+import { configureTestSuite, createTestContext } from '@pixelmon/testing';
 
-import { PokemonUtilModule } from '../util.module';
+import { PixelmonUtilModule } from '../util.module';
 
 describe('utils: string_template_outlet', () => {
   let fixture: ComponentFixture<TestComponent>;
@@ -11,7 +11,7 @@ describe('utils: string_template_outlet', () => {
 
   configureTestSuite(() => {
     TestBed.configureTestingModule({
-      imports: [PokemonUtilModule],
+      imports: [PixelmonUtilModule],
       declarations: [TestComponent],
     });
   });

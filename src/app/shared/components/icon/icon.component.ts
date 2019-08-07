@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { InputBoolean } from '@pokemon/util';
+import { InputBoolean } from '@pixelmon/util';
 
 @Component({
   selector: 'nz-icon',

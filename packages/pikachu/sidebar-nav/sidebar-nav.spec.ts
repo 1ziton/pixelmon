@@ -5,10 +5,10 @@ import { By } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { ACLService } from '@pokemon/acl';
-import { configureTestSuite } from '@pokemon/testing';
-import { PokemonThemeModule, MenuIcon, MenuService, SettingsService, WINDOW } from '@pokemon/theme';
-import { deepCopy } from '@pokemon/util';
+import { ACLService } from '@pixelmon/acl';
+import { configureTestSuite } from '@pixelmon/testing';
+import { PixelmonThemeModule, MenuIcon, MenuService, SettingsService, WINDOW } from '@pixelmon/theme';
+import { deepCopy } from '@pixelmon/util';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { SidebarNavComponent } from './sidebar-nav.component';
@@ -29,12 +29,12 @@ const MOCKMENUS = [
           { text: 'v3' },
           {
             text: 'externalLink-blank',
-            externalLink: '//pokemon.1ziton.com/blank',
+            externalLink: '//pixelmon.1ziton.com/blank',
             target: '_blank',
           },
           {
             text: 'externalLink-top',
-            externalLink: '//pokemon.1ziton.com/top',
+            externalLink: '//pixelmon.1ziton.com/top',
             target: '_top',
           },
         ],
@@ -76,7 +76,7 @@ describe('pikachu: sidebar-nav', () => {
 
   function createModule() {
     injector = TestBed.configureTestingModule({
-      imports: [RouterModule.forRoot([]), PokemonThemeModule, HttpClientTestingModule, SidebarNavModule],
+      imports: [RouterModule.forRoot([]), PixelmonThemeModule, HttpClientTestingModule, SidebarNavModule],
       declarations: [TestComponent],
       providers: [{ provide: ACLService, useClass: MockACLService }, { provide: WINDOW, useFactory: () => new MockWindow() }],
     });
@@ -131,7 +131,7 @@ describe('pikachu: sidebar-nav', () => {
           const win = injector.get(WINDOW) as MockWindow;
           const itemEl = page.getEl<HTMLElement>('.sidebar-nav__item [data-id="7"]');
           itemEl!.click();
-          expect(win.location.href).toBe(`//pokemon.1ziton.com/top`);
+          expect(win.location.href).toBe(`//pixelmon.1ziton.com/top`);
         });
       });
 
@@ -408,7 +408,7 @@ describe('pikachu: sidebar-nav', () => {
       injector = TestBed.configureTestingModule({
         imports: [
           RouterModule.forRoot([]),
-          PokemonThemeModule,
+          PixelmonThemeModule,
           SidebarNavModule,
           RouterTestingModule.withRoutes([
             { path: 'user', component: TestRouteComponent },

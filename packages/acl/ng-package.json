@@ -1,13 +1,13 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/@pokemon/acl",
+  "dest": "../../dist/@pixelmon/acl",
   "deleteDestPath": true,
   "lib": {
     "flatModuleFile": "acl",
     "entryFile": "public_api.ts",
     "umdModuleIds": {
-      "@pokemon/util": "pokemon.util"
+      "@pixelmon/util": "pixelmon.util"
     }
   },
-  "whitelistedNonPeerDependencies": ["tslib", "angular", "@pokemon/util"]
+  "whitelistedNonPeerDependencies": ["tslib", "angular", "@pixelmon/util"]
 }

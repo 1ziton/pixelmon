@@ -15,7 +15,7 @@ registerLocaleData(localeZh);
 import { RoutesModule } from './routes/routes.module';
 import { SharedModule } from './shared/shared.module';
 
-import { POKEMON_I18N_TOKEN } from '@pokemon/theme';
+import { PIXELMON_I18N_TOKEN } from '@pixelmon/theme';
 import { I18NService } from './core/i18n/service';
 import { StartupService } from './core/startup.service';
 
@@ -23,7 +23,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { LayoutComponent } from './layout/layout.component';
 
-import { PokemonModule } from './pokemon.module';
+import { PixelmonModule } from './pixelmon.module';
 
 import { SimplemdeModule } from 'ngx-simplemde';
 import { NgxTinymceModule } from 'ngx-tinymce';
@@ -41,7 +41,7 @@ export function StartupServiceFactory(startupService: StartupService) {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    PokemonModule.forRoot(),
+    PixelmonModule.forRoot(),
     LayoutModule,
     SharedModule,
     RoutesModule,
@@ -63,7 +63,7 @@ export function StartupServiceFactory(startupService: StartupService) {
     }),
   ],
   providers: [
-    { provide: POKEMON_I18N_TOKEN, useClass: I18NService, multi: false },
+    { provide: PIXELMON_I18N_TOKEN, useClass: I18NService, multi: false },
     StartupService,
     {
       provide: APP_INITIALIZER,

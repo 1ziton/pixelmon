@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PokemonThemeConfig } from '../../theme.config';
+import { PixelmonThemeConfig } from '../../theme.config';
 import { ResponsiveConfig } from './responsive.config';
 
 export const REP_MAX = 6;
@@ -9,7 +9,7 @@ export type REP_TYPE = 1 | 2 | 3 | 4 | 5 | 6;
 @Injectable({ providedIn: 'root' })
 export class ResponsiveService {
   private cog: ResponsiveConfig;
-  constructor(cog: PokemonThemeConfig) {
+  constructor(cog: PixelmonThemeConfig) {
     this.cog = {
       rules: {
         1: { xs: 24 },

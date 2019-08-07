@@ -1,10 +1,10 @@
 import { HttpResponse } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController, TestRequest } from '@angular/common/http/testing';
 import { fakeAsync, tick, TestBed, TestBedStatic } from '@angular/core/testing';
-import { deepCopy } from '@pokemon/util';
+import { deepCopy } from '@pixelmon/util';
 import { Type } from '@angular/core';
 
-import { PokemonThemeConfig } from '../../theme.config';
+import { PixelmonThemeConfig } from '../../theme.config';
 import { _HttpClient } from './http.client';
 import { HttpClientConfig } from './http.config';
 
@@ -22,7 +22,7 @@ describe('theme: http.client', () => {
     const providers: any[] = [_HttpClient];
     if (config) {
       providers.push({
-        provide: PokemonThemeConfig,
+        provide: PixelmonThemeConfig,
         useFactory: () => ({
           http: config,
         }),

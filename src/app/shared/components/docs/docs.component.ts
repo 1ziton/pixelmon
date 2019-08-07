@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-import { POKEMON_I18N_TOKEN } from '@pokemon/theme';
-import { deepCopy } from '@pokemon/util';
+import { PIXELMON_I18N_TOKEN } from '@pixelmon/theme';
+import { deepCopy } from '@pixelmon/util';
 
 import { I18NService } from '../../../core/i18n/service';
 import { MetaService } from '../../../core/meta.service';
@@ -28,7 +28,7 @@ export class DocsComponent implements OnInit, OnDestroy {
 
   constructor(
     public meta: MetaService,
-    @Inject(POKEMON_I18N_TOKEN) private i18n: I18NService,
+    @Inject(PIXELMON_I18N_TOKEN) private i18n: I18NService,
     private router: Router,
     private sanitizer: DomSanitizer,
   ) {

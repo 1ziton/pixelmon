@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { deepMerge } from '@pokemon/util';
+import { deepMerge } from '@pixelmon/util';
 import { ModalOptionsForService, NzModalService } from 'ng-zorro-antd/modal';
 import { Observable, Observer } from 'rxjs';
 

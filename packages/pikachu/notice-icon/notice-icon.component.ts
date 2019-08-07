@@ -10,8 +10,8 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { PokemonLocaleService, LocaleData } from '@pokemon/theme';
-import { InputBoolean, InputNumber } from '@pokemon/util';
+import { PixelmonLocaleService, LocaleData } from '@pixelmon/theme';
+import { InputBoolean, InputNumber } from '@pixelmon/util';
 import { Subscription } from 'rxjs';
 
 import { NoticeIconSelect, NoticeItem } from './notice-icon.types';
@@ -39,7 +39,7 @@ export class NoticeIconComponent implements OnInit, OnChanges, OnDestroy {
   @Output() readonly clear = new EventEmitter<string>();
   @Output() readonly popoverVisibleChange = new EventEmitter<boolean>();
 
-  constructor(private i18n: PokemonLocaleService, private cdr: ChangeDetectorRef) {}
+  constructor(private i18n: PixelmonLocaleService, private cdr: ChangeDetectorRef) {}
 
   onVisibleChange(result: boolean) {
     this.popoverVisibleChange.emit(result);

@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { NzTreeBaseService, NzTreeNode } from 'ng-zorro-antd/core';
 import { deepCopy } from '../other/other';
-import { PokemonUtilConfig } from '../util.config';
-import { PokemonUtilModule } from '../util.module';
+import { PixelmonUtilConfig } from '../util.config';
+import { PixelmonUtilModule } from '../util.module';
 import { ArrayService } from './array.service';
 
 const MOCK_ARR: any[] = [
@@ -20,7 +20,7 @@ describe('utils: array', () => {
   describe('#treeToArr', () => {
     beforeEach(() => {
       srv = TestBed.configureTestingModule({
-        imports: [PokemonUtilModule],
+        imports: [PixelmonUtilModule],
       }).get<ArrayService>(ArrayService);
     });
     it('should be tree to array', () => {
@@ -69,7 +69,7 @@ describe('utils: array', () => {
   describe('#arrToTree', () => {
     beforeEach(() => {
       srv = TestBed.configureTestingModule({
-        imports: [PokemonUtilModule],
+        imports: [PixelmonUtilModule],
       }).get<ArrayService>(ArrayService);
     });
     it('should be array to tree', () => {
@@ -100,7 +100,7 @@ describe('utils: array', () => {
   describe('[NzTreeNode]', () => {
     beforeEach(() => {
       srv = TestBed.configureTestingModule({
-        imports: [PokemonUtilModule],
+        imports: [PixelmonUtilModule],
       }).get<ArrayService>(ArrayService);
       page = new PageTreeNode();
     });
@@ -194,10 +194,10 @@ describe('utils: array', () => {
   describe('[config]', () => {
     beforeEach(() => {
       srv = TestBed.configureTestingModule({
-        imports: [PokemonUtilModule],
+        imports: [PixelmonUtilModule],
         providers: [
           {
-            provide: PokemonUtilConfig,
+            provide: PixelmonUtilConfig,
             useValue: {
               array: {
                 idMapName: 'ID',

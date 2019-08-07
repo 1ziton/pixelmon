@@ -3,7 +3,7 @@ import { Component, NgModule } from '@angular/core';
 import { ComponentFixture, TestBed, TestBedStatic } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NzModalModule, NzModalRef } from 'ng-zorro-antd/modal';
-import { PokemonThemeModule } from '../../theme.module';
+import { PixelmonThemeModule } from '../../theme.module';
 import { ModalHelper } from './modal.helper';
 
 describe('theme: ModalHelper', () => {
@@ -13,7 +13,7 @@ describe('theme: ModalHelper', () => {
 
   beforeEach(() => {
     @NgModule({
-      imports: [CommonModule, NoopAnimationsModule, PokemonThemeModule.forChild(), NzModalModule],
+      imports: [CommonModule, NoopAnimationsModule, PixelmonThemeModule.forChild(), NzModalModule],
       declarations: [TestModalComponent, TestComponent],
       entryComponents: [TestModalComponent],
     })

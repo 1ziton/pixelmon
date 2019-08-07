@@ -5,7 +5,7 @@ const path = require('path');
 let root = path.resolve(__dirname, `../..`);
 function copyLess(name) {
   let sourcePath = path.join(root, `packages/${name}`);
-  let targetPath = path.join(root, `dist/@pokemon/${name}`);
+  let targetPath = path.join(root, `dist/@pixelmon/${name}`);
   // index.less
   const spath = `${sourcePath}/index.less`;
   console.log(spath);
@@ -22,4 +22,4 @@ function copyLess(name) {
 ['pikachu'].forEach(name => copyLess(name));
 console.log('pikachu style copy finish');
 // copy theme
-fse.copySync(path.join(root, `packages/theme/styles`), path.join(root, `dist/@pokemon/theme/styles`));
+fse.copySync(path.join(root, `packages/theme/styles`), path.join(root, `dist/@pixelmon/theme/styles`));
