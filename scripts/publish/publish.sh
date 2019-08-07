@@ -29,6 +29,10 @@ echo "email = $NPM_EMAIL" >> ~/.npmrc
 
 # echo "$NPM_TOKEN:$NPM_EMAIL"
 
+NPM_REGISTRY_URL="https://registry.npmjs.org/:_authToken=${NPM_TOKEN}"
+
+npm config set _auth $NPM_TOKEN && npm config set registry $NPM_REGISTRY_URL && npm config set always-auth=true && npm config set email $NPM_EMAIL
+
 clone() {
   rm -rf ${ROOT}
   mkdir -p ${ROOT}
