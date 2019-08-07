@@ -1,6 +1,6 @@
 {
   "name": "pixelmon",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "typings": "index.d.ts",
   "description": "基于 Angular 和 ng-zorro-antd 的组件库",
   "keywords": [
