@@ -1,7 +1,7 @@
 import { ObserversModule } from '@angular/cdk/observers';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PokemonUtilModule } from '@pokemon/util';
+import { PixelmonUtilModule } from '@pixelmon/util';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 
@@ -12,7 +12,7 @@ import { SVComponent } from './view.component';
 const COMPONENTS = [SVContainerComponent, SVComponent, SVTitleComponent];
 
 @NgModule({
-  imports: [CommonModule, ObserversModule, PokemonUtilModule, NzToolTipModule, NzIconModule],
+  imports: [CommonModule, ObserversModule, PixelmonUtilModule, NzToolTipModule, NzIconModule],
   declarations: [...COMPONENTS],
   exports: [...COMPONENTS],
 })

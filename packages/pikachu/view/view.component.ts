@@ -12,8 +12,8 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { ResponsiveService } from '@pokemon/theme';
-import { isEmpty, InputBoolean, InputNumber } from '@pokemon/util';
+import { ResponsiveService } from '@pixelmon/theme';
+import { isEmpty, InputBoolean, InputNumber } from '@pixelmon/util';
 
 import { SVContainerComponent } from './view-container.component';
 

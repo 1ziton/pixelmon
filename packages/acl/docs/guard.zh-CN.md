@@ -8,7 +8,7 @@ type: Documents
 
 路由守卫可以防止未授权用户访问页面。
 
-路由守卫需要单独对每一个路由进行设置，很多时候这看起来很繁琐，`@pokemon/acl` 实现了通用守卫类 `ACLGuard`，可以在路由注册时透过简单的配置完成一些复杂的操作，甚至支持 `Observable` 类型。
+路由守卫需要单独对每一个路由进行设置，很多时候这看起来很繁琐，`@pixelmon/acl` 实现了通用守卫类 `ACLGuard`，可以在路由注册时透过简单的配置完成一些复杂的操作，甚至支持 `Observable` 类型。
 
 使用固定属性 `guard` 来指定 `ACLCanType` 参数，例如：
 
@@ -39,7 +39,7 @@ const routes: Routes = [
 
 ```ts
 import { of } from 'rxjs';
-import { ACLGuard } from '@pokemon/acl';
+import { ACLGuard } from '@pixelmon/acl';
 const routes: Routes = [
   {
     path: 'guard',

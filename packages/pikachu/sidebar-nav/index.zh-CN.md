@@ -6,7 +6,7 @@ cols: 1
 module: SidebarNavModule
 ---
 
-pokemon 左边主菜单，依赖于 `@pokemon/theme`。
+pixelmon 左边主菜单，依赖于 `@pixelmon/theme`。
 
 组件的数据来自 `MenuService`（其结构为 [Menu](/theme/menu#Menu)）， `MenuService` 的操作会自动同步至该组件。
 

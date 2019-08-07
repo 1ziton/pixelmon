@@ -7,7 +7,7 @@ type: Type
 `LazyService` delay loading JS or CSS files.
 
 ```ts
-import { LazyService } from '@pokemon/util';
+import { LazyService } from '@pixelmon/util';
 
 export class AppComponent {
   constructor(private lazy: LazyService) {}

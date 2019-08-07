@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
-import { PokemonI18NService, POKEMON_I18N_TOKEN } from '../i18n/i18n';
+import { PixelmonI18NService, PIXELMON_I18N_TOKEN } from '../i18n/i18n';
 import { MenuService } from '../menu/menu.service';
 
 @Injectable({ providedIn: 'root' })
@@ -21,8 +21,8 @@ export class TitleService implements OnDestroy {
     private title: Title,
     private menuSrv: MenuService,
     @Optional()
-    @Inject(POKEMON_I18N_TOKEN)
-    private i18nSrv: PokemonI18NService,
+    @Inject(PIXELMON_I18N_TOKEN)
+    private i18nSrv: PixelmonI18NService,
     @Inject(DOCUMENT) private doc: any,
   ) {
     this.i18n$ = this.i18nSrv.change.pipe(filter(() => !!this.i18n$)).subscribe(() => this.setTitle());
@@ -53,7 +53,7 @@ export class TitleService implements OnDestroy {
 
   private getByElement(): string {
     const el =
-      this.doc.querySelector('.pokemon-default__content-title h1') || this.doc.querySelector('.page-header__title');
+      this.doc.querySelector('.pixelmon-default__content-title h1') || this.doc.querySelector('.page-header__title');
     if (el) {
       return el.firstChild.textContent.trim();
     }

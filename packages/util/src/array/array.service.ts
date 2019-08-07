@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NzTreeNode } from 'ng-zorro-antd/core';
-import { PokemonUtilConfig } from '../util.config';
+import { PixelmonUtilConfig } from '../util.config';
 import { ArrayConfig } from './array.config';
 
 export interface ArrayServiceTreeToArrOptions {
@@ -60,7 +60,7 @@ export interface ArrayServiceGetKeysByTreeNodeOptions {
 @Injectable({ providedIn: 'root' })
 export class ArrayService {
   private c: ArrayConfig;
-  constructor(cog: PokemonUtilConfig) {
+  constructor(cog: PixelmonUtilConfig) {
     this.c = {
       deepMapName: 'deep',
       parentMapName: 'parent',

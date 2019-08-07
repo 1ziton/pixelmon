@@ -4,8 +4,8 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { PokemonThemeModule } from '../../theme.module';
-import { PokemonI18NService, PokemonI18NServiceFake, POKEMON_I18N_TOKEN } from '../i18n/i18n';
+import { PixelmonThemeModule } from '../../theme.module';
+import { PixelmonI18NService, PixelmonI18NServiceFake, PIXELMON_I18N_TOKEN } from '../i18n/i18n';
 import { Menu } from '../menu/interface';
 import { MenuService } from '../menu/menu.service';
 import { TitleService } from './title.service';
@@ -34,16 +34,16 @@ describe('Service: Title', () => {
 
   let title: TestTitleService;
   let srv: TitleService;
-  let i18n: PokemonI18NService;
-  const pokemon = 'Pokemon';
+  let i18n: PixelmonI18NService;
+  const pixelmon = 'Pixelmon';
   const notPageName = 'Not Page Name';
 
   function genModule(providers: any[] = [], loadI18n = true) {
     const i18nProvider: any[] = loadI18n
-      ? [{ provide: POKEMON_I18N_TOKEN, useClass: PokemonI18NServiceFake }]
+      ? [{ provide: PIXELMON_I18N_TOKEN, useClass: PixelmonI18NServiceFake }]
       : [];
     TestBed.configureTestingModule({
-      imports: [PokemonThemeModule, RouterTestingModule],
+      imports: [PixelmonThemeModule, RouterTestingModule],
       providers: [
         TitleService,
         MenuService,
@@ -53,7 +53,7 @@ describe('Service: Title', () => {
     });
     title = TestBed.get(Title);
     srv = TestBed.get<TitleService>(TitleService);
-    i18n = TestBed.get(POKEMON_I18N_TOKEN);
+    i18n = TestBed.get(PIXELMON_I18N_TOKEN);
   }
 
   afterEach(() => srv.ngOnDestroy());
@@ -62,41 +62,41 @@ describe('Service: Title', () => {
     beforeEach(() => genModule());
 
     it('should set the default empty title', () => {
-      srv.suffix = pokemon;
+      srv.suffix = pixelmon;
       srv.setTitle();
-      expect(title.setTitle).toHaveBeenCalledWith(`${notPageName} - ${pokemon}`);
+      expect(title.setTitle).toHaveBeenCalledWith(`${notPageName} - ${pixelmon}`);
     });
 
     it('should set new title', () => {
-      srv.suffix = pokemon;
+      srv.suffix = pixelmon;
       srv.setTitle('newTitle');
-      expect(title.setTitle).toHaveBeenCalledWith('newTitle - ' + pokemon);
+      expect(title.setTitle).toHaveBeenCalledWith('newTitle - ' + pixelmon);
     });
 
     it('should set new title via array', () => {
-      srv.suffix = pokemon;
+      srv.suffix = pixelmon;
       srv.setTitle(['newTitle']);
-      expect(title.setTitle).toHaveBeenCalledWith('newTitle - ' + pokemon);
+      expect(title.setTitle).toHaveBeenCalledWith('newTitle - ' + pixelmon);
     });
 
     it('#separator', () => {
-      srv.suffix = pokemon;
+      srv.suffix = pixelmon;
       srv.separator = ' / ';
       srv.setTitle('newTitle');
-      expect(title.setTitle).toHaveBeenCalledWith('newTitle / ' + pokemon);
+      expect(title.setTitle).toHaveBeenCalledWith('newTitle / ' + pixelmon);
     });
 
     it('#prefix', () => {
-      srv.prefix = pokemon;
+      srv.prefix = pixelmon;
       srv.setTitle('newTitle');
-      expect(title.setTitle).toHaveBeenCalledWith(pokemon + ' - newTitle');
+      expect(title.setTitle).toHaveBeenCalledWith(pixelmon + ' - newTitle');
     });
 
     it('#reverse', () => {
       srv.reverse = true;
-      srv.suffix = pokemon;
+      srv.suffix = pixelmon;
       srv.setTitle('newTitle');
-      expect(title.setTitle).toHaveBeenCalledWith(pokemon + ' - newTitle');
+      expect(title.setTitle).toHaveBeenCalledWith(pixelmon + ' - newTitle');
     });
 
     it('#default', () => {
@@ -117,7 +117,7 @@ describe('Service: Title', () => {
               firstChild: {
                 snapshot: {
                   data: {
-                    title: pokemon,
+                    title: pixelmon,
                   },
                 },
               },
@@ -125,7 +125,7 @@ describe('Service: Title', () => {
           },
         ]);
         srv.setTitle();
-        expect(title.setTitle).toHaveBeenCalledWith(pokemon);
+        expect(title.setTitle).toHaveBeenCalledWith(pixelmon);
       });
       it('without', () => {
         genModule([
@@ -195,9 +195,9 @@ describe('Service: Title', () => {
   describe('[i18n]', () => {
     it('should be set when not i18n service', () => {
       genModule([], false);
-      srv.suffix = pokemon;
+      srv.suffix = pixelmon;
       srv.setTitle();
-      expect(title.setTitle).toHaveBeenCalledWith(`${notPageName} - ${pokemon}`);
+      expect(title.setTitle).toHaveBeenCalledWith(`${notPageName} - ${pixelmon}`);
     });
     it('should be reset title when i18n has changed', () => {
       genModule();
@@ -207,10 +207,10 @@ describe('Service: Title', () => {
     });
     it('#setTitleByI18n', () => {
       genModule([], true);
-      srv.suffix = pokemon;
+      srv.suffix = pixelmon;
       const key = 'aa';
       srv.setTitleByI18n(key);
-      expect(title.setTitle).toHaveBeenCalledWith(`${key} - ${pokemon}`);
+      expect(title.setTitle).toHaveBeenCalledWith(`${key} - ${pixelmon}`);
     });
   });
 });

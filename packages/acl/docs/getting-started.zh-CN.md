@@ -2,11 +2,11 @@
 order: 1
 title: 开始使用
 type: Documents
-module: PokemonACLModule
-config: PokemonACLConfig
+module: PixelmonACLModule
+config: PixelmonACLConfig
 ---
 
-ACL 全称叫访问控制列表（Access Control List），是一种非常简单的基于角色权限控制方式。一个完全独立 `@pokemon/acl` 模块（[DEMO](//1ziton.github.io/1ziton/#/logics/acl)）。
+ACL 全称叫访问控制列表（Access Control List），是一种非常简单的基于角色权限控制方式。一个完全独立 `@pixelmon/acl` 模块（[DEMO](//1ziton.github.io/1ziton/#/logics/acl)）。
 
 ## 如何运行
 
@@ -14,26 +14,26 @@ ACL 全称叫访问控制列表（Access Control List），是一种非常简单
 
 ## 如何使用
 
-安装 `@pokemon/acl` 依赖包：
+安装 `@pixelmon/acl` 依赖包：
 
 ```bash
-yarn add @pokemon/acl
+yarn add @pixelmon/acl
 ```
 
-导入 `PokemonACLModule` 模块：
+导入 `PixelmonACLModule` 模块：
 
 ```typescript
-import { PokemonACLModule } from '@pokemon/acl';
+import { PixelmonACLModule } from '@pixelmon/acl';
 
 @NgModule({
-  imports: [PokemonACLModule.forRoot()],
+  imports: [PixelmonACLModule.forRoot()],
 })
 export class AppModule {}
 ```
 
 ## API
 
-### PokemonACLConfig
+### PixelmonACLConfig
 
 | 属性          | 类型                                     | 说明               | 默认   |
 | ------------- | ---------------------------------------- | ------------------ | ------ |

@@ -1,5 +1,5 @@
 import { Component, HostBinding, Inject, OnInit } from '@angular/core';
-import { POKEMON_I18N_TOKEN, Menu, MenuService, SettingsService } from '@pokemon/theme';
+import { PIXELMON_I18N_TOKEN, Menu, MenuService, SettingsService } from '@pixelmon/theme';
 import { NzIconService, NzMessageService } from 'ng-zorro-antd';
 
 // #region icons
@@ -22,7 +22,7 @@ import {
   SettingOutline,
   UserOutline,
 } from '@ant-design/icons-angular/icons';
-import { ReuseCustomContextMenu } from '@pokemon/pikachu';
+import { ReuseCustomContextMenu } from '@pixelmon/pikachu';
 import { I18NService, LangType } from 'app/core/i18n/service';
 
 const ICONS = [
@@ -50,20 +50,20 @@ const ICONS = [
   selector: 'dev-layout',
   templateUrl: './layout.component.html',
   host: {
-    '[class.pokemon-default]': 'true',
+    '[class.pixelmon-default]': 'true',
   },
   preserveWhitespaces: false,
 })
 export class DevLayoutComponent implements OnInit {
-  @HostBinding('class.pokemon-default__fixed')
+  @HostBinding('class.pixelmon-default__fixed')
   get isFixed() {
     return this.settings.layout.fixed;
   }
-  @HostBinding('class.pokemon-default__boxed')
+  @HostBinding('class.pixelmon-default__boxed')
   get isBoxed() {
     return this.settings.layout.boxed;
   }
-  @HostBinding('class.pokemon-default__collapsed')
+  @HostBinding('class.pixelmon-default__collapsed')
   get isCollapsed() {
     return this.settings.layout.collapsed;
   }
@@ -97,7 +97,7 @@ export class DevLayoutComponent implements OnInit {
           ],
         },
         {
-          text: 'Pokemon',
+          text: 'Pixelmon',
           icon: 'anticon anticon-appstore',
           children: [
             { text: 'Reuse Tab1', link: '/dev/l1', i18n: 'app.header.menu.docs' },
@@ -137,7 +137,7 @@ export class DevLayoutComponent implements OnInit {
     private menuSrv: MenuService,
     public settings: SettingsService,
     public msgSrv: NzMessageService,
-    @Inject(POKEMON_I18N_TOKEN) private i18n: I18NService,
+    @Inject(PIXELMON_I18N_TOKEN) private i18n: I18NService,
   ) {
     iconSrv.addIcon(...ICONS);
   }

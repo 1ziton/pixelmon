@@ -8,7 +8,7 @@ import {
   Router,
   ROUTER_CONFIGURATION,
 } from '@angular/router';
-import { MenuService, ScrollService } from '@pokemon/theme';
+import { MenuService, ScrollService } from '@pixelmon/theme';
 import { BehaviorSubject, Observable, Unsubscribable } from 'rxjs';
 import { ReuseTabCached, ReuseTabMatchMode, ReuseTabNotify, ReuseTitle } from './reuse-tab.interfaces';
 

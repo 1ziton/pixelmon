@@ -3,7 +3,7 @@ import { HttpClientConfig } from './services/http/http.config';
 import { ResponsiveConfig } from './services/responsive/responsive.config';
 
 @Injectable({ providedIn: 'root' })
-export class PokemonThemeConfig {
+export class PixelmonThemeConfig {
   http?: HttpClientConfig;
   responsive?: ResponsiveConfig;
 }

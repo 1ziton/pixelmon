@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
-      "@pokemon/*": ["../../dist/@pokemon/*"]
+      "@pixelmon/*": ["../../dist/@pixelmon/*"]
     }
   },
   "angularCompilerOptions": {

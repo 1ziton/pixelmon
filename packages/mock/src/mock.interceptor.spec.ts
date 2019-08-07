@@ -18,8 +18,8 @@ import * as Mock from 'mockjs';
 import { Observable } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
 import { MockRequest } from './interface';
-import { PokemonMockConfig } from './mock.config';
-import { PokemonMockModule } from './mock.module';
+import { PixelmonMockConfig } from './mock.config';
+import { PixelmonMockModule } from './mock.module';
 import { MockStatusError } from './status.error';
 
 const DATA = {
@@ -54,8 +54,8 @@ describe('mock: interceptor', () => {
   let http: HttpClient;
   let httpMock: HttpTestingController;
 
-  function genModule(options: PokemonMockConfig, imports: any[] = [], spyConsole = true, providers?: any[]) {
-    options = Object.assign(new PokemonMockConfig(), options);
+  function genModule(options: PixelmonMockConfig, imports: any[] = [], spyConsole = true, providers?: any[]) {
+    options = Object.assign(new PixelmonMockConfig(), options);
     injector = TestBed.configureTestingModule({
       declarations: [RootComponent],
       imports: [
@@ -66,7 +66,7 @@ describe('mock: interceptor', () => {
             loadChildren: 'expected',
           },
         ]),
-        PokemonMockModule.forRoot(options),
+        PixelmonMockModule.forRoot(options),
       ].concat(imports),
       providers: ([] as any[]).concat(providers || []),
     });
@@ -241,7 +241,7 @@ describe('mock: interceptor', () => {
 
       @NgModule({
         declarations: [LayoutComponent, ChildComponent],
-        imports: [PokemonMockModule.forChild(), RouterModule.forChild([{ path: 'child', component: ChildComponent }])],
+        imports: [PixelmonMockModule.forChild(), RouterModule.forChild([{ path: 'child', component: ChildComponent }])],
       })
       class LazyModule {}
 

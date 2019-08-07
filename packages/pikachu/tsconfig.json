@@ -5,8 +5,8 @@
     "rootDir": "..",
     "baseUrl": ".",
     "paths": {
-      "@pokemon/pikachu/*": ["./*"],
-      "@pokemon/*": [ "../*" ]
+      "@pixelmon/pikachu/*": ["./*"],
+      "@pixelmon/*": [ "../*" ]
     }
   },
   "files": [

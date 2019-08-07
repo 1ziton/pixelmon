@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/@pokemon/pikachu",
+  "dest": "../../dist/@pixelmon/pikachu",
   "lib": {
     "flatModuleFile": "pikachu",
     "entryFile": "public_api.ts"
@@ -11,8 +11,8 @@
     "date-fns",
     "ngx-countdown",
     "qrious",
-    "@pokemon/util",
-    "@pokemon/theme",
-    "@pokemon/acl"
+    "@pixelmon/util",
+    "@pixelmon/theme",
+    "@pixelmon/acl"
   ]
 }

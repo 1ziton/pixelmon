@@ -6,7 +6,7 @@ type: Documents
 
 ## 写在前面
 
-很多时候需要对某个按钮进行权限控制，`@pokemon/acl` 提供一个 `acl` 指令，可以利用角色或权限点对某个按钮、表格、列表等元素进行权限控制。
+很多时候需要对某个按钮进行权限控制，`@pixelmon/acl` 提供一个 `acl` 指令，可以利用角色或权限点对某个按钮、表格、列表等元素进行权限控制。
 
 ## 原理
 
@@ -77,18 +77,18 @@ acl 指令为了能所传递的值是角色还是权限点，所以以 `string` 
 
 **字符串型权限点**
 
-检查权限是通过 `can` 方法，`PokemonACLConfig` 包含 `preCan` 方法，可以利用该方法来实现一个字符串区分角色或权限点。
+检查权限是通过 `can` 方法，`PixelmonACLConfig` 包含 `preCan` 方法，可以利用该方法来实现一个字符串区分角色或权限点。
 
 ```ts
-export function fnPokemonACLConfig(): PokemonACLConfig {
+export function fnPixelmonACLConfig(): PixelmonACLConfig {
   return {
-    ...new PokemonACLConfig(),
+    ...new PixelmonACLConfig(),
     ...({
       preCan: (roleOrAbility: ACLCanType) => {
         const str = roleOrAbility.toString();
         return str.startsWith('ability.') ? { ability: [str] } : null;
       },
-    } as PokemonACLConfig),
+    } as PixelmonACLConfig),
   };
 }
 ```

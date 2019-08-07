@@ -15,7 +15,7 @@ Simplest of usage.
 
 ```ts
 import { Component, OnDestroy } from '@angular/core';
-import { CacheService } from '@pokemon/cache';
+import { CacheService } from '@pixelmon/cache';
 import { NzMessageService } from 'ng-zorro-antd';
 import { Subscription } from 'rxjs';
 

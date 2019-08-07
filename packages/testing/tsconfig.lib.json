@@ -5,7 +5,7 @@
     "rootDir": ".",
     "typeRoots": ["../../node_modules/@types"],
     "paths": {
-      "@pokemon/*": ["../../dist/@pokemon/*"]
+      "@pixelmon/*": ["../../dist/@pixelmon/*"]
     }
   },
   "angularCompilerOptions": {

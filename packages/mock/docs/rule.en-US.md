@@ -39,7 +39,7 @@ export const USERS = {
 Supports three types: `Object`, `Array`, `(req: MockRequest) => any`.
 
 ```ts
-import { MockStatusError } from '@pokemon/mock';
+import { MockStatusError } from '@pixelmon/mock';
 
 export const USERS = {
   // Array
@@ -74,7 +74,7 @@ When you want to respond to a `404` http status.
 ## Demo
 
 ```ts
-import { MockStatusError } from '@pokemon/mock';
+import { MockStatusError } from '@pixelmon/mock';
 
 export const USERS = {
   // Support object or array values
@@ -98,4 +98,4 @@ export const USERS = {
 
 ## Storage rule
 
-In general, Mock is required during development, so recommended to create `_mock` directory in the project root directory and create `index.ts` file to export all data rules. See [ng-pokemon/\_mock](Https://github.com/ng-pokemon/ng-pokemon/tree/master/_mock).
+In general, Mock is required during development, so recommended to create `_mock` directory in the project root directory and create `index.ts` file to export all data rules. See [ng-pixelmon/\_mock](Https://github.com/ng-pixelmon/ng-pixelmon/tree/master/_mock).

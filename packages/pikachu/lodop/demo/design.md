@@ -16,7 +16,7 @@ Use print design for font, font size, object layout, etc., and use `attachCode` 
 ```ts
 import { Component } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd';
-import { LodopService, Lodop } from '@pokemon/pikachu';
+import { LodopService, Lodop } from '@pixelmon/pikachu';
 
 @Component({
   selector: 'app-demo',

@@ -2,7 +2,7 @@ import { TestBed, TestBedStatic } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { ACLGuard } from './acl-guard';
-import { PokemonACLModule } from './acl.module';
+import { PixelmonACLModule } from './acl.module';
 import { ACLService } from './acl.service';
 import { ACLType } from './acl.type';
 
@@ -13,7 +13,7 @@ describe('acl: guard', () => {
 
   beforeEach(() => {
     injector = TestBed.configureTestingModule({
-      imports: [RouterTestingModule.withRoutes([]), PokemonACLModule.forRoot()],
+      imports: [RouterTestingModule.withRoutes([]), PixelmonACLModule.forRoot()],
     });
     srv = injector.get<ACLGuard>(ACLGuard);
     acl = injector.get<ACLService>(ACLService);

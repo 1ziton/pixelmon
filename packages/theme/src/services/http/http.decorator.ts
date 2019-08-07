@@ -1,7 +1,7 @@
 // tslint:disable:no-invalid-this only-arrow-functions
 import { HttpHeaders } from '@angular/common/http';
 import { Inject, Injector } from '@angular/core';
-import { ACLService } from '@pokemon/acl';
+import { ACLService } from '@pixelmon/acl';
 import { throwError, Observable } from 'rxjs';
 
 import { _HttpClient } from './http.client';
@@ -11,7 +11,7 @@ export abstract class BaseApi {
 }
 
 export interface HttpOptions {
-  /** ACL配置，若导入 `@pokemon/acl` 时自动有效，等同于 `ACLService.can(roleOrAbility: ACLCanType)` 参数值 */
+  /** ACL配置，若导入 `@pixelmon/acl` 时自动有效，等同于 `ACLService.can(roleOrAbility: ACLCanType)` 参数值 */
   acl?: any;
   observe?: 'body' | 'events' | 'response';
   responseType?: 'arraybuffer' | 'blob' | 'json' | 'text';
@@ -117,7 +117,7 @@ function makeMethod(method: string) {
         const http = this.injector.get(_HttpClient, null);
         if (http == null) {
           throw new TypeError(
-            `Not found '_HttpClient', You can import 'PokemonThemeModule' && 'HttpClientModule' in your root module.`,
+            `Not found '_HttpClient', You can import 'PixelmonThemeModule' && 'HttpClientModule' in your root module.`,
           );
         }
 

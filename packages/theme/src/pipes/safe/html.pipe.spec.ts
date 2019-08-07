@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
-import { PokemonThemeModule } from '../../theme.module';
+import { PixelmonThemeModule } from '../../theme.module';
 
 describe('Pipe: html', () => {
   let fixture: ComponentFixture<TestComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [PokemonThemeModule.forRoot()],
+      imports: [PixelmonThemeModule.forRoot()],
       declarations: [TestComponent],
     });
     fixture = TestBed.createComponent(TestComponent);

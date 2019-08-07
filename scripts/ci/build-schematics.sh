@@ -154,7 +154,7 @@ copyFiles() {
     "${1}src/app/shared/utils/*|${2}application/files/src/app/shared/utils/"
     "${1}src/app/shared/index.ts|${2}application/files/src/app/shared/"
     # app.component
-    "${1}src/app/pokemon.module.ts|${2}application/files/src/app/"
+    "${1}src/app/pixelmon.module.ts|${2}application/files/src/app/"
     "${1}src/app/app.component.ts|${2}application/files/src/app/"
     # layout
     "${1}src/app/layout/fullscreen|${2}application/files/src/app/layout/"
@@ -215,7 +215,7 @@ buildCLI() {
   if [[ ${COPY} == true ]]; then
     if [[ ${TRAVIS} == true ]]; then
       cloneScaffold
-      echo "== copy pokemon/ng-alain files via travis mode"
+      echo "== copy pixelmon/ng-alain files via travis mode"
       copyFiles 'ng-alain/' ${DIST}/
     else
       echo "== copy work/ng-alain files via dev mode"
@@ -249,10 +249,10 @@ integrationCli() {
   ng g ng-alain:ng-add --defaultLanguage=en --hmr=true --codeStyle=true --form=true --mock=true --i18n=true --g2=true
   echo ">>> Copy again ng-alain"
   rsync -a ${DIST} ${INTEGRATION_SOURCE}/node_modules/ng-alain
-  echo ">>> Copy @pokemon/*"
-  echo ">>>>>> Clone pokemon & cli dist..."
-  git clone --depth 1 https://github.com/ng-alain/pokemon-builds.git
-  rsync -a ${INTEGRATION_SOURCE}/pokemon-builds/ ${INTEGRATION_SOURCE}/node_modules/
+  echo ">>> Copy @pixelmon/*"
+  echo ">>>>>> Clone pixelmon & cli dist..."
+  git clone --depth 1 https://github.com/ng-alain/pixelmon-builds.git
+  rsync -a ${INTEGRATION_SOURCE}/pixelmon-builds/ ${INTEGRATION_SOURCE}/node_modules/
   echo ">>> Running npm run icon"
   npm run icon
   echo ">>> Running build"
@@ -301,7 +301,7 @@ echo "Finished!!"
 # clear | bash ./scripts/ci/build-schematics.sh -b -copy -debug
 if [[ ${DEBUG} == true ]]; then
   cd ../../
-  DEBUG_FROM=${PWD}/work/pokemon/dist/ng-alain/*
+  DEBUG_FROM=${PWD}/work/pixelmon/dist/ng-alain/*
   DEBUG_TO=${PWD}/work/ng8/node_modules/ng-alain/
   echo "DEBUG_FROM:${DEBUG_FROM}"
   echo "DEBUG_TO:${DEBUG_TO}"

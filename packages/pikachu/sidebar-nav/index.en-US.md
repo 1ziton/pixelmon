@@ -6,7 +6,7 @@ cols: 1
 module: SidebarNavModule
 ---
 
-pokemon The left main menu depends on `@pokemon/theme`.
+pixelmon The left main menu depends on `@pixelmon/theme`.
 
 The component data comes from `MenuService` (which is structured as [Menu](/theme/menu#Menu)), and the operation of `MenuService` is auto synchronized to the component.
 

@@ -1,8 +1,8 @@
 import { Component, DebugElement, ViewChild } from '@angular/core';
 import { inject, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { configureTestSuite, createTestContext } from '@pokemon/testing';
-import { REP_MAX } from '@pokemon/theme';
+import { configureTestSuite, createTestContext } from '@pixelmon/testing';
+import { REP_MAX } from '@pixelmon/theme';
 
 import { SVContainerComponent } from './view-container.component';
 import { SVComponent } from './view.component';

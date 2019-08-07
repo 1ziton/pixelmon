@@ -13,14 +13,14 @@ module: ReuseTabModule
 
 ## 如何使用
 
-默认 `ReuseTabModule` 并不会注册 `RouteReuseStrategy`，这是因为若默认在模块内注册会导致所有引入 `@pokemon/pikachu` 模块都会强制使用路由复用（不管是否模板是否包括 `<reuse-tab>`）。因此：
+默认 `ReuseTabModule` 并不会注册 `RouteReuseStrategy`，这是因为若默认在模块内注册会导致所有引入 `@pixelmon/pikachu` 模块都会强制使用路由复用（不管是否模板是否包括 `<reuse-tab>`）。因此：
 
 **注册RouteReuseStrategy**
 
-> pokemon 使用方式参考：[pokemon.module.ts](https://github.com/1ziton/pokemon/blob/master/src/app/pokemon.module.ts#L33)。
+> pixelmon 使用方式参考：[pixelmon.module.ts](https://github.com/1ziton/pixelmon/blob/master/src/app/pixelmon.module.ts#L33)。
 
 ```ts
-// pokemon.module.ts or app.module.ts
+// pixelmon.module.ts or app.module.ts
 providers: [
   {
     provide: RouteReuseStrategy,

@@ -1,4 +1,4 @@
-export class PokemonMockConfig {
+export class PixelmonMockConfig {
   /** 规则定义数据 */
   data: any;
   /** 请求延迟，单位：毫秒，默认：`300` */

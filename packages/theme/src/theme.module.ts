@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 // #endregion
-// #region all pokemon used icons
+// #region all pixelmon used icons
 // - zorro: https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/components/icon/nz-icon.service.ts#L6
 import { BellOutline, DeleteOutline, InboxOutline, PlusOutline } from '@ant-design/icons-angular/icons';
 import { NzIconService } from 'ng-zorro-antd/icon';
-import { PokemonLocaleModule } from './locale/locale.module';
+import { PixelmonLocaleModule } from './locale/locale.module';
 // #region import
 import { DrawerHelper } from './services/drawer/drawer.helper';
 import { ModalHelper } from './services/modal/modal.helper';
@@ -38,23 +38,23 @@ const ICONS = [BellOutline, DeleteOutline, PlusOutline, InboxOutline];
 @NgModule({
   imports: [CommonModule, RouterModule, OverlayModule, FilterPipeModule, TranslatePipeModule, ShortcutPipeModule],
   declarations: [...COMPONENTS, ...PIPES],
-  exports: [...COMPONENTS, ...PIPES, PokemonLocaleModule],
+  exports: [...COMPONENTS, ...PIPES, PixelmonLocaleModule],
 })
-export class PokemonThemeModule {
+export class PixelmonThemeModule {
   constructor(iconSrv: NzIconService) {
     iconSrv.addIcon(...ICONS);
   }
 
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: PokemonThemeModule,
+      ngModule: PixelmonThemeModule,
       providers: [...HELPERS],
     };
   }
 
   static forChild(): ModuleWithProviders {
     return {
-      ngModule: PokemonThemeModule,
+      ngModule: PixelmonThemeModule,
       providers: [...HELPERS],
     };
   }

@@ -4,7 +4,7 @@
       "flatModuleFile": "lodop",
       "entryFile": "public_api.ts",
       "umdModuleIds": {
-        "@pokemon/util": "pokemon.util"
+        "@pixelmon/util": "pixelmon.util"
       }
     }
   }

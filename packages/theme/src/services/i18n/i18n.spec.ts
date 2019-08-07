@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { PokemonThemeModule } from '../../theme.module';
-import { PokemonI18NService, PokemonI18NServiceFake, POKEMON_I18N_TOKEN } from './i18n';
+import { PixelmonThemeModule } from '../../theme.module';
+import { PixelmonI18NService, PixelmonI18NServiceFake, PIXELMON_I18N_TOKEN } from './i18n';
 
 describe('theme: i18n', () => {
-  const i18n = new PokemonI18NServiceFake();
+  const i18n = new PixelmonI18NServiceFake();
 
   it('#use', () => {
     i18n.use('zh-CN');
@@ -22,9 +22,9 @@ describe('theme: i18n', () => {
 
   describe('[i18n pipe]', () => {
     let fixture: ComponentFixture<TestComponent>;
-    let srv: PokemonI18NService;
+    let srv: PixelmonI18NService;
 
-    class MockI18NService extends PokemonI18NServiceFake {
+    class MockI18NService extends PixelmonI18NServiceFake {
       data: any = {};
       use(_lang: string) {
         this.data = {
@@ -44,18 +44,18 @@ describe('theme: i18n', () => {
 
     function genModule() {
       TestBed.configureTestingModule({
-        imports: [PokemonThemeModule.forRoot()],
+        imports: [PixelmonThemeModule.forRoot()],
         declarations: [TestComponent],
         providers: [
           {
-            provide: POKEMON_I18N_TOKEN,
+            provide: PIXELMON_I18N_TOKEN,
             useClass: MockI18NService,
             multi: false,
           },
         ],
       });
       fixture = TestBed.createComponent(TestComponent);
-      srv = fixture.debugElement.injector.get(POKEMON_I18N_TOKEN);
+      srv = fixture.debugElement.injector.get(PIXELMON_I18N_TOKEN);
       srv.use('en');
       fixture.detectChanges();
     }

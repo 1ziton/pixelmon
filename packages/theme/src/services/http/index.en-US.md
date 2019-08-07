@@ -4,7 +4,7 @@ title: _HttpClient
 type: Service
 ---
 
-[\_HttpClient](https://github.com/1ziton/pokemon/blob/master/packages/theme/src/services/http/http.client.ts) service is based on Angular `HttpClient`.
+[\_HttpClient](https://github.com/1ziton/pixelmon/blob/master/packages/theme/src/services/http/http.client.ts) service is based on Angular `HttpClient`.
 
 ## Features
 
@@ -28,14 +28,14 @@ For `_HttpClient`:
 _HttpClient.get(url, { pi: 1 });
 ```
 
-## PokemonThemeConfig
+## PixelmonThemeConfig
 
 Common configuration, such as unifying null and time processing for `_HttpClient`.
 
 ```ts
-import { PokemonThemeConfig } from '@pokemon/theme';
-export function fnPokemonThemeConfig(): PokemonThemeConfig {
-  return Object.assign(new PokemonThemeConfig(), <PokemonThemeConfig>{
+import { PixelmonThemeConfig } from '@pixelmon/theme';
+export function fnPixelmonThemeConfig(): PixelmonThemeConfig {
+  return Object.assign(new PixelmonThemeConfig(), <PixelmonThemeConfig>{
     http: {
       nullValueHandling: 'ignore',
     },
@@ -43,12 +43,12 @@ export function fnPokemonThemeConfig(): PokemonThemeConfig {
 }
 
 @NgModule({})
-export class PokemonModule {
+export class PixelmonModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: PokemonModule,
+      ngModule: PixelmonModule,
       providers: [
-        { provide: PokemonThemeConfig, useFactory: fnPokemonThemeConfig },
+        { provide: PixelmonThemeConfig, useFactory: fnPixelmonThemeConfig },
       ],
     };
   }
@@ -115,7 +115,7 @@ class RestService extends BaseApi {
 
 | Property          | Description                         | Type                         | Default |
 | ----------------- | ----------------------------------- | ---------------------------- | ------- |
-| `acl`             | ACL config, depends on `@pokemon/acl` | `any`                        | -       |
+| `acl`             | ACL config, depends on `@pixelmon/acl` | `any`                        | -       |
 | `observe`         | Specify response content            | `body,events,response`       | -       |
 | `responseType`    | Specify content format              | `arraybuffer,blob,json,text` | -       |
 | `reportProgress`  | Whether monitor progress events     | `boolean`                    | -       |

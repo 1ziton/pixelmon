@@ -3,9 +3,9 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core
 import { throwIfAlreadyLoaded } from './core/module-import-guard';
 
 // mock
-import { PokemonMockModule } from '@pokemon/mock';
+import { PixelmonMockModule } from '@pixelmon/mock';
 
-import { PokemonThemeModule } from '@pokemon/theme';
+import { PixelmonThemeModule } from '@pixelmon/theme';
 import * as MOCKDATA from '../../_mock';
 
 // #region reuse-tab
@@ -14,14 +14,14 @@ import * as MOCKDATA from '../../_mock';
  * 1、增加 `REUSETAB_PROVIDES`
  * 2、在 `src/app/layout/default/default.component.html` 修改：
  *  ```html
- *  <section class="pokemon-default__content">
+ *  <section class="pixelmon-default__content">
  *    <reuse-tab></reuse-tab>
  *    <router-outlet></router-outlet>
  *  </section>
  *  ```
  */
 // import { RouteReuseStrategy } from '@angular/router';
-// import { ReuseTabService, ReuseTabStrategy } from '@pokemon/pikachu/reuse-tab';
+// import { ReuseTabService, ReuseTabStrategy } from '@pixelmon/pikachu/reuse-tab';
 const REUSETAB_PROVIDES = [
   // {
   //   provide: RouteReuseStrategy,
@@ -33,9 +33,9 @@ const REUSETAB_PROVIDES = [
 
 // #region global config functions
 
-import { LodopConfig } from '@pokemon/pikachu';
+import { LodopConfig } from '@pixelmon/pikachu';
 
-import { PokemonACLModule } from '@pokemon/acl';
+import { PixelmonACLModule } from '@pixelmon/acl';
 
 export function fnLodopConfig(): LodopConfig {
   return Object.assign(new LodopConfig(), {
@@ -48,21 +48,21 @@ export function fnLodopConfig(): LodopConfig {
 
 @NgModule({
   imports: [
-    PokemonThemeModule.forRoot(),
-    PokemonACLModule.forRoot(),
-    PokemonMockModule.forRoot({
+    PixelmonThemeModule.forRoot(),
+    PixelmonACLModule.forRoot(),
+    PixelmonMockModule.forRoot({
       data: MOCKDATA,
     }),
   ],
 })
-export class PokemonModule {
-  constructor(@Optional() @SkipSelf() parentModule: PokemonModule) {
-    throwIfAlreadyLoaded(parentModule, 'PokemonModule');
+export class PixelmonModule {
+  constructor(@Optional() @SkipSelf() parentModule: PixelmonModule) {
+    throwIfAlreadyLoaded(parentModule, 'PixelmonModule');
   }
 
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: PokemonModule,
+      ngModule: PixelmonModule,
       providers: [
         ...REUSETAB_PROVIDES,
         {

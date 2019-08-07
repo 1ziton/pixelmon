@@ -39,7 +39,7 @@ export const USERS = {
 响应内容支持三种类型：`Object`、`Array`、`(req: MockRequest) => any`。
 
 ```ts
-import { MockStatusError } from '@pokemon/mock';
+import { MockStatusError } from '@pixelmon/mock';
 
 export const USERS = {
   // Array
@@ -74,7 +74,7 @@ export const USERS = {
 ## 一些示例
 
 ```ts
-import { MockStatusError } from '@pokemon/mock';
+import { MockStatusError } from '@pixelmon/mock';
 
 export const USERS = {
   // 支持值为 Object 和 Array
@@ -98,4 +98,4 @@ export const USERS = {
 
 ## 存储规则
 
-一般来说 Mock 都是开发过程中需要，因此建议在项目根目录下创建一个 `_mock` 目录，并创建一个 `index.ts` 文件用于导出所有数据规则，参考 [ng-pokemon/\_mock](https://github.com/ng-pokemon/ng-pokemon/tree/master/_mock)。
+一般来说 Mock 都是开发过程中需要，因此建议在项目根目录下创建一个 `_mock` 目录，并创建一个 `index.ts` 文件用于导出所有数据规则，参考 [ng-pixelmon/\_mock](https://github.com/ng-pixelmon/ng-pixelmon/tree/master/_mock)。

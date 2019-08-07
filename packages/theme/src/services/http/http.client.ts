@@ -2,7 +2,7 @@ import { HttpClient, HttpEvent, HttpHeaders, HttpParams, HttpResponse } from '@a
 import { Injectable } from '@angular/core';
 import { throwError, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { PokemonThemeConfig } from '../../theme.config';
+import { PixelmonThemeConfig } from '../../theme.config';
 import { HttpClientConfig } from './http.config';
 
 export type _HttpHeaders = HttpHeaders | { [header: string]: string | string[] };
@@ -18,7 +18,7 @@ export type HttpObserve = 'body' | 'events' | 'response';
 // tslint:disable-next-line:class-name
 export class _HttpClient {
   private cog: HttpClientConfig;
-  constructor(private http: HttpClient, cog: PokemonThemeConfig) {
+  constructor(private http: HttpClient, cog: PixelmonThemeConfig) {
     this.cog = {
       nullValueHandling: 'include',
       dateValueHandling: 'timestamp',

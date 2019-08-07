@@ -9,8 +9,8 @@
         "ng-zorro-antd/icon": "ng-zorro-antd/icon",
         "ng-zorro-antd/menu": "ng-zorro-antd/menu",
         "ng-zorro-antd/tabs": "ng-zorro-antd/tabs",
-        "@pokemon/theme": "pokemon.theme",
-        "@pokemon/util": "pokemon.util"
+        "@pixelmon/theme": "pixelmon.theme",
+        "@pixelmon/util": "pixelmon.util"
       }
     }
   }

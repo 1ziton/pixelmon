@@ -3,7 +3,7 @@ import { TestBed, TestBedStatic } from '@angular/core/testing';
 import { concat } from 'rxjs';
 import { filter, flatMap, tap } from 'rxjs/operators';
 
-import { LazyService } from '@pokemon/util';
+import { LazyService } from '@pixelmon/util';
 
 import { LodopConfig } from './lodop.config';
 import { LodopModule } from './lodop.module';

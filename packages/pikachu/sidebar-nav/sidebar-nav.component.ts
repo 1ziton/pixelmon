@@ -14,8 +14,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Menu, MenuService, SettingsService, WINDOW } from '@pokemon/theme';
-import { InputBoolean } from '@pokemon/util';
+import { Menu, MenuService, SettingsService, WINDOW } from '@pixelmon/theme';
+import { InputBoolean } from '@pixelmon/util';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -89,7 +89,7 @@ export class SidebarNavComponent implements OnInit, OnDestroy {
   private clearFloatingContainer() {
     if (!this.floatingEl) return;
     this.floatingEl.removeEventListener('click', this.floatingAreaClickHandle.bind(this));
-    // fix ie: https://github.com/1ziton/pokemon/issues/52
+    // fix ie: https://github.com/1ziton/pixelmon/issues/52
     if (this.floatingEl.hasOwnProperty('remove')) {
       this.floatingEl.remove();
     } else if (this.floatingEl.parentNode) {

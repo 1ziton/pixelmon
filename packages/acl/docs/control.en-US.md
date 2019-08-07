@@ -6,7 +6,7 @@ type: Documents
 
 ## Foreword
 
-Many times you need to control the permissions of a button. `@pokemon/acl` provides an `acl` directive that allows you to control the permissions of a button, table, list, etc.
+Many times you need to control the permissions of a button. `@pixelmon/acl` provides an `acl` directive that allows you to control the permissions of a button, table, list, etc.
 
 ## Principle
 
@@ -75,18 +75,18 @@ Displayed when the button must have a `10` and `USER-EDIT` permission.
 
 **String permission**
 
-The check permission is via the `can` method, and the `PokemonACLConfig` contains the `preCan` method, which can be used to implement a string to distinguish roles or permissions.
+The check permission is via the `can` method, and the `PixelmonACLConfig` contains the `preCan` method, which can be used to implement a string to distinguish roles or permissions.
 
 ```ts
-export function fnPokemonACLConfig(): PokemonACLConfig {
+export function fnPixelmonACLConfig(): PixelmonACLConfig {
   return {
-    ...new PokemonACLConfig(),
+    ...new PixelmonACLConfig(),
     ...({
       preCan: (roleOrAbility: ACLCanType) => {
         const str = roleOrAbility.toString();
         return str.startsWith('ability.') ? { ability: [str] } : null;
       },
-    } as PokemonACLConfig),
+    } as PixelmonACLConfig),
   };
 }
 ```

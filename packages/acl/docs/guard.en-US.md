@@ -8,7 +8,7 @@ type: Documents
 
 Routing guard prevent unauthorized users visit the page.
 
-`@pokemon/acl` implements the generic guard class `ACLGuard`, which allows for complex operations through simple configuration in route registration, and supports the `Observable` type.
+`@pixelmon/acl` implements the generic guard class `ACLGuard`, which allows for complex operations through simple configuration in route registration, and supports the `Observable` type.
 
 Use the fixed attribute `guard` to specify the `ACLCanType` parameter value, for example:
 
@@ -39,7 +39,7 @@ const routes: Routes = [
 
 ```ts
 import { of } from 'rxjs';
-import { ACLGuard } from '@pokemon/acl';
+import { ACLGuard } from '@pixelmon/acl';
 const routes: Routes = [
   {
     path: 'guard',

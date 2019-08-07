@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/@pokemon/theme",
+  "dest": "../../dist/@pixelmon/theme",
   "deleteDestPath": true,
   "lib": {
     "flatModuleFile": "theme",
@@ -12,8 +12,8 @@
       "ng-zorro-antd/modal": "ng-zorro-antd/modal",
       "ng-zorro-antd/icon": "ng-zorro-antd/icon",
       "date-fns": "DateFns",
-      "@pokemon/acl": "pokemon.acl",
-      "@pokemon/util": "pokemon.util"
+      "@pixelmon/acl": "pixelmon.acl",
+      "@pixelmon/util": "pixelmon.util"
     }
   },
   "whitelistedNonPeerDependencies": [
@@ -21,8 +21,8 @@
     "angular",
     "date-fns",
     "ng-zorro-antd",
-    "@pokemon/acl",
-    "@pokemon/util",
+    "@pixelmon/acl",
+    "@pixelmon/util",
     "@ant-design/icons-angular"
   ]
 }

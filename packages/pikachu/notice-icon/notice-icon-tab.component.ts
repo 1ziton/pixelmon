@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { LocaleData } from '@pokemon/theme';
+import { LocaleData } from '@pixelmon/theme';
 import { NoticeIconSelect, NoticeItem } from './notice-icon.types';
 
 @Component({

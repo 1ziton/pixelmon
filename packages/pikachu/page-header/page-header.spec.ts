@@ -4,8 +4,8 @@ import { fakeAsync, inject, tick, ComponentFixture, TestBed, TestBedStatic } fro
 import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { configureTestSuite, createTestContext } from '@pokemon/testing';
-import { PokemonI18NService, PokemonI18NServiceFake, POKEMON_I18N_TOKEN, MenuService, SettingsService, TitleService } from '@pokemon/theme';
+import { configureTestSuite, createTestContext } from '@pixelmon/testing';
+import { PixelmonI18NService, PixelmonI18NServiceFake, PIXELMON_I18N_TOKEN, MenuService, SettingsService, TitleService } from '@pixelmon/theme';
 
 import { NzAffixComponent } from 'ng-zorro-antd';
 import { ReuseTabService } from '../reuse-tab/reuse-tab.service';
@@ -13,7 +13,7 @@ import { PageHeaderComponent } from './page-header.component';
 import { PageHeaderConfig } from './page-header.config';
 import { PageHeaderModule } from './page-header.module';
 
-class MockI18NServiceFake extends PokemonI18NServiceFake {
+class MockI18NServiceFake extends PixelmonI18NServiceFake {
   fanyi(key: string) {
     return key;
   }
@@ -218,13 +218,13 @@ describe('pikachu: page-header', () => {
     });
 
     describe('[i18n]', () => {
-      let i18n: PokemonI18NService;
+      let i18n: PixelmonI18NService;
       beforeEach(() => {
-        TestBed.overrideProvider(POKEMON_I18N_TOKEN, {
+        TestBed.overrideProvider(PIXELMON_I18N_TOKEN, {
           useFactory: () => new MockI18NServiceFake(),
         });
         ({ fixture, dl, context } = createTestContext(TestI18nComponent));
-        i18n = injector.get(POKEMON_I18N_TOKEN);
+        i18n = injector.get(PIXELMON_I18N_TOKEN);
         menuSrv = injector.get<MenuService>(MenuService);
         router = injector.get<Router>(Router);
         fixture.detectChanges();

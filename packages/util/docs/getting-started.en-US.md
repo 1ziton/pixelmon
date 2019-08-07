@@ -2,41 +2,41 @@
 order: 1
 title: Getting Started
 type: Documents
-module: PokemonUtilModule
-config: PokemonUtilConfig
+module: PixelmonUtilModule
+config: PixelmonUtilConfig
 ---
 
-`@pokemon/util` is a collection of tool functions.
+`@pixelmon/util` is a collection of tool functions.
 
 ## Usage
 
-Installing `@pokemon/util` dependency package:
+Installing `@pixelmon/util` dependency package:
 
 ```bash
-yarn add @pokemon/util
+yarn add @pixelmon/util
 ```
 
-Import the `PokemonUtilModule` in to your root AppModule.
+Import the `PixelmonUtilModule` in to your root AppModule.
 
 ```typescript
-import { PokemonUtilModule } from '@pokemon/util';
+import { PixelmonUtilModule } from '@pixelmon/util';
 
 @NgModule({
   imports: [
-    PokemonUtilModule
+    PixelmonUtilModule
   ]
 })
 export class AppModule { }
 ```
 
-## PokemonUtilConfig
+## PixelmonUtilConfig
 
 Common configuration, such as unifying mapping name for `ArrayService`.
 
 ```ts
-import { PokemonUtilConfig } from '@pokemon/pikachu';
-export function fnPokemonUtilConfig(): PokemonUtilConfig {
-  return Object.assign(new PokemonUtilConfig(), <PokemonUtilConfig>{
+import { PixelmonUtilConfig } from '@pixelmon/pikachu';
+export function fnPixelmonUtilConfig(): PixelmonUtilConfig {
+  return Object.assign(new PixelmonUtilConfig(), <PixelmonUtilConfig>{
     array: {
       idMapName: 'Id',
       parentIdMapName: 'ParentId'
@@ -45,12 +45,12 @@ export function fnPokemonUtilConfig(): PokemonUtilConfig {
 }
 
 @NgModule({ })
-export class PokemonModule {
+export class PixelmonModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: PokemonModule,
+      ngModule: PixelmonModule,
       providers: [
-        { provide: PokemonUtilConfig, useFactory: fnPokemonUtilConfig }
+        { provide: PixelmonUtilConfig, useFactory: fnPixelmonUtilConfig }
       ]
     };
   }

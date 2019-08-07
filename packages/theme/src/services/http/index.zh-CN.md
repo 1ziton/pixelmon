@@ -4,7 +4,7 @@ title: _HttpClient
 type: Service
 ---
 
-`@pokemon/theme` 包含了一个叫 [\_HttpClient](https://github.com/1ziton/pokemon/blob/master/packages/theme/src/services/http/http.client.ts) 类，其本质还是调用 Angular 的 `HttpClient`。
+`@pixelmon/theme` 包含了一个叫 [\_HttpClient](https://github.com/1ziton/pixelmon/blob/master/packages/theme/src/services/http/http.client.ts) 类，其本质还是调用 Angular 的 `HttpClient`。
 
 ## 特性
 
@@ -28,14 +28,14 @@ HttpClient.get(url, { params: { pi: 1 } });
 _HttpClient.get(url, { pi: 1 });
 ```
 
-## PokemonThemeConfig
+## PixelmonThemeConfig
 
 通用配置项，例如统一对 `_HttpClient` 设置空值、时间处理方式。
 
 ```ts
-import { PokemonThemeConfig } from '@pokemon/theme';
-export function fnPokemonThemeConfig(): PokemonThemeConfig {
-  return Object.assign(new PokemonThemeConfig(), <PokemonThemeConfig>{
+import { PixelmonThemeConfig } from '@pixelmon/theme';
+export function fnPixelmonThemeConfig(): PixelmonThemeConfig {
+  return Object.assign(new PixelmonThemeConfig(), <PixelmonThemeConfig>{
     http: {
       nullValueHandling: 'ignore',
     },
@@ -43,12 +43,12 @@ export function fnPokemonThemeConfig(): PokemonThemeConfig {
 }
 
 @NgModule({})
-export class PokemonModule {
+export class PixelmonModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: PokemonModule,
+      ngModule: PixelmonModule,
       providers: [
-        { provide: PokemonThemeConfig, useFactory: fnPokemonThemeConfig },
+        { provide: PixelmonThemeConfig, useFactory: fnPixelmonThemeConfig },
       ],
     };
   }
@@ -115,7 +115,7 @@ class RestService extends BaseApi {
 
 | 参数              | 说明                                                                                                | 类型                         | 默认值 |
 | ----------------- | --------------------------------------------------------------------------------------------------- | ---------------------------- | ------ |
-| `acl`             | ACL 配置，若导入 `@pokemon/acl` 时自动有效，等同于 `ACLService.can(roleOrAbility: ACLCanType)` 参数值 | `any`                        | -      |
+| `acl`             | ACL 配置，若导入 `@pixelmon/acl` 时自动有效，等同于 `ACLService.can(roleOrAbility: ACLCanType)` 参数值 | `any`                        | -      |
 | `observe`         | 指定响应内容                                                                                        | `body,events,response`       | -      |
 | `responseType`    | 指定内容格式                                                                                        | `arraybuffer,blob,json,text` | -      |
 | `reportProgress`  | 是否监听进度事件                                                                                    | `boolean`                    | -      |

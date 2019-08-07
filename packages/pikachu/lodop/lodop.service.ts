@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { of, Observable, Subject } from 'rxjs';
 
-import { LazyService } from '@pokemon/util';
+import { LazyService } from '@pixelmon/util';
 
 import { LodopConfig } from './lodop.config';
 import { Lodop, LodopPrintResult, LodopResult } from './lodop.types';

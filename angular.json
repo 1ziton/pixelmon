@@ -86,7 +86,7 @@
         }
       }
     },
-    "pokemon": {
+    "pixelmon": {
       "root": "packages",
       "projectType": "library",
       "prefix": "",

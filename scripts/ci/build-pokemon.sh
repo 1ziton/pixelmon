@@ -68,7 +68,7 @@ N="
 PWD=$(pwd)
 
 SOURCE=${PWD}/packages
-DIST=${PWD}/dist/@pokemon
+DIST=${PWD}/dist/@pixelmon
 
 # fix linux
 # npm rebuild node-sass

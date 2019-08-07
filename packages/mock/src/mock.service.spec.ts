@@ -1,8 +1,8 @@
 import { TestBed, TestBedStatic } from '@angular/core/testing';
 import * as Mock from 'mockjs';
-import { PokemonMockModule } from '../index';
+import { PixelmonMockModule } from '../index';
 import { MockRequest, MockRule } from './interface';
-import { PokemonMockConfig } from './mock.config';
+import { PixelmonMockConfig } from './mock.config';
 import { MockService } from './mock.service';
 
 const DATA = {
@@ -26,10 +26,10 @@ describe('mock: service', () => {
   let injector: TestBedStatic;
   let srv: MockService;
 
-  function genModule(options: PokemonMockConfig) {
-    options = Object.assign(new PokemonMockConfig(), options);
+  function genModule(options: PixelmonMockConfig) {
+    options = Object.assign(new PixelmonMockConfig(), options);
     injector = TestBed.configureTestingModule({
-      imports: [PokemonMockModule.forRoot(options)],
+      imports: [PixelmonMockModule.forRoot(options)],
       providers: [],
     });
     srv = injector.get<MockService>(MockService);

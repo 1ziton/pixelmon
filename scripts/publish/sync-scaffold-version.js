@@ -21,9 +21,9 @@ const json = fs.readJSONSync(packagePath);
 // Update 1ziton libs
 json.version = nextVersion;
 ['pikachu', 'acl', 'cache', 'mock', 'theme', 'util'].forEach(v => {
-  json.dependencies[`@pokemon/${v}`] = `^${nextVersion}`;
+  json.dependencies[`@pixelmon/${v}`] = `^${nextVersion}`;
 });
-json.devDependencies[`@pokemon/testing`] = `^${nextVersion}`;
+json.devDependencies[`@pixelmon/testing`] = `^${nextVersion}`;
 json.devDependencies[`1ziton`] = `^${nextVersion}`;
 
 // Save

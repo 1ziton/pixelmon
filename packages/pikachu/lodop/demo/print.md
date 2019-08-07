@@ -16,7 +16,7 @@ Get print server information (including: remote).
 ```ts
 import { Component } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd';
-import { LodopService, Lodop } from '@pokemon/pikachu';
+import { LodopService, Lodop } from '@pixelmon/pikachu';
 
 @Component({
   selector: 'app-demo',

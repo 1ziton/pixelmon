@@ -8,4 +8,4 @@ import { DELON_LOCALE } from './locale.tokens';
 @NgModule({
   providers: [{ provide: DELON_LOCALE, useValue: zhCN }, DELON_LOCALE_SERVICE_PROVIDER],
 })
-export class PokemonLocaleModule {}
+export class PixelmonLocaleModule {}

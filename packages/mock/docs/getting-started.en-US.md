@@ -6,7 +6,7 @@ type: Documents
 
 ## Foreword
 
-`@pokemon/mock` is a simulation data generator to help the front-end to develop and prototype separate from the back-end progress and reduce some monotony particularly while writing automated tests.
+`@pixelmon/mock` is a simulation data generator to help the front-end to develop and prototype separate from the back-end progress and reduce some monotony particularly while writing automated tests.
 
 **Features**
 
@@ -17,20 +17,20 @@ type: Documents
 
 ## Usage
 
-Install `@pokemon/mock` from `yarn`.
+Install `@pixelmon/mock` from `yarn`.
 
 ```bash
-yarn add @pokemon/mock -D
+yarn add @pixelmon/mock -D
 ```
 
-Import the [mock rule data](/mock/rule) and `PokemonMockModule` in to your root `AppModule`.
+Import the [mock rule data](/mock/rule) and `PixelmonMockModule` in to your root `AppModule`.
 
 ```ts
-import { PokemonMockModule } from '@pokemon/mock';
+import { PixelmonMockModule } from '@pixelmon/mock';
 import * as MOCKDATA from '../../_mock';
 // Configuration for test environment only.
 import { environment } from '../environments/environment';
-const MOCKMODULE = !environment.production ? [ PokemonMockModule.forRoot({ data: MOCKDATA }) ] : [];
+const MOCKMODULE = !environment.production ? [ PixelmonMockModule.forRoot({ data: MOCKDATA }) ] : [];
 
 @NgModule({
   imports: [

@@ -72,7 +72,7 @@ this.settingService.setLayout(`collapsed`, false);
 
 NG-ALAIN 认为菜单数据也是来自远程，也可以任意位置注入 `MenuService`（[API](/theme/menu)）来改变菜单数据，当然在 Angular 启动之前执行菜单赋值更为合理。
 
-菜单数据**务必**确保 [Menu](https://github.com/ng-alain/pokemon/blob/master/packages/theme/src/services/menu/interface.ts) 格式，菜单数据贯穿整个应用，例如：主菜单组件 [sidebar-nav](/components/sidebar-nav)，页头自动导航 [page-header](/components/page-header)，页标题文本 [TitleService](/theme/title) 等。
+菜单数据**务必**确保 [Menu](https://github.com/ng-alain/pixelmon/blob/master/packages/theme/src/services/menu/interface.ts) 格式，菜单数据贯穿整个应用，例如：主菜单组件 [sidebar-nav](/components/sidebar-nav)，页头自动导航 [page-header](/components/page-header)，页标题文本 [TitleService](/theme/title) 等。
 
 ```ts
 this.menuService.add(res.menu);

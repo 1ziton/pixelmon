@@ -4,7 +4,7 @@ import addSeconds from 'date-fns/add_seconds';
 import { of, BehaviorSubject, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
-import { PokemonCacheConfig } from './cache.config';
+import { PixelmonCacheConfig } from './cache.config';
 import { CacheNotifyResult, CacheNotifyType, ICache, ICacheStore } from './interface';
 import { DC_STORE_STORAGE_TOKEN } from './local-storage-cache.service';
 
@@ -15,10 +15,10 @@ export class CacheService implements OnDestroy {
   private meta: Set<string> = new Set<string>();
   private freqTick = 3000;
   private freqTime;
-  private cog: PokemonCacheConfig = {};
+  private cog: PixelmonCacheConfig = {};
 
-  constructor(_: PokemonCacheConfig, @Inject(DC_STORE_STORAGE_TOKEN) private store: ICacheStore, private http: HttpClient) {
-    Object.assign(this.cog, { ...new PokemonCacheConfig(), ..._ });
+  constructor(_: PixelmonCacheConfig, @Inject(DC_STORE_STORAGE_TOKEN) private store: ICacheStore, private http: HttpClient) {
+    Object.assign(this.cog, { ...new PixelmonCacheConfig(), ..._ });
     this.loadMeta();
     this.startExpireNotify();
   }

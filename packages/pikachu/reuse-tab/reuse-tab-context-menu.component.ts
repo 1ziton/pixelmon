@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { PokemonLocaleService } from '@pokemon/theme';
+import { PixelmonLocaleService } from '@pixelmon/theme';
 import { CloseType, ReuseContextCloseEvent, ReuseContextI18n, ReuseCustomContextMenu, ReuseItem } from './reuse-tab.interfaces';
 
 @Component({
@@ -34,7 +34,7 @@ export class ReuseTabContextMenuComponent implements OnInit {
     return this.event.ctrlKey;
   }
 
-  constructor(private i18nSrv: PokemonLocaleService) {}
+  constructor(private i18nSrv: PixelmonLocaleService) {}
 
   private notify(type: CloseType) {
     this.close.next({

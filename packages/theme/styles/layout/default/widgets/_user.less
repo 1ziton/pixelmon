@@ -1,12 +1,12 @@
-@pokemon-default-user-block-margin: @layout-gutter * 3;
-@pokemon-default-user-block-avatar-hw: @avatar-size-lg;
+@pixelmon-default-user-block-margin: @layout-gutter * 3;
+@pixelmon-default-user-block-avatar-hw: @avatar-size-lg;
 
-.pokemon-default-aside-user-mixin(@enabled) when(@enabled=true) {
-  @{pokemon-default-prefix}__aside-user {
+.pixelmon-default-aside-user-mixin(@enabled) when(@enabled=true) {
+  @{pixelmon-default-prefix}__aside-user {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: @pokemon-default-user-block-margin @pokemon-default-user-block-margin 0 @pokemon-default-user-block-margin;
+    margin: @pixelmon-default-user-block-margin @pixelmon-default-user-block-margin 0 @pixelmon-default-user-block-margin;
     cursor: pointer;
     .@{ant-prefix}-dropdown-trigger {
       display: flex;
@@ -26,9 +26,9 @@
 
   // Desktop
   @media (min-width: @mobile-min) {
-    @{pokemon-default-prefix}__collapsed {
-      @{pokemon-default-prefix}__aside-user {
-        width: @pokemon-default-aside-collapsed-wd;
+    @{pixelmon-default-prefix}__collapsed {
+      @{pixelmon-default-prefix}__aside-user {
+        width: @pixelmon-default-aside-collapsed-wd;
         margin-left: 0;
         &-info {
           display: none;
@@ -40,4 +40,4 @@
     }
   }
 }
-.pokemon-default-aside-user-mixin(@pokemon-default-aside-user-enabled);
+.pixelmon-default-aside-user-mixin(@pixelmon-default-aside-user-enabled);

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FilterPipeModule, TranslatePipeModule } from '@pokemon/theme';
+import { FilterPipeModule, TranslatePipeModule } from '@pixelmon/theme';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { QueryDisplayComponent } from './query-display.component';
 

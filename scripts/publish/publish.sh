@@ -10,7 +10,7 @@ readonly thisDir=$(
 cd $(dirname $0)/../..
 
 DIST="$(pwd)/dist"
-ROOT=${DIST}/pokemon-builds
+ROOT=${DIST}/pixelmon-builds
 
 NEXT=false
 for ARG in "$@"; do
@@ -24,44 +24,47 @@ done
 VERSION=$(node -p "require('./package.json').version")
 echo "Version ${VERSION}"
 
-echo "_auth = $NPM_TOKEN" > ~/.npmrc
-echo "email = $NPM_EMAIL" >> ~/.npmrc
+# echo "_auth = $NPM_TOKEN" > ~/.npmrc
+# echo "email = $NPM_EMAIL" >> ~/.npmrc
 
 # echo "$NPM_TOKEN:$NPM_EMAIL"
 
-NPM_REGISTRY_URL="https://registry.npmjs.org/:_authToken=${NPM_TOKEN}"
+# NPM_REGISTRY_URL="https://registry.npmjs.org/:_authToken=${NPM_TOKEN}"
 
-npm config set _auth $NPM_TOKEN && npm config set registry $NPM_REGISTRY_URL && npm config set always-auth=true && npm config set email $NPM_EMAIL
+echo $NPM_REGISTRY_URL
+
+# npm config set _auth $NPM_TOKEN && npm config set registry $NPM_REGISTRY_URL && npm config set always-auth=false && npm config set email $NPM_EMAIL
 
 clone() {
   rm -rf ${ROOT}
   mkdir -p ${ROOT}
   cd ${DIST}
-  echo ">>> Clone pokemon & cli dist..."
-  git clone --depth 1 https://github.com/1ziton/pokemon-builds.git
+  echo ">>> Clone pixelmon & cli dist..."
+  git clone --depth 1 https://github.com/1ziton/pixelmon-builds.git
 }
 
 publishToMaster() {
   (
-    cd ${ROOT}/@pokemon
-    for p in $(ls .); do npm publish --access public $p; done
+    cd ${ROOT}/@pixelmon
+    for p in $(ls .); do  npm-cli-login && npm publish --access public $p; done
   )
-  cd ${ROOT}/1ziton
-  npm publish --access public
+  # cd ${ROOT}/1ziton
+  # npm publish --access public
 }
 
 publishToNext() {
   (
-    cd ${ROOT}/@pokemon
+    cd ${ROOT}/@pixelmon
     for p in $(ls .); do npm publish $p --access public --tag next; done
   )
+  npm-cli-login
   npm publish --access public --tag next
 }
 
 syncTaobao() {
   (
-    cd ${ROOT}/@pokemon
-    for p in $(ls .); do curl -X PUT https://npm.taobao.org/sync/@pokemon/$p?sync_upstream=true; done
+    cd ${ROOT}/@pixelmon
+    for p in $(ls .); do curl -X PUT https://npm.taobao.org/sync/@pixelmon/$p?sync_upstream=true; done
   )
   curl -X PUT https://npm.taobao.org/sync/1ziton?sync_upstream=true
 }

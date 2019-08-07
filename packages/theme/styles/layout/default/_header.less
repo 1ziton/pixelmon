@@ -1,17 +1,17 @@
-@{pokemon-default-prefix} {
+@{pixelmon-default-prefix} {
   &__header {
-    z-index: @pokemon-default-zindex + 10;
+    z-index: @pixelmon-default-zindex + 10;
     display: flex;
     align-items: center;
     width: 100%;
-    height: @pokemon-default-header-hg;
-    padding: 0 @pokemon-default-header-padding;
-    background-color: @pokemon-default-header-bg;
+    height: @pixelmon-default-header-hg;
+    padding: 0 @pixelmon-default-header-padding;
+    background-color: @pixelmon-default-header-bg;
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
     &-logo {
-      width: @pokemon-default-aside-wd;
-      margin-left: -@pokemon-default-header-padding;
-      transition: width 0.2s @pokemon-default-ease;
+      width: @pixelmon-default-aside-wd;
+      margin-left: -@pixelmon-default-header-padding;
+      transition: width 0.2s @pixelmon-default-ease;
       &-link {
         display: block;
         text-align: center;
@@ -65,7 +65,7 @@
       }
       > i,
       &-icon {
-        font-size: @pokemon-default-header-icon-fs !important;
+        font-size: @pixelmon-default-header-icon-fs !important;
         // fix ant-dropdown-trigger
         transform: none !important;
       }
@@ -75,7 +75,7 @@
 
 // Search
 .header-search-mixin(@enabled) when(@enabled =true) {
-  @{pokemon-default-prefix}__search {
+  @{pixelmon-default-prefix}__search {
     position: relative;
     display: flex;
     flex: 1;
@@ -124,7 +124,7 @@
   }
 
   @media (max-width: @mobile-max) {
-    @{pokemon-default-prefix}__search {
+    @{pixelmon-default-prefix}__search {
       position: absolute;
       top: 0;
       left: 0;
@@ -133,7 +133,7 @@
       width: 100%;
       height: 100%;
       margin: 0;
-      padding: 0 @pokemon-default-header-padding;
+      padding: 0 @pixelmon-default-header-padding;
       background-color: #fff;
       transition: transform 300ms;
       &-toggled {
@@ -146,13 +146,13 @@
   }
 }
 
-.header-search-mixin(@pokemon-default-header-search-enabled);
+.header-search-mixin(@pixelmon-default-header-search-enabled);
 
 // Collapsed
-@{pokemon-default-prefix}__collapsed {
-  @{pokemon-default-prefix}__header {
+@{pixelmon-default-prefix}__collapsed {
+  @{pixelmon-default-prefix}__header {
     &-logo {
-      width: @pokemon-default-aside-collapsed-wd;
+      width: @pixelmon-default-aside-collapsed-wd;
       &-collapsed {
         display: inline;
       }
@@ -167,9 +167,9 @@
 // @media (min-width: @mobile-min) {}
 // Under pad
 @media (max-width: @mobile-max) {
-  @{pokemon-default-prefix}__header {
+  @{pixelmon-default-prefix}__header {
     &-logo {
-      width: @pokemon-default-aside-collapsed-wd;
+      width: @pixelmon-default-aside-collapsed-wd;
       &-collapsed {
         display: inline;
       }

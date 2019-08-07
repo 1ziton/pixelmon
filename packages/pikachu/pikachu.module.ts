@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { LodopModule } from '@pokemon/pikachu/lodop';
+import { LodopModule } from '@pixelmon/pikachu/lodop';
 import { AdvancedTableModule } from './advanced-table/advanced-table.module';
 import { SmartTextModule } from './advanced-table/smart-text/smart-text.module';
 import { NoticeIconModule } from './notice-icon';

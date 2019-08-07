@@ -2,9 +2,9 @@ import { Inject, Injectable, OnDestroy, Optional } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { share } from 'rxjs/operators';
 
-import { ACLService } from '@pokemon/acl';
+import { ACLService } from '@pixelmon/acl';
 
-import { PokemonI18NService, POKEMON_I18N_TOKEN } from '../i18n/i18n';
+import { PixelmonI18NService, PIXELMON_I18N_TOKEN } from '../i18n/i18n';
 import { Menu, MenuIcon } from './interface';
 
 @Injectable({ providedIn: 'root' })
@@ -16,8 +16,8 @@ export class MenuService implements OnDestroy {
 
   constructor(
     @Optional()
-    @Inject(POKEMON_I18N_TOKEN)
-    private i18nSrv: PokemonI18NService,
+    @Inject(PIXELMON_I18N_TOKEN)
+    private i18nSrv: PixelmonI18NService,
     @Optional() private aclService: ACLService,
   ) {
     this.i18n$ = this.i18nSrv.change.subscribe(() => this.resume());

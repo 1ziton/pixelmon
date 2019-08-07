@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
-export class PokemonCacheConfig {
+export class PixelmonCacheConfig {
   /**
    * 缓存模式，默认：`promise`
    * - `promise` 约定模式，允许 `key` 作为 http 获取数据

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { deepMerge } from '@pokemon/util';
+import { deepMerge } from '@pixelmon/util';
 import { NzDrawerOptions, NzDrawerService } from 'ng-zorro-antd/drawer';
 import { Observable, Observer } from 'rxjs';
 

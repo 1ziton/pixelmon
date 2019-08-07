@@ -1,12 +1,12 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { MockCachedRule, MockRule } from './interface';
-import { PokemonMockConfig } from './mock.config';
+import { PixelmonMockConfig } from './mock.config';
 
 @Injectable()
 export class MockService implements OnDestroy {
   private cached: MockCachedRule[] = [];
 
-  constructor(private config: PokemonMockConfig) {
+  constructor(private config: PixelmonMockConfig) {
     this.applyMock();
     delete this.config.data;
   }

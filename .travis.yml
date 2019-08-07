@@ -57,6 +57,7 @@ stages:
 install:
   - chmod +x -R scripts
   - npm install
+  - npm install -g npm-cli-login
 
 # [[ "$TRAVIS_PULL_REQUEST" != "false" ]] 
 script:
