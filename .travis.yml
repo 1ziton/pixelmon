@@ -61,10 +61,11 @@ install:
 # [[ "$TRAVIS_PULL_REQUEST" != "false" ]] 
 script:
   - npm run $TASK
+  - echo $TRAVIS_COMMIT_MESSAGE
   - |
     if [ "$TASK" = "test" ]; then
       cat ./coverage/lcov.info | ./node_modules/.bin/codecov
     fi
-    if [[ "$TASK" = "build" ]] && [[ $TRAVIS_COMMIT_MESSAGE == "release("* ]]; then 
+    if [[ "$TASK" = "build" ]] && [[ $TRAVIS_COMMIT_MESSAGE == "*release("* ]]; then 
       npm run publish
     fi
