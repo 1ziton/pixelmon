@@ -24,6 +24,11 @@ done
 VERSION=$(node -p "require('./package.json').version")
 echo "Version ${VERSION}"
 
+echo "_auth = $NPM_TOKEN" > ~/.npmrc
+echo "email = $NPM_EMAIL" >> ~/.npmrc
+
+# echo "$NPM_TOKEN:$NPM_EMAIL"
+
 clone() {
   rm -rf ${ROOT}
   mkdir -p ${ROOT}
