@@ -43,8 +43,6 @@ jobs:
     #   env: 'TASK=test:cli'
     # - stage: publish
     #   env: 'TASK=pre-publish'
-    - stage: publish
-      env: 'TASK=deploy:site'
 
 stages:
   - name: pre
@@ -66,6 +64,9 @@ script:
   - |
     if [ "$TASK" = "test" ]; then
       cat ./coverage/lcov.info | ./node_modules/.bin/codecov
+    fi
+    if [ "$TASK" = "site:build" ]; then
+      npm run deploy:site
     fi
     if [[ "$TASK" = "build" ]]  && [[ $TRAVIS_COMMIT_MESSAGE == *"release("* ]]; then
       echo 'npm run publish scripts exec'
