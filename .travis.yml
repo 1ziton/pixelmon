@@ -43,8 +43,8 @@ jobs:
     #   env: 'TASK=test:cli'
     # - stage: publish
     #   env: 'TASK=pre-publish'
-    # - stage: publish
-    #   env: 'TASK=publish'
+    - stage: publish
+      env: 'TASK=deploy:site'
 
 stages:
   - name: pre

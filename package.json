@@ -33,7 +33,7 @@
     "pre-publish": "node scripts/publish/publish.js",
     "publish:next": "bash scripts/publish/publish.sh -next",
     "publish": "bash scripts/publish/publish.sh",
-    "sync-scaffold-version": "node scripts/publish/sync-scaffold-version.js"
+    "deploy:site": "node scripts/publish/gh-pages-publish.js"
   },
   "dependencies": {
     "@angular/animations": "~8.2.0",
@@ -123,6 +123,7 @@
     "protractor": "~5.4.2",
     "readline-sync": "^1.4.10",
     "screenfull": "^4.2.1",
+    "shelljs": "^0.8.3",
     "stream": "0.0.2",
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",
