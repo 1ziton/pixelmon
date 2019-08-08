@@ -4,8 +4,7 @@ Cache the dictionary, city data etc.
 
 ## Links
 
-- [Api Document](https://pixelmon.1ziton.com/cache)
-- [Demo](//1ziton.github.io/1ziton/)
+- [Api Document](https://1ziton.github.io/pixelmon/cache/getting-started/zh)
 
 ## Architecture
 

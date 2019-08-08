@@ -4,8 +4,7 @@ Universal toolset of 1ziton.
 
 ## Links
 
-- [Api Document](https://1ziton.com/util)
-- [Demo](//1ziton.github.io/1ziton/)
+- [Api Document](https://1ziton.github.io/pixelmon/util/getting-started/zh)
 
 ## Architecture
 

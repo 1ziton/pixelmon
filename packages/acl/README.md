@@ -4,8 +4,7 @@ A simple role-based access control.
 
 ## Links
 
-- [Api Document](https://1ziton.com/acl)
-- [Demo](//1ziton.github.io/1ziton/)
+- [Api Document](https://1ziton.github.io/pixelmon/acl/getting-started/zh)
 
 ## Architecture
 

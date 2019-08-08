@@ -1,11 +1,10 @@
 # @pixelmon/pikachu module [![Build Status](https://img.shields.io/travis/1ziton/pixelmon/master.svg?style=flat-square)](https://travis-ci.org/1ziton/pixelmon) [![NPM version](https://img.shields.io/npm/v/@pixelmon/pikachu.svg?style=flat-square)](https://www.npmjs.com/package/@pixelmon/pikachu)
 
-Common business components of 1ziton.
+Common business components of Pixelmon.
 
 ## Links
 
-- [Api Document](https://1ziton.com/components)
-- [Demo](//1ziton.github.io/1ziton/)
+- [Api Document](//1ziton.github.io/pixelmon/#/components/view/zh)
 
 ## Architecture
 

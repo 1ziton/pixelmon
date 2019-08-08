@@ -2,8 +2,8 @@
 order: 1
 title: 开始使用
 type: Documents
-module: pixelmonCacheModule
-config: pixelmonCacheConfig
+module: PixelmonCacheModule
+config: PixelmonCacheConfig
 ---
 
 ## 写在前面

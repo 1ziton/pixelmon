@@ -4,8 +4,7 @@ Generate random data, intercept http requests.
 
 ## Links
 
-- [Api Document](https://ng-pixelmon.com/mock)
-- [Demo](//ng-pixelmon.github.io/ng-pixelmon/)
+- [Api Document](https://1ziton.github.io/pixelmon/mock/getting-started/zh)
 
 ## Architecture
 

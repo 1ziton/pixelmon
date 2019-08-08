@@ -1,11 +1,10 @@
 # @pixelmon/theme module [![Build Status](https://img.shields.io/travis/1ziton/pixelmon/master.svg?style=flat-square)](https://travis-ci.org/1ziton/pixelmon) [![NPM version](https://img.shields.io/npm/v/@pixelmon/theme.svg?style=flat-square)](https://www.npmjs.com/package/@pixelmon/theme)
 
-Polemon theme system library.
+Pixelmon theme system library.
 
 ## Links
 
-- [Api Document](https://1ziton.github.io/pixelmon)
-- [Demo](//1ziton.github.io/pixelmon/)
+- [Api Document](https://1ziton.github.io/pixelmon/theme/getting-started/zh)
 
 ## Architecture
 

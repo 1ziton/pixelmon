@@ -35,7 +35,7 @@ export const ZHCN = {
   'app.header.menu.form': '@pixelmon/form-动态表单',
   'app.header.menu.theme': '@pixelmon/theme-主题系统',
   'app.header.menu.form.validator': '在线校验器',
-  'app.header.menu.cli': '1ziton 命令行工具',
+  'app.header.menu.cli': 'pixelmon 命令行工具',
   'app.header.menu.tool': '工具',
   'app.header.menu.upgrade': 'HTML模板升级工具',
   'app.header.menu.themes': '主题',
