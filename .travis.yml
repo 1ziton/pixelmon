@@ -67,7 +67,8 @@ script:
     if [ "$TASK" = "test" ]; then
       cat ./coverage/lcov.info | ./node_modules/.bin/codecov
     fi
-    if [ "$TASK" = "build" -a $TRAVIS_COMMIT_MESSAGE == "*release("* ]; then 
+    if [[ "$TASK" = "build" ]]  && [[ $TRAVIS_COMMIT_MESSAGE == *"release("* ]]; then
+      echo 'npm run publish scripts exec'
       npm run publish
     fi
     
