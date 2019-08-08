@@ -27,9 +27,9 @@ if [ ${commitAuthorName} != 'giscafer' ]; then
   exit 0
 fi
 
-if [ -z ${CI_BUILDS_TOKEN} ]; then
+if [ -z ${GH_TOKEN} ]; then
   echo "Error: No access token for GitHub could be found." \
-    "Please set the environment variable 'CI_BUILDS_TOKEN'."
+    "Please set the environment variable 'GH_TOKEN'."
   exit 0
 fi
 
@@ -95,7 +95,7 @@ git config user.name "${commitAuthorName}"
 git config user.email "${commitAuthorEmail}"
 git config credential.helper "store --file=.git/credentials"
 
-echo "https://${CI_BUILDS_TOKEN}:@github.com" >.git/credentials
+echo "https://${GH_TOKEN}:@github.com" >.git/credentials
 
 if [[ $(git ls-remote origin "refs/tags/${buildTagName}") ]]; then
   echo "removed tag because tag is already published"

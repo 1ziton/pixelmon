@@ -20,7 +20,7 @@ let npmUser = process.env.NPM_USER;
 let npmEmail = process.env.NPM_EMAIL;
 
 echo("Deploying docs!!!")
-cd("docs")
+cd("src/dist")
 touch(".nojekyll")
 exec("git init")
 exec("git add .")
