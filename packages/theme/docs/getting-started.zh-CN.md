@@ -18,7 +18,7 @@ pixelmon 默认使用 less 作为样式语言，建议在使用前或者遇到�
 
 ## 脚手架样式
 
-在开发过程中，绝大部分情况下可以利用 ng-alain 提供的工具集来调整间距、颜色、大小、边框等，它是一个套类似 bootstrap 风格的工具集。
+在开发过程中，绝大部分情况下可以利用 pixelmon 提供的工具集来调整间距、颜色、大小、边框等，它是一个套类似 bootstrap 风格的工具集。
 
 或通过 _src/styles/index.less_ 下定制你的样式，这些样式将会在全局应用中有效，且有两个问题比较突出：
 
@@ -41,13 +41,13 @@ pixelmon 默认使用 less 作为样式语言，建议在使用前或者遇到�
 
 ### 页面级
 
-具体页面相关的样式，例如 [monitor.component.less](https://github.com/ng-alain/ng-alain/blob/master/src/app/routes/dashboard/monitor/monitor.component.less)，里面的内容仅和本页面的内容相关。一般情况下，如果不是页面内容特别复杂，有了前面全局样式、工具集样式的配合，这里要写的应该不多。
+具体页面相关的样式，例如 [monitor.component.less](https://github.com/1ziton/pixelmon/blob/master/src/app/routes/dashboard/monitor/monitor.component.less)，里面的内容仅和本页面的内容相关。一般情况下，如果不是页面内容特别复杂，有了前面全局样式、工具集样式的配合，这里要写的应该不多。
 
 ## 如何覆盖参数
 
 ng-alain 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定义了一系列全局/组件的样式变量，你可以根据需求进行相应调整。
 
-要改变的参数统一放在 [theme.less](https://github.com/ng-alain/ng-alain/blob/master/src/styles/theme.less) LESS 文件中，所有参数包括：
+要改变的参数统一放在 [theme.less](https://github.com/1ziton/pixelmon/blob/master/src/styles/theme.less) LESS 文件中，所有参数包括：
 
 - [全局参数](/theme/global)
 - [默认布局](/theme/default)

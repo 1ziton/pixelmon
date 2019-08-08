@@ -109,4 +109,4 @@ export class DelonModule {
 
 ### Missing locale data for the locale "zh-cn"
 
-缺少语言导入，参考[app.module.ts](https://github.com/ng-alain/ng-alain/blob/master/src/app/app.module.ts#L6-L25)。
+缺少语言导入，参考[app.module.ts](https://github.com/1ziton/pixelmon/blob/master/src/app/app.module.ts#L6-L25)。
