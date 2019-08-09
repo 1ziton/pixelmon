@@ -101,7 +101,7 @@
             </a>
           </li>
         </ul>
-        <nz-select nzSize="small" class="version" style="width: 75px;" [ngModel]="currentVersion" (ngModelChange)="toVersion($event)">
+        <nz-select nzSize="small" class="version" style="width: 100px;" [ngModel]="currentVersion" (ngModelChange)="toVersion($event)">
           <nz-option *ngFor="let version of oldVersionList" [nzLabel]="version" [nzValue]="version"></nz-option>
           <nz-option [nzLabel]="currentVersion" [nzValue]="currentVersion"></nz-option>
         </nz-select>

@@ -43,7 +43,7 @@ export class PageHeaderComponent implements OnInit, OnChanges, AfterViewInit, On
   private inited = false;
   private unsubscribe$ = new Subject<void>();
   @ViewChild('conTpl', { static: false }) private conTpl: ElementRef;
-  @ViewChild('affix', { static: false }) private affix: NzAffixComponent;
+  @ViewChild('affixEl', { static: false }) private affix: NzAffixComponent;
   private _menus: Menu[] | null;
 
   private get menus() {
@@ -154,7 +154,7 @@ export class PageHeaderComponent implements OnInit, OnChanges, AfterViewInit, On
       const item = this.menus[this.menus.length - 1];
       let title = item.text;
       if (item.i18n && this.i18nSrv) title = this.i18nSrv.fanyi(item.i18n);
-      this._titleVal = title;
+      this._titleVal = title!;
     }
 
     if (this._titleVal && this.syncTitle) {

@@ -2,6 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { PIXELMON_I18N_TOKEN } from '@pixelmon/theme';
 import { Meta, MetaList, MetaSearchGroup, MetaSearchGroupItem } from '../interfaces';
 import { META as ACLMeta } from '../routes/gen/acl/meta';
+import { META as CacheMeta } from '../routes/gen/cache/meta';
 import { META as ComponentsMeta } from '../routes/gen/components/meta';
 import { META as DocsMeta } from '../routes/gen/docs/meta';
 import { META as MockMeta } from '../routes/gen/mock/meta';
@@ -9,7 +10,7 @@ import { META as ThemeMeta } from '../routes/gen/theme/meta';
 import { META as UtilMeta } from '../routes/gen/util/meta';
 import { I18NService } from './i18n/service';
 
-const FULLMETAS: Meta[] = [DocsMeta, ComponentsMeta, ACLMeta, MockMeta, UtilMeta, ThemeMeta] as any;
+const FULLMETAS: Meta[] = [DocsMeta, ComponentsMeta, ACLMeta, MockMeta, UtilMeta, ThemeMeta,CacheMeta] as any;
 
 @Injectable({ providedIn: 'root' })
 export class MetaService {

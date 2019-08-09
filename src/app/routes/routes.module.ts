@@ -23,6 +23,7 @@ const routes: Route[] = [
         loadChildren: () => import('./gen/components/components.module').then(m => m.ComponentsModule),
       },
       { path: 'theme', loadChildren: () => import('./gen/theme/theme.module').then(m => m.ThemeModule) },
+      { path: 'cache', loadChildren: () => import('./gen/cache/cache.module').then(m => m.CacheModule) },
       { path: 'acl', loadChildren: () => import('./gen/acl/acl.module').then(m => m.AclModule) },
       { path: 'mock', loadChildren: () => import('./gen/mock/mock.module').then(m => m.MockModule) },
       { path: 'util', loadChildren: () => import('./gen/util/util.module').then(m => m.UtilModule) },
