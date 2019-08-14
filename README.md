@@ -37,6 +37,7 @@ _基于 [delon](https://github.com/ng-alain/delon) 修改维护为符合自身�
 - **acl** 角色权限控制
 - **cache** 缓存工具
 - **util** 工具包
+- **ggeditor** 可视化图编辑器
 - **mock** mock 测试数据，拦截 http 请求，生成随机数据
 - **testing** 测试套件
 
