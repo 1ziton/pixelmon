@@ -360,6 +360,50 @@ module.exports = {
         },
       ],
     },
+    {
+      name: 'ggeditor',
+      github: 'https://github.com/1ziton/pixelmon',
+      dist: './src/app/routes/gen/ggeditor',
+      types: [
+        {
+          'zh-CN': '文档',
+          'en-US': 'Documents',
+        },
+        {
+          'zh-CN': '类型',
+          'en-US': 'Type',
+        },
+        {
+          'zh-CN': '模板',
+          'en-US': 'Template',
+        },
+      ],
+      module: '@pixelmon/ggeditor',
+      defaultRoute: 'getting-started',
+      extraRouteMeta: [],
+      metaIncludeAttributes: ['name', 'types', 'github', 'module'],
+      template: {
+        meta: './src/templates/meta.ts',
+        module: './src/templates/module.ts',
+      },
+      dir: [
+        {
+          src: ['./packages/ggeditor/docs'],
+          template: {
+            content: './src/templates/content.ts',
+          },
+          hasSubDir: false,
+        },
+        {
+          src: ['./packages/ggeditor/src'],
+          // ignores: [ 'README.md' ],
+          template: {
+            content: './src/templates/content.ts',
+          },
+          hasSubDir: true,
+        },
+      ],
+    },
     /*
     {
       name: 'auth',

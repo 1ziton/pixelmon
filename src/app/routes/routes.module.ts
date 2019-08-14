@@ -27,6 +27,7 @@ const routes: Route[] = [
       { path: 'acl', loadChildren: () => import('./gen/acl/acl.module').then(m => m.AclModule) },
       { path: 'mock', loadChildren: () => import('./gen/mock/mock.module').then(m => m.MockModule) },
       { path: 'util', loadChildren: () => import('./gen/util/util.module').then(m => m.UtilModule) },
+      { path: 'ggeditor', loadChildren: () => import('./gen/ggeditor/ggeditor.module').then(m => m.GgeditorModule) },
       // #endregion
     ],
   },

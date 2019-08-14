@@ -18,7 +18,7 @@ Pixelmon
 [![Codecov](https://img.shields.io/codecov/c/github/1ziton/pixelmon.svg?style=flat-square)](https://codecov.io/gh/1ziton/pixelmon)
 [![Dependency Status](https://david-dm.org/1ziton/pixelmon/status.svg?style=flat-square)](https://david-dm.org/1ziton/pixelmon)
 [![GitHub Release Date](https://img.shields.io/github/release-date/1ziton/pixelmon.svg?style=flat-square)](https://github.com/1ziton/pixelmon/releases)
-[![NPM version](https://img.shields.io/npm/v/pixelmon.svg?style=flat-square)](https://www.npmjs.com/package/@pixelmon/pikachu)
+[![NPM version](https://img.shields.io/npm/v/@pixelmon/pikachu.svg?style=flat-square)](https://www.npmjs.com/package/@pixelmon/pikachu)
 [![prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://prettier.io/)
 [![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/1ziton/pixelmon/blob/master/LICENSE)
 

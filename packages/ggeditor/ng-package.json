@@ -1,0 +1,21 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/@pixelmon/ggeditor",
+  "deleteDestPath": true,
+  "lib": {
+    "flatModuleFile": "ggeditor",
+    "entryFile": "public_api.ts",
+    "umdModuleIds": {
+      "react": "React",
+      "react-dom": "ReactDOM"
+    },
+    "jsx": "react"
+  },
+  "whitelistedNonPeerDependencies": [
+    "gg-editor",
+    "invariant",
+    "react",
+    "react-dom",
+    "uuid"
+  ]
+}

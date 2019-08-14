@@ -39,6 +39,7 @@ export const ENUS = {
   'app.header.menu.tool': 'Tools',
   'app.header.menu.upgrade': 'HTML Upgrade Tool',
   'app.header.menu.themes': 'Themes',
+  'app.header.menu.ggeditor': '@pixelmon/ggeditor-GGEditor',
   'app.header.lang': '中文',
   'app.footer.resources': 'Resources',
   'app.footer.angular': '中文网',
