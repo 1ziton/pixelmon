@@ -54,7 +54,7 @@ export class FlowEditorComponent implements OnInit, OnDestroy, OnChanges, AfterV
         return !!this.rootDomID;
     }
 
-    //<GGEditor>
+    // <GGEditor>
     //   <Flow style={{ width: 500, height: 500 }} data={data} />
     // </GGEditor>
 
@@ -82,15 +82,4 @@ export class FlowEditorComponent implements OnInit, OnDestroy, OnChanges, AfterV
     ngOnDestroy() {
     }
 
-    ngAfterContentInit() {
-        // e.on('message', message => {
-        //   this.message = message.text
-        //   this.changeDetector.detectChanges()
-        //   this.returnMessageToReactWhenReceived()
-        // })
-    }
-
-    returnMessageToReactWhenReceived() {
-        // e.emit('received', { text: 'Woohoo! Hello from Angular! 🎉' })
-    }
 }

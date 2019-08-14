@@ -198,9 +198,7 @@ registerLocaleData(localeZh);
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { PixelmonThemeModule } from '@pixelmon/theme';
 import { PixelmonPixelmonModule } from '@pixelmon/pikachu';
-import { PixelmonChartModule } from '@pixelmon/chart';
-import { PixelmonFormModule } from '@pixelmon/form';
-import { PixelmonAuthModule } from '@pixelmon/auth';
+import { PixelmonGGEditorModule } from '@pixelmon/ggeditor';
 import { PixelmonACLModule } from '@pixelmon/acl';
 import { PixelmonCacheModule } from '@pixelmon/cache';
 import { PixelmonUtilModule, LazyService } from '@pixelmon/util';
@@ -239,12 +237,10 @@ imports: [
     NgZorroAntdModule,
     PixelmonThemeModule.forRoot(),
     PixelmonPixelmonModule,
-    PixelmonChartModule,
     PixelmonACLModule,
     PixelmonCacheModule,
     PixelmonUtilModule,
-    PixelmonAuthModule,
-    PixelmonFormModule.forRoot(),
+    PixelmonGGEditorModule,
     PixelmonMockModule.forRoot({ data: MOCKDATA }),
 ],
 providers: [
@@ -292,12 +288,10 @@ export class AppModule {
           'ng-zorro-antd': '*',
           '@pixelmon/theme': 'latest',
           '@pixelmon/pikachu': 'latest',
-          '@pixelmon/chart': 'latest',
           '@pixelmon/acl': 'latest',
-          '@pixelmon/auth': 'latest',
+          '@pixelmon/ggeditor': 'latest',
           '@pixelmon/cache': 'latest',
           '@pixelmon/mock': 'latest',
-          '@pixelmon/form': 'latest',
           '@pixelmon/util': 'latest',
           extend: '*',
           qrious: '*',
