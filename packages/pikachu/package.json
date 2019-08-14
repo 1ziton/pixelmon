@@ -13,7 +13,6 @@
   "homepage": "https://pixelmon.1ziton.com",
   "keywords": [
     "pixelmon",
-    "front-end",
     "pikachu",
     "antd",
     "ng-zorro-antd",
@@ -24,7 +23,9 @@
     "file-saver": "^1.3.3",
     "ngx-countdown": "^3.0.0",
     "qrious": "^4.0.2",
-    "@pixelmon/theme": "PEER-0.0.0-PLACEHOLDER"
+    "@pixelmon/theme": "PEER-0.0.0-PLACEHOLDER",
+    "@pixelmon/util": "PEER-0.0.0-PLACEHOLDER",
+    "@pixelmon/acl": "PEER-0.0.0-PLACEHOLDER"
   },
   "sideEffects": false
 }

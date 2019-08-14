@@ -9,6 +9,7 @@
     "module": "es2015",
     "target": "es2015",
     "lib": ["es2017", "dom"],
+    "jsx": "react",
     "typeRoots": ["node_modules/@types"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

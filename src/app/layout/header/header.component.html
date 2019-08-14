@@ -95,11 +95,11 @@
               </ul>
             </nz-dropdown-menu>
           </li>
-          <li nz-menu-item>
+          <!-- <li nz-menu-item>
             <a href="https://e.1ziton.com/" target="_blank">
               {{ 'app.header.menu.themes' | translate }}
             </a>
-          </li>
+          </li> -->
         </ul>
         <nz-select nzSize="small" class="version" style="width: 100px;" [ngModel]="currentVersion" (ngModelChange)="toVersion($event)">
           <nz-option *ngFor="let version of oldVersionList" [nzLabel]="version" [nzValue]="version"></nz-option>

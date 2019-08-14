@@ -6,6 +6,7 @@ import { throwIfAlreadyLoaded } from './core/module-import-guard';
 import { PixelmonMockModule } from '@pixelmon/mock';
 
 import { PixelmonThemeModule } from '@pixelmon/theme';
+
 import * as MOCKDATA from '../../_mock';
 
 // #region reuse-tab
@@ -36,6 +37,7 @@ const REUSETAB_PROVIDES = [
 import { LodopConfig } from '@pixelmon/pikachu';
 
 import { PixelmonACLModule } from '@pixelmon/acl';
+import { PixelmonGGEditorModule } from '@pixelmon/ggeditor';
 
 export function fnLodopConfig(): LodopConfig {
   return Object.assign(new LodopConfig(), {
@@ -53,6 +55,7 @@ export function fnLodopConfig(): LodopConfig {
     PixelmonMockModule.forRoot({
       data: MOCKDATA,
     }),
+    PixelmonGGEditorModule,
   ],
 })
 export class PixelmonModule {

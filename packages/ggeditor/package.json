@@ -1,0 +1,32 @@
+{
+  "name": "@pixelmon/ggeditor",
+  "version": "0.0.0-PLACEHOLDER",
+  "author": "giscafer<giscafer@outlook.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1ziton/pixelmon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/1ziton/pixelmon/issues"
+  },
+  "homepage": "https://pixelmon.1ziton.com",
+  "keywords": [
+    "pixelmon",
+    "ggeditor",
+    "angular gg-editor",
+    "ng ggeditor",
+    "g2",
+    "gg-editor",
+    "angular",
+    "flow"
+  ],
+  "sideEffects": false,
+  "dependencies": {
+    "gg-editor": "^2.0.4",
+    "invariant": "^2.2.4",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "uuid": "^3.3.2"
+  }
+}

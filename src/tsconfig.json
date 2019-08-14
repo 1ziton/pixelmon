@@ -8,11 +8,13 @@
     "outDir": "../out-tsc/app",
     "baseUrl": ".",
     "types": ["node"],
+    "jsx": "react",
     "paths": {
       "@core/*": ["app/core/*"],
       "@shared": ["app/shared"],
       "@shared/*": ["app/shared/*"],
-      "@pixelmon/*": ["../packages/*"]
+      "@pixelmon/*": ["../packages/*"],
+      "@dist/*": ["../dist/@pixelmon/*"]
     }
   },
 

@@ -5,13 +5,16 @@ set -u -e -o pipefail
 
 cd $(dirname $0)/../..
 
-PACKAGES=(util
-  testing
-  acl
-  theme
-  pikachu
-  cache
-  mock)
+PACKAGES=(
+  # util
+  ggeditor
+  # testing
+  # acl
+  # theme
+  # pikachu
+  # cache
+  # mock
+  )
 NODE_PACKAGES=(cli)
 
 for ARG in "$@"; do
