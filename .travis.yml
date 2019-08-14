@@ -29,15 +29,15 @@ before_install:
 
 jobs:
   include:
+    - stage: lint
+      env: 'TASK=lint'
     - stage: pre
       env: 'TASK=build_artifacts'
     - stage: test
       env: 'TASK=test'
-    - stage: test
-      env: 'TASK=lint'
-    - stage: test
+    - stage: build
       env: 'TASK=site:build'
-    - stage: test
+    - stage: build
       env: 'TASK=build'
     # - stage: test
     #   env: 'TASK=test:cli'
@@ -45,9 +45,12 @@ jobs:
     #   env: 'TASK=pre-publish'
 
 stages:
+  - name: lint
+  - name: test
+    if: branch = master
   - name: pre
     if: branch = master
-  - name: test
+  - name: build
     if: branch = master
   - name: publish
     if: branch = master
