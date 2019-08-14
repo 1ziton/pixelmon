@@ -6,6 +6,8 @@
     "flatModuleFile": "ggeditor",
     "entryFile": "public_api.ts",
     "umdModuleIds": {
+      "uuid": "uuid",
+      "invariant": "invariant",
       "react": "React",
       "react-dom": "ReactDOM"
     },

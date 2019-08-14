@@ -6,12 +6,13 @@
 
 import { AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import GGEditor, { Mind } from 'gg-editor';
-import * as invariant from 'invariant';
+import * as invariant_ from 'invariant';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import { MindProps, FlowStyle } from './interface';
 
+const invariant = invariant_;
 
 @Component({
     selector: 'ggeditor-mind',

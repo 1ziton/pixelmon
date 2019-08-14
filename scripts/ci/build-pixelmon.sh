@@ -6,14 +6,14 @@ set -u -e -o pipefail
 cd $(dirname $0)/../..
 
 PACKAGES=(
-  # util
+  util
   ggeditor
-  # testing
-  # acl
-  # theme
-  # pikachu
-  # cache
-  # mock
+  testing
+  acl
+  theme
+  pikachu
+  cache
+  mock
   )
 NODE_PACKAGES=(cli)
 
