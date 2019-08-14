@@ -51,9 +51,9 @@ export class MindEditorComponent implements OnInit, OnDestroy, OnChanges, AfterV
         return !!this.rootDomID;
     }
 
-    //<GGEditor>
+    // <GGEditor>
     //   <Mind style={{ width: 500, height: 500 }} data={data} />
-    //</GGEditor>
+    // </GGEditor>
 
     protected render() {
         if (this.isMounted()) {
@@ -76,17 +76,5 @@ export class MindEditorComponent implements OnInit, OnDestroy, OnChanges, AfterV
 
 
     ngOnDestroy() {
-    }
-
-    ngAfterContentInit() {
-        // e.on('message', message => {
-        //   this.message = message.text
-        //   this.changeDetector.detectChanges()
-        //   this.returnMessageToReactWhenReceived()
-        // })
-    }
-
-    returnMessageToReactWhenReceived() {
-        // e.emit('received', { text: 'Woohoo! Hello from Angular! 🎉' })
     }
 }

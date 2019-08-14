@@ -4,15 +4,15 @@
   display: inline-block;
   max-width: 180px;
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
+  text-overflow: ellipsis;
   vertical-align: top;
 }
 
 .flex {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .label {
@@ -25,19 +25,19 @@
 
 :host ::ng-deep .ant-tabs.ant-tabs-card {
   .ant-tabs-bar {
-    border: none;
     margin: 0 0 2px 0;
+    border: none;
 
     .ant-tabs-tab {
+      height: 30px;
       margin: 0;
-      border: 1px solid #e8e8e8 !important;
-      border-radius: 4px;
-      background: #fafafa;
       margin-right: 2px;
       padding: 0 16px;
-      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       line-height: 28px;
-      height: 30px;
+      background: #fafafa;
+      border: 1px solid #e8e8e8 !important;
+      border-radius: 4px;
+      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
 
     .ant-tabs-nav-container {
