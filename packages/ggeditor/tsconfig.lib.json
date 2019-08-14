@@ -4,11 +4,14 @@
     "baseUrl": ".",
     "rootDir": ".",
     "jsx": "react",
-    "types": [ "node" ]
+    "types": [
+      "node"
+    ]
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": false,
-    "skipTemplateCodegen": true
+    "skipTemplateCodegen": true,
+    "allowSyntheticDefaultImports": true
   }
 }
