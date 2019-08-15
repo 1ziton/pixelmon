@@ -2,7 +2,7 @@
 <nz-spin [nzSpinning]="loading">
   <nz-table
     [nzData]="data?.content || []"
-    [nzTitle]="showTitle ? titleTemplate || defaultTitleTemplate : null"
+    [nzTitle]="titleTemplate || null"
     [nzScroll]="scroll"
     [nzFrontPagination]="frontPagination"
     [nzSize]="size"
@@ -39,28 +39,12 @@
           [nzCustomFilter]="column.showFilter"
         >
           {{ column.title }}
-          <nz-dropdown
-            *ngIf="column.showFilter"
-            nzTrigger="click"
-            nzPlacement="bottomRight"
-            [nzClickHide]="false"
-            nzTableFilter
-            #dropdown
-          >
-            <i
-              nz-icon
-              nzType="search"
-              class="ant-table-filter-icon"
-              [class.ant-table-filter-open]="dropdown.nzVisible"
-              nz-dropdown
-            ></i>
+          <nz-dropdown *ngIf="column.showFilter" nzTrigger="click" nzPlacement="bottomRight" [nzClickHide]="false" nzTableFilter #dropdown>
+            <i nz-icon nzType="search" class="ant-table-filter-icon" [class.ant-table-filter-open]="dropdown.nzVisible" nz-dropdown></i>
             <div class="padding-8">
               <!-- 自定义搜索组件 -->
               <ng-template [ngIf]="column.customFilter" [ngIfElse]="defaultFilterTemplate">
-                <ng-container
-                  [ngTemplateOutlet]="column.customFilter"
-                  [ngTemplateOutletContext]="{ $implicit: column }"
-                ></ng-container>
+                <ng-container [ngTemplateOutlet]="column.customFilter" [ngTemplateOutletContext]="{ $implicit: column }"></ng-container>
               </ng-template>
               <!-- 默认搜索组件 -->
               <ng-template #defaultFilterTemplate>
@@ -71,7 +55,7 @@
                       nzAllowClear
                       nzPlaceHolder="请选择"
                       [(ngModel)]="column.searchValue"
-                      [nzMode]="filterMultiple ? 'multiple' : 'default'"
+                      [nzMode]="column.filterMultiple ? 'multiple' : 'default'"
                       [style.width]="column.filterWidth || '180px'"
                     >
                       <nz-option
@@ -118,12 +102,7 @@
               </ng-template>
               <!-- 按钮 -->
               <div nz-row nzType="flex" nzJustify="end" nzAlign="middle" class="margin-top-8">
-                <button
-                  nz-button
-                  nzSize="small"
-                  nzType="primary"
-                  (click)="dropdown.setVisibleStateWhen(false); onFilterConfim()"
-                >
+                <button nz-button nzSize="small" nzType="primary" (click)="dropdown.setVisibleStateWhen(false); onFilterConfim()">
                   确认
                 </button>
               </div>
@@ -135,20 +114,11 @@
     <tbody>
       <ng-container *ngFor="let row of displayData">
         <tr>
-          <td
-            *ngIf="showCheckbox"
-            nzLeft="0px"
-            nzShowCheckbox
-            [(nzChecked)]="row.isChecked"
-            (nzCheckedChange)="singleCheckChange()"
-          ></td>
+          <td *ngIf="showCheckbox" nzLeft="0px" nzShowCheckbox [(nzChecked)]="row.isChecked" (nzCheckedChange)="singleCheckChange()"></td>
           <td [nzLeft]="column.left" [nzRight]="column.right" *ngFor="let column of columns">
             <!-- 自定义单元格 -->
             <ng-template [ngIf]="column.customCell" [ngIfElse]="defaultCellTemplate">
-              <ng-container
-                [ngTemplateOutlet]="column.customCell"
-                [ngTemplateOutletContext]="{ $implicit: row }"
-              ></ng-container>
+              <ng-container [ngTemplateOutlet]="column.customCell" [ngTemplateOutletContext]="{ $implicit: row }"></ng-container>
             </ng-template>
             <!-- 默认单元格 -->
             <ng-template #defaultCellTemplate>
@@ -195,23 +165,6 @@
 
     <!-- total模板 -->
     <ng-template #totalTemplate let-total> 总 {{ total }} 条数据 </ng-template>
-    <!-- 默认title模板 -->
-    <ng-template #defaultTitleTemplate>
-      <div class="content-header" [hidden]="selections.length">
-        <div class="content-title">列表</div>
-        <div class="content-query">
-          <query-display [(columns)]="columns" (queryChange)="onQueryChange($event)"></query-display>
-        </div>
-      </div>
-      <div class="content-header" [hidden]="!selections.length">
-        <div class="selection-box">
-          已选 <span class="color-theme">{{ selections.length }}</span> 项
-          <a *ngIf="selections.length" class="margin-left-16" (click)="allCheckChange(false)">取消</a>
-        </div>
-        <!-- 绑定操作列表的ng-content -->
-        <ng-content select=".operation-box"> </ng-content>
-      </div>
-    </ng-template>
   </nz-table>
 
   <!-- 额外分页组件，不使用表格自带分页，为了满足UI的没有数据也要显示分页的需求 -->
