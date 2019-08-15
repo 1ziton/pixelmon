@@ -20,7 +20,7 @@ const invariant = invariant_;
     <div [id]="rootDomID" class="ggeditor-mind-container"></div>
 	`,
 })
-export class MindEditorComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+export class MindComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
     @Input() data: MindProps;
     @Input() style: FlowStyle = {
         width: 500, height: 500

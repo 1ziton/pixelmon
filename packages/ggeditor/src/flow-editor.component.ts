@@ -5,23 +5,26 @@
  */
 
 import { AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
-import GGEditor, { Flow } from 'gg-editor';
 import * as invariant_ from 'invariant';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
+import FlowPage from './editor/flow/FlowPage';
 import { FlowProps, FlowStyle } from './interface';
 
 const invariant = invariant_;
 
 
 @Component({
-    selector: 'ggeditor-flow',
+    selector: 'ggeditor-flowpage',
     template: `
-    <div [id]="rootDomID" class="ggeditor-flow-container"></div>
-	`,
+    <div [id]="rootDomID" class="ggeditor-flowpage"></div>
+    `,
+    styleUrls: [
+        './editor/styles/index.less'
+    ]
 })
-export class FlowComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+export class FlowPageEditorComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
     @Input() data: FlowProps;
     @Input() style: FlowStyle = {
         width: 500, height: 500
@@ -60,9 +63,7 @@ export class FlowComponent implements OnInit, OnDestroy, OnChanges, AfterViewIni
 
     protected render() {
         if (this.isMounted()) {
-            console.log(this.rootDomID)
-            const flow = React.createElement(Flow, { data: this.getProps(), style: { ...this.style } });
-            ReactDOM.render(React.createElement(GGEditor, {}, flow), this.getRootDomNode());
+            ReactDOM.render(React.createElement(FlowPage, { data: this.getProps() }), this.getRootDomNode());
         }
     }
 
