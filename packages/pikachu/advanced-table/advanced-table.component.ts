@@ -47,9 +47,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
   @Input() size = 'middle'; // 表格size
   @Input() pageSizeOptions = [10, 30, 50, 100]; // 页数选择器可选值
   @Input() showCheckbox = false; // 是否显示复选框
-  @Input() showTitle = true; // 是否有title
   @Input() titleTemplate: TemplateRef<void>; // title模板
-  @Input() filterMultiple: string;
 
   @Output() columnsChange: EventEmitter<Column[]> = new EventEmitter(); // 列数据改变事件 用于双向绑定
   @Output() selectionsChange: EventEmitter<object[]> = new EventEmitter(); // 已选项改变事件 用于双向绑定
@@ -224,19 +222,10 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
   }
 
   /**
-   * 查询参数改变回调
-   * @param queryParams 查询参数
-   */
-  onQueryChange(queryParams: { [key: string]: any }): void {
-    this.queryParams = queryParams;
-    this.load$.next();
-  }
-
-  /**
    * 固定分页
    */
   toFixedPagination(): void {
-    // zorro设计缺陷，没有滚动条时和有滚动条时tableBody会不一样，故先给上滚动条
+    // 没有滚动条时和有滚动条时tableBody会不一样，故先给上滚动条
     this.scroll = { y: '0px' };
     // 等待滚动条更新
     setTimeout(() => {
