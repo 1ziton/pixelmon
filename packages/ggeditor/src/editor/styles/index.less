@@ -1,3 +1,7 @@
+.ggeditor-flowpage {
+  height: 100%;
+  width: 100%;
+}
 .editor {
   display: flex;
   flex: 1;
@@ -48,58 +52,52 @@
     display: flex;
     align-items: center;
 
-    ::ng-deep {
-      .command i {
-        display: inline-block;
-        width: 27px;
-        height: 27px;
-        margin: 0 6px;
-        padding-top: 6px;
-        text-align: center;
-        border: 1px solid #fff;
-        cursor: pointer;
+    .command i {
+      display: inline-block;
+      width: 27px;
+      height: 27px;
+      margin: 0 6px;
+      padding-top: 6px;
+      text-align: center;
+      border: 1px solid #fff;
+      cursor: pointer;
 
-        &:hover {
-          border: 1px solid #e6e9ed;
-        }
+      &:hover {
+        border: 1px solid #e6e9ed;
       }
+    }
 
-      .disable i {
-        color: rgba(0, 0, 0, 0.25);
-        cursor: auto;
+    .disable i {
+      color: rgba(0, 0, 0, 0.25);
+      cursor: auto;
 
-        &:hover {
-          border: 1px solid #fff;
-        }
+      &:hover {
+        border: 1px solid #fff;
       }
     }
   }
 
   .tooltip {
-    ::ng-deep {
-      .ant-tooltip-inner {
-        font-size: 12px;
-        border-radius: 0;
-      }
+    .ant-tooltip-inner {
+      font-size: 12px;
+      border-radius: 0;
     }
   }
   .item-panel {
     flex: 1;
     background: #fafafa;
 
-    ::ng-deep {
-      .ant-card {
-        background: #fafafa;
-      }
+    .ant-card {
+      background: #fafafa;
+    }
 
-      .ant-card-body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .ant-card-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-        > div {
-          margin-bottom: 16px;
-        }
+      > div {
+        margin-bottom: 16px;
       }
     }
   }
@@ -107,10 +105,8 @@
     flex: 1;
     background: #fafafa;
 
-    ::ng-deep {
-      .ant-card {
-        background: #fafafa;
-      }
+    .ant-card {
+      background: #fafafa;
     }
   }
 }
@@ -128,6 +124,10 @@
 .editorContent {
   display: flex;
   flex-direction: column;
+  .graph-container {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .editorSidebar {

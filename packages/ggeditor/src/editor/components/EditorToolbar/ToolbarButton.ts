@@ -5,24 +5,25 @@ import IconFont from '../../common/IconFont';
 import { CommandProps } from '../../editor-interface';
 // import styles from './index.less';
 
-const ToolbarButton = ({ command, text, icon }:  CommandProps):any => {
+const ToolbarButton = ({ command, text, icon, key }: CommandProps): any => {
+  return React.createElement(Command, { name: command, key: key || command }, 
+    React.createElement(
+      Tooltip,
+      { title: text, placement: 'bottom', overlayClassName: 'tooltip'},
+      React.createElement(IconFont, { type: `icon-${icon || command}`}),
+    ));
 
-    return React.createElement(Command, { name: command }, [
-        React.createElement(Tooltip, { title: text, placement: "bottom", overlayClassName: "tooltip" },
-            React.createElement(IconFont, { type: `icon-${icon || command}` }))
-    ])
-
-    //   return (
-    //     <Command name={command}>
-    //       <Tooltip
-    //         title={text || upperFirst(command)}
-    //         placement="bottom"
-    //         overlayClassName={styles.tooltip}
-    //       >
-    //         <IconFont type={`icon-${icon || command}`} />
-    //       </Tooltip>
-    //     </Command>
-    //   );
+  //   return (
+  //     <Command name={command}>
+  //       <Tooltip
+  //         title={text || upperFirst(command)}
+  //         placement="bottom"
+  //         overlayClassName={styles.tooltip}
+  //       >
+  //         <IconFont type={`icon-${icon || command}`} />
+  //       </Tooltip>
+  //     </Command>
+  //   );
 };
 
 export default ToolbarButton;

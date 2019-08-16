@@ -19,7 +19,7 @@ import { Component, OnDestroy } from '@angular/core';
 @Component({
   selector: 'flow-demo',
   template: `
-  <ggeditor-flow [data]="data" [style]="{width: 500, height: 400}"></ggeditor-flow>
+  <ggeditor-flow [data]="data" [style]="{width: '70%', height: 400}"></ggeditor-flow>
   `,
 })
 export class DemoComponent implements OnDestroy {
