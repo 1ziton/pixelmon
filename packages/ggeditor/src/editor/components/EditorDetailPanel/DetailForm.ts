@@ -15,14 +15,13 @@ const inlineFormItemLayout = {
 };
 
 class DetailForm extends React.Component {
-
   get item() {
     const { propsAPI } = this.props as any;
 
     return propsAPI.getSelected()[0];
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     if (e && e.preventDefault) {
       e.preventDefault();
     }
@@ -52,11 +51,10 @@ class DetailForm extends React.Component {
   };
 
   renderEdgeShapeSelect = () => {
-
-    return React.createElement(Select, { onChange: this.handleSubmit }, [
-      React.createElement(Option, { value: "flow-smooth" }, "Smooth"),
-      React.createElement(Option, { value: "flow-polyline" }, "Polyline"),
-      React.createElement(Option, { value: "flow-polyline-round" }, "Polyline Round"),
+    return React.createElement(Select, { onChange: this.handleSubmit, key: 'edgeshapselect' }, [
+      React.createElement(Option, { value: 'flow-smooth', key: 'smooth' }, 'Smooth'),
+      React.createElement(Option, { value: 'flow-polyline', key: 'polyline' }, 'Polyline'),
+      React.createElement(Option, { value: 'flow-polyline-round', key: 'pround' }, 'Polyline Round'),
     ]);
     // return (
     //   <Select onChange={this.handleSubmit}>
@@ -71,13 +69,14 @@ class DetailForm extends React.Component {
     const { form } = this.props as any;
     const { label } = this.item.getModel();
 
-
-    return React.createElement(Item as any, { label: "Label", ...inlineFormItemLayout }, [
+    return React.createElement(
+      Item as any,
+      { label: 'Label', ...inlineFormItemLayout, key: 'nodedetailitem' },
       form.getFieldDecorator('label', {
         initialValue: label,
-      }),
-      React.createElement(Input, { onBlur: this.handleSubmit })
-    ])
+        key: 'nodedetaillabel',
+      })(React.createElement(Input, { onBlur: this.handleSubmit, key: 'nodedetaillabel-input' })),
+    );
     // return (
     //   <Item label= "Label" {...inlineFormItemLayout }>
     //     {
@@ -93,24 +92,21 @@ class DetailForm extends React.Component {
     const { form } = this.props as any;
     const { shape = 'flow-smooth' } = this.item.getModel();
 
-    return React.createElement(Item as any, { label: "Shape", ...inlineFormItemLayout }, [
+    return React.createElement(
+      Item as any,
+      { label: 'Shape', ...inlineFormItemLayout, key: 'shapitem' },
       form.getFieldDecorator('shape', {
         initialValue: shape,
-      }),
-      this.renderEdgeShapeSelect()
-    ])
-
-  }
+        key: 'shapedetaillabel',
+      })(this.renderEdgeShapeSelect()),
+    );
+  };
 
   renderEdgeDetail = () => {
     // const { form } = this.props as any;
     // const { label = '', shape = 'flow-smooth' } = this.item.getModel();
 
-
-    return React.createElement(Fragment as any, null, [
-      this.renderNodeDetail(),
-      this.shapeItem()
-    ]);
+    return React.createElement(Fragment as any, { key: 'fagment' }, [this.renderNodeDetail(), this.shapeItem()]);
 
     // return (
     //   <Fragment>
@@ -136,12 +132,13 @@ class DetailForm extends React.Component {
     const { form } = this.props as any;
     const { label = '新建分组' } = this.item.getModel();
 
-    return React.createElement(Item as any, { label: "Label", ...inlineFormItemLayout }, [
+    return React.createElement(Item as any, { label: 'Label', ...inlineFormItemLayout }, [
       form.getFieldDecorator('label', {
         initialValue: label,
+        key: 'groupdetailitem',
       }),
-      React.createElement(Input, { onBlur: this.handleSubmit })
-    ])
+      React.createElement(Input, { onBlur: this.handleSubmit, key: 'input' }),
+    ]);
 
     // return (
     //   <Item label= "Label" {...inlineFormItemLayout }>
@@ -164,17 +161,17 @@ class DetailForm extends React.Component {
     if (type === 'node') {
       detailNode = this.renderNodeDetail();
     } else if (type === 'edge') {
-      detailNode = this.renderEdgeDetail()
+      detailNode = this.renderEdgeDetail();
     } else if (type === 'group') {
-      detailNode = this.renderGroupDetail()
+      detailNode = this.renderGroupDetail();
     }
 
-    return React.createElement(Card, { type: "inner", size: "small", title: type, bordered: false }, [
+    return React.createElement(
+      Card,
+      { type: 'inner', size: 'small', title: type, bordered: false },
 
-      React.createElement(Form, { onSubmit: this.handleSubmit }, [
-        detailNode
-      ])
-    ])
+      React.createElement(Form, { onSubmit: this.handleSubmit }, detailNode),
+    );
 
     // return (
     //   <Card type="inner" size="small" title={upperFirst(type)} bordered={false}>

@@ -1,12 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FlowPageEditorComponent } from './flow-editor.component';
-import { FlowComponent } from './flow.component';
-import { MindComponent } from './mind.component';
+import { GGEditorComponent } from './ggeditor.component';
 
 @NgModule({
-    imports: [CommonModule],
-    declarations: [FlowComponent, MindComponent, FlowPageEditorComponent],
-    exports: [FlowComponent, MindComponent, FlowPageEditorComponent]
+  imports: [CommonModule],
+  declarations: [GGEditorComponent],
+  exports: [GGEditorComponent],
 })
-export class PixelmonGGEditorModule { }
+export class PixelmonGGEditorModule {}

@@ -19,7 +19,7 @@ import { Component, OnDestroy } from '@angular/core';
 @Component({
   selector: 'mind-demo',
   template: `
-  <ggeditor-mind [data]="data" [style]="{width: '70%', height: 400}"></ggeditor-mind>
+  <p-ggeditor type="mind" [data]="data" [style]="{width: '70%', height: 400}"></p-ggeditor>
   `,
 })
 export class MindDemoComponent implements OnDestroy {

@@ -9,15 +9,10 @@
       "uuid": "uuid",
       "invariant": "invariant",
       "react": "React",
-      "react-dom": "ReactDOM"
+      "react-dom": "ReactDOM",
+      "@pixelmon/util": "pixelmon.util"
     },
     "jsx": "react"
   },
-  "whitelistedNonPeerDependencies": [
-    "gg-editor",
-    "invariant",
-    "react",
-    "react-dom",
-    "uuid"
-  ]
+  "whitelistedNonPeerDependencies": ["gg-editor", "invariant", "react", "react-dom", "uuid", "@pixelmon/util"]
 }
