@@ -8,6 +8,9 @@
       "node"
     ]
   },
+  "exclude": [
+    "./src/editor/components/EditorDetailPanel/*"
+  ],
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": false,

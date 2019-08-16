@@ -16,7 +16,8 @@
       true,
       {
         "ignorePseudoElements": [
-          "ng-deep"
+          "ng-deep",
+          "pseudo-class"
         ]
       }
     ]
