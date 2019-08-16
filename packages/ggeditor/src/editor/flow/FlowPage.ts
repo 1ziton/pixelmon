@@ -16,7 +16,7 @@ const FlowPage = (props): any => {
         ]),
         React.createElement(Row, { type: "flex", className: "editorBd" }, [
             React.createElement(Col, { span: 4, className: "editorSidebar" }, FlowItemPanel()),
-            React.createElement(Col, { span: 16, className: "editorContent" }, React.createElement(Flow, { data: data, style: { width: "100%", height: "100%" } })),
+            React.createElement(Col, { span: 16, className: "editorContent" }, React.createElement(Flow, { data, style: { width: "100%", height: "100%" } })),
             React.createElement(Col, { span: 4, className: "editorSidebar" }, [FlowDetailPanel(), EditorMinimap()]),
         ]),
         FlowContextMenu()
