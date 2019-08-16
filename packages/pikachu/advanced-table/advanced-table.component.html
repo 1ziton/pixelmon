@@ -1,183 +1,168 @@
-<!-- 包裹表格+分页 -->
-<nz-spin [nzSpinning]="loading">
-  <nz-table
-    [nzData]="data?.content || []"
-    [nzTitle]="titleTemplate || null"
-    [nzScroll]="scroll"
-    [nzFrontPagination]="frontPagination"
-    [nzSize]="size"
-    [nzShowPagination]="false"
-    [(nzPageIndex)]="pageIndex"
-    [(nzPageSize)]="pageSize"
-    [nzShowSizeChanger]="showSizeChanger"
-    [nzPageSizeOptions]="pageSizeOptions"
-    [nzTotal]="data?.totalElements || 0"
-    [nzShowTotal]="totalTemplate"
-    (nzPageIndexChange)="pageIndexChange()"
-    (nzPageSizeChange)="pageSizeChange()"
-    (nzCurrentPageDataChange)="currentPageDataChange($event)"
-    [class.fixed-pagination]="fixedPagination"
-  >
-    <thead (nzSortChange)="onSort($event)" nzSingleSort>
-      <tr>
-        <th
-          *ngIf="showCheckbox"
-          nzLeft="0px"
-          nzWidth="40px"
-          nzShowCheckbox
-          [nzChecked]="selections.length > 0 && displayData.length === selections.length"
-          [nzIndeterminate]="selections.length > 0 && displayData.length !== selections.length"
-          (nzCheckedChange)="allCheckChange($event)"
-        ></th>
-        <th
-          *ngFor="let column of columns"
-          [nzLeft]="column.left"
-          [nzRight]="column.right"
-          [nzWidth]="column.width || '120px'"
-          [nzShowSort]="column.showSort"
-          [nzSortKey]="column.field"
-          [nzCustomFilter]="column.showFilter"
-        >
-          {{ column.title }}
-          <nz-dropdown *ngIf="column.showFilter" nzTrigger="click" nzPlacement="bottomRight" [nzClickHide]="false" nzTableFilter #dropdown>
-            <i nz-icon nzType="search" class="ant-table-filter-icon" [class.ant-table-filter-open]="dropdown.nzVisible" nz-dropdown></i>
-            <div class="padding-8">
-              <!-- 自定义搜索组件 -->
-              <ng-template [ngIf]="column.customFilter" [ngIfElse]="defaultFilterTemplate">
-                <ng-container [ngTemplateOutlet]="column.customFilter" [ngTemplateOutletContext]="{ $implicit: column }"></ng-container>
-              </ng-template>
-              <!-- 默认搜索组件 -->
-              <ng-template #defaultFilterTemplate>
-                <ng-container [ngSwitch]="column.filterType">
-                  <!-- select -->
-                  <ng-template ngSwitchCase="select">
-                    <nz-select
-                      nzAllowClear
-                      nzPlaceHolder="请选择"
-                      [(ngModel)]="column.searchValue"
-                      [nzMode]="column.filterMultiple ? 'multiple' : 'default'"
-                      [style.width]="column.filterWidth || '180px'"
-                    >
-                      <nz-option
-                        *ngFor="let option of column.filterOptions || []"
-                        [nzValue]="option.value"
-                        [nzLabel]="option.label"
-                      ></nz-option>
-                    </nz-select>
-                  </ng-template>
-                  <!-- range-picker -->
-                  <ng-template ngSwitchCase="rangePicker">
-                    <nz-range-picker
-                      nzAllowClear
-                      [(ngModel)]="column.searchValue"
-                      [nzStyle]="{ width: column.filterWidth || '240px' }"
-                      (nzOnOpenChange)="onRangePickerOpenChange($event, column)"
-                    ></nz-range-picker>
-                  </ng-template>
-                  <!-- input -->
-                  <ng-template ngSwitchDefault>
-                    <nz-input-group [nzSuffix]="suffixTemplate">
-                      <input
-                        #input
-                        nz-input
-                        placeholder="请输入"
-                        [(ngModel)]="column.searchValue"
-                        [style.width]="column.filterWidth || '180px'"
-                        (keydown.enter)="dropdown.setVisibleStateWhen(false); onFilterConfim()"
-                      />
-                    </nz-input-group>
-                    <ng-template #suffixTemplate>
-                      <i
-                        nz-icon
-                        nz-tooltip
-                        class="clear-icon"
-                        nzTheme="fill"
-                        nzType="close-circle"
-                        *ngIf="column.searchValue"
-                        (click)="column.searchValue = null; input.focus()"
-                      ></i>
-                    </ng-template>
-                  </ng-template>
-                </ng-container>
-              </ng-template>
-              <!-- 按钮 -->
-              <div nz-row nzType="flex" nzJustify="end" nzAlign="middle" class="margin-top-8">
-                <button nz-button nzSize="small" nzType="primary" (click)="dropdown.setVisibleStateWhen(false); onFilterConfim()">
-                  确认
-                </button>
-              </div>
-            </div>
-          </nz-dropdown>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let row of displayData">
-        <tr>
-          <td *ngIf="showCheckbox" nzLeft="0px" nzShowCheckbox [(nzChecked)]="row.isChecked" (nzCheckedChange)="singleCheckChange()"></td>
-          <td [nzLeft]="column.left" [nzRight]="column.right" *ngFor="let column of columns">
-            <!-- 自定义单元格 -->
-            <ng-template [ngIf]="column.customCell" [ngIfElse]="defaultCellTemplate">
-              <ng-container [ngTemplateOutlet]="column.customCell" [ngTemplateOutletContext]="{ $implicit: row }"></ng-container>
+<nz-table
+  class="advanced-table"
+  [nzData]="data?.content || []"
+  [nzLoading]="loading"
+  [nzTitle]="titleTemplate || null"
+  [nzScroll]="scroll"
+  [nzFrontPagination]="frontPagination"
+  [nzSize]="size"
+  [nzShowPagination]="showPagination"
+  [(nzPageIndex)]="pageIndex"
+  [(nzPageSize)]="pageSize"
+  [nzShowSizeChanger]="showSizeChanger"
+  [nzPageSizeOptions]="pageSizeOptions"
+  [nzTotal]="data?.totalElements || 0"
+  [nzShowTotal]="totalTemplate"
+  (nzPageIndexChange)="pageIndexChange()"
+  (nzPageSizeChange)="pageSizeChange()"
+  (nzCurrentPageDataChange)="currentPageDataChange($event)"
+  [class.fixed-pagination]="fixedPagination"
+>
+  <thead (nzSortChange)="onSort($event)" nzSingleSort>
+    <tr>
+      <th
+        *ngIf="showCheckbox"
+        nzLeft="0px"
+        nzWidth="40px"
+        nzShowCheckbox
+        [nzChecked]="selections.length > 0 && displayData.length === selections.length"
+        [nzIndeterminate]="selections.length > 0 && displayData.length !== selections.length"
+        (nzCheckedChange)="allCheckChange($event)"
+      ></th>
+      <th
+        *ngFor="let column of columns"
+        [nzLeft]="column.left"
+        [nzRight]="column.right"
+        [nzWidth]="column.width || '120px'"
+        [nzShowSort]="column.showSort"
+        [nzSortKey]="column.field"
+        [nzCustomFilter]="column.showFilter"
+      >
+        {{ column.title }}
+        <nz-dropdown *ngIf="column.showFilter" nzTrigger="click" nzPlacement="bottomRight" [nzClickHide]="false" nzTableFilter #dropdown>
+          <i nz-icon nzType="search" class="ant-table-filter-icon" [class.ant-table-filter-open]="dropdown.nzVisible" nz-dropdown></i>
+          <div class="advanced-table-filter-panel">
+            <!-- 自定义搜索组件 -->
+            <ng-template [ngIf]="column.customFilter" [ngIfElse]="defaultFilterTemplate">
+              <ng-container [ngTemplateOutlet]="column.customFilter" [ngTemplateOutletContext]="{ $implicit: column }"></ng-container>
             </ng-template>
-            <!-- 默认单元格 -->
-            <ng-template #defaultCellTemplate>
-              <ng-container [ngSwitch]="column.type">
-                <!-- link -->
-                <ng-template ngSwitchCase="link">
-                  <a (click)="onlinkClick(column['field'], row)">
-                    <smart-text [text]="row[column['field']]"></smart-text>
-                  </a>
+            <!-- 默认搜索组件 -->
+            <ng-template #defaultFilterTemplate>
+              <ng-container [ngSwitch]="column.filterType">
+                <!-- select -->
+                <ng-template ngSwitchCase="select">
+                  <nz-select
+                    nzAllowClear
+                    nzPlaceHolder="请选择"
+                    [(ngModel)]="column.searchValue"
+                    [nzMode]="column.filterMultiple ? 'multiple' : 'default'"
+                    [style.width]="column.filterWidth || '180px'"
+                  >
+                    <nz-option
+                      *ngFor="let option of column.filterOptions || []"
+                      [nzValue]="option.value"
+                      [nzLabel]="option.label"
+                    ></nz-option>
+                  </nz-select>
                 </ng-template>
-                <!-- thumbnail -->
-                <ng-template ngSwitchCase="thumbnail">
-                  <!-- 无图片不初始化viewer -->
-                  <div viewer [isLazyLoad]="true" [maxShowNum]="1" *ngIf="row[column['field']]?.length">
-                    <!-- 超过一张图片显示badge -->
-                    <ng-template [ngIf]="row[column['field']]?.length > 1" [ngIfElse]="noBadgeTemplate">
-                      <nz-badge [nzCount]="row[column['field']]?.length">
-                        <ng-container [ngTemplateOutlet]="noBadgeTemplate"></ng-container>
-                      </nz-badge>
-                    </ng-template>
-                    <!-- 只有一张图片不显示badge -->
-                    <ng-template #noBadgeTemplate>
-                      <img
-                        viewerImg
-                        height="24px"
-                        width="24px"
-                        *ngFor="let url of row[column['field']] || []"
-                        [lazyLoadSrc]="url"
-                        style="cursor: zoom-in"
-                      />
-                    </ng-template>
-                  </div>
+                <!-- range-picker -->
+                <ng-template ngSwitchCase="rangePicker">
+                  <nz-range-picker
+                    nzAllowClear
+                    [(ngModel)]="column.searchValue"
+                    [nzStyle]="{ width: column.filterWidth || '240px' }"
+                    (nzOnOpenChange)="onRangePickerOpenChange($event, column)"
+                  ></nz-range-picker>
                 </ng-template>
-                <!-- default -->
+                <!-- input -->
                 <ng-template ngSwitchDefault>
-                  <smart-text [text]="row[column['field']]"></smart-text>
+                  <nz-input-group [nzSuffix]="suffixTemplate">
+                    <input
+                      #input
+                      nz-input
+                      placeholder="请输入"
+                      [(ngModel)]="column.searchValue"
+                      [style.width]="column.filterWidth || '180px'"
+                      (keydown.enter)="dropdown.setVisibleStateWhen(false); onFilterConfim()"
+                    />
+                  </nz-input-group>
+                  <ng-template #suffixTemplate>
+                    <i
+                      nz-icon
+                      nz-tooltip
+                      class="clear-icon"
+                      nzTheme="fill"
+                      nzType="close-circle"
+                      *ngIf="column.searchValue"
+                      (click)="column.searchValue = null; input.focus()"
+                    ></i>
+                  </ng-template>
                 </ng-template>
               </ng-container>
             </ng-template>
-          </td>
-        </tr>
-      </ng-container>
-    </tbody>
+            <!-- 按钮 -->
+            <div nz-row nzType="flex" nzJustify="end" nzAlign="middle" class="advanced-table-filter-button">
+              <button nz-button nzSize="small" nzType="primary" (click)="dropdown.setVisibleStateWhen(false); onFilterConfim()">
+                确认
+              </button>
+            </div>
+          </div>
+        </nz-dropdown>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let row of displayData">
+      <tr>
+        <td *ngIf="showCheckbox" nzLeft="0px" nzShowCheckbox [(nzChecked)]="row.isChecked" (nzCheckedChange)="singleCheckChange()"></td>
+        <td [nzLeft]="column.left" [nzRight]="column.right" *ngFor="let column of columns">
+          <!-- 自定义单元格 -->
+          <ng-template [ngIf]="column.customCell" [ngIfElse]="defaultCellTemplate">
+            <ng-container [ngTemplateOutlet]="column.customCell" [ngTemplateOutletContext]="{ $implicit: row }"></ng-container>
+          </ng-template>
+          <!-- 默认单元格 -->
+          <ng-template #defaultCellTemplate>
+            <ng-container [ngSwitch]="column.type">
+              <!-- link -->
+              <ng-template ngSwitchCase="link">
+                <a (click)="onlinkClick(column['field'], row)">
+                  <smart-text [text]="row[column['field']]"></smart-text>
+                </a>
+              </ng-template>
+              <!-- thumbnail -->
+              <ng-template ngSwitchCase="thumbnail">
+                <!-- 无图片不初始化viewer -->
+                <div viewer [isLazyLoad]="true" [maxShowNum]="1" *ngIf="row[column['field']]?.length">
+                  <!-- 超过一张图片显示badge -->
+                  <ng-template [ngIf]="row[column['field']]?.length > 1" [ngIfElse]="noBadgeTemplate">
+                    <nz-badge [nzCount]="row[column['field']]?.length">
+                      <ng-container [ngTemplateOutlet]="noBadgeTemplate"></ng-container>
+                    </nz-badge>
+                  </ng-template>
+                  <!-- 只有一张图片不显示badge -->
+                  <ng-template #noBadgeTemplate>
+                    <img
+                      viewerImg
+                      height="24px"
+                      width="24px"
+                      *ngFor="let url of row[column['field']] || []"
+                      [lazyLoadSrc]="url"
+                      style="cursor: zoom-in"
+                    />
+                  </ng-template>
+                </div>
+              </ng-template>
+              <!-- default -->
+              <ng-template ngSwitchDefault>
+                <smart-text [text]="row[column['field']]"></smart-text>
+              </ng-template>
+            </ng-container>
+          </ng-template>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
 
-    <!-- total模板 -->
-    <ng-template #totalTemplate let-total> 总 {{ total }} 条数据 </ng-template>
-  </nz-table>
-
-  <!-- 额外分页组件，不使用表格自带分页，为了满足UI的没有数据也要显示分页的需求 -->
-  <nz-pagination
-    nzSize="small"
-    [(nzPageIndex)]="pageIndex"
-    [(nzPageSize)]="pageSize"
-    [nzShowSizeChanger]="showSizeChanger"
-    [nzPageSizeOptions]="pageSizeOptions"
-    [nzTotal]="data?.totalElements || 0"
-    [nzShowTotal]="totalTemplate"
-    (nzPageIndexChange)="pageIndexChange()"
-    (nzPageSizeChange)="pageSizeChange()"
-  >
-  </nz-pagination>
-</nz-spin>
+  <!-- total模板 -->
+  <ng-template #totalTemplate let-total> 总 {{ total }} 条数据 </ng-template>
+</nz-table>

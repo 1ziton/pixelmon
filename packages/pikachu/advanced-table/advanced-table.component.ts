@@ -25,7 +25,7 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { AdvancedCellComponent } from './advanced-cell.component';
 import { AdvancedFilterComponent } from './advanced-filter.component';
-import { Column, PageParams } from './advanced-table.module';
+import { AdvancedTableColumn, PageParams, AdvancedTableRow } from './advanced-table.module';
 
 @Component({
   selector: 'advanced-table',
@@ -34,9 +34,9 @@ import { Column, PageParams } from './advanced-table.module';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit, AfterContentInit, OnDestroy {
-  @Input() columns: Column[] = []; // 列数据
-  @Input() data: { content: object[]; totalElements: number } = { content: [], totalElements: 0 }; // 表格数据
-  @Input() selections: object[] = []; // 已选项
+  @Input() columns: AdvancedTableColumn[] = []; // 列数据
+  @Input() data: { content: AdvancedTableRow[]; totalElements: number } = { content: [], totalElements: 0 }; // 表格数据
+  @Input() selections: AdvancedTableRow[] = []; // 已选项
   @Input() scroll: { x?: string | null; y?: string | null }; // 固定表头，滚动
   @Input() loading = false; // 表格loading
   @Input() pageSize = 10; // 显示条数
@@ -49,9 +49,9 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
   @Input() showCheckbox = false; // 是否显示复选框
   @Input() titleTemplate: TemplateRef<void>; // title模板
 
-  @Output() columnsChange: EventEmitter<Column[]> = new EventEmitter(); // 列数据改变事件 用于双向绑定
-  @Output() selectionsChange: EventEmitter<object[]> = new EventEmitter(); // 已选项改变事件 用于双向绑定
-  @Output() load: EventEmitter<[PageParams, { [key: string]: any }?]> = new EventEmitter(); // load事件
+  @Output() columnsChange: EventEmitter<AdvancedTableColumn[]> = new EventEmitter(); // 列数据改变事件 用于双向绑定
+  @Output() selectionsChange: EventEmitter<AdvancedTableRow[]> = new EventEmitter(); // 已选项改变事件 用于双向绑定
+  @Output() load: EventEmitter<PageParams> = new EventEmitter(); // load事件
   @Output() sort: EventEmitter<{ key: string; value: 'descend' | 'ascend' | null }> = new EventEmitter(); // 排序事件
   @Output() linkClick: EventEmitter<{ field: string; rowData: any }> = new EventEmitter(); // 链接点击事件
 
@@ -60,9 +60,8 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
 
   load$: Subject<any> = new Subject(); // load流
 
-  displayData: any[] = []; // 当前显示数据
+  displayData: AdvancedTableRow[] = []; // 当前显示数据
   pageIndex = 1; // 当前页码
-  queryParams: { [key: string]: any } = {};
   sortParams: { key: string; value: 'descend' | 'ascend' | null };
 
   constructor(private _elementRef: ElementRef, private _renderer2: Renderer2) {}
@@ -75,12 +74,15 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
       }
     }
     if (changes.columns) {
-      // 智能词典
+      // 是下拉选择的自动添加词典
       changes.columns.currentValue.forEach(column => {
         if (column.showFilter && column.filterType === 'select' && Array.isArray(column.filterOptions)) {
           column.lexicon = column.lexicon ? [...column.lexicon, ...column.filterOptions] : column.filterOptions;
         }
       });
+    }
+    if (changes.selections) {
+      this.updateCheckedBySelections();
     }
   }
 
@@ -91,7 +93,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
       this.selections = [];
       this.selectionsChange.emit(this.selections);
       // 发出load事件
-      this.load.emit([{ page: this.pageIndex, size: this.pageSize }, this.queryParams]);
+      this.load.emit({ page: this.pageIndex, size: this.pageSize });
     });
   }
 
@@ -125,7 +127,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
   }
 
   /**
-   * 表格当前显示数据改变时调用
+   * 表格当前显示数据改变回调
    * @param currentData 当前页显示数据
    */
   currentPageDataChange(currentData: any[]): void {
@@ -136,7 +138,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
    * 单选改变回调
    */
   singleCheckChange(): void {
-    this.updateSelections();
+    this.updateSelectionsByChecked();
   }
 
   /**
@@ -145,15 +147,22 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
    */
   allCheckChange(isChecked: boolean): void {
     this.displayData.forEach(row => (row.isChecked = isChecked));
-    this.updateSelections();
+    this.updateSelectionsByChecked();
   }
 
   /**
-   * 更新selections
+   * 根据checked更新selections
    */
-  updateSelections(): void {
+  updateSelectionsByChecked(): void {
     this.selections = this.displayData.filter(row => row.isChecked);
     this.selectionsChange.emit(this.selections);
+  }
+
+  /**
+   * 根据selections更新checked
+   */
+  updateCheckedBySelections(): void {
+    this.displayData.forEach(row => (row.isChecked = this.selections.includes(row)));
   }
 
   /**
@@ -203,7 +212,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
    * @param isOpen 是否打开
    * @param column 当前列模型数据
    */
-  onRangePickerOpenChange(isOpen: boolean, column: Column): void {
+  onRangePickerOpenChange(isOpen: boolean, column: AdvancedTableColumn): void {
     if (isOpen === false) {
       const date = column.searchValue;
       if (date && Array.isArray(date) && date.length === 2) {

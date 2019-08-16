@@ -5,7 +5,7 @@
  */
 
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
-import { Column } from '../advanced-table.module';
+import { QuerySubject } from './query-display.module';
 
 @Component({
   selector: 'query-display',
@@ -14,12 +14,12 @@ import { Column } from '../advanced-table.module';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QueryDisplayComponent implements OnInit, OnChanges {
-  @Input() columns: Column[] = [];
+  @Input() columns: QuerySubject[] = [];
   @Input() lexicon: { value: any; label: string }[] = []; // 词典
 
-  @Output() columnsChange: EventEmitter<Column[]> = new EventEmitter();
+  @Output() columnsChange: EventEmitter<QuerySubject[]> = new EventEmitter();
   @Output() queryChange: EventEmitter<object> = new EventEmitter();
-  @Output() close: EventEmitter<Column> = new EventEmitter();
+  @Output() close: EventEmitter<QuerySubject> = new EventEmitter();
 
   // 过滤规则
   @Input() filterRule: (element: any) => boolean = element => {
@@ -51,7 +51,7 @@ export class QueryDisplayComponent implements OnInit, OnChanges {
     }
   }
 
-  onClose(column: Column): void {
+  onClose(column: QuerySubject): void {
     // 有默认值恢复默认值，没有则置为null
     column.searchValue = column.hasOwnProperty('defaultValue') ? column.defaultValue : null;
 
@@ -69,9 +69,5 @@ export class QueryDisplayComponent implements OnInit, OnChanges {
       }
     });
     this.queryChange.emit(query);
-  }
-
-  closeTab(column) {
-    console.log(column);
   }
 }

@@ -10,7 +10,7 @@ bg: f2f4f5
 
 ```ts
 import { Component, OnInit } from '@angular/core';
-import { Column } from '@pixelmon/pikachu/advanced-table';
+import { AdvancedTableColumn } from '@pixelmon/pikachu/advanced-table';
 
 @Component({
   selector: 'app-demo',
@@ -52,13 +52,13 @@ import { Column } from '@pixelmon/pikachu/advanced-table';
         <div class="content-header" [hidden]="selections.length">
           <div class="content-title">列表</div>
           <div class="content-query">
-            <query-display [(columns)]="columns" (queryChange)="table.onQueryChange($event)"></query-display>
+            <query-display [(columns)]="columns" (queryChange)="onQueryChange($event)"></query-display>
           </div>
         </div>
         <div class="content-header" [hidden]="!selections.length">
           <div class="selection-box">
             已选 <span class="color-theme">{{ selections.length }}</span> 项
-            <a *ngIf="selections.length" class="margin-left-16" (click)="table.allCheckChange(false)">取消</a>
+            <a *ngIf="selections.length" class="margin-left-16" (click)="selections = []">取消</a>
           </div>
           <div class="operation-box">
             <button nz-button nzType="primary">自定义操作1</button>
@@ -85,7 +85,7 @@ export class DemoComponent implements OnInit {
 
   tableLoading = false;
   selections = [];
-  columns: Column[] = [
+  columns: AdvancedTableColumn[] = [
     {
       title: 'title1',
       field: 'field1',
@@ -189,6 +189,10 @@ export class DemoComponent implements OnInit {
       }
       this.tableLoading = false;
     }, 2000);
+  }
+
+  onQueryChange(params) {
+    console.log(params);
   }
 
   sort(sort: { field: string; sortValue: 'descend' | 'ascend' | null }) {
