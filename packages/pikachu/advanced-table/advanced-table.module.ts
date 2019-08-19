@@ -6,7 +6,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { AdvancedCellComponent } from './advanced-cell.component';
 import { AdvancedFilterComponent } from './advanced-filter.component';
 import { AdvancedTableComponent } from './advanced-table.component';
-import { QuerySubject } from '@pixelmon/pikachu/query-display';
+import { QueryColumn } from '@pixelmon/pikachu/query-display';
 import { SmartTextModule } from '@pixelmon/pikachu/smart-text';
 
 const COMPONENT = [AdvancedTableComponent, AdvancedCellComponent, AdvancedFilterComponent];
@@ -21,7 +21,7 @@ const MODULE = [CommonModule, FormsModule, NgZorroAntdModule, SmartTextModule, V
 export class AdvancedTableModule {}
 
 // 列数据接口
-export interface AdvancedTableColumn extends QuerySubject {
+export interface AdvancedTableColumn extends QueryColumn {
   title: string;
   field: string;
   width?: string;

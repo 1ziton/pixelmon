@@ -5,7 +5,7 @@
  */
 
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
-import { QuerySubject } from './query-display.module';
+import { QueryColumn } from './query-display.module';
 
 @Component({
   selector: 'query-display',
@@ -14,12 +14,12 @@ import { QuerySubject } from './query-display.module';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QueryDisplayComponent implements OnInit, OnChanges {
-  @Input() columns: QuerySubject[] = [];
+  @Input() columns: QueryColumn[] = [];
   @Input() lexicon: { value: any; label: string }[] = []; // 词典
 
-  @Output() columnsChange: EventEmitter<QuerySubject[]> = new EventEmitter();
+  @Output() columnsChange: EventEmitter<QueryColumn[]> = new EventEmitter();
   @Output() queryChange: EventEmitter<object> = new EventEmitter();
-  @Output() close: EventEmitter<QuerySubject> = new EventEmitter();
+  @Output() close: EventEmitter<QueryColumn> = new EventEmitter();
 
   // 过滤规则
   @Input() filterRule: (element: any) => boolean = element => {
@@ -51,7 +51,7 @@ export class QueryDisplayComponent implements OnInit, OnChanges {
     }
   }
 
-  onClose(column: QuerySubject): void {
+  onClose(column: QueryColumn): void {
     // 有默认值恢复默认值，没有则置为null
     column.searchValue = column.hasOwnProperty('defaultValue') ? column.defaultValue : null;
 

@@ -11,7 +11,8 @@ import { QueryDisplayComponent } from './query-display.component';
 })
 export class QueryDisplayModule {}
 
-export interface QuerySubject {
+export interface QueryColumn {
+  title: string;
   field: string;
   showFilter?: boolean;
   searchValue?: any; // 搜索值
