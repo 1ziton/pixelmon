@@ -48,7 +48,6 @@ stages:
   - name: lint
   - name: test
   - name: docs
-    if: branch = master
   - name: build
     if: branch = master
   - name: publish
