@@ -30,42 +30,42 @@ module: AdvancedTableModule
 | `(sort)`            | 排序事件                                         | `EventEmitter<{ key: string; value: 'descend' | 'ascend' | null }>` | -                                   |
 | `(linkClick)`       | 链接点击事件                                     | `EventEmitter<{ field: string; rowData: any }>`                     | -                                   |
 
-### column 对象详解
+### Column
 
 基本属性
 
-| 属性         | 说明                                                                   | 类型                   | 默认值  |
-| ------------ | ---------------------------------------------------------------------- | ---------------------- | ------- |
-| `title`      | Th 标签中显示的数据列名称                                              | `string`               | -       |
-| `field`      | 数据列对应的关键字                                                     | `string`               | -       |
-| `width`      | 列宽度                                                                 | `string`               | `120px` |
-| `left`       | 左侧距离，用于固定左侧列                                               | `string`               | -       |
-| `right`      | 右侧距离，用于固定左侧列                                               | `string`               | -       |
-| `type`       | 数据列类型，link 表示链接，配套使用 linkClick 事件；thumbnail 表示图片 | `'link' | 'thumbnail'` | -       |
-| `customCell` | 自定义单元格,可以使用 advanced-cell 组件简单定义                       | `TemplateRef<any>`     | -       |
+| 属性         | 说明                                                                   | 类型                   | 是否必填 |
+| ------------ | ---------------------------------------------------------------------- | ---------------------- | -------- |
+| `title`      | th 标签中显示的数据列名称                                              | `string`               | `true`   |
+| `field`      | 数据列对应的域                                                         | `string`               | `true`   |
+| `width`      | 列宽度                                                                 | `string`               | `false`  |
+| `left`       | 左侧距离，用于固定左侧列                                               | `string`               | `false`  |
+| `right`      | 右侧距离，用于固定左侧列                                               | `string`               | `false`  |
+| `type`       | 数据列类型，link 表示链接，配套使用 linkClick 事件；thumbnail 表示图片 | `'link' | 'thumbnail'` | `false`  |
+| `customCell` | 自定义单元格,可以使用 advanced-cell 组件简单定义                       | `TemplateRef<any>`     | `false`  |
 
 排序属性
 
-| 属性         | 说明                                            | 类型                          | 默认值  |
-| ------------ | ----------------------------------------------- | ----------------------------- | ------- |
-| `showSort`   | 是否显示排序                                    | `boolean`                     | -       |
-| `sortValue`  | 排序状态                                        | `'descend' | 'ascend' | null` | -       |
-| `customSort` | 是否自定义排序,配套使用 sort 事件自定义排序动作 | `boolean`                     | `false` |
+| 属性         | 说明                                            | 类型                          | 是否必填 |
+| ------------ | ----------------------------------------------- | ----------------------------- | -------- |
+| `showSort`   | 是否显示排序                                    | `boolean`                     | `false`  |
+| `sortValue`  | 排序状态                                        | `'descend' | 'ascend' | null` | `false`  |
+| `customSort` | 是否自定义排序,配套使用 sort 事件自定义排序动作 | `boolean`                     | `false`  |
 
 过滤属性
 
-| 属性             | 说明                                                    | 类型                              | 默认值    |
-| ---------------- | ------------------------------------------------------- | --------------------------------- | --------- |
-| `showFilter`     | 是否显示过滤                                            | `boolean`                         | `false`   |
-| `filterType`     | 搜索组件类型                                            | `'select'|'rangePicker'|'input'`  | `'input'` |
-| `filterOptions`  | 下拉搜索组件选项,配合 filterType 传入 select 时传入选项 | `{label:string,value:any}[]`      | `[]`      |
-| `filterWidth`    | 下拉搜索宽度                                            | `string`                          | -         |
-| `filterMultiple` | 是否多选                                                | `boolean`                         | `false`   |
-| `customFilter`   | 自定义搜索组件,可以使用 advanced-filter 组件简单定义    | `TemplateRef<any>`                | -         |
-| `searchValue`    | 搜索值,详见 query-display 组件                          | `any`                             | -         |
-| `defaultValue`   | 默认值,详见 query-display 组件                          | `any`                             | -         |
-| `displayValue`   | 展示值,详见 query-display 组件                          | `any`                             | -         |
-| `lexicon`        | 词典,详见 query-display 组件                            | `{ value: any; label: string }[]` | `[]`      |
+| 属性             | 说明                                                    | 类型                              | 是否必填 |
+| ---------------- | ------------------------------------------------------- | --------------------------------- | -------- |
+| `showFilter`     | 是否显示过滤                                            | `boolean`                         | `false`  |
+| `filterType`     | 搜索组件类型                                            | `'select'|'rangePicker'|'input'`  | `false`  |
+| `filterOptions`  | 下拉搜索组件选项,配合 filterType 传入 select 时传入选项 | `{label:string,value:any}[]`      | `false`  |
+| `filterWidth`    | 下拉搜索宽度                                            | `string`                          | `false`  |
+| `filterMultiple` | 是否多选                                                | `boolean`                         | `false`  |
+| `customFilter`   | 自定义搜索组件,可以使用 advanced-filter 组件简单定义    | `TemplateRef<any>`                | `false`  |
+| `searchValue`    | 搜索值,详见 query-display 组件                          | `any`                             | `false`  |
+| `defaultValue`   | 默认值,详见 query-display 组件                          | `any`                             | `false`  |
+| `displayValue`   | 展示值,详见 query-display 组件                          | `any`                             | `false`  |
+| `lexicon`        | 词典,详见 query-display 组件                            | `{ value: any; label: string }[]` | `false`  |
 
 ### 优化：
 

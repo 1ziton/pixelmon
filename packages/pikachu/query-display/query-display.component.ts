@@ -22,11 +22,11 @@ export class QueryDisplayComponent implements OnInit, OnChanges {
   @Output() close: EventEmitter<QueryColumn> = new EventEmitter();
 
   // 过滤规则
-  @Input() filterRule: (element: any) => boolean = element => {
-    const searchValue = element.searchValue;
+  @Input() filterRule: (column: QueryColumn) => boolean = column => {
+    const searchValue = column.searchValue;
 
     // 有默认值且搜索值和默认值相等
-    if (element.hasOwnProperty('defaultValue') && searchValue === element.defaultValue) {
+    if (column.hasOwnProperty('defaultValue') && searchValue === column.defaultValue) {
       return false;
     }
     // 非法基础数据类型
