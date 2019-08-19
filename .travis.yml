@@ -3,7 +3,7 @@ dist: trusty
 language: node_js
 
 node_js:
-  - '10.9.0'
+  - '10.16.0'
 
 addons:
   apt:
@@ -31,14 +31,14 @@ jobs:
   include:
     - stage: lint
       env: 'TASK=lint'
-    - stage: pre
-      env: 'TASK=build_artifacts'
+    # - stage: pre
+    #   env: 'TASK=build_artifacts'
     - stage: test
       env: 'TASK=test'
-    - stage: build
+    - stage: docs
       env: 'TASK=site:build'
     - stage: build
-      env: 'TASK=build'
+      env: 'TASK=build_artifacts'
     # - stage: test
     #   env: 'TASK=test:cli'
     # - stage: publish
@@ -47,8 +47,7 @@ jobs:
 stages:
   - name: lint
   - name: test
-    if: branch = master
-  - name: pre
+  - name: docs
     if: branch = master
   - name: build
     if: branch = master
@@ -58,20 +57,20 @@ stages:
 install:
   - chmod +x -R scripts
   - npm install
-  - npm install -g npm-cli-login
 
 # [[ "$TRAVIS_PULL_REQUEST" != "false" ]] 
 script:
   - npm run $TASK
   - echo $TRAVIS_COMMIT_MESSAGE
   - |
-    if [ "$TASK" = "test" ]; then
+    if [[ "$TASK" = "test" ]]  && [[ $TRAVIS_BRANCH = "master" ]]; then
       cat ./coverage/lcov.info | ./node_modules/.bin/codecov
     fi
     if [ "$TASK" = "site:build" ]; then
       npm run deploy:site
     fi
     if [[ "$TASK" = "build" ]]  && [[ $TRAVIS_COMMIT_MESSAGE == *"release("* ]]; then
+      npm install -g npm-cli-login
       echo 'npm run publish scripts exec'
       npm run publish
     fi

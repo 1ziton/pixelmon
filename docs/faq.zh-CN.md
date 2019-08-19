@@ -77,19 +77,19 @@ npm config delete sass_binary_site
 
 ```ts
 // pixelmon.module.ts
-import { DelonAuthConfig } from '@pixelmon/auth';
-export function delonAuthConfig(): DelonAuthConfig {
-  return Object.assign(new DelonAuthConfig(), <DelonAuthConfig>{
+import { PixelmonAuthConfig } from '@pixelmon/auth';
+export function pixelmonAuthConfig(): PixelmonAuthConfig {
+  return Object.assign(new PixelmonAuthConfig(), <PixelmonAuthConfig>{
     login_url: '/passport/login',
   });
 }
 
 @NgModule({})
-export class DelonModule {
+export class PixelmonModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: DelonModule,
-      providers: [{ provide: DelonAuthConfig, useFactory: delonAuthConfig }],
+      ngModule: PixelmonModule,
+      providers: [{ provide: PixelmonAuthConfig, useFactory: pixelmonAuthConfig }],
     };
   }
 }

@@ -11,8 +11,8 @@ import * as invariant_ from 'invariant';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
-import { FlowProps, FlowStyle, GraphType } from './interface';
 import FlowPage from './editor/flow/FlowPage';
+import { FlowProps, FlowStyle, GraphType } from './interface';
 
 const invariant = invariant_;
 
