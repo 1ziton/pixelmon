@@ -26,6 +26,7 @@ import { debounceTime } from 'rxjs/operators';
 import { AdvancedCellComponent } from './advanced-cell.component';
 import { AdvancedFilterComponent } from './advanced-filter.component';
 import { AdvancedTableColumn, PageParams, AdvancedTableRow } from './advanced-table.module';
+import { NzDropDownComponent } from 'ng-zorro-antd';
 
 @Component({
   selector: 'advanced-table',
@@ -42,7 +43,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
   @Input() pageSize = 10; // 显示条数
   @Input() frontPagination = false; // 是否前端分页
   @Input() showPagination = true; // 是否显示分页器
-  @Input() fixedPagination = true; // 是否固定分页器
+  @Input() fixedPagination = false; // 是否固定分页器
   @Input() showSizeChanger = true; // 是否显示条数切换器
   @Input() size = 'middle'; // 表格size
   @Input() pageSizeOptions = [10, 30, 50, 100]; // 页数选择器可选值
@@ -225,9 +226,10 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
   /**
    * 查询确认回调
    */
-  onFilterConfim(): void {
-    this.columns = [...this.columns]; // 传入子组件query-display
-    this.columnsChange.emit(this.columns); // 传出父组件
+  onFilterConfim(dropdown:NzDropDownComponent): void {
+    dropdown.setVisibleStateWhen(false);
+    this.columns = [...this.columns];
+    this.columnsChange.emit(this.columns);
   }
 
   /**

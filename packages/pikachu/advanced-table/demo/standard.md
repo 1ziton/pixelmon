@@ -21,6 +21,7 @@ import { AdvancedTableColumn } from '@pixelmon/pikachu/advanced-table';
       [(columns)]="columns"
       [showCheckbox]="true"
       [(selections)]="selections"
+      [scroll]="{y:'300px'}"
       [loading]="tableLoading"
       [titleTemplate]="titleTemplate"
       [fixedPagination]="false"
@@ -39,13 +40,6 @@ import { AdvancedTableColumn } from '@pixelmon/pikachu/advanced-table';
           <nz-tree-select style="width: 250px" [nzNodes]="nodes" nzPlaceHolder="请选择" [(ngModel)]="column.searchValue"> </nz-tree-select>
         </ng-template>
       </advanced-filter>
-
-      <!-- 使用默认title的自定义操作按钮 使用ng-content绑定了operation-box -->
-      <div class="operation-box">
-        <button nz-button nzType="primary">操作1</button>
-        <button nz-button nzType="primary">操作2</button>
-        <button nz-button nzType="primary">操作3</button>
-      </div>
 
       <!-- 自定义title -->
       <ng-template #titleTemplate>
@@ -180,10 +174,10 @@ export class DemoComponent implements OnInit {
           row[element.field] = `${element.field} ${index} aaaaaaaaaaaaaaaaaaaaaaaaaaaa`;
         });
         row['field6'] = [
-          'https://cdn.pixabay.com/photo/2018/01/12/10/19/fantasy-3077928__340.jpg',
-          'https://cdn.pixabay.com/photo/2016/10/18/21/22/california-1751455__340.jpg',
-          'https://cdn.pixabay.com/photo/2018/08/21/23/29/fog-3622519__340.jpg',
-          'https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547__340.jpg',
+          'https://cdn.pixabay.com/photo/2018/01/12/10/19/fantasy-3077928.jpg',
+          'https://cdn.pixabay.com/photo/2016/10/18/21/22/california-1751455.jpg',
+          'https://cdn.pixabay.com/photo/2018/08/21/23/29/fog-3622519.jpg',
+          'https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547.jpg',
         ];
         this.tableData.content.push(row);
       }

@@ -6,33 +6,6 @@ cols: 1
 module: AdvancedTableModule
 ---
 
-### 基本功能：
-
-- 单元格属性
-  - left: 左侧距离，用于固定左侧列
-  - right: 右侧距离，用于固定右侧列
-  - type:
-    - thumbnail：图片
-    - link：链接，配套使用 linkClick
-- 文本超出最大长度显示省略号（自定义最大长度）
-  - smart-text 组件代理
-- 表头搜索
-  - 控件枚举：input、select...
-  - 控件属性：mode、options...
-- 排序
-- 自定义单元格
-  - 使用 advanced-cell
-  - 知识点：ng-content @ContentChildren
-- 复选框
-  - 组件内部收集 isChecked 的 row 作为 selections
-- 可选分页固定底部
-
-### 优化：
-
-- OnPush √
-- load 防抖 √
-- 懒加载图片(viewer) √
-
 ## API
 
 ### advanced-table
@@ -40,7 +13,8 @@ module: AdvancedTableModule
 | 参数                | 说明                                             | 类型                                                                | 默认值                              |
 | ------------------- | ------------------------------------------------ | ------------------------------------------------------------------- | ----------------------------------- |
 | `[data]`            | 表格数据                                         | `object`                                                            | `{ content: [], totalElements: 0 }` |
-| `[frontPagination]` | 是否在前端对数据进行分                           | `boolean`                                                           | `false`                             |
+| `[frontPagination]` | 是否在前端对数据进行分页                         | `boolean`                                                           | `false`                             |
+| `[fixedPagination]` | 是否固定分页在页面底部                           | `boolean`                                                           | `false`                             |
 | `[pageIndex]`       | 当前页码，可双向绑定                             | `number`                                                            | -                                   |
 | `[pageSize]`        | 每页展示多少数据，可双向绑定                     | `number`                                                            | -                                   |
 | `[showPagination]`  | 是否显示分页器                                   | `boolean`                                                           | `true`                              |
@@ -92,6 +66,12 @@ module: AdvancedTableModule
 | `defaultValue`   | 默认值,详见 query-display 组件                          | `any`                             | -         |
 | `displayValue`   | 展示值,详见 query-display 组件                          | `any`                             | -         |
 | `lexicon`        | 词典,详见 query-display 组件                            | `{ value: any; label: string }[]` | `[]`      |
+
+### 优化：
+
+- OnPush √
+- load 防抖 √
+- 懒加载图片(viewer) √
 
 ## 注意
 

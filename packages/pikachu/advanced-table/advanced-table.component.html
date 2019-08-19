@@ -83,7 +83,7 @@
                       placeholder="请输入"
                       [(ngModel)]="column.searchValue"
                       [style.width]="column.filterWidth || '180px'"
-                      (keydown.enter)="dropdown.setVisibleStateWhen(false); onFilterConfim()"
+                      (keydown.enter)="onFilterConfim(dropdown)"
                     />
                   </nz-input-group>
                   <ng-template #suffixTemplate>
@@ -102,7 +102,7 @@
             </ng-template>
             <!-- 按钮 -->
             <div nz-row nzType="flex" nzJustify="end" nzAlign="middle" class="advanced-table-filter-button">
-              <button nz-button nzSize="small" nzType="primary" (click)="dropdown.setVisibleStateWhen(false); onFilterConfim()">
+              <button nz-button nzSize="small" nzType="primary" (click)="onFilterConfim(dropdown)">
                 确认
               </button>
             </div>
