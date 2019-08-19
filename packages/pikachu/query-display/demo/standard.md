@@ -21,7 +21,7 @@ import { AdvancedTableColumn } from '@pixelmon/pikachu/advanced-table';
       [(columns)]="columns"
       [showCheckbox]="true"
       [(selections)]="selections"
-      [scroll]="{y:'300px'}"
+      [scroll]="{ y: '300px' }"
       [loading]="tableLoading"
       [titleTemplate]="titleTemplate"
       [fixedPagination]="false"
@@ -78,7 +78,7 @@ export class DemoComponent implements OnInit {
   };
 
   tableLoading = false;
-  selections = [];
+  selections: any[] = [];
   columns: AdvancedTableColumn[] = [
     {
       title: 'title1',
