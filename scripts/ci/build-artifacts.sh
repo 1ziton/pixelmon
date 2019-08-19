@@ -19,11 +19,12 @@ commitAuthorName=$(git --no-pager show -s --format='%an' HEAD)
 commitAuthorEmail=$(git --no-pager show -s --format='%ae' HEAD)
 commitMessage=$(git log --oneline -n 1)
 commitMessageCheck=$(git log --oneline -n 2)
+branchName=${TRAVIS_BRANCH:-'master'}
 
 echo "Current commit author name: ${commitAuthorName}"
 
-if [ ${commitAuthorName} != 'giscafer' ]; then
-  echo "Warning: Just only giscafer user"
+if [[ ${commitAuthorName} != 'Nickbing Lao' ]]  && [[ ${branchName} != 'master' ]]; then
+  echo "Warning: Just only giscafer user & master branch"
   exit 0
 fi
 
@@ -41,7 +42,6 @@ cp -r ${DIST}/@pixelmon ${buildDir}/@pixelmon
 
 packageRepo=pixelmon-builds
 buildVersion=$(node -pe "require('./package.json').version")
-branchName=${TRAVIS_BRANCH:-'master'}
 
 buildVersionName="${buildVersion}-${commitSha}"
 buildTagName="${branchName}-${commitSha}"

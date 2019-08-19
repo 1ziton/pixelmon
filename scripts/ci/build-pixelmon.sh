@@ -7,11 +7,11 @@ cd $(dirname $0)/../..
 
 PACKAGES=(
   util
-  ggeditor
   testing
   acl
   theme
   pikachu
+  ggeditor
   cache
   mock
   )
