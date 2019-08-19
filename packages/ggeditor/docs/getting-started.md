@@ -51,7 +51,7 @@ import { PixelmonGGEditorModule } from '@pixelmon/ggeditor';
 | 属性             | 说明                     | 类型                        | 默认值                      |
 |------------------|--------------------------|-----------------------------|-----------------------------|
 | `[type]`         | 绘图类型                 | `GraphType:"flow" | "mind"` | `flow`                      |
-| `[enableEditor]` | 启用编辑器               | `boolean`                   | -                           |
+| `[enableEditor]` | 启用编辑器               | `boolean`                   | `false`                          |
 | `[data]`         | 是否默认高亮第一个选项。 | `FlowProps | MindProps`     | -                           |
 | `[style]`        | 样式                     | `Object`                    | `{width: 500, height: 500}` |
 
