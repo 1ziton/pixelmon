@@ -6,20 +6,12 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { AdvancedCellComponent } from './advanced-cell.component';
 import { AdvancedFilterComponent } from './advanced-filter.component';
 import { AdvancedTableComponent } from './advanced-table.component';
-import { QueryDisplayModule, QuerySubject } from './query-display/query-display.module';
-import { SmartTextModule } from './smart-text/smart-text.module';
+import { QuerySubject } from '@pixelmon/pikachu/query-display';
+import { SmartTextModule } from '@pixelmon/pikachu/smart-text';
 
 const COMPONENT = [AdvancedTableComponent, AdvancedCellComponent, AdvancedFilterComponent];
 
-const MODULE = [
-  CommonModule,
-  FormsModule,
-  NgZorroAntdModule,
-  QueryDisplayModule,
-  SmartTextModule,
-  ViewerDirectiveModule,
-  QueryDisplayModule,
-];
+const MODULE = [CommonModule, FormsModule, NgZorroAntdModule, SmartTextModule, ViewerDirectiveModule];
 
 @NgModule({
   declarations: [...COMPONENT],
