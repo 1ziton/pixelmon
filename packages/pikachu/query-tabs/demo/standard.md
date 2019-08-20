@@ -72,9 +72,9 @@ export class DemoComponent implements OnInit {
     'https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547__340.jpg',
   ];
 
-  tableData: { content: any[]; totalElements: number } = {
+  tableData: { content: any[]; totalSize: number } = {
     content: [],
-    totalElements: 0,
+    totalSize: 0,
   };
 
   tableLoading = false;
@@ -146,10 +146,10 @@ export class DemoComponent implements OnInit {
     setTimeout(() => {
       this.tableData = {
         content: [],
-        totalElements: 0,
+        totalSize: 0,
       };
-      this.tableData.totalElements = 100;
-      for (let index = 0; index < this.tableData.totalElements; index++) {
+      this.tableData.totalSize = 100;
+      for (let index = 0; index < this.tableData.totalSize; index++) {
         const row = {};
         this.columns.forEach(element => {
           row[element.field] = `${element.field} ${index} aaaaaaaaaaaaaaaaaaaaaaaaaaaa`;

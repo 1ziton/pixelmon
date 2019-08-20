@@ -57,7 +57,7 @@ const MOCKMODULE = !environment.production ? [ PixelmonMockModule.forRoot({ data
 
 Mock 并非是真实数据，大部分场景是针对开发本地或测试环境；所以在生产环境中不应该包括 Mock 模块以及规则数据。因此上述才会根据 `!environment.production` 依据环境来决定是否加载 `PixelmonMockModule`。
 
-当然，你依然可以在生产环境也使用这种规则，就像 //ng-pixelmon.github.io/ng-pixelmon/ 一样，需要一些模拟请求来保证环境的运行。
+当然，你依然可以在生产环境也使用这种规则，就像 //1ziton.github.io/pixelmon/ 一样，需要一些模拟请求来保证环境的运行。
 
 ```ts
 import { PixelmonMockModule } from '@pixelmon/mock';

@@ -36,7 +36,7 @@ import { NzDropDownComponent } from 'ng-zorro-antd';
 })
 export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit, AfterContentInit, OnDestroy {
   @Input() columns: AdvancedTableColumn[] = []; // 列数据
-  @Input() data: { content: AdvancedTableRow[]; totalElements: number } = { content: [], totalElements: 0 }; // 表格数据
+  @Input() data: { data: AdvancedTableRow[]; totalSize: number } = { data: [], totalSize: 0 }; // 表格数据
   @Input() selections: AdvancedTableRow[] = []; // 已选项
   @Input() scroll: { x?: string | null; y?: string | null }; // 固定表头，滚动
   @Input() loading = false; // 表格loading
@@ -194,7 +194,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
 
     // 如果没有自定义排序，自动前端排序
     if (sortColumn && !sortColumn.customSort) {
-      this.data.content.sort((previous, further) =>
+      this.data.data.sort((previous, further) =>
         sortParams.value === 'descend'
           ? further[sortParams.key] > previous[sortParams.key]
             ? 1
@@ -203,7 +203,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
           ? 1
           : -1,
       );
-      this.data.content = [...this.data.content];
+      this.data.data = [...this.data.data];
     }
     this.sort.emit(sortParams);
   }

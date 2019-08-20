@@ -1,6 +1,6 @@
 <nz-table
   class="advanced-table"
-  [nzData]="data?.content || []"
+  [nzData]="data?.data || []"
   [nzLoading]="loading"
   [nzTitle]="titleTemplate || null"
   [nzScroll]="scroll"
@@ -11,7 +11,7 @@
   [(nzPageSize)]="pageSize"
   [nzShowSizeChanger]="showSizeChanger"
   [nzPageSizeOptions]="pageSizeOptions"
-  [nzTotal]="data?.totalElements || 0"
+  [nzTotal]="data?.totalSize || 0"
   [nzShowTotal]="totalTemplate"
   (nzPageIndexChange)="pageIndexChange()"
   (nzPageSizeChange)="pageSizeChange()"

@@ -12,7 +12,7 @@ module: AdvancedTableModule
 
 | 参数                | 说明                                             | 类型                                                                | 默认值                              |
 | ------------------- | ------------------------------------------------ | ------------------------------------------------------------------- | ----------------------------------- |
-| `[data]`            | 表格数据                                         | `object`                                                            | `{ content: [], totalElements: 0 }` |
+| `[data]`            | 表格数据                                         | `object`                                                            | `{ content: [], totalSize: 0 }` |
 | `[frontPagination]` | 是否在前端对数据进行分页                         | `boolean`                                                           | `false`                             |
 | `[fixedPagination]` | 是否固定分页在页面底部                           | `boolean`                                                           | `false`                             |
 | `[pageIndex]`       | 当前页码，可双向绑定                             | `number`                                                            | -                                   |
@@ -81,8 +81,8 @@ p-advancedTable 采用`OnPush`策略
 
 ```typescript
 // 增加数据
-this.tableData.content = [
-  ...this.tableData.content,
+this.tableData.data = [
+  ...this.tableData.data,
   {
     key: `${this.i}`,
     name: `Edward King ${this.i}`,
@@ -93,6 +93,6 @@ this.tableData.content = [
 this.tableData = { ...this.tableData }; // 传入p-advancedTable
 
 // 删除数据
-this.tableData.content = this.tableData.content.filter(d => d.key !== i); // 传入nz-table
+this.tableData.data = this.tableData.data.filter(d => d.key !== i); // 传入nz-table
 this.tableData = { ...this.tableData }; // 传入p-advancedTable
 ```

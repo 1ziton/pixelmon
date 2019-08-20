@@ -24,7 +24,7 @@ export class ShortcutPipe implements PipeTransform {
       return value;
     }
 
-    return value.substr(0, maxLength) + tail;
+    return String(value).substr(0, maxLength) + tail;
   }
 }
 
