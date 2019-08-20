@@ -29,12 +29,12 @@ const MOCKMENUS = [
           { text: 'v3' },
           {
             text: 'externalLink-blank',
-            externalLink: '//pixelmon.1ziton.com/blank',
+            externalLink: '//1ziton.github.io/pixelmon/blank',
             target: '_blank',
           },
           {
             text: 'externalLink-top',
-            externalLink: '//pixelmon.1ziton.com/top',
+            externalLink: '//1ziton.github.io/pixelmon/top',
             target: '_top',
           },
         ],
@@ -131,7 +131,7 @@ describe('pikachu: sidebar-nav', () => {
           const win = injector.get(WINDOW) as MockWindow;
           const itemEl = page.getEl<HTMLElement>('.sidebar-nav__item [data-id="7"]');
           itemEl!.click();
-          expect(win.location.href).toBe(`//pixelmon.1ziton.com/top`);
+          expect(win.location.href).toBe(`//1ziton.github.io/pixelmon/top`);
         });
       });
 
