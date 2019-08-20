@@ -10,6 +10,7 @@ bg: f2f4f5
 
 ```ts
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { AdvancedTableColumn } from '@pixelmon/pikachu/advanced-table';
 
 @Component({
@@ -29,13 +30,13 @@ import { AdvancedTableColumn } from '@pixelmon/pikachu/advanced-table';
       (sort)="sort($event)"
     >
       <!-- 自定义单元格 -->
-      <p-advancedCell field="field1">
+      <p-advancedCell field="email">
         <ng-template let-data>
-          <a>{{ data.field1 }}</a>
+          <a>{{ data.email }}</a>
         </ng-template>
       </p-advancedCell>
       <!-- 自定义搜索组件 -->
-      <p-advancedFilter field="field2">
+      <p-advancedFilter field="name">
         <ng-template let-column>
           <nz-tree-select style="width: 250px" [nzNodes]="nodes" nzPlaceHolder="请选择" [(ngModel)]="column.searchValue"> </nz-tree-select>
         </ng-template>
@@ -65,15 +66,9 @@ import { AdvancedTableColumn } from '@pixelmon/pikachu/advanced-table';
   `,
 })
 export class DemoComponent implements OnInit {
-  imgUrls = [
-    'https://cdn.pixabay.com/photo/2018/01/12/10/19/fantasy-3077928__340.jpg',
-    'https://cdn.pixabay.com/photo/2016/10/18/21/22/california-1751455__340.jpg',
-    'https://cdn.pixabay.com/photo/2018/08/21/23/29/fog-3622519__340.jpg',
-    'https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547__340.jpg',
-  ];
 
-  tableData: { content: any[]; totalSize: number } = {
-    content: [],
+  tableData:any = {
+    data: [],
     totalSize: 0,
   };
 
@@ -81,36 +76,42 @@ export class DemoComponent implements OnInit {
   selections: any[] = [];
   columns: AdvancedTableColumn[] = [
     {
-      title: 'title1',
-      field: 'field1',
+      title: 'id',
+      field: 'id',
     },
     {
-      title: 'title2',
-      field: 'field2',
+      title: '姓名',
+      field: 'name',
       type: 'link',
     },
     {
-      title: 'title3',
-      field: 'field3',
+      title: '性别',
+      field: 'gender',
       showFilter: true,
       filterType: 'select',
-      filterOptions: [{ value: 'value1', label: 'option1' }, { value: 'value2', label: 'option2' }, { value: 'value3', label: 'option3' }],
+      filterOptions: [{ value: 'all', label: '全部' }, { value: 'male', label: '男'}, { value: 'female', label: '女' }],
     },
     {
-      title: 'title4',
-      field: 'field4',
+      title: '生日',
+      field: 'birthday',
       showFilter: true,
       filterType: 'rangePicker',
     },
     {
-      title: 'title5',
-      field: 'field5',
+      title: '邮箱',
+      field: 'email',
       showSort: true,
       showFilter: true,
     },
     {
-      title: 'title6',
-      field: 'field6',
+      title: '手机号',
+      field: 'phone',
+      showSort: true,
+      showFilter: true,
+    },
+    {
+      title: '图片',
+      field: 'pictures',
       type: 'thumbnail',
       showSort: true,
       customSort: true,
@@ -136,29 +137,22 @@ export class DemoComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(private http:HttpClient) {}
 
   ngOnInit() {}
 
   load(params) {
-    console.log(params);
+     console.log(params);
+    const url = `/users?total=10`;
     this.tableLoading = true;
     setTimeout(() => {
-      this.tableData = {
-        content: [],
-        totalSize: 0,
-      };
-      this.tableData.totalSize = 100;
-      for (let index = 0; index < this.tableData.totalSize; index++) {
-        const row = {};
-        this.columns.forEach(element => {
-          row[element.field] = `${element.field} ${index} aaaaaaaaaaaaaaaaaaaaaaaaaaaa`;
-        });
-        row['field6'] = this.imgUrls;
-        this.tableData.content.push(row);
-      }
+      this.http.get(url).subscribe((users)=>{
+        this.tableData = {
+          ...users
+        };
+      })
       this.tableLoading = false;
-    }, 2000);
+    }, 1000);
   }
 
   onQueryChange(params) {
