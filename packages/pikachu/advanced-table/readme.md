@@ -1,6 +1,6 @@
 ---
 type: Business
-title: advanced-table
+title: AdvancedTable
 subtitle: 表格组件
 cols: 1
 module: AdvancedTableModule
@@ -8,7 +8,7 @@ module: AdvancedTableModule
 
 ## API
 
-### advanced-table
+### p-advancedTable
 
 | 参数                | 说明                                             | 类型                                                                | 默认值                              |
 | ------------------- | ------------------------------------------------ | ------------------------------------------------------------------- | ----------------------------------- |
@@ -25,12 +25,12 @@ module: AdvancedTableModule
 | `[pageSizeOptions]` | 页数选择器可选值                                 | `number[]`                                                          | `[10, 30, 50, 100]`                 |
 | `[showSizeChanger]` | 是否可以改变 `nzPageSize`                        | `boolean`                                                           | `true`                              |
 | `[selections]`      | 当前选中数据,可双向绑定                          | `any[]`                                                             | `[]`                                |
-| `[columns]`         | 数据列的属性，建议双向绑定                       | `Column[]`                                                          | `[]`                                |
+| `[columns]`         | 数据列的属性，建议双向绑定                       | `AdvancedTableColumn[]`                                             | `[]`                                |
 | `(load)`            | 加载数据事件                                     | `EventEmitter<[PageParams, { [key: string]: any }?]>`               | -                                   |
 | `(sort)`            | 排序事件                                         | `EventEmitter<{ key: string; value: 'descend' | 'ascend' | null }>` | -                                   |
 | `(linkClick)`       | 链接点击事件                                     | `EventEmitter<{ field: string; rowData: any }>`                     | -                                   |
 
-### Column
+### AdvancedTableColumn
 
 基本属性
 
@@ -42,7 +42,7 @@ module: AdvancedTableModule
 | `left`       | 左侧距离，用于固定左侧列                                               | `string`               | `false`  |
 | `right`      | 右侧距离，用于固定左侧列                                               | `string`               | `false`  |
 | `type`       | 数据列类型，link 表示链接，配套使用 linkClick 事件；thumbnail 表示图片 | `'link' | 'thumbnail'` | `false`  |
-| `customCell` | 自定义单元格,可以使用 advanced-cell 组件简单定义                       | `TemplateRef<any>`     | `false`  |
+| `customCell` | 自定义单元格,可以使用 p-advancedCell 标签简单定义                      | `TemplateRef<any>`     | `false`  |
 
 排序属性
 
@@ -61,11 +61,11 @@ module: AdvancedTableModule
 | `filterOptions`  | 下拉搜索组件选项,配合 filterType 传入 select 时传入选项 | `{label:string,value:any}[]`      | `false`  |
 | `filterWidth`    | 下拉搜索宽度                                            | `string`                          | `false`  |
 | `filterMultiple` | 是否多选                                                | `boolean`                         | `false`  |
-| `customFilter`   | 自定义搜索组件,可以使用 advanced-filter 组件简单定义    | `TemplateRef<any>`                | `false`  |
-| `searchValue`    | 搜索值,详见 query-display 组件                          | `any`                             | `false`  |
-| `defaultValue`   | 默认值,详见 query-display 组件                          | `any`                             | `false`  |
-| `displayValue`   | 展示值,详见 query-display 组件                          | `any`                             | `false`  |
-| `lexicon`        | 词典,详见 query-display 组件                            | `{ value: any; label: string }[]` | `false`  |
+| `customFilter`   | 自定义搜索组件,可以使用 p-advancedFilter 标签简单定义   | `TemplateRef<any>`                | `false`  |
+| `searchValue`    | 搜索值,详见 queryTabs 组件                              | `any`                             | `false`  |
+| `defaultValue`   | 默认值,详见 queryTabs 组件                              | `any`                             | `false`  |
+| `displayValue`   | 展示值,详见 queryTabs 组件                              | `any`                             | `false`  |
+| `lexicon`        | 词典,详见 queryTabs 组件                                | `{ value: any; label: string }[]` | `false`  |
 
 ### 优化：
 
@@ -75,7 +75,7 @@ module: AdvancedTableModule
 
 ## 注意
 
-advanced-table 采用`OnPush`策略
+p-advancedTable 采用`OnPush`策略
 
 按照 [Angular 的设计](https://angular.io/guide/lifecycle-hooks#onchanges)，当需要对数据进行增删时需要使用以下操作，使用 `push` 或者 `splice` 不会生效
 
@@ -90,9 +90,9 @@ this.tableData.content = [
     address: `London, Park Lane no. ${this.i}`,
   },
 ]; // 传入nz-table
-this.tableData = { ...this.tableData }; // 传入advanced-table
+this.tableData = { ...this.tableData }; // 传入p-advancedTable
 
 // 删除数据
 this.tableData.content = this.tableData.content.filter(d => d.key !== i); // 传入nz-table
-this.tableData = { ...this.tableData }; // 传入advanced-table
+this.tableData = { ...this.tableData }; // 传入p-advancedTable
 ```

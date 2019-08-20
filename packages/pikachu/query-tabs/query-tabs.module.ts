@@ -2,16 +2,16 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FilterPipeModule, TranslatePipeModule } from '@pixelmon/theme';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { QueryDisplayComponent } from './query-display.component';
+import { QueryTabsComponent } from './query-tabs.component';
 
 @NgModule({
-  declarations: [QueryDisplayComponent],
+  declarations: [QueryTabsComponent],
   imports: [CommonModule, TranslatePipeModule, FilterPipeModule, NgZorroAntdModule],
-  exports: [QueryDisplayComponent],
+  exports: [CommonModule, TranslatePipeModule, FilterPipeModule, NgZorroAntdModule, QueryTabsComponent],
 })
-export class QueryDisplayModule {}
+export class QueryTabsModule {}
 
-export interface QueryColumn {
+export interface QueryTab {
   title: string;
   field: string;
   showFilter?: boolean;

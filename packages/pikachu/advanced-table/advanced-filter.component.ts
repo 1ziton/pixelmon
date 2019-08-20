@@ -1,7 +1,7 @@
 import { Component, OnInit, ContentChild, TemplateRef, Input } from '@angular/core';
 
 @Component({
-  selector: 'advanced-filter',
+  selector: 'p-advancedFilter',
   template: '<ng-content> </ng-content>',
 })
 export class AdvancedFilterComponent implements OnInit {

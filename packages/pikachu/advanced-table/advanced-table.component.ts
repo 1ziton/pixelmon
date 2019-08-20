@@ -29,7 +29,7 @@ import { AdvancedTableColumn, PageParams, AdvancedTableRow } from './advanced-ta
 import { NzDropDownComponent } from 'ng-zorro-antd';
 
 @Component({
-  selector: 'advanced-table',
+  selector: 'p-advancedTable',
   templateUrl: './advanced-table.component.html',
   styleUrls: ['./advanced-table.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -226,7 +226,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
   /**
    * 查询确认回调
    */
-  onFilterConfim(dropdown:NzDropDownComponent): void {
+  onFilterConfim(dropdown: NzDropDownComponent): void {
     dropdown.setVisibleStateWhen(false);
     this.columns = [...this.columns];
     this.columnsChange.emit(this.columns);

@@ -5,28 +5,28 @@
  */
 
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
-import { QueryColumn } from './query-display.module';
+import { QueryTab } from './query-tabs.module';
 
 @Component({
-  selector: 'query-display',
-  templateUrl: './query-display.component.html',
-  styleUrls: ['./query-display.component.less'],
+  selector: 'p-queryTabs',
+  templateUrl: './query-tabs.component.html',
+  styleUrls: ['./query-tabs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class QueryDisplayComponent implements OnInit, OnChanges {
-  @Input() columns: QueryColumn[] = [];
+export class QueryTabsComponent implements OnInit, OnChanges {
+  @Input() tabs: QueryTab[] = [];
   @Input() lexicon: { value: any; label: string }[] = []; // 词典
 
-  @Output() columnsChange: EventEmitter<QueryColumn[]> = new EventEmitter();
+  @Output() tabsChange: EventEmitter<QueryTab[]> = new EventEmitter();
   @Output() queryChange: EventEmitter<object> = new EventEmitter();
-  @Output() close: EventEmitter<QueryColumn> = new EventEmitter();
+  @Output() closeTab: EventEmitter<QueryTab> = new EventEmitter();
 
   // 过滤规则
-  @Input() filterRule: (column: QueryColumn) => boolean = column => {
-    const searchValue = column.searchValue;
+  @Input() filterRule: (tab: QueryTab) => boolean = tab => {
+    const searchValue = tab.searchValue;
 
     // 有默认值且搜索值和默认值相等
-    if (column.hasOwnProperty('defaultValue') && searchValue === column.defaultValue) {
+    if (tab.hasOwnProperty('defaultValue') && searchValue === tab.defaultValue) {
       return false;
     }
     // 非法基础数据类型
@@ -51,21 +51,21 @@ export class QueryDisplayComponent implements OnInit, OnChanges {
     }
   }
 
-  onClose(column: QueryColumn): void {
+  onClose(tab: QueryTab): void {
     // 有默认值恢复默认值，没有则置为null
-    column.searchValue = column.hasOwnProperty('defaultValue') ? column.defaultValue : null;
+    tab.searchValue = tab.hasOwnProperty('defaultValue') ? tab.defaultValue : null;
 
-    this.close.emit(column);
-    this.columns = [...this.columns];
-    this.columnsChange.emit(this.columns);
+    this.closeTab.emit(tab);
+    this.tabs = [...this.tabs];
+    this.tabsChange.emit(this.tabs);
   }
 
   // 组件内更新查询值
   updateQuery() {
     const query = {};
-    this.columns.forEach(column => {
-      if (column.showFilter) {
-        query[column.field] = column.searchValue;
+    this.tabs.forEach(tab => {
+      if (tab.showFilter) {
+        query[tab.field] = tab.searchValue;
       }
     });
     this.queryChange.emit(query);
