@@ -98,4 +98,4 @@ export const USERS = {
 
 ## 存储规则
 
-一般来说 Mock 都是开发过程中需要，因此建议在项目根目录下创建一个 `_mock` 目录，并创建一个 `index.ts` 文件用于导出所有数据规则，参考 [ng-pixelmon/\_mock](https://github.com/ng-pixelmon/ng-pixelmon/tree/master/_mock)。
+一般来说 Mock 都是开发过程中需要，因此建议在项目根目录下创建一个 `_mock` 目录，并创建一个 `index.ts` 文件用于导出所有数据规则，参考 [pixelmon/\_mock](https://github.com/1ziton/pixelmon/tree/master/_mock)。
