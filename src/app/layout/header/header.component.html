@@ -59,7 +59,7 @@
   <nz-col nz-col nzXs="0" nzSm="0" nzMd="17" nzLg="18" nzXl="18" nzXXl="19">
     <div class="header-menu-container">
       <div id="search-box">
-        <i nz-icon type="search"></i>
+        <i nz-icon nzType="search"></i>
         <input *ngIf="useDocsearch" nz-input #searchInput [placeholder]="'app.header.search' | translate" />
         <nz-select
           *ngIf="!useDocsearch"

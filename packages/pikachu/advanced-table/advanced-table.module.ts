@@ -6,20 +6,12 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { AdvancedCellComponent } from './advanced-cell.component';
 import { AdvancedFilterComponent } from './advanced-filter.component';
 import { AdvancedTableComponent } from './advanced-table.component';
-import { QueryDisplayModule } from './query-display/query-display.module';
-import { SmartTextModule } from './smart-text/smart-text.module';
+import { SmartTextModule } from '@pixelmon/pikachu/smart-text';
+import { QueryTab } from '@pixelmon/pikachu/query-tabs';
 
 const COMPONENT = [AdvancedTableComponent, AdvancedCellComponent, AdvancedFilterComponent];
 
-const MODULE = [
-  CommonModule,
-  FormsModule,
-  NgZorroAntdModule,
-  QueryDisplayModule,
-  SmartTextModule,
-  ViewerDirectiveModule,
-  QueryDisplayModule,
-];
+const MODULE = [CommonModule, FormsModule, NgZorroAntdModule, SmartTextModule, ViewerDirectiveModule];
 
 @NgModule({
   declarations: [...COMPONENT],
@@ -29,7 +21,7 @@ const MODULE = [
 export class AdvancedTableModule {}
 
 // 列数据接口
-export interface Column {
+export interface AdvancedTableColumn extends QueryTab {
   title: string;
   field: string;
   width?: string;
@@ -48,10 +40,11 @@ export interface Column {
   filterWidth?: string; // 下拉搜索组件宽度
   filterMultiple?: boolean; // 是否多选
   customFilter?: TemplateRef<any>; // 自定义搜索组件
-  searchValue?: any; // 搜索值
-  defaultValue?: any; // 默认值
-  displayValue?: any; // 展示值
-  lexicon?: { [key: string]: string }; // 词典
+}
+
+export interface AdvancedTableRow {
+  isChecked: boolean;
+  [key: string]: any;
 }
 
 // 分页参数接口

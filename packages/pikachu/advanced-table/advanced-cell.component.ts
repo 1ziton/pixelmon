@@ -1,7 +1,7 @@
 import { Component, OnInit, ContentChild, TemplateRef, Input } from '@angular/core';
 
 @Component({
-  selector: 'advanced-cell',
+  selector: 'p-advancedCell',
   template: '<ng-content> </ng-content>',
 })
 export class AdvancedCellComponent implements OnInit {

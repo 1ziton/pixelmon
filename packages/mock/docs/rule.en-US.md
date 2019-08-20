@@ -98,4 +98,4 @@ export const USERS = {
 
 ## Storage rule
 
-In general, Mock is required during development, so recommended to create `_mock` directory in the project root directory and create `index.ts` file to export all data rules. See [ng-pixelmon/\_mock](Https://github.com/ng-pixelmon/ng-pixelmon/tree/master/_mock).
+In general, Mock is required during development, so recommended to create `_mock` directory in the project root directory and create `index.ts` file to export all data rules. See [pixelmon/\_mock](https://github.com/1ziton/pixelmon/tree/master/_mock).

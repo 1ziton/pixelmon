@@ -6,8 +6,14 @@
     "jsx": "react",
     "types": [
       "node"
-    ]
+    ],
+    "paths": {
+      "@pixelmon/*": ["../../dist/@pixelmon/*"]
+    }
   },
+  // "exclude": [
+  //   "./src/editor/components/EditorDetailPanel/*"
+  // ],
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": false,

@@ -1,0 +1,151 @@
+.ggeditor-flowpage {
+  height: 100%;
+  width: 100%;
+}
+.editor {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+
+  .context-menu {
+    display: none;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      padding: 5px 12px;
+      cursor: pointer;
+      transition: all 0.3s;
+      user-select: none;
+
+      &:hover {
+        background: #e6f7ff;
+      }
+
+      i {
+        margin-right: 8px;
+      }
+    }
+
+    ::ng-deep {
+      .disable {
+        .item {
+          color: rgba(0, 0, 0, 0.25);
+          cursor: auto;
+
+          &:hover {
+            background: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+
+    .command i {
+      display: inline-block;
+      width: 27px;
+      height: 27px;
+      margin: 0 6px;
+      padding-top: 6px;
+      text-align: center;
+      border: 1px solid #fff;
+      cursor: pointer;
+
+      &:hover {
+        border: 1px solid #e6e9ed;
+      }
+    }
+
+    .disable i {
+      color: rgba(0, 0, 0, 0.25);
+      cursor: auto;
+
+      &:hover {
+        border: 1px solid #fff;
+      }
+    }
+  }
+
+  .tooltip {
+    .ant-tooltip-inner {
+      font-size: 12px;
+      border-radius: 0;
+    }
+  }
+  .item-panel {
+    flex: 1;
+    background: #fafafa;
+
+    .ant-card {
+      background: #fafafa;
+    }
+
+    .ant-card-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      > div {
+        margin-bottom: 16px;
+      }
+    }
+  }
+  .detail-panel {
+    flex: 1;
+    background: #fafafa;
+
+    .ant-card {
+      background: #fafafa;
+    }
+  }
+}
+
+.editorHd {
+  padding: 8px;
+  border: 1px solid #e6e9ed;
+}
+
+.editorBd {
+  flex: 1;
+}
+
+.editorSidebar,
+.editorContent {
+  display: flex;
+  flex-direction: column;
+  .graph-container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.editorSidebar {
+  background: #fafafa;
+
+  &:first-child {
+    border-right: 1px solid #e6e9ed;
+  }
+
+  &:last-child {
+    border-left: 1px solid #e6e9ed;
+  }
+}
+
+.flow,
+.mind,
+.koni {
+  flex: 1;
+  // https://github.com/philipwalton/flexbugs/issues/197#issuecomment-378908438
+  height: 0;
+}

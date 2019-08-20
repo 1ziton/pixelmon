@@ -8,7 +8,7 @@ import { MetaService } from './../../../core/meta.service';
   template: `
     <nz-tooltip nzTitle="{{ 'app.content.edit-page' | translate }}">
       <a href="{{ _full }}" target="_blank" class="edit-button" nz-tooltip>
-        <i nz-icon type="edit"></i>
+        <i nz-icon nzType="edit"></i>
       </a>
     </nz-tooltip>
   `,

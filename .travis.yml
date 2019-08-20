@@ -3,7 +3,7 @@ dist: trusty
 language: node_js
 
 node_js:
-  - '10.9.0'
+  - '10.16.0'
 
 addons:
   apt:
@@ -29,25 +29,26 @@ before_install:
 
 jobs:
   include:
-    - stage: pre
-      env: 'TASK=build_artifacts'
+    - stage: lint
+      env: 'TASK=lint'
+    # - stage: pre
+    #   env: 'TASK=build_artifacts'
     - stage: test
       env: 'TASK=test'
-    - stage: test
-      env: 'TASK=lint'
-    - stage: test
+    - stage: docs
       env: 'TASK=site:build'
-    - stage: test
-      env: 'TASK=build'
+    - stage: build
+      env: 'TASK=build_artifacts'
     # - stage: test
     #   env: 'TASK=test:cli'
     # - stage: publish
     #   env: 'TASK=pre-publish'
 
 stages:
-  - name: pre
-    if: branch = master
+  - name: lint
   - name: test
+  - name: docs
+  - name: build
     if: branch = master
   - name: publish
     if: branch = master
@@ -55,20 +56,20 @@ stages:
 install:
   - chmod +x -R scripts
   - npm install
-  - npm install -g npm-cli-login
 
 # [[ "$TRAVIS_PULL_REQUEST" != "false" ]] 
 script:
   - npm run $TASK
   - echo $TRAVIS_COMMIT_MESSAGE
   - |
-    if [ "$TASK" = "test" ]; then
+    if [[ "$TASK" = "test" ]]  && [[ $TRAVIS_BRANCH = "master" ]]; then
       cat ./coverage/lcov.info | ./node_modules/.bin/codecov
     fi
     if [ "$TASK" = "site:build" ]; then
       npm run deploy:site
     fi
-    if [[ "$TASK" = "build" ]]  && [[ $TRAVIS_COMMIT_MESSAGE == *"release("* ]]; then
+    if [[ "$TASK" = "build_artifacts" ]]  && [[ $TRAVIS_COMMIT_MESSAGE == *"release("* ]]; then
+      npm install -g npm-cli-login
       echo 'npm run publish scripts exec'
       npm run publish
     fi
