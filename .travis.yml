@@ -68,7 +68,7 @@ script:
     if [ "$TASK" = "site:build" ]; then
       npm run deploy:site
     fi
-    if [[ "$TASK" = "build" ]]  && [[ $TRAVIS_COMMIT_MESSAGE == *"release("* ]]; then
+    if [[ "$TASK" = "build_artifacts" ]]  && [[ $TRAVIS_COMMIT_MESSAGE == *"release("* ]]; then
       npm install -g npm-cli-login
       echo 'npm run publish scripts exec'
       npm run publish
