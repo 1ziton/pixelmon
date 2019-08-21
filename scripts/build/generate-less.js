@@ -8,8 +8,8 @@ function copyLess(name) {
   let targetPath = path.join(root, `dist/@pixelmon/${name}`);
   // index.less
   const spath = `${sourcePath}/index.less`;
-  console.log(spath);
-  console.log(targetPath);
+  // console.log(spath);
+  // console.log(targetPath);
   fse.copySync(spath, `${targetPath}/index.less`);
   // modules less
   fs.readdirSync(targetPath).forEach(name => {
@@ -19,7 +19,7 @@ function copyLess(name) {
   });
 }
 
-['pikachu'].forEach(name => copyLess(name));
+['pikachu','ggeditor/src/editor/styles'].forEach(name => copyLess(name));
 console.log('pikachu style copy finish');
 // copy theme
 fse.copySync(path.join(root, `packages/theme/styles`), path.join(root, `dist/@pixelmon/theme/styles`));

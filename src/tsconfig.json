@@ -13,8 +13,7 @@
       "@core/*": ["app/core/*"],
       "@shared": ["app/shared"],
       "@shared/*": ["app/shared/*"],
-      "@pixelmon/*": ["../packages/*"],
-      "@dist/*": ["../dist/@pixelmon/*"]
+      "@pixelmon/*": ["../packages/*"]
     }
   },
 
