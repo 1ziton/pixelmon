@@ -1,6 +1,6 @@
 ---
 type: Business
-title: QueryTabs
+title: query-tabs
 subtitle: 查询条件展示
 cols: 1
 module: QueryDisplayModule

@@ -17,3 +17,17 @@ module: SmartTextModule
 | `[text]`      | 要显示的文本             | `string` | -      |
 | `[maxLength]` | 直接显示的最大长度       | `number` | `20`   |
 | `[tail]`      | 超过最大长度时拼接的尾部 | `string` | `...`  |
+
+## 注意
+
+[text]的输入将会被强制转成 string
+
+```typescript
+  @Input() set text(value) {
+    if (value === undefined || value === null) {
+      this._text = '';
+    } else {
+      this._text = String(value);
+    }
+  }
+```
