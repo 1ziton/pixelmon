@@ -1,12 +1,12 @@
 ---
 order: 1
 title:
-  en-US: Standard
-  zh-CN: 标准
-bg: f2f4f5
+  en-US: Basic
+  zh-CN: 基础
+  bg: f2f4f5
 ---
 
-标准用法。
+基础用法。
 
 ```ts
 import { Component, OnInit } from '@angular/core';
@@ -66,8 +66,7 @@ import { AdvancedTableColumn } from '@pixelmon/pikachu/advanced-table';
   `,
 })
 export class DemoComponent implements OnInit {
-
-  tableData:any = {
+  tableData: any = {
     data: [],
     totalSize: 0,
   };
@@ -89,7 +88,7 @@ export class DemoComponent implements OnInit {
       field: 'gender',
       showFilter: true,
       filterType: 'select',
-      filterOptions: [{ value: 'all', label: '全部' }, { value: 'male', label: '男'}, { value: 'female', label: '女' }],
+      filterOptions: [{ value: 'all', label: '全部' }, { value: 'male', label: '男' }, { value: 'female', label: '女' }],
     },
     {
       title: '生日',
@@ -137,22 +136,18 @@ export class DemoComponent implements OnInit {
     },
   ];
 
-  constructor(private http:HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {}
 
   load(params) {
-     console.log(params);
-    const url = `/users?total=10`;
+    console.log(params);
+    const url = `/users?total=100`;
     this.tableLoading = true;
-    setTimeout(() => {
-      this.http.get(url).subscribe((users)=>{
-        this.tableData = {
-          ...users
-        };
-      })
+    this.http.get(url).subscribe(users => {
+      this.tableData = users;
       this.tableLoading = false;
-    }, 1000);
+    });
   }
 
   onQueryChange(params) {

@@ -1,6 +1,6 @@
 ---
 type: Business
-title: AdvancedTable
+title: advanced-able
 subtitle: 表格组件
 cols: 1
 module: AdvancedTableModule

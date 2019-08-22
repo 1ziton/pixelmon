@@ -11,7 +11,19 @@ import { Component, Input } from '@angular/core';
   templateUrl: './smart-text.component.html',
 })
 export class SmartTextComponent {
-  @Input() text = '';
+  protected _text = '';
+
   @Input() maxLength = 20;
   @Input() tail = '...';
+  @Input() set text(value) {
+    if (value === undefined || value === null) {
+      this._text = '';
+    } else {
+      this._text = String(value);
+    }
+  }
+
+  get text() {
+    return this._text;
+  }
 }
