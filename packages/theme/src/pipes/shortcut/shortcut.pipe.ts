@@ -17,14 +17,17 @@ export class ShortcutPipe implements PipeTransform {
    * @param tail 切割后显示的尾部，默认...
    */
   transform(value: string, maxLength = 20, tail = '...'): any {
-    if (!value) {
+    if (value === undefined || value === null) {
       return '';
     }
-    if (value.length <= maxLength) {
-      return value;
+
+    const valueString = String(value);
+
+    if (valueString.length <= maxLength) {
+      return valueString;
     }
 
-    return String(value).substr(0, maxLength) + tail;
+    return valueString.substr(0, maxLength) + tail;
   }
 }
 
