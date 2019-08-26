@@ -42,7 +42,7 @@ const routes: Route[] = [
 @NgModule({
   imports: [
     SharedModule,
-    RouterModule.forRoot(routes, environment.production ? { preloadingStrategy: PreloadAllModules, useHash: true } : { useHash: true }),
+    RouterModule.forRoot(routes, environment.production ? { preloadingStrategy: PreloadAllModules, useHash: false } : { useHash: false }),
   ],
   declarations: [...COMPONENTS],
 })

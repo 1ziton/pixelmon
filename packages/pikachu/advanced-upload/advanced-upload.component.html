@@ -1,0 +1,47 @@
+<nz-upload
+  [nzAction]="action"
+  [nzAccept]="accept"
+  [nzListType]="listType"
+  [(nzFileList)]="fileList"
+  [nzShowButton]="showButton && fileList.length < maxLength"
+  [nzFileType]="fileType"
+  [nzShowUploadList]="showUploadList"
+  [nzDirectory]="directory"
+  [nzLimit]="limit"
+  [nzSize]="size"
+  [nzDisabled]="disabled || isLoading"
+  [nzMultiple]="multiple"
+  [nzPreview]="preview"
+  [nzRemove]="remove"
+  [nzFilter]="filter"
+  [nzBeforeUpload]="beforeUpload"
+  [nzCustomRequest]="customRequest"
+  (nzFileListChange)="onFileListChange()"
+  (nzChange)="onChange()"
+>
+  <!-- 自定义content -->
+  <ng-template [ngIf]="customContent" [ngIfElse]="defaultContent">
+    <ng-container [ngTemplateOutlet]="customContent"></ng-container>
+  </ng-template>
+
+  <!-- 默认content -->
+  <ng-template #defaultContent>
+    <ng-container [ngSwitch]="listType">
+      <ng-container *ngSwitchCase="'picture-card'">
+        <i nz-icon nzType="plus" class="upload-icon"></i>
+        <div class="upload-text">{{ placeholder }}</div>
+      </ng-container>
+      <ng-container *ngSwitchDefault>
+        <button nz-button>
+          <i nz-icon nzType="upload"></i>
+          <span>{{ placeholder }}</span>
+        </button>
+      </ng-container>
+    </ng-container>
+  </ng-template>
+</nz-upload>
+
+<!-- 预览弹框 -->
+<nz-modal [(nzVisible)]="previewModal.visible" [nzFooter]="null" (nzOnCancel)="previewModal.visible = false">
+  <img [src]="previewModal.image" width="100%" />
+</nz-modal>
