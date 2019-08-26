@@ -11,6 +11,7 @@
     "date-fns",
     "ngx-countdown",
     "qrious",
+    "@baiducloud/sdk",
     "@pixelmon/util",
     "@pixelmon/theme",
     "@pixelmon/acl"
