@@ -11,7 +11,7 @@ import * as MOCKDATA from '../../_mock';
 
 // #region reuse-tab
 /**
- * 若需要[路由复用](https://1ziton.com/components/reuse-tab)需要：
+ * 若需要[路由复用](http://fex.1ziton.com/pixelmon/components/reuse-tab)需要：
  * 1、增加 `REUSETAB_PROVIDES`
  * 2、在 `src/app/layout/default/default.component.html` 修改：
  *  ```html

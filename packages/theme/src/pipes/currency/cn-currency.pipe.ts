@@ -2,7 +2,7 @@ import { CurrencyPipe } from '@angular/common';
 import { Pipe } from '@angular/core';
 
 /**
- * @see https://1ziton.com/theme/currency
+ * @see http://fex.1ziton.com/pixelmon/theme/currency
  */
 // tslint:disable-next-line:use-pipe-transform-interface
 @Pipe({ name: '_currency' })

@@ -66,10 +66,10 @@ script:
     if [[ "$TASK" = "test" ]]  && [[ $TRAVIS_BRANCH = "master" ]]; then
       cat ./coverage/lcov.info | ./node_modules/.bin/codecov
     fi
-    if [[ "$TASK" = "site:build" ]]  && [[ $TRAVIS_BRANCH = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
+    if [[ "$TASK" = "site:build" ]]  && [[ $TRAVIS_BRANCH = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
       npm run deploy:site
     fi
-    if [[ "$TASK" = "build_artifacts" ]]  && [[ $TRAVIS_COMMIT_MESSAGE == *"release("* ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
+    if [[ "$TASK" = "build_artifacts" ]]  && [[ $TRAVIS_COMMIT_MESSAGE == *"release("* ]] && [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
       npm install -g npm-cli-login
       echo 'npm run publish scripts exec'
       npm run publish
