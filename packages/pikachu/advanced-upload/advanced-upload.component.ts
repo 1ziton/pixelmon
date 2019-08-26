@@ -90,7 +90,7 @@ export class AdvancedUploadComponent implements OnInit, ControlValueAccessor {
 
   isLoading = false; // 百度上传客户端初始化中
   fileList: UploadFile[] = []; // 文件列表，绑定ControlValueAccessor
-  fileListChange: Function; // 文件列表改变，绑定ControlValueAccessor
+  fileListChange: (files: UploadFile[]) => void; // 文件列表改变，绑定ControlValueAccessor
 
   // 预览modal参数对象
   previewModal = {
@@ -202,7 +202,7 @@ export class AdvancedUploadComponent implements OnInit, ControlValueAccessor {
 
         worker.postMessage(file);
 
-        worker.onmessage = function(event) {
+        worker.onmessage = event => {
           // 使用文件md5+最后修改时间+文件大小+文件名来保证唯一性，同时相同的文件的key也会相同,用于秒传
           const key = `${event.data}${file.lastModified}${file.size}${file.name}`;
           resolve(key);
@@ -240,7 +240,7 @@ export class AdvancedUploadComponent implements OnInit, ControlValueAccessor {
   onChange() {
     // 赋值url
     this.fileList.forEach(file => {
-      file.url = file.url || (file.originFileObj && (<any>file.originFileObj).url);
+      file.url = file.url || (file.originFileObj && (file.originFileObj as any).url);
     });
     this.onFileListChange();
   }
