@@ -38,14 +38,14 @@ yarn add @pixelmon/cache
 
 **注册**
 
-在根模块 `AppModule` 导入 `pixelmonCacheModule`；
+在根模块 `AppModule` 导入 `PixelmonCacheModule`；
 
 ```ts
-import { pixelmonCacheModule } from '@pixelmon/cache';
+import { PixelmonCacheModule } from '@pixelmon/cache';
 
 @NgModule({
   imports: [
-    pixelmonCacheModule
+    PixelmonCacheModule
   ]
 })
 ```
