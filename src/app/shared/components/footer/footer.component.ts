@@ -16,6 +16,8 @@ import { I18NService } from '../../../core/i18n/service';
 })
 export class FooterComponent implements OnInit {
   @Input() @InputBoolean() small = false;
+  color = `#1890ff`;
+  lessLoaded = false;
 
   constructor(
     @Inject(PIXELMON_I18N_TOKEN) public i18n: I18NService,
@@ -35,7 +37,6 @@ export class FooterComponent implements OnInit {
   }
 
   // region: color
-  color = `#1890ff`;
   initColor() {
     const node = document.createElement('link');
     node.rel = 'stylesheet/less';
@@ -43,7 +44,7 @@ export class FooterComponent implements OnInit {
     node.href = '/assets/color.less';
     document.getElementsByTagName('head')[0].appendChild(node);
   }
-  lessLoaded = false;
+
   changeColor(res: any) {
     const changeColor = () => {
       this.ngZone.runOutsideAngular(() => {

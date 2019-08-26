@@ -89,14 +89,15 @@ export class AdvancedUploadComponent implements OnInit, ControlValueAccessor {
   private isSupportWorker = false; // 浏览器是否支持Worker
 
   isLoading = false; // 百度上传客户端初始化中
-  fileList: UploadFile[] = []; // 文件列表，绑定ControlValueAccessor
-  fileListChange: Function; // 文件列表改变，绑定ControlValueAccessor
 
   // 预览modal参数对象
   previewModal = {
     visible: false, // 是否显示预览modal
     image: '', // 预览图片
   };
+
+  fileList: UploadFile[] = []; // 文件列表，绑定ControlValueAccessor
+  fileListChange: (files: UploadFile[]) => {}; // 文件列表改变，绑定ControlValueAccessor
 
   // 上传文件之前的钩子,若返回 false 则停止上传。注意：务必使用 => 定义处理方法
   @Input() beforeUpload: (file: UploadFile, fileList: UploadFile[]) => boolean | Observable<boolean>;
@@ -202,7 +203,7 @@ export class AdvancedUploadComponent implements OnInit, ControlValueAccessor {
 
         worker.postMessage(file);
 
-        worker.onmessage = function(event) {
+        worker.onmessage = event => {
           // 使用文件md5+最后修改时间+文件大小+文件名来保证唯一性，同时相同的文件的key也会相同,用于秒传
           const key = `${event.data}${file.lastModified}${file.size}${file.name}`;
           resolve(key);
@@ -240,7 +241,7 @@ export class AdvancedUploadComponent implements OnInit, ControlValueAccessor {
   onChange() {
     // 赋值url
     this.fileList.forEach(file => {
-      file.url = file.url || (file.originFileObj && (<any>file.originFileObj).url);
+      file.url = file.url || (file.originFileObj && (file.originFileObj as any).url);
     });
     this.onFileListChange();
   }

@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   useDocsearch = false;
   oldVersionList = [`1.x`];
   currentVersion = 'stable';
-  pixelmon = ['theme','acl', 'cache',  'mock', 'util', 'ggeditor']; //,'cli' 'form',
+  pixelmon = ['theme', 'acl', 'cache', 'mock', 'util', 'ggeditor']; // 'cli' 'form'
 
   @ViewChild('searchInput', { static: false })
   searchInput: ElementRef<HTMLInputElement>;
