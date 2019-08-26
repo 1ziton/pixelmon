@@ -16,7 +16,7 @@ describe('Pipe: url', () => {
     fixture.detectChanges();
   });
 
-  [{ value: '', result: `` }, { value: 'https://1ziton.com', result: `https://1ziton.com` }].forEach(
+  [{ value: '', result: `` }, { value: 'http://fex.1ziton.com/pixelmon', result: `http://fex.1ziton.com/pixelmon` }].forEach(
     (item: any) => {
       it(`${item.value.toString()} muse be ${item.result}`, () => {
         fixture.componentInstance.value = item.value;

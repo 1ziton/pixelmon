@@ -23,10 +23,10 @@ export const USERS = {
         id: i + 1,
         thumbnail: `https://randomuser.me/api/portraits/thumb/${r(0, 1) === 0 ? 'men' : 'women'}/${r(1, 50)}.jpg`,
         name: `Tom-${r(1, 10)}`,
-        // name: {
-        //   last: `last-${r(1, 10)}`,
-        //   first: `first-${r(10, 20)}`,
-        // },
+        fullname: {
+          last: `last-${r(1, 10)}`,
+          first: `first-${r(10, 20)}`,
+        },
         nat: ['CH', 'US', 'DE'][i % 3],
         birthday: '1992-08-08',
         gender: ['male', 'female'][i % 2],

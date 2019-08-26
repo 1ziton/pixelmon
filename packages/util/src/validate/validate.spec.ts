@@ -98,7 +98,7 @@ describe('utils: validate', () => {
   it('#isUrl', () => {
     const data = [
       { k: 'http://1ziton.com', v: true },
-      { k: 'https://1ziton.com', v: true },
+      { k: 'http://fex.1ziton.com/pixelmon', v: true },
       { k: '//1ziton.com', v: false },
       { k: '1ziton.com', v: false },
       { k: '中国.com', v: false },
