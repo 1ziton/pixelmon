@@ -93,7 +93,8 @@ export class DocsComponent implements OnInit, OnDestroy {
 
     if (targetEl) {
       targetEl.scrollIntoView();
-      location.hash = href;
+      // Github Page Hash Url problem
+      // location.hash = href; 
     } else {
       console.warn(`无法获取目标元素：${item.id}`);
     }
