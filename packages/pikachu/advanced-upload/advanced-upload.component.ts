@@ -23,7 +23,7 @@ import { UploadFile, UploadXHRArgs, UploadFilter } from 'ng-zorro-antd';
 import { Observable, Subscription } from 'rxjs';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { uid } from '@pixelmon/util';
+import { uuidv1 } from '@pixelmon/util';
 
 declare const baidubce: any;
 
@@ -159,7 +159,7 @@ export class AdvancedUploadComponent implements OnInit, ControlValueAccessor {
   writeValue(value) {
     this.fileList = value || [];
     this.fileList.forEach(file => {
-      file.uid = file.uid || uid();
+      file.uid = file.uid || uuidv1();
     });
     this._cdr.detectChanges(); // for issue：https://github.com/angular/angular/issues/10816
   }

@@ -5,12 +5,11 @@
  */
 
 import { AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
-import { InputBoolean } from '@pixelmon/util';
+import { InputBoolean, uuidv1 } from '@pixelmon/util';
 import GGEditor, { Flow, Mind, MindProps } from 'gg-editor';
 import * as invariant_ from 'invariant';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as uuid from 'uuid';
 import FlowPage from './editor/flow/FlowPage';
 import { FlowProps, FlowStyle, GraphType } from './interface';
 
@@ -90,7 +89,7 @@ export class GGEditorComponent implements OnInit, OnDestroy, OnChanges, AfterVie
   }
 
   ngOnInit() {
-    this.rootDomID = uuid.v1();
+    this.rootDomID = uuidv1();
   }
 
   ngOnChanges() {
