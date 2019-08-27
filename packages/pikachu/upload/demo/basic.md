@@ -14,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-demo',
   template: `
-    <p-advancedUpload [(ngModel)]="fileList" [maxLength]="5"> </p-advancedUpload>
+    <p-upload [(ngModel)]="fileList" [maxLength]="5"> </p-upload>
   `,
 })
 export class DemoComponent implements OnInit {

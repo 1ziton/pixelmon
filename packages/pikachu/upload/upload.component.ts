@@ -5,42 +5,30 @@
  * @Date: 2019-07-22 15:44:37
  */
 
-export interface BosConfig {
-  endpoint: string; // BOS服务器的地址
-  ak: string; // STS服务器下发的临时ak
-  sk: string; // STS服务器下发的临时sk
-  sessionToken: string; // STS服务器下发的sessionToken
-}
-
-export abstract class UploadServiceToken {
-  abstract bosConfig: BosConfig; // 百度bos上传的设置参数
-  abstract workerUrl: string; // Worker的地址
-  abstract getConfig(): Observable<BosConfig>; // 获取token的逻辑
-}
-
 import { Component, OnInit, Input, TemplateRef, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { UploadFile, UploadXHRArgs, UploadFilter } from 'ng-zorro-antd';
 import { Observable, Subscription } from 'rxjs';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { uuidv1 } from '@pixelmon/util';
+import { UploadServiceToken } from './upload-interface';
 
 declare const baidubce: any;
 
 @Component({
-  selector: 'p-advancedUpload',
-  templateUrl: './advanced-upload.component.html',
-  styleUrls: ['./advanced-upload.component.less'],
+  selector: 'p-upload',
+  templateUrl: './upload.component.html',
+  styleUrls: ['./upload.component.less'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: AdvancedUploadComponent,
+      useExisting: UploadComponent,
       multi: true,
     },
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AdvancedUploadComponent implements OnInit, ControlValueAccessor {
+export class UploadComponent implements OnInit, ControlValueAccessor {
   @Input() accept = 'image/png,image/jpeg,image/gif,image/bmp'; // 接受上传的文件类型, 详见https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
   @Input() action = ''; // 上传的地址
   @Input() directory = false; // 是否支持上传文件夹

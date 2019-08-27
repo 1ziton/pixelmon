@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UploadServiceToken, BosConfig } from './advanced-upload.component';
+import { BosConfig, UploadServiceToken } from './upload-interface';
 
 @Injectable({
   providedIn: 'root',
