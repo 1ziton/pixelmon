@@ -3,10 +3,10 @@ type: Business
 title: query-tabs
 subtitle: 查询条件展示
 cols: 1
-module: QueryDisplayModule
+module: QueryTabsModule
 ---
 
-显示当前查询条件。
+显示当前查询条件，基于 [NzTabs](https://ng.ant.design/components/tabs/zh) 封装。
 
 ## API
 

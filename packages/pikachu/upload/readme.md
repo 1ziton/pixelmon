@@ -1,14 +1,16 @@
 ---
 type: Business
-title: advanced-upload
+title: upload
 subtitle: 上传组件
 cols: 1
-module: AdvancedUploadModule
+module: UploadModule
 ---
+
+附件上传，基于 [NzUpload](https://ng.ant.design/components/upload/zh)+[百度 BOS](https://cloud.baidu.com/doc/BOS/s/9jwvys8y7/)封装。
 
 ## API
 
-### p-advancedUpload
+### p-upload
 
 | 参数                | 说明                                                                             | 类型                                                                          | 默认值                                       |
 | ------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | -------------------------------------------- |
@@ -50,10 +52,10 @@ module: AdvancedUploadModule
 - 每个文件的 `uid` 要唯一，用于标识不同文件，若相同或者没有会导致删除功能受限等等。建议不要输入，因为当 `uid` 不存在时 组件内会自动生成；若要输入请保证 `uid` 在 `fileList` 中是唯一的。
 - 上传组件依赖于百度 Bos 上传，请自行安装依赖：[@baiducloud/sdk](https://cloud.baidu.com/doc/BOS/s/Djwvyrhiw/ '安装SDK')。
 - 百度 Bos 上传依赖于服务 `UploadServiceToken`，建议在 AppModule 中使用`{ provide: UploadServiceToken, useExisting: UploadService }`提供。
-- 秒传传依赖于 Worker 用于获取文件 Md5，须在`UploadServiceToken`提供 `workerUrl`。比如放在`assets/js/`目录下，然后`workerUrl:'assets/js/getFileMd5.js'`。
+- 秒传依赖于 Worker 用于获取文件 Md5，须在`UploadServiceToken`提供 `workerUrl`。比如放在`assets/js/`目录下，然后`workerUrl:'assets/js/getFileMd5.js'`。
 
 ```javascript
-// ### getFileMd5.js
+// getFileMd5.js
 this.importScripts('/assets/js/md5.min.js');
 
 function getFlieMd5(file) {

@@ -6,14 +6,13 @@ import { ReuseTabModule } from './reuse-tab';
 import { SidebarNavModule } from './sidebar-nav';
 import { SVModule } from './view';
 import { QueryTabsModule } from './query-tabs';
-import { AdvancedTableModule } from './advanced-table';
 import { SmartTextModule } from './smart-text';
-import { AdvancedUploadModule } from './advanced-upload/advanced-upload.module';
-import { UploadServiceToken } from './advanced-upload/advanced-upload.component';
-import { UploadService } from './advanced-upload/upload.service';
+import { TableModule } from './table';
+import { UploadService } from './upload/upload.service';
+import { UploadModule } from './upload';
+import { UploadServiceToken } from './upload/upload-interface';
 
 const MODULES = [
-  AdvancedTableModule,
   QueryTabsModule,
   SmartTextModule,
   LodopModule,
@@ -22,7 +21,8 @@ const MODULES = [
   SidebarNavModule,
   SVModule,
   PageHeaderModule,
-  AdvancedUploadModule,
+  TableModule,
+  UploadModule,
 ];
 
 @NgModule({ exports: MODULES, providers: [{ provide: UploadServiceToken, useExisting: UploadService }] })

@@ -23,21 +23,21 @@ import {
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { AdvancedCellComponent } from './advanced-cell.component';
-import { AdvancedFilterComponent } from './advanced-filter.component';
-import { AdvancedTableColumn, PageParams, AdvancedTableRow } from './advanced-table.module';
+import { TableFilterComponent } from './table-filter.component';
+import { TableCellComponent } from './table-cell.component';
 import { NzDropDownComponent } from 'ng-zorro-antd';
+import { PTableColumn, PTableRow, PTablePage } from './table-interface';
 
 @Component({
-  selector: 'p-advancedTable',
-  templateUrl: './advanced-table.component.html',
-  styleUrls: ['./advanced-table.component.less'],
+  selector: 'p-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit, AfterContentInit, OnDestroy {
-  @Input() columns: AdvancedTableColumn[] = []; // 列数据
-  @Input() data: { data: AdvancedTableRow[]; totalSize: number } = { data: [], totalSize: 0 }; // 表格数据
-  @Input() selections: AdvancedTableRow[] = []; // 已选项
+export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterContentInit, OnDestroy {
+  @Input() columns: PTableColumn[] = []; // 列数据
+  @Input() data: { data: PTableRow[]; totalSize: number } = { data: [], totalSize: 0 }; // 表格数据
+  @Input() selections: PTableRow[] = []; // 已选项
   @Input() scroll: { x?: string | null; y?: string | null }; // 固定表头，滚动
   @Input() loading = false; // 表格loading
   @Input() pageSize = 10; // 显示条数
@@ -50,18 +50,18 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
   @Input() showCheckbox = false; // 是否显示复选框
   @Input() titleTemplate: TemplateRef<void>; // title模板
 
-  @Output() columnsChange: EventEmitter<AdvancedTableColumn[]> = new EventEmitter(); // 列数据改变事件 用于双向绑定
-  @Output() selectionsChange: EventEmitter<AdvancedTableRow[]> = new EventEmitter(); // 已选项改变事件 用于双向绑定
-  @Output() load: EventEmitter<PageParams> = new EventEmitter(); // load事件
+  @Output() columnsChange: EventEmitter<PTableColumn[]> = new EventEmitter(); // 列数据改变事件 用于双向绑定
+  @Output() selectionsChange: EventEmitter<PTableRow[]> = new EventEmitter(); // 已选项改变事件 用于双向绑定
+  @Output() load: EventEmitter<PTablePage> = new EventEmitter(); // load事件
   @Output() sort: EventEmitter<{ key: string; value: 'descend' | 'ascend' | null }> = new EventEmitter(); // 排序事件
   @Output() linkClick: EventEmitter<{ field: string; rowData: any }> = new EventEmitter(); // 链接点击事件
 
-  @ContentChildren(AdvancedCellComponent) customCells: AdvancedCellComponent[]; // 自定义单元格
-  @ContentChildren(AdvancedFilterComponent) customFilters: AdvancedFilterComponent[]; // 自定义搜索组件
+  @ContentChildren(TableCellComponent) customCells: TableCellComponent[]; // 自定义单元格
+  @ContentChildren(TableFilterComponent) customFilters: TableFilterComponent[]; // 自定义搜索组件
 
   load$: Subject<any> = new Subject(); // load流
 
-  displayData: AdvancedTableRow[] = []; // 当前显示数据
+  displayData: PTableRow[] = []; // 当前显示数据
   pageIndex = 1; // 当前页码
   sortParams: { key: string; value: 'descend' | 'ascend' | null };
 
@@ -101,7 +101,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
   ngAfterViewInit() {
     // 页面初始化完成后自动load一次
     this.load$.next();
-    if (this.fixedPagination) {
+    if (this.showPagination && this.fixedPagination) {
       this.toFixedPagination();
     }
   }
@@ -213,7 +213,7 @@ export class AdvancedTableComponent implements OnChanges, OnInit, AfterViewInit,
    * @param isOpen 是否打开
    * @param column 当前列模型数据
    */
-  onRangePickerOpenChange(isOpen: boolean, column: AdvancedTableColumn): void {
+  onRangePickerOpenChange(isOpen: boolean, column: PTableColumn): void {
     if (isOpen === false) {
       const date = column.searchValue;
       if (date && Array.isArray(date) && date.length === 2) {
