@@ -59,8 +59,9 @@ install:
 
 # [[ "$TRAVIS_PULL_REQUEST" != "false" ]] 
 script:
-  - echo $TRAVIS_COMMIT_MESSAGE
-  - echo $TRAVIS_PULL_REQUEST
+  - echo "TRAVIS_COMMIT_MESSAGE=$TRAVIS_COMMIT_MESSAGE"
+  - echo "TRAVIS_PULL_REQUEST=$TRAVIS_PULL_REQUEST"
+  - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH"
   - npm run $TASK
   - |
     if [[ "$TASK" = "test" ]]  && [[ $TRAVIS_BRANCH = "master" ]]; then
@@ -69,7 +70,7 @@ script:
     if [[ "$TASK" = "site:build" ]]  && [[ $TRAVIS_BRANCH = "master" ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
       npm run deploy:site
     fi
-    if [[ "$TASK" = "build_artifacts" ]]  && [[ $TRAVIS_COMMIT_MESSAGE == *"release("* ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
+    if [[ "$TASK" = "build_artifacts" ]]  && [[ $TRAVIS_BRANCH = "master" ]] && [[ $TRAVIS_COMMIT_MESSAGE == *"release("* ]] && [[ "$TRAVIS_PULL_REQUEST" = "false" ]]; then
       npm install -g npm-cli-login
       echo 'npm run publish scripts exec'
       npm run publish

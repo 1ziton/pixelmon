@@ -27,7 +27,6 @@
     "invariant": "^2.2.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "uuid": "^3.3.2",
     "@pixelmon/util": "PEER-0.0.0-PLACEHOLDER"
   }
 }
