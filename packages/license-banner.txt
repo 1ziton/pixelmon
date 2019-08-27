@@ -1,5 +1,7 @@
 /**
- * @license ng-alain(cipchk@qq.com) v0.0.0-PLACEHOLDER
+ * @Based on delon(cipchk@qq.com) v0.0.0-PLACEHOLDER
  * (c) 2019 giscafer(giscafer@outlook.com)
- * License: MIT
+ * 
+ * Licensed under the MIT license:
+ * https://opensource.org/licenses/MIT
  */
