@@ -12,6 +12,8 @@ Pixelmon
 
 <div align="center">
 
+_基于 [delon](https://github.com/ng-alain/delon) ,搭建开发符合自身业务&技术栈的组件库_
+
 一个基于 Antd 中后台前端解决方案，提供更多通用性业务模块，让开发者更加专注于业务。
 
 [![Build Status](https://img.shields.io/travis/1ziton/pixelmon/master.svg?style=flat-square)](https://travis-ci.org/1ziton/pixelmon)
@@ -24,7 +26,7 @@ Pixelmon
 
 </div>
 
-_基于 [delon](https://github.com/ng-alain/delon) 修改维护为符合自身业务&技术栈情况的组件库_
+
 
 ## Links
 
