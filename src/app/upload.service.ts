@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BosConfig, UploadServiceToken } from './upload-interface';
+import { UploadServiceToken, BosConfig } from '@pixelmon/pikachu/upload/upload-interface';
 
 @Injectable({
   providedIn: 'root',

@@ -6,7 +6,7 @@ cols: 1
 module: SmartTextModule
 ---
 
-根据文本长度智能显示文本。
+根据文本长度智能显示文本，基于 [NzTooltip](https://ng.ant.design/components/tooltip/zh) 封装。
 
 ## API
 

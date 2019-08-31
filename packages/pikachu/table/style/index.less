@@ -1,4 +1,4 @@
-@import './variable.less';
+@p-table-prefix: ~'p-table';
 
 .@{p-table-prefix}-filter-panel {
   padding: 8px;
@@ -6,4 +6,16 @@
 
 .@{p-table-prefix}-filter-button {
   margin-top: 8px;
+}
+
+.@{p-table-prefix}-clear-icon {
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 12px;
+  vertical-align: top;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.45);
+  }
 }
