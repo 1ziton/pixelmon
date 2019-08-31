@@ -8,9 +8,8 @@ import { SVModule } from './view';
 import { QueryTabsModule } from './query-tabs';
 import { SmartTextModule } from './smart-text';
 import { TableModule } from './table';
-import { UploadService } from './upload/upload.service';
 import { UploadModule } from './upload';
-import { UploadServiceToken } from './upload/upload-interface';
+import { NzPaginationModule } from './pagination';
 
 const MODULES = [
   QueryTabsModule,
@@ -23,7 +22,8 @@ const MODULES = [
   PageHeaderModule,
   TableModule,
   UploadModule,
+  NzPaginationModule,
 ];
 
-@NgModule({ exports: MODULES, providers: [{ provide: UploadServiceToken, useExisting: UploadService }] })
+@NgModule({ exports: MODULES })
 export class PikachuModule {}

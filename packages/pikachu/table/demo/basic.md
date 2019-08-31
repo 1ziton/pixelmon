@@ -11,7 +11,7 @@ title:
 ```ts
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PTableColumn, PTableData, PTableRow } from '@pixelmon/pikachu/table';
+import { PTableColumn, PTableData, PTableRow, PTablePage } from '@pixelmon/pikachu/table';
 
 @Component({
   selector: 'app-demo',
@@ -25,7 +25,7 @@ import { PTableColumn, PTableData, PTableRow } from '@pixelmon/pikachu/table';
       [scroll]="{ y: '300px' }"
       [loading]="tableLoading"
       [titleTemplate]="titleTemplate"
-      [fixedPagination]="false"
+      [fixedPagination]="true"
       (load)="load($event)"
       (sort)="sort($event)"
     >
@@ -112,8 +112,6 @@ export class DemoComponent implements OnInit {
       title: '图片',
       field: 'pictures',
       type: 'thumbnail',
-      showSort: true,
-      customSort: true,
     },
   ];
 
@@ -140,9 +138,9 @@ export class DemoComponent implements OnInit {
 
   ngOnInit() {}
 
-  load(params) {
+  load(params: PTablePage) {
     console.log(params);
-    const url = `/users?total=100`;
+    const url = `/users?total=1000&size=${params.size}`;
     this.tableLoading = true;
     this.http.get(url).subscribe(users => {
       this.tableData = users as PTableData;

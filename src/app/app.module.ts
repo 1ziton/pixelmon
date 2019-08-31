@@ -24,10 +24,10 @@ import { RoutesModule } from './routes/routes.module';
 // import { ExampleModule, EXAMPLE_COMPONENTS } from './routes/gen/examples';
 import { IconComponent } from './shared/components/icon/icon.component';
 import { SharedModule } from './shared/shared.module';
-
+import { UploadServiceToken } from '@pixelmon/pikachu/upload/upload-interface';
+import { UploadService } from './upload.service';
 
 registerLocaleData(localeZh);
-
 
 export function StartupServiceFactory(startupService: StartupService) {
   return () => startupService.load();
@@ -62,6 +62,7 @@ export function StartupServiceFactory(startupService: StartupService) {
   ],
   providers: [
     { provide: PIXELMON_I18N_TOKEN, useClass: I18NService, multi: false },
+    { provide: UploadServiceToken, useExisting: UploadService },
     StartupService,
     {
       provide: APP_INITIALIZER,

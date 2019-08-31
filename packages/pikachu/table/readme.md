@@ -27,12 +27,12 @@ module: TableModule
 | `[pageSizeOptions]` | 页数选择器可选值                                 | `number[]`                                                          | `[10, 30, 50, 100]`          |
 | `[showSizeChanger]` | 是否可以改变 `nzPageSize`                        | `boolean`                                                           | `true`                       |
 | `[selections]`      | 当前选中数据,可双向绑定                          | `any[]`                                                             | `[]`                         |
-| `[columns]`         | 数据列的属性，建议双向绑定                       | `AdvancedTableColumn[]`                                             | `[]`                         |
+| `[columns]`         | 数据列的属性，建议双向绑定                       | `PTableColumn[]`                                                    | `[]`                         |
 | `(load)`            | 加载数据事件                                     | `EventEmitter<[PageParams, { [key: string]: any }?]>`               | -                            |
 | `(sort)`            | 排序事件                                         | `EventEmitter<{ key: string; value: 'descend' | 'ascend' | null }>` | -                            |
 | `(linkClick)`       | 链接点击事件                                     | `EventEmitter<{ field: string; rowData: any }>`                     | -                            |
 
-### AdvancedTableColumn
+### PTableColumn
 
 基本属性
 
@@ -77,9 +77,7 @@ module: TableModule
 
 ## 注意
 
-p-table 采用`OnPush`策略
-
-- 按照 [Angular 的设计](https://angular.io/guide/lifecycle-hooks#onchanges)，当需要对数据进行增删时需要使用以下操作，使用 `push` 或者 `splice` 不会生效
+- p-table 采用`OnPush`策略，按照 [Angular 的设计](https://angular.io/guide/lifecycle-hooks#onchanges)，当需要对数据进行增删时需要使用以下操作，使用 `push` 或者 `splice` 不会生效
 
 ```typescript
 // 增加数据
@@ -101,8 +99,25 @@ this.tableData = { ...this.tableData }; // 传入p-table
 
 - 图片预览依赖了 viewer.js，请自行安装依赖:[viewer.js](https://github.com/fengyuanchen/viewerjs)。
 
-```javascript
-  // index.html
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.min.js" type="text/javascript"></script>
+```html
+<!-- index.html -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.min.js" type="text/javascript"></script>
+```
+
+- 因为固定分页只会在初始化时动态计算，请保证初始化后页面高度不会抖动。
+
+```typescript
+// table.component.ts
+
+const windowHeight = document.documentElement.clientHeight;
+const tableBody = this._elementRef.nativeElement.querySelector('.ant-table-body');
+const pagination = this._elementRef.nativeElement.querySelector('.ant-pagination');
+const tableBodyTop = tableBody.getBoundingClientRect().top;
+const scrollHeight = windowHeight - tableBodyTop - pagination.clientHeight + 'px';
+// 设scroll 实际上是设了max-height
+this.scroll = { ...this.scroll, y: scrollHeight };
+// 设height
+this._renderer2.setStyle(tableBody, 'height', scrollHeight);
 ```

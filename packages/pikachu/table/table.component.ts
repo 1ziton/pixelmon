@@ -20,6 +20,7 @@ import {
   Output,
   Renderer2,
   TemplateRef,
+  ViewEncapsulation,
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -33,6 +34,7 @@ import { PTableColumn, PTableRow, PTablePage } from './table-interface';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterContentInit, OnDestroy {
   @Input() columns: PTableColumn[] = []; // 列数据
@@ -76,7 +78,7 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
     }
     if (changes.columns) {
       // 是下拉选择的自动添加词典
-      changes.columns.currentValue.forEach(column => {
+      this.columns.forEach(column => {
         if (column.showFilter && column.filterType === 'select' && Array.isArray(column.filterOptions)) {
           column.lexicon = column.lexicon ? [...column.lexicon, ...column.filterOptions] : column.filterOptions;
         }
@@ -242,10 +244,12 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
     setTimeout(() => {
       const windowHeight = document.documentElement.clientHeight;
       const tableBody = this._elementRef.nativeElement.querySelector('.ant-table-body');
-      const pagination = this._elementRef.nativeElement.querySelector('nz-pagination');
+      const pagination = this._elementRef.nativeElement.querySelector('.ant-pagination');
       const tableBodyTop = tableBody.getBoundingClientRect().top;
-      const scrollHeight = windowHeight - tableBodyTop - pagination.clientHeight - 8 + 'px';
+      const scrollHeight = windowHeight - tableBodyTop - pagination.clientHeight + 'px';
+      // 设scroll 实际上是设了max-height
       this.scroll = { ...this.scroll, y: scrollHeight };
+      // 设height
       this._renderer2.setStyle(tableBody, 'height', scrollHeight);
     });
   }

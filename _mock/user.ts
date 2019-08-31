@@ -14,9 +14,9 @@ export const USERS = {
       totalPage: totalSize / size,
     };
     const onlyList = req.queryString!.field === 'list';
-    let num = onlyList ? totalSize : +req.queryString.ps;
+    let num = onlyList ? size : +req.queryString.ps;
     if (isNaN(num) || num <= 0) {
-      num = totalSize;
+      num = size;
     }
     for (let i = 0; i < num; i++) {
       res.data.push({
