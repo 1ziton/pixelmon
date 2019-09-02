@@ -8,9 +8,6 @@ export * from '@pixelmon/pikachu/view';
 export * from '@pixelmon/pikachu/viewer';
 export * from '@pixelmon/pikachu/footer-toolbar';
 export * from '@pixelmon/pikachu/table';
-// 会报错，原因暂为找到 as already exported a member named 'ɵb'. Consider explicitly re-exporting to resolve the ambiguity.
 export * from '@pixelmon/pikachu/upload';
 
 export * from './pikachu.module';
-
-

@@ -15,7 +15,7 @@ import {
   ChangeDetectionStrategy,
   ViewEncapsulation,
 } from '@angular/core';
-import { QueryTab } from './query-tabs.module';
+import { QueryTab } from './query-tabs-interface';
 
 @Component({
   selector: 'p-queryTabs',
