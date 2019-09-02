@@ -58,7 +58,7 @@ import { PTableColumn, PTableData, PTableRow, PTablePage } from '@pixelmon/pikac
     </p-table>
   `,
 })
-export class ComponentsTableBasicComponent implements OnInit {
+export class BasicComponent implements OnInit {
   tableData: PTableData = {
     data: [],
     totalSize: 0,
