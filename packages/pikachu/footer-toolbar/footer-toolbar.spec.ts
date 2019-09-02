@@ -8,7 +8,7 @@ import { FooterToolbarModule } from './footer-toolbar.module';
 describe('abc: footer-toolbar', () => {
   let fixture: ComponentFixture<TestComponent>;
   let dl: DebugElement;
-  let context: TestComponent;
+  // let context: TestComponent;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -20,7 +20,7 @@ describe('abc: footer-toolbar', () => {
   function create() {
     fixture = TestBed.createComponent(TestComponent);
     dl = fixture.debugElement;
-    context = fixture.componentInstance;
+    // context = fixture.componentInstance;
     fixture.detectChanges();
   }
 
