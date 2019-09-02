@@ -14,11 +14,11 @@ import { NzI18nModule } from 'ng-zorro-antd/i18n';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 
-import { NzPaginationComponent } from './nz-pagination.component';
+import { PaginationComponent } from './nz-pagination.component';
 
 @NgModule({
-  declarations: [NzPaginationComponent],
-  exports: [NzPaginationComponent],
+  declarations: [PaginationComponent],
+  exports: [PaginationComponent],
   imports: [CommonModule, FormsModule, NzSelectModule, NzI18nModule, NzIconModule]
 })
-export class NzPaginationModule {}
+export class PaginationModule {}

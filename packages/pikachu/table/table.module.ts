@@ -1,21 +1,46 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { PaginationModule } from '@pixelmon/pikachu/pagination';
 import { SmartTextModule } from '@pixelmon/pikachu/smart-text';
-import { NzPaginationModule } from '@pixelmon/pikachu/pagination';
 import { ViewerDirectiveModule } from '@pixelmon/pikachu/viewer';
-import { TableComponent } from './table.component';
+import { NzBadgeModule } from 'ng-zorro-antd/badge';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzTableModule } from 'ng-zorro-antd/table';
 import { TableCellComponent } from './table-cell.component';
 import { TableFilterComponent } from './table-filter.component';
+import { TableComponent } from './table.component';
 
 const COMPONENT = [TableComponent, TableCellComponent, TableFilterComponent];
 
-const MODULE = [CommonModule, FormsModule, NgZorroAntdModule, SmartTextModule, ViewerDirectiveModule, NzPaginationModule];
+const MODULE = [
+  CommonModule,
+  FormsModule,
+  NzTableModule,
+  NzDropDownModule,
+  NzIconModule,
+  NzButtonModule,
+  NzInputModule,
+  NzGridModule,
+  NzBadgeModule,
+  NzSelectModule,
+  NzDatePickerModule,
+  NzSpinModule,
+  SmartTextModule,
+  ViewerDirectiveModule,
+  PaginationModule,
+];
 
 @NgModule({
   declarations: [...COMPONENT],
   imports: [...MODULE],
-  exports: [...MODULE, ...COMPONENT],
+  exports: [...COMPONENT],
 })
 export class TableModule {}

@@ -34,7 +34,7 @@ import { NzI18nService } from 'ng-zorro-antd/i18n';
   encapsulation: ViewEncapsulation.None,
   templateUrl: './nz-pagination.component.html',
 })
-export class NzPaginationComponent implements OnInit, OnDestroy, OnChanges {
+export class PaginationComponent implements OnInit, OnDestroy, OnChanges {
   // tslint:disable-next-line:no-any
   locale: any = {};
   firstIndex = 1;

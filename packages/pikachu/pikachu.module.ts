@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { LodopModule } from '@pixelmon/pikachu/lodop';
 import { NoticeIconModule } from './notice-icon';
 import { PageHeaderModule } from './page-header';
+import { PaginationModule } from './pagination';
+import { QueryTabsModule } from './query-tabs';
 import { ReuseTabModule } from './reuse-tab';
 import { SidebarNavModule } from './sidebar-nav';
-import { SVModule } from './view';
-import { QueryTabsModule } from './query-tabs';
 import { SmartTextModule } from './smart-text';
 import { TableModule } from './table';
 import { UploadModule } from './upload';
-import { NzPaginationModule } from './pagination';
+import { SVModule } from './view';
 
 const MODULES = [
   QueryTabsModule,
@@ -22,7 +22,7 @@ const MODULES = [
   PageHeaderModule,
   TableModule,
   UploadModule,
-  NzPaginationModule,
+  PaginationModule,
 ];
 
 @NgModule({ exports: MODULES })

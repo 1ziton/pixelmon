@@ -3,7 +3,7 @@ type: Business
 subtitle: 分页
 title: pagination
 cols: 1
-module: NzPaginationModule
+module: PaginationModule
 ---
 
 因为 [NzPagination](https://ng.ant.design/components/pagination/zh) 无数据时不显示分页，故拷贝了一份代码，复写成无数据时也显示分页。
