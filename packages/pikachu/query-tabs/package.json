@@ -1,7 +1,12 @@
 {
   "ngPackage": {
     "lib": {
-      "entryFile": "public_api.ts"
+      "flatModuleFile": "queryTabs",
+      "entryFile": "public_api.ts",
+      "umdModuleIds": {
+        "ng-zorro-antd/tooltip": "ng-zorro-antd/tooltip",
+        "@pixelmon/theme": "pixelmon.theme"
+      }
     }
   }
 }

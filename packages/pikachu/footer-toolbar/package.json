@@ -4,7 +4,6 @@
       "flatModuleFile": "footerToolbar",
       "entryFile": "public_api.ts",
       "umdModuleIds": {
-        "@pixelmon/abc/error-collect": "pixelmon.theme.errorCollect",
         "@pixelmon/theme": "pixelmon.theme",
         "@pixelmon/util": "pixelmon.util"
       }

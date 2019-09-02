@@ -1,8 +1,8 @@
-import { Component, DebugElement } from '@pixelmon/pikachu/footer-toolbar/node_modules/@angular/core';
-import { ComponentFixture, TestBed } from '@pixelmon/pikachu/footer-toolbar/node_modules/@angular/core/testing';
-import { By } from '@pixelmon/pikachu/footer-toolbar/node_modules/@angular/platform-browser';
+import { Component, DebugElement } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
-import { ErrorCollectModule } from '../error-collect/error-collect.module';
+// import { ErrorCollectModule } from '../error-collect/error-collect.module';
 import { FooterToolbarModule } from './footer-toolbar.module';
 
 describe('abc: footer-toolbar', () => {
@@ -12,7 +12,7 @@ describe('abc: footer-toolbar', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ErrorCollectModule, FooterToolbarModule],
+      imports: [FooterToolbarModule],
       declarations: [TestComponent],
     });
   });

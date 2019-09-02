@@ -29,6 +29,7 @@ import { NzI18nService } from 'ng-zorro-antd/i18n';
 
 @Component({
   selector: 'p-pagination',
+  exportAs: 'pPagination',
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,

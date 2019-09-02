@@ -1,7 +1,23 @@
 {
   "ngPackage": {
     "lib": {
-      "entryFile": "public_api.ts"
+      "flatModuleFile": "pTable",
+      "entryFile": "public_api.ts",
+      "umdModuleIds": {
+        "ng-zorro-antd/badge": "ng-zorro-antd/badge",
+        "ng-zorro-antd/button": "ng-zorro-antd/button",
+        "ng-zorro-antd/date-picker": "ng-zorro-antd/date-picker",
+        "ng-zorro-antd/dropdown": "ng-zorro-antd/dropdown",
+        "ng-zorro-antd/grid": "ng-zorro-antd/grid",
+        "ng-zorro-antd/icon": "ng-zorro-antd/icon",
+        "ng-zorro-antd/input": "ng-zorro-antd/input",
+        "ng-zorro-antd/select": "ng-zorro-antd/select",
+        "ng-zorro-antd/spin": "ng-zorro-antd/spin",
+        "ng-zorro-antd/table": "ng-zorro-antd/table",
+        "@pixelmon/pikachu/viewer": "pixelmon.pikachu.viewer",
+        "@pixelmon/pikachu/pagination": "pixelmon.pikachu.pagination",
+        "@pixelmon/pikachu/smart-text": "pixelmon.pikachu.smart-text"
+      }
     }
   }
 }

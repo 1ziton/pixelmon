@@ -1,7 +1,13 @@
 {
   "ngPackage": {
     "lib": {
-      "entryFile": "public-api.ts"
+      "flatModuleFile": "pPagination",
+      "entryFile": "public-api.ts",
+      "umdModuleIds": {
+        "ng-zorro-antd/i18n": "ng-zorro-antd/i18n",
+        "ng-zorro-antd/icon": "ng-zorro-antd/icon",
+        "ng-zorro-antd/select": "ng-zorro-antd/select"
+      }
     }
   }
 }

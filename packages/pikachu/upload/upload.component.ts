@@ -17,6 +17,7 @@ declare const baidubce: any;
 
 @Component({
   selector: 'p-upload',
+  exportAs: 'pUpload',
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.less'],
   providers: [
