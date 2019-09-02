@@ -1,1 +1,1 @@
-export * from './upload.module';
+export { UploadModule } from './upload.module';
