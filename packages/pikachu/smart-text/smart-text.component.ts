@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'smart-text',
+  exportAs: 'pSmartText',
   templateUrl: './smart-text.component.html',
 })
 export class SmartTextComponent {

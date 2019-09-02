@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Route } from '@angular/router';
+import { PreloadAllModules, RouterModule, Route, ExtraOptions } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { LayoutComponent } from '../layout/layout.component';
 import { SharedModule } from '../shared/shared.module';
@@ -39,11 +39,22 @@ const routes: Route[] = [
   { path: '**', redirectTo: '404' },
 ];
 
+// Using HTML anchor link #id in Angular, 不起作用这里
+const routerOptions: ExtraOptions = {
+  anchorScrolling: 'enabled',
+  // ...any other options you'd like to use
+};
+
 @NgModule({
   imports: [
     SharedModule,
-    RouterModule.forRoot(routes, environment.production ? { preloadingStrategy: PreloadAllModules, useHash: false } : { useHash: false }),
+    RouterModule.forRoot(
+      routes,
+      environment.production
+        ? { preloadingStrategy: PreloadAllModules, useHash: true, ...routerOptions }
+        : { useHash: true, ...routerOptions },
+    ),
   ],
   declarations: [...COMPONENTS],
 })
-export class RoutesModule { }
+export class RoutesModule {}

@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { LodopModule } from '@pixelmon/pikachu/lodop';
+import { FooterToolbarModule } from './footer-toolbar';
 import { NoticeIconModule } from './notice-icon';
 import { PageHeaderModule } from './page-header';
+import { PaginationModule } from './pagination';
+import { QueryTabsModule } from './query-tabs';
 import { ReuseTabModule } from './reuse-tab';
 import { SidebarNavModule } from './sidebar-nav';
-import { SVModule } from './view';
-import { QueryTabsModule } from './query-tabs';
-import { AdvancedTableModule } from './advanced-table';
 import { SmartTextModule } from './smart-text';
-import { AdvancedUploadModule } from './advanced-upload/advanced-upload.module';
-import { UploadServiceToken } from './advanced-upload/advanced-upload.component';
-import { UploadService } from './advanced-upload/upload.service';
+import { TableModule } from './table';
+import { UploadModule } from './upload';
+import { SVModule } from './view';
 
 const MODULES = [
-  AdvancedTableModule,
   QueryTabsModule,
   SmartTextModule,
   LodopModule,
@@ -22,8 +21,11 @@ const MODULES = [
   SidebarNavModule,
   SVModule,
   PageHeaderModule,
-  AdvancedUploadModule,
+  TableModule,
+  UploadModule,
+  PaginationModule,
+  FooterToolbarModule,
 ];
 
-@NgModule({ exports: MODULES, providers: [{ provide: UploadServiceToken, useExisting: UploadService }] })
+@NgModule({ exports: MODULES })
 export class PikachuModule {}

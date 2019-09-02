@@ -1,0 +1,15 @@
+{
+  "ngPackage": {
+    "lib": {
+      "flatModuleFile": "pUpload",
+      "entryFile": "public_api.ts",
+      "umdModuleIds": {
+        "ng-zorro-antd/upload": "ng-zorro-antd/upload",
+        "ng-zorro-antd/modal": "ng-zorro-antd/modal",
+        "ng-zorro-antd/button": "ng-zorro-antd/button",
+        "ng-zorro-antd/spin": "ng-zorro-antd/spin",
+        "@pixelmon/util": "pixelmon.util"
+      }
+    }
+  }
+}

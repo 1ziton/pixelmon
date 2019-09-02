@@ -22,7 +22,8 @@
     "paths": {
       "@pixelmon/*": ["./packages/*"],
       "@core/*": ["./src/app/core/*"]
-    }
+    },
+    "types": ["jasmine"]
   },
   "exclude": ["node_modules", "tmp"],
   "angularCompilerOptions": {

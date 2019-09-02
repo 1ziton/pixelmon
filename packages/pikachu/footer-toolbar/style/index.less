@@ -1,0 +1,21 @@
+@import '../../../theme/styles/default.less';
+@import './variable.less';
+
+@{footer-toolbar-prefix} {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: @footer-zindex;
+  display: flex;
+  width: 100%;
+  height: @footer-toolbar-height;
+  padding: @footer-toolbar-padding;
+  line-height: @footer-toolbar-height;
+  background: @footer-toolbar-bg;
+  border-top: @footer-toolbar-border-top;
+  box-shadow: @footer-toolbar-box-shadow;
+  transition: all 0.3s;
+  &__left {
+    flex: 1;
+  }
+}

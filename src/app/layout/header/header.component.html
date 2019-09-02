@@ -95,6 +95,28 @@
               </ul>
             </nz-dropdown-menu>
           </li>
+          <li nz-menu-item>
+            <div nz-dropdown nzPlacement="bottomRight" [nzDropdownMenu]="toolMenu">工具</div>
+            <nz-dropdown-menu #toolMenu="nzDropdownMenu">
+              <ul nz-menu>
+                <li style="margin-top: 5px;">
+                  <a nz-menu-item href="//form.giscafer.com" target="_blank">
+                    NgxFormBuilder - 表单页面生成器
+                  </a>
+                </li>
+                <li style="margin-top: 5px;">
+                  <a nz-menu-item href="//github.com/1ziton/socket-sdk" target="_blank">
+                    Socket-sdk - 单管道Socket
+                  </a>
+                </li>
+                <li style="margin-top: 15px;">
+                  <a nz-menu-item href="//form.giscafer.com" target="_blank" nzDisabled>
+                    更多工具推出……
+                  </a>
+                </li>
+              </ul>
+            </nz-dropdown-menu>
+          </li>
           <!-- <li nz-menu-item>
             <a href="https://e.1ziton.com/" target="_blank">
               {{ 'app.header.menu.themes' | translate }}
