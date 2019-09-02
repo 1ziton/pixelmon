@@ -29,12 +29,12 @@ describe('abc: footer-toolbar', () => {
     expect(dl.queryAll(By.css('.footer-toolbar')).length).toBe(1);
   });
 
-  it('should be load error-collect', () => {
-    create();
-    context.errorCollect = true;
-    fixture.detectChanges();
-    expect(dl.queryAll(By.css('error-collect')).length).toBe(1);
-  });
+  // it('should be load error-collect', () => {
+  //   create();
+  //   context.errorCollect = true;
+  //   fixture.detectChanges();
+  //   expect(dl.queryAll(By.css('error-collect')).length).toBe(1);
+  // });
 
   describe('#extra', () => {
     it('with string', () => {
