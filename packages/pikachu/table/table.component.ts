@@ -224,7 +224,7 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
    */
   toFixedPagination(): void {
     // 没有滚动条时和有滚动条时tableBody会不一样，故先给上滚动条
-    this.scroll = { y: '0px' };
+    this.scroll = { ...this.scroll, y: '0px' };
     // 等待滚动条更新
     setTimeout(() => {
       const windowHeight = document.documentElement.clientHeight;
