@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { LodopModule } from '@pixelmon/pikachu/lodop';
+import { FooterToolbarModule } from './footer-toolbar';
 import { NoticeIconModule } from './notice-icon';
 import { PageHeaderModule } from './page-header';
 import { PaginationModule } from './pagination';
@@ -23,6 +24,7 @@ const MODULES = [
   TableModule,
   UploadModule,
   PaginationModule,
+  FooterToolbarModule,
 ];
 
 @NgModule({ exports: MODULES })

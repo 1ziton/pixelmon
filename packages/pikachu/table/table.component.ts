@@ -5,32 +5,17 @@
  */
 
 import { formatDate } from '@angular/common';
-import {
-  AfterContentInit,
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ContentChildren,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  Output,
-  Renderer2,
-  TemplateRef,
-  ViewEncapsulation,
-} from '@angular/core';
+import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, Component, ContentChildren, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { NzDropDownComponent } from 'ng-zorro-antd';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { TableFilterComponent } from './table-filter.component';
 import { TableCellComponent } from './table-cell.component';
-import { NzDropDownComponent } from 'ng-zorro-antd';
-import { PTableColumn, PTableRow, PTablePage } from './table-interface';
+import { TableFilterComponent } from './table-filter.component';
+import { PTableColumn, PTablePage, PTableRow } from './table-interface';
 
 @Component({
   selector: 'p-table',
+  exportAs: 'pTable',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

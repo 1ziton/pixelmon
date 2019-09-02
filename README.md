@@ -12,7 +12,7 @@ Pixelmon
 
 <div align="center">
 
-_基于 [delon](https://github.com/ng-alain/delon) ,搭建开发符合自身业务&技术栈的组件库_
+_基于 [pixelmon](https://github.com/ng-alain/pixelmon) ,搭建开发符合自身业务&技术栈的组件库_
 
 一个基于 Antd 中后台前端解决方案，提供更多通用性业务模块，让开发者更加专注于业务。
 

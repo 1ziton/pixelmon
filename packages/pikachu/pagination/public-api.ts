@@ -6,5 +6,5 @@
  * found in the LICENSE file at https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/LICENSE
  */
 
-// export * from './nz-pagination.component';
-export * from './nz-pagination.module';
+export { PaginationModule } from './nz-pagination.module';
+export { PaginationComponent } from './nz-pagination.component';

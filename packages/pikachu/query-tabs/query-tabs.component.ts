@@ -19,6 +19,7 @@ import { QueryTab } from './query-tabs.module';
 
 @Component({
   selector: 'p-queryTabs',
+  exportAs: 'queryTabs',
   templateUrl: './query-tabs.component.html',
   styleUrls: ['./query-tabs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

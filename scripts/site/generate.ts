@@ -1,5 +1,6 @@
 import * as path from 'path';
 import * as fs from 'fs';
+import * as fse from 'fs-extra';
 import { parseMd } from './utils/parse-md';
 import { genUpperName, genUrl, generateDoc, genComponentName, genSelector, includeAttributes } from './utils/utils';
 import { groupFiles } from './utils/group-files';
@@ -200,6 +201,11 @@ function generateModule(config: ModuleConfig) {
   );
   // #endregion
 }
+
+const targetDir = path.join(rootDir, `./src/app/routes/gen/`);
+console.log('清空文件');
+fse.emptyDirSync(targetDir);
+console.log('文件清空完成!');
 
 for (const m of siteConfig.modules) {
   generateModule(m);
