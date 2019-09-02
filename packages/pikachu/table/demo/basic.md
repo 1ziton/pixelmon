@@ -14,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 import { PTableColumn, PTableData, PTableRow, PTablePage } from '@pixelmon/pikachu/table';
 
 @Component({
-  selector: 'app-demo',
+  selector: 'app-basic',
   template: `
     <p-table
       #table
@@ -44,32 +44,26 @@ import { PTableColumn, PTableData, PTableRow, PTablePage } from '@pixelmon/pikac
 
       <!-- 自定义title -->
       <ng-template #titleTemplate>
-        <div class="content-header" [hidden]="selections.length">
-          <div class="content-title">列表</div>
-          <div class="content-query">
-            <p-queryTabs [(tabs)]="columns" (queryChange)="onQueryChange($event)"></p-queryTabs>
-          </div>
+        <div [hidden]="selections.length">
+          <p-queryTabs [(tabs)]="columns" (queryChange)="onQueryChange($event)"></p-queryTabs>
         </div>
-        <div class="content-header" [hidden]="!selections.length">
-          <div class="selection-box">
-            已选 <span class="color-theme">{{ selections.length }}</span> 项
-            <a *ngIf="selections.length" class="margin-left-16" (click)="selections = []">取消</a>
-          </div>
-          <div class="operation-box">
-            <button nz-button nzType="primary">自定义操作1</button>
-            <button nz-button nzType="primary">自定义操作2</button>
-            <button nz-button nzType="primary">自定义操作3</button>
-          </div>
+        <div [hidden]="!selections.length">
+          已选 {{ selections.length }} 项
+          <a (click)="selections = []" style="margin-right:8px">取消</a>
+          <button nz-button nzType="primary">自定义操作1</button>
+          <button nz-button nzType="primary">自定义操作2</button>
+          <button nz-button nzType="primary">自定义操作3</button>
         </div>
       </ng-template>
     </p-table>
   `,
 })
-export class DemoComponent implements OnInit {
+export class ComponentsTableBasicComponent implements OnInit {
   tableData: PTableData = {
     data: [],
     totalSize: 0,
   };
+  queryParams = {};
 
   tableLoading = false;
   selections: PTableRow[] = [];
@@ -138,18 +132,22 @@ export class DemoComponent implements OnInit {
 
   ngOnInit() {}
 
-  load(params: PTablePage) {
-    console.log(params);
-    const url = `/users?total=1000&size=${params.size}`;
+  load(pageParams: PTablePage = { page: 1, size: 10 }) {
+    console.log(pageParams);
+    console.log(this.queryParams);
     this.tableLoading = true;
+
+    const url = `/users?total=1000&size=${pageParams.size}`;
     this.http.get(url).subscribe(users => {
       this.tableData = users as PTableData;
+      this.selections = [];
       this.tableLoading = false;
     });
   }
 
-  onQueryChange(params) {
-    console.log(params);
+  onQueryChange(queryParams) {
+    this.queryParams = queryParams;
+    window.setTimeout(() => this.load());
   }
 
   sort(sort: { field: string; sortValue: 'descend' | 'ascend' | null }) {
