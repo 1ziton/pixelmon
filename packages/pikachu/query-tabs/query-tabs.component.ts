@@ -4,8 +4,18 @@
  * @Date: 2019-05-15 14:42:17
  */
 
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
-import { QueryTab } from './query-tabs.module';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
+} from '@angular/core';
+import { QueryTab } from './query-tabs-interface';
 
 @Component({
   selector: 'p-queryTabs',
@@ -13,6 +23,7 @@ import { QueryTab } from './query-tabs.module';
   templateUrl: './query-tabs.component.html',
   styleUrls: ['./query-tabs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class QueryTabsComponent implements OnInit, OnChanges {
   @Input() tabs: QueryTab[] = [];
@@ -47,7 +58,7 @@ export class QueryTabsComponent implements OnInit, OnChanges {
   ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.columns) {
+    if (changes.tabs) {
       this.updateQuery();
     }
   }
