@@ -11,8 +11,8 @@
     width: 100%;
     margin: 20px auto 0;
     padding: 0 24px;
-    #logo{
-      padding-left: 0; 
+    #logo {
+      padding-left: 0;
     }
   }
 
@@ -216,6 +216,7 @@
         flex-direction: column;
         text-align: center;
         box-sizing: border-box;
+        width: 100%;
         .anticon {
           margin: 0 0 16px 0;
         }
@@ -403,4 +404,55 @@
   color: #fff;
   font-size: 24px;
   text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .bg-container {
+    height: 550px;
+    .info-container {
+      padding-top: 100px;
+      text-align: center;
+      .img-container {
+        display: none;
+      }
+      h1 {
+        font-size: 24px;
+        text-align: center;
+      }
+      .info-desc {
+        font-size: 16px;
+        text-align: center;
+      }
+      .btn-container {
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        .btn {
+          display: inline-block;
+          width: 120px;
+          height: 30px;
+          font-size: 14px;
+          line-height: 30px;
+        }
+      }
+    }
+    .bg-bottom-shadow,
+    .bg-bottom-border {
+      width: 340px;
+      height: 210px;
+    }
+  }
+  .index-page .feature-wrapper {
+    margin-top: -250px;
+    margin-bottom: 50px;
+    .main-title {
+      font-size: 20px;
+      margin-bottom: 20px;
+      // color: #333;
+    }
+  }
 }
