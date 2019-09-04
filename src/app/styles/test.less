@@ -1,0 +1,179 @@
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.bg-container {
+  position: relative;
+  width: 100%;
+  height: 1200px;
+  background-image: -webkit-linear-gradient(333deg, #6b46e3 0%, #5264ee 50%, #55a0eb 100%);
+  background-image: -moz-linear-gradient(333deg, #6b46e3 0%, #5264ee 50%, #55a0eb 100%);
+  background-image: -o-linear-gradient(333deg, #6b46e3 0%, #5264ee 50%, #55a0eb 100%);
+  background-image: linear-gradient(117deg, #6b46e3 0%, #5264ee 50%, #55a0eb 100%);
+}
+.bg-container::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 85%;
+  width: 100%;
+  height: 350px;
+  background: #f8faff;
+  -webkit-transform: skewY(-7deg);
+  -moz-transform: skewY(-7deg);
+  -ms-transform: skewY(-7deg);
+  transform: skewY(-7deg);
+}
+.bg-container .bg-top-border {
+  position: absolute;
+  width: 540px;
+  height: 150px;
+  top: -50px;
+  right: 50px;
+  -webkit-transform: skew(4deg, -4deg);
+  -moz-transform: skew(4deg, -4deg);
+  -ms-transform: skew(4deg, -4deg);
+  transform: skew(4deg, -4deg);
+  border: 1px solid #fff;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  opacity: 0.2;
+}
+.bg-container .bg-top-shadow {
+  position: absolute;
+  width: 540px;
+  height: 150px;
+  top: -70px;
+  right: 90px;
+  -webkit-transform: skew(4deg, -4deg);
+  -moz-transform: skew(4deg, -4deg);
+  -ms-transform: skew(4deg, -4deg);
+  transform: skew(4deg, -4deg);
+  background-color: #fff;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  opacity: 0.08;
+}
+.bg-container .bg-bottom-border {
+  position: absolute;
+  width: 540px;
+  height: 360px;
+  bottom: 30px;
+  left: -70px;
+  -webkit-transform: skew(7deg, -7deg);
+  -moz-transform: skew(7deg, -7deg);
+  -ms-transform: skew(7deg, -7deg);
+  transform: skew(7deg, -7deg);
+  border: 1px solid #fff;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  opacity: 0.2;
+}
+.bg-container .bg-bottom-shadow {
+  position: absolute;
+  width: 540px;
+  height: 360px;
+  bottom: 0;
+  left: -20px;
+  -webkit-transform: skew(7deg, -7deg);
+  -moz-transform: skew(7deg, -7deg);
+  -ms-transform: skew(7deg, -7deg);
+  transform: skew(7deg, -7deg);
+  background-color: #fff;
+  -moz-border-radius: 40px;
+  border-radius: 40px;
+  opacity: 0.08;
+}
+.bg-container .info-container {
+  position: relative;
+  margin: 0 auto;
+  padding-top: 260px;
+  width: 90%;
+  max-width: 1200px;
+  color: #fff;
+  text-align: left;
+  vertical-align: top;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.bg-container .info-container h1 {
+  text-align: left;
+  color: #fff;
+  font-weight: 300;
+  font-size: 40px;
+  letter-spacing: 0;
+}
+.bg-container .info-container .info-desc {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 24px;
+  color: #fff;
+  letter-spacing: 0;
+}
+.bg-container .img-container {
+  position: absolute;
+  top: 240px;
+  right: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 686px;
+  height: 546px;
+  background: no-repeat 100% url(./img/header-bg.png);
+}
+.bg-container .btn-container {
+  margin-top: 30px;
+  text-align: left;
+}
+.bg-container .btn-container .btn {
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  width: 140px;
+  height: 40px;
+  font-size: 16px;
+  line-height: 40px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.bg-container .btn-container .btn-start {
+  background: #00daa8;
+}
+.bg-container .btn-container .btn-start--h5 {
+  display: none;
+}
+.bg-container .btn-container .btn-start--pc {
+  display: inline-block;
+}
+.bg-container .btn-container .btn-start:hover {
+  background: #20e4b7;
+}
+.bg-container .btn-container .btn-github {
+  color: #fff;
+  margin-left: 30px;
+  border: 1px solid #fff;
+}
+.bg-container .btn-container .btn-github:hover {
+  opacity: 0.8;
+}
+
+.feature-wrapper {
+  position: relative;
+  margin-top: -400px;
+  margin-bottom: 220px;
+}
+.feature-wrapper .main-title {
+  margin-bottom: 80px;
+  width: 100%;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+}
