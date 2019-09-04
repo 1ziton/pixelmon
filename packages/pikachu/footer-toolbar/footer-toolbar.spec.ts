@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 // import { ErrorCollectModule } from '../error-collect/error-collect.module';
 import { FooterToolbarModule } from './footer-toolbar.module';
 
-describe('abc: footer-toolbar', () => {
+describe('pikachu: footer-toolbar', () => {
   let fixture: ComponentFixture<TestComponent>;
   let dl: DebugElement;
   // let context: TestComponent;

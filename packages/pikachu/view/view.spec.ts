@@ -11,7 +11,7 @@ import { SVModule } from './view.module';
 
 const prefixCls = `.sv__`;
 
-describe('abc: view', () => {
+describe('pikachu: view', () => {
   let fixture: ComponentFixture<TestComponent>;
   let dl: DebugElement;
   let context: TestComponent;
