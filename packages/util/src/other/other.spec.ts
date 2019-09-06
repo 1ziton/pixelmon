@@ -1,4 +1,4 @@
-import { copy, deepCopy, deepGet, deepMerge, deepMergeKey } from './other';
+import { copy, deepCopy, deepGet, deepMerge, deepMergeKey, isEmptyVal, isValidVal } from './other';
 
 describe('pikachu: utils', () => {
   describe('#deepGet', () => {
@@ -147,6 +147,45 @@ describe('pikachu: utils', () => {
       deepMergeKey(original, true, { arr: [3] });
       expect(original.arr.length).toBe(1);
       expect(original.arr[0]).toBe(3);
+    });
+  });
+  describe('#isEmptyVal', () => {
+    it('null should be empty value', () => {
+      expect(isEmptyVal(null)).toBe(true);
+    });
+
+    it('undefined should be override array ', () => {
+      expect(isEmptyVal(undefined)).toBe(true);
+    });
+    it('"" should be override array ', () => {
+      expect(isEmptyVal('')).toBe(true);
+    });
+    it('" " should not be override array ', () => {
+      expect(isEmptyVal(' ')).toBe(false);
+    });
+  });
+  describe('#isValidVal', () => {
+    it('null should not be valid value', () => {
+      expect(isValidVal(null)).toBe(false);
+    });
+
+    it('undefined should be override array ', () => {
+      expect(isValidVal(undefined)).toBe(false);
+    });
+    it('"" should be override array ', () => {
+      expect(isValidVal('')).toBe(false);
+    });
+    it('"undefined" should be override array ', () => {
+      expect(isValidVal('undefined')).toBe(false);
+    });
+    it('"null" should be override array ', () => {
+      expect(isValidVal('null')).toBe(false);
+    });
+    it('"pixelmon" should be override array ', () => {
+      expect(isValidVal('pixelmon')).toBe(true);
+    });
+    it('0 should be override array ', () => {
+      expect(isValidVal(0)).toBe(true);
     });
   });
 });

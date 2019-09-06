@@ -78,3 +78,18 @@ export function deepMergeKey(original: any, ingoreArray: boolean, ...objects: an
 export function deepMerge(original: any, ...objects: any[]): any {
   return deepMergeKey(original, false, ...objects);
 }
+
+/**
+ * val值为空字符，null，undefined
+ */
+export const isEmptyVal = val => {
+  const arr = [undefined, null, ''];
+  return arr.includes(val);
+};
+
+/**
+ * 有效的值
+ */
+export const isValidVal = val => {
+  return !isEmptyVal(val) && !['null', 'undefined'].includes(val);
+};
