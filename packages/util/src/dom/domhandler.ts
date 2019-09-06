@@ -247,7 +247,7 @@ export class DomHandler {
   }
 
   public static matches(element, selector: string): boolean {
-    const p = Element.prototype;
+    const p: any = Element.prototype;
     const f =
       p.matches ||
       p.webkitMatchesSelector ||
@@ -399,7 +399,7 @@ export class DomHandler {
   }
 
   public static isIOS(): boolean {
-    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
   }
 
   public static isAndroid(): boolean {
@@ -468,6 +468,7 @@ export class DomHandler {
   }
 
   public static clearSelection(): void {
+    const selection1 = (document as any).selection;
     if (window.getSelection) {
       const selection: any = window.getSelection() || {};
       if (selection.empty) {
@@ -475,9 +476,9 @@ export class DomHandler {
       } else if (selection.removeAllRanges && selection.rangeCount > 0 && selection.getRangeAt(0).getClientRects().length > 0) {
         selection().removeAllRanges();
       }
-    } else if (document.selection && document.selection.empty) {
+    } else if (selection1.selection && selection1.empty) {
       try {
-        document.selection.empty();
+        selection1.empty();
       } catch (error) {
         // ignore IE bug
       }
