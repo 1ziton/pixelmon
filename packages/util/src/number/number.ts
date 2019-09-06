@@ -1,7 +1,7 @@
 /**
  * toFixed 解决js精度问题，使用方式：toFixed(value)
- * @param {Number | String} value
- * @param {Number} precision 精度，默认2位小数，需要取整则传0
+ * @param <Number | String> value
+ * @param <Number> precision 精度，默认2位小数，需要取整则传0
  * 该方法会处理好以下这些问题：
  * 1.12*100=112.00000000000001
  * 1.13*100=112.9999999999999
@@ -27,7 +27,7 @@ export const toFixed = (value, precision = 2) => {
 
 /**
  * 单位为元数值转为分
- * @param {Number} value
+ * @param <Number> value
  */
 export const toCentNumber = value => {
   const num = Number(value);
@@ -39,8 +39,8 @@ export const toCentNumber = value => {
 
 /**
  * 分数值数值转为元
- * @param {Number} centval 分为单位
- * @param {Number} precision 精度，默认2位小数
+ * @param <Number> centval 分为单位
+ * @param <Number> precision 精度，默认2位小数
  */
 export const toYuanNumber = (centval, precision = 2) => {
   const num = Number(centval);
