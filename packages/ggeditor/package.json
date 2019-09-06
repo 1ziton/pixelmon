@@ -24,7 +24,6 @@
   "sideEffects": false,
   "dependencies": {
     "gg-editor": "^2.0.4",
-    "invariant": "^2.2.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "@pixelmon/util": "PEER-0.0.0-PLACEHOLDER"

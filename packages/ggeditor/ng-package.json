@@ -6,12 +6,11 @@
     "flatModuleFile": "ggeditor",
     "entryFile": "public_api.ts",
     "umdModuleIds": {
-      "invariant": "invariant",
       "react": "React",
       "react-dom": "ReactDOM",
       "@pixelmon/util": "pixelmon.util"
     },
     "jsx": "react"
   },
-  "whitelistedNonPeerDependencies": ["tslib", "angular", "gg-editor", "invariant", "react", "react-dom", "@pixelmon/util"]
+  "whitelistedNonPeerDependencies": ["tslib", "angular", "gg-editor", "react", "react-dom", "@pixelmon/util"]
 }

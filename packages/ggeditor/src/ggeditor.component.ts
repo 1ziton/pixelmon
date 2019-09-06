@@ -7,13 +7,10 @@
 import { AfterViewInit, Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { InputBoolean, uuidv1 } from '@pixelmon/util';
 import GGEditor, { Flow, Mind, MindProps } from 'gg-editor';
-import * as invariant_ from 'invariant';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import FlowPage from './editor/flow/FlowPage';
 import { FlowProps, FlowStyle, GraphType } from './interface';
-
-const invariant = invariant_;
 
 @Component({
   selector: 'p-ggeditor',
@@ -37,7 +34,9 @@ export class GGEditorComponent implements OnInit, OnDestroy, OnChanges, AfterVie
 
   protected getRootDomNode() {
     const node = document.getElementById(this.rootDomID);
-    invariant(node, `Node '${this.rootDomID} not found!`);
+    if (!node) {
+      throw new Error(`Node '${this.rootDomID} not found!`);
+    }
     return node;
   }
 

@@ -4,9 +4,17 @@ subtitle: 其他
 type: Type
 ---
 
+## isEmptyVal
+
+值为 `null` 、`undefined` 或 `空字符串` 三者之一
+
+## isValidVal
+
+有效值，值不为 `null` 、`undefined` 、 `空字符串` 、`null 和 undefined 字符串`
+
 ## isEmpty
 
-用于校验 `<ng-content></ng-content>` 是否为空，自定义组件时蛮有用。
+节点不为空，用于校验 `<ng-content></ng-content>` 是否为空，自定义组件时蛮有用。
 
 ## toBoolean
 

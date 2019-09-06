@@ -60,7 +60,6 @@
     "extend": "^3.0.2",
     "file-saver": "^2.0.2",
     "gg-editor": "^2.0.4",
-    "invariant": "^2.2.4",
     "marked": "^0.7.0",
     "ng-github-button": "^2.1.4",
     "ng-zorro-antd": "^8.2.1",

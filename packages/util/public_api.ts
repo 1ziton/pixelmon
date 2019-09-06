@@ -1,6 +1,8 @@
 export * from './src/addon/string_template_outlet';
 export * from './src/string/string';
+export * from './src/number/number';
 export * from './src/uuid';
+export * from './src/dom/domhandler';
 
 export * from './src/time/time';
 
