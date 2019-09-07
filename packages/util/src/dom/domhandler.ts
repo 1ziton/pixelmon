@@ -22,13 +22,13 @@ export class DomHandler {
   public static addMultipleClasses(element: any, className: string): void {
     if (element.classList) {
       const styles: string[] = className.split(' ');
-      for (let i = 0; i < styles.length; i++) {
-        element.classList.add(styles[i]);
+      for (const style of styles) {
+        element.classList.add(style);
       }
     } else {
       const styles: string[] = className.split(' ');
-      for (let i = 0; i < styles.length; i++) {
-        element.className += ' ' + styles[i];
+      for (const style of styles) {
+        element.className += ' ' + style;
       }
     }
   }
@@ -63,6 +63,7 @@ export class DomHandler {
   public static index(element: any): number {
     const children = element.parentNode.childNodes;
     let num = 0;
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < children.length; i++) {
       if (children[i] === element) return num;
       if (children[i].nodeType === 1) num++;
@@ -73,6 +74,7 @@ export class DomHandler {
   public static indexWithinGroup(element: any, attributeName: string): number {
     const children = element.parentNode.childNodes;
     let num = 0;
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < children.length; i++) {
       if (children[i] === element) return num;
       if (children[i].attributes && children[i].attributes[attributeName] && children[i].nodeType === 1) num++;
@@ -126,6 +128,7 @@ export class DomHandler {
     const windowScrollTop = this.getWindowScrollTop();
     const windowScrollLeft = this.getWindowScrollLeft();
     const viewport = this.getViewport();
+    // tslint:disable-next-line: one-variable-per-declaration
     let top, left;
 
     if (targetOffset.top + targetOuterHeight + elementOuterHeight > viewport.height) {
@@ -207,6 +210,7 @@ export class DomHandler {
       last = +new Date();
 
       if (+opacity < 1) {
+        // tslint:disable-next-line: no-unused-expression
         (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
       }
     };
@@ -215,10 +219,10 @@ export class DomHandler {
   }
 
   public static fadeOut(element, ms) {
-    let opacity = 1,
-      interval = 50,
-      duration = ms,
-      gap = interval / duration;
+    let opacity = 1;
+    const interval = 50;
+    const duration = ms;
+    const gap = interval / duration;
 
     const fading = setInterval(() => {
       opacity = opacity - gap;
@@ -243,12 +247,12 @@ export class DomHandler {
   }
 
   public static matches(element, selector: string): boolean {
-    const p = Element.prototype;
+    const p: any = Element.prototype;
     const f =
-      p['matches'] ||
+      p.matches ||
       p.webkitMatchesSelector ||
-      p['mozMatchesSelector'] ||
-      p['msMatchesSelector'] ||
+      p.mozMatchesSelector ||
+      p.msMatchesSelector ||
       function(s) {
         return [].indexOf.call(document.querySelectorAll(s), this) !== -1;
       };
@@ -338,6 +342,7 @@ export class DomHandler {
   }
 
   public static getViewport(): any {
+    // tslint:disable-next-line: one-variable-per-declaration
     const win = window,
       d = document,
       e = d.documentElement,
@@ -394,7 +399,7 @@ export class DomHandler {
   }
 
   public static isIOS(): boolean {
-    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window['MSStream'];
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
   }
 
   public static isAndroid(): boolean {
@@ -463,6 +468,7 @@ export class DomHandler {
   }
 
   public static clearSelection(): void {
+    const selection1 = (document as any).selection;
     if (window.getSelection) {
       const selection: any = window.getSelection() || {};
       if (selection.empty) {
@@ -470,11 +476,11 @@ export class DomHandler {
       } else if (selection.removeAllRanges && selection.rangeCount > 0 && selection.getRangeAt(0).getClientRects().length > 0) {
         selection().removeAllRanges();
       }
-    } else if (document['selection'] && document['selection'].empty) {
+    } else if (selection1.selection && selection1.empty) {
       try {
-        document['selection'].empty();
+        selection1.empty();
       } catch (error) {
-        //ignore IE bug
+        // ignore IE bug
       }
     }
   }
@@ -486,13 +492,13 @@ export class DomHandler {
 
       if (matched.browser) {
         this.browser[matched.browser] = true;
-        this.browser['version'] = matched.version;
+        this.browser.version = matched.version;
       }
 
-      if (this.browser['chrome']) {
-        this.browser['webkit'] = true;
-      } else if (this.browser['webkit']) {
-        this.browser['safari'] = true;
+      if (this.browser.chrome) {
+        this.browser.webkit = true;
+      } else if (this.browser.webkit) {
+        this.browser.safari = true;
       }
     }
 

@@ -4,7 +4,14 @@ subtitle: DOM 工具类
 type: Type
 ---
 
-提供一些DOM操作的方法集合，方便在ts操作DOM，工具化统一管理方法，常见的操作封装也提搞代码复用和使用效率。
+封装常用的DOM操作函数，统一管理、提高代码复用和使用效率。
+
+## 使用方式
+
+```ts
+import { DomHandler } from '@pixelmon/dom';
+DomHandler.addClass(this.el.nativeElement, 'ui-button-text-only');
+```
 
 ## 方法列表
 
@@ -48,7 +55,7 @@ type: Type
 | `isIOS`                       | 判断是否为 IOS 浏览器                                                                           | -                                       | `boolean`                                                          |
 | `isAndroid`                   | 判断是否为 Android 浏览器                                                                       | -                                       | `boolean`                                                          |
 | `appendChild`                 | element 添加到 target 下                                                                        | `element: any, target: any`             | `void`                                                             |
-| `removeChild`                 | 将 target 下移除 element 元素                                                                   | `element: any, target: any`             | `void`                                                             |
+| `removeChild`                 | 移除 target 下的 element 元素                                                                   | `element: any, target: any`             | `void`                                                             |
 | `isElement`                   | 判断是否 Element                                                                                | `obj:any`                               | `boolean`                                                          |
 | `calculateScrollbarWidth`     | 计算 scrollbarWidth 的宽度                                                                      | `el?: HTMLElement`                      | `number`                                                           |
 | `calculateScrollbarHeight`    | 计算 scrollbarHeight 的高度                                                                     | -                                       | `number`                                                           |

@@ -63,17 +63,6 @@ describe('DomHandler', () => {
         expect(DomHandler.isInteger("5")).toBeFalsy();
     });
 
-    it('should get focusable elements', () => {
-        const element = document.createElement("div");
-        const childEl = document.createElement("p");
-        const childEl2 = document.createElement("a");
-        const childEl3 = document.createElement("button");
-        element.appendChild(childEl);
-        element.appendChild(childEl2);
-        element.appendChild(childEl3);
-        expect(DomHandler.getFocusableElements(element).length).toEqual(1);
-    });
-
     it('should find element', () => {
         const element = document.createElement("div");
         const childEl = document.createElement("p");
