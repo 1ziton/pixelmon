@@ -9,5 +9,6 @@ export * from '@pixelmon/pikachu/viewer';
 export * from '@pixelmon/pikachu/footer-toolbar';
 export * from '@pixelmon/pikachu/table';
 export * from '@pixelmon/pikachu/upload';
+export * from '@pixelmon/pikachu/steps';
 
 export * from './pikachu.module';

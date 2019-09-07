@@ -1,0 +1,158 @@
+<div class="p-steps-bars-wrap">
+  <!-- background -->
+  <div class="p-steps-background" [style.backgroundImage]="backgroundImage"></div>
+  <!-- reach-bar -->
+  <div class="p-steps-active-bar" [ngStyle]="{ background: activeBackground, width: activeWidth }"></div>
+  <!-- unreach-bar -->
+  <div class="p-steps-inactive-bar" [ngStyle]="{ background: inactiveBackground }"></div>
+  <!-- active-point -->
+  <ng-container *ngIf="activeStep">
+    <div
+      class="p-steps-active-step-point"
+      [ngStyle]="{
+        left: activeStep.index,
+        color: activeStep.pointColor || activePointColor
+      }"
+      (click)="activeStep.hiddenContent = !activeStep.hiddenContent"
+    >
+      <!-- icon -->
+      <svg t="1567664921902" class="p-steps-icon" viewBox="0 0 1471 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1120">
+        <path
+          d="M259.519189 848.06455c25.023922 0 46.079856 8.639973 63.231802 25.727919 17.087947 17.151946 25.59992 37.887882 25.59992 62.207806 0 23.487927-8.511973 43.775863-25.59992 60.92781-17.151946 17.087947-38.207881 25.59992-63.231802 25.663919-24.959922 0-46.015856-8.511973-63.167803-25.663919a83.583739 83.583739 0 0 1-25.59992-60.92781c0-24.319924 8.575973-45.055859 25.59992-62.207806 17.151946-17.087947 38.207881-25.72792 63.167803-25.727919z m954.941016 1.407995c24.127925 0 44.92786 8.575973 62.463805 25.72792 17.535945 17.087947 26.367918 37.439883 26.367917 60.79981 0 24.383924-8.831972 45.119859-26.367917 62.271805-17.599945 17.151946-38.39988 25.72792-62.463805 25.72792-24.959922 0-46.079856-8.575973-63.167803-25.72792a84.863735 84.863735 0 0 1-25.59992-62.271805 83.19974 83.19974 0 0 1 25.59992-60.79981c17.151946-17.087947 38.207881-25.72792 63.167803-25.72792zM863.357302 0.0032l2.879991 880.509248a49.279846 49.279846 0 0 1-15.99995 37.887882 53.759832 53.759832 0 0 1-38.143881 14.847954h-378.878816c0-53.119834-13.951956-95.103703-41.66387-125.759607-27.775913-30.591904-71.295777-45.951856-130.559592-46.015857-56.383824 0-99.647689 14.207956-129.727594 42.623867-30.079906 28.415911-45.119859 71.487777-45.119859 129.151597H54.143831a56.447824 56.447824 0 0 1-38.847879-13.567958C5.055984 910.720354 0 897.664395 0 880.512448V177.154646c0-21.631932 4.159987-42.815866 12.479961-63.551801 8.319974-20.735935 20.159937-39.679876 35.391889-56.831822 15.359952-17.151946 33.087897-30.911903 53.439833-41.215872A144.319549 144.319549 0 0 1 167.935475 0.0032H863.357302z m460.79856 597.758132c11.135965 0 20.863935-0.191999 29.183909-0.639998 8.319974-0.511998 12.479961-6.143981 12.479961-16.959947a9.279971 9.279971 0 0 0-0.703998-4.031987 8.959972 8.959972 0 0 1-0.767998-4.095988c-10.175968-44.159862-21.247934-86.783729-33.279896-127.8076a243.19924 243.19924 0 0 0-61.055809-104.831673c-18.559942-17.151946-38.39988-29.503908-59.711813-37.183883a276.415136 276.415136 0 0 0-108.223662-16.959947 604.286112 604.286112 0 0 1-20.799935 1.407995 40.959872 40.959872 0 0 0-30.591904 12.79996 39.039878 39.039878 0 0 0-12.479961 27.775913v123.071616c0 36.095887 0.447999 76.223762 1.407995 120.383624v1.343995c0 4.479986 3.19999 9.919969 9.66397 16.25595 6.52798 6.27198 12.991959 9.47197 19.455939 9.47197h255.487202z m22.27193-290.751091c35.13589 46.847854 61.503808 96.895697 79.039753 150.14353 17.599945 53.119834 29.887907 105.279671 36.863885 156.159512 6.911978 50.943841 10.111968 98.559692 9.66397 142.719554-0.447999 44.159862-0.703998 80.255749-0.703998 108.223662 0 5.375983-0.447999 11.967963-1.343996 19.583939a140.159562 140.159562 0 0 1-4.863984 23.039928c-2.367993 7.679976-5.119984 14.207956-8.319974 19.583939-3.26399 5.375983-7.679976 8.063975-13.247959 8.127974h-56.895822c0-30.655904-4.863985-56.831822-14.527955-78.463754a144.447549 144.447549 0 0 0-38.911878-52.799835 155.071515 155.071515 0 0 0-56.895822-29.759907 244.543236 244.543236 0 0 0-68.671786-9.471971c-24.063925 0-46.271855 4.479986-66.623792 13.567958a171.839463 171.839463 0 0 0-89.53572 89.919719 159.807501 159.807501 0 0 0-13.247958 64.255799h-24.959922a59.711813 59.711813 0 0 1-43.071866-17.599945 56.831822 56.831822 0 0 1-18.047943-41.919869V220.418511c0-9.919969 3.519989-21.439933 10.431967-34.559892 6.975978-13.055959 15.487952-20.031937 25.66392-20.927934a402.558742 402.558742 0 0 1 95.743701 3.391989 507.134415 507.134415 0 0 1 98.559692 25.023922c32.383899 11.711963 62.975803 27.071915 91.647713 46.015856 28.67191 18.943941 52.735835 41.53587 72.127775 67.647789h0.127999z"
+          p-id="1121"
+        ></path>
+      </svg>
+      <!-- content -->
+      <div
+        class="p-steps-active-step-content"
+        [hidden]="activeStep.hiddenContent"
+        [ngStyle]="{
+          background: activeStep.contentBackground || activeContentBackground,
+          color: activeStep.contentBackground || activeContentBackground
+        }"
+      >
+        <div
+          class="p-steps-active-step-title"
+          [ngStyle]="{
+            color: activeStep.contentColor || activeContentColor
+          }"
+        >
+          {{ activeStep.title }}
+        </div>
+        <div
+          class="p-steps-active-step-description"
+          [ngStyle]="{
+            color: activeStep.contentColor || activeContentColor
+          }"
+        >
+          {{ activeStep.description }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <!-- key-points -->
+  <ng-container *ngFor="let keyStep of keySteps || []">
+    <div
+      class="p-steps-key-step-point"
+      [ngStyle]="{
+        left: keyStep.index,
+        color: keyStep.pointColor || keyPointColor
+      }"
+    >
+      <!-- icon -->
+      <svg t="1567665154681" class="p-steps-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1973">
+        <path
+          d="M512 47.886637C255.677147 47.886637 47.886637 255.677147 47.886637 512S255.677147 976.113363 512 976.113363s464.113363-207.79051 464.113363-464.113363S768.322853 47.886637 512 47.886637zM512 746.102782c-128.160915 0-232.057193-103.895255-232.057193-232.057193s103.895255-232.057193 232.057193-232.057193 232.057193 103.895255 232.057193 232.057193S640.161938 746.102782 512 746.102782z"
+          p-id="1974"
+        ></path>
+        <path
+          d="M512 512m-262.74751872 0a262.74751872 262.74751872 0 1 0 525.49503744 0 262.74751872 262.74751872 0 1 0-525.49503744 0Z"
+          fill="#ffffff"
+          p-id="2875"
+        ></path>
+      </svg>
+      <!-- content -->
+      <div
+        class="p-steps-key-step-content"
+        [ngStyle]="{
+          background: keyStep.contentBackground || keyContentBackground,
+          color: keyStep.contentColor || keyContentBackground
+        }"
+      >
+        <div
+          class="p-steps-key-step-title"
+          [ngStyle]="{
+            color: keyStep.contentColor || keyContentColor
+          }"
+        >
+          <span *ngIf="keyStep.title">
+            {{ keyStep.title }}
+          </span>
+          <span *ngIf="keyStep.subTitle" class="subtitle">
+            {{ keyStep.subTitle }}
+          </span>
+        </div>
+        <div
+          *ngIf="keyStep.description"
+          class="p-steps-key-step-description"
+          [ngStyle]="{
+            color: keyStep.contentColor || keyContentColor
+          }"
+        >
+          {{ keyStep.description }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <!-- extra-points -->
+  <ng-container *ngFor="let extraStep of extraSteps || []">
+    <div
+      class="p-steps-extra-step-point"
+      [ngStyle]="{
+        left: extraStep.index,
+        color: extraStep.pointColor || extraPointColor
+      }"
+      (click)="extraStep.hiddenContent = !extraStep.hiddenContent"
+    >
+      <!-- icon -->
+      <svg t="1567664856961" class="p-steps-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="716">
+        <path
+          d="M1002.552889 62.293333a41.699556 41.699556 0 0 0-41.984 0.568889l-1.763556 1.137778c-64.056889 42.894222-136.874667 73.386667-379.448889 9.671111-83.342222-21.845333-176.810667-21.560889-278.186666 1.024a833.820444 833.820444 0 0 0-157.809778 52.337778 49.493333 49.493333 0 0 0-28.558222 37.148444 40.96 40.96 0 0 0 2.503111 25.827556l335.075555 752.64a41.358222 41.358222 0 0 0 54.385778 20.935111 41.301333 41.301333 0 0 0 20.878222-54.385778L421.717333 671.288889c29.752889-35.953778 126.919111-127.658667 313.230223-75.320889 65.592889 18.432 120.888889 28.103111 164.352 28.728889 36.408889 0.568889 65.706667-5.347556 87.04-17.408 24.974222-14.222222 32.312889-32.938667 34.247111-40.220445l1.365333-5.176888L1024 99.384889v-0.227556a42.097778 42.097778 0 0 0-21.447111-36.864"
+          p-id="717"
+        ></path>
+      </svg>
+      <!-- content -->
+      <div
+        class="p-steps-extra-step-content"
+        [hidden]="extraStep.hiddenContent"
+        [ngStyle]="{
+          background: extraStep.contentBackground || extraContentBackground,
+          color: extraStep.contentBackground || extraContentBackground
+        }"
+      >
+        <div
+          class="p-steps-extra-step-title"
+          [ngStyle]="{
+            color: extraStep.contentColor || extraContentColor
+          }"
+        >
+          <span *ngIf="extraStep.title">
+            {{ extraStep.title }}
+          </span>
+          <span *ngIf="extraStep.title" class="subtitle">
+            {{ extraStep.subTitle }}
+          </span>
+        </div>
+        <div
+          *ngIf="extraStep.description"
+          class="p-steps-extra-step-description"
+          [ngStyle]="{
+            color: extraStep.contentColor || extraContentColor
+          }"
+        >
+          {{ extraStep.description }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
