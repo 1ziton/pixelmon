@@ -1,6 +1,6 @@
 <div class="p-steps-bars-wrap">
   <!-- background -->
-  <div class="p-steps-background" [style.backgroundImage]="backgroundImage"></div>
+  <div class="p-steps-background" *ngIf="backgroundImage" [style.backgroundImage]="backgroundImage"></div>
   <!-- reach-bar -->
   <div class="p-steps-active-bar" [ngStyle]="{ background: activeBackground, width: activeWidth }"></div>
   <!-- unreach-bar -->

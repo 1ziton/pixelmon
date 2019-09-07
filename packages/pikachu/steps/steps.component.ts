@@ -1,16 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Step } from './steps.interface';
 
 @Component({
   selector: 'p-steps',
   templateUrl: './steps.component.html',
   styleUrls: ['./steps.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StepsComponent implements OnInit {
   @Input() activeBackground = '#1ECB8E';
   @Input() activeWidth = '0%';
   @Input() inactiveBackground = '#EAF0F0';
-  @Input() backgroundImage = 'url(/assets/total-links/background.png)';
+  @Input() backgroundImage = '';
 
   @Input() activePointColor = '#1ECB8E';
   @Input() activeContentColor = '#FFFFFF';
