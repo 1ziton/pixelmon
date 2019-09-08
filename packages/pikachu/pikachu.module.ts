@@ -11,6 +11,7 @@ import { SmartTextModule } from './smart-text';
 import { TableModule } from './table';
 import { UploadModule } from './upload';
 import { SVModule } from './view';
+import { StepsModule } from './steps/steps.module';
 
 const MODULES = [
   QueryTabsModule,
@@ -25,6 +26,7 @@ const MODULES = [
   UploadModule,
   PaginationModule,
   FooterToolbarModule,
+  StepsModule,
 ];
 
 @NgModule({ exports: MODULES })
