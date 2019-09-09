@@ -1,4 +1,4 @@
-<div class="p-steps-bars-wrap">
+<div class="p-steps-container">
   <!-- background -->
   <div class="p-steps-background" *ngIf="backgroundImage" [style.backgroundImage]="backgroundImage"></div>
   <!-- reach-bar -->
@@ -29,6 +29,10 @@
         [ngStyle]="{
           background: activeStep.contentBackground || activeContentBackground,
           color: activeStep.contentBackground || activeContentBackground
+        }"
+        [ngClass]="{
+          left: activeStep.contentAlign === 'left' || activeContentAlign === 'left' || activeStep.smartContentAlign === 'left',
+          right: activeStep.contentAlign === 'right' || activeContentAlign === 'right' || activeStep.smartContentAlign === 'right'
         }"
       >
         <div
@@ -128,6 +132,10 @@
         [ngStyle]="{
           background: extraStep.contentBackground || extraContentBackground,
           color: extraStep.contentBackground || extraContentBackground
+        }"
+        [ngClass]="{
+          left: extraStep.contentAlign === 'left' || extraContentAlign === 'left' || extraStep.smartContentAlign === 'left',
+          right: extraStep.contentAlign === 'right' || extraContentAlign === 'right' || extraStep.smartContentAlign === 'right'
         }"
       >
         <div

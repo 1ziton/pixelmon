@@ -1,6 +1,6 @@
 @prefix: ~'p-steps';
 
-.@{prefix}-bars-wrap {
+.@{prefix}-container {
   position: relative;
   height: 12px;
   display: flex;
@@ -34,7 +34,6 @@
 .@{prefix}-active-step-content {
   width: max-content;
   position: absolute;
-  left: -4px;
   bottom: 24px;
   padding: 8px;
   border-radius: 4px;
@@ -46,6 +45,18 @@
     border-top: 4px solid currentcolor;
     position: absolute;
     bottom: -4px;
+  }
+  &.left {
+    left: -4px;
+    &::after {
+      left: 8px;
+    }
+  }
+  &.right {
+    right: -4px;
+    &::after {
+      right: 8px;
+    }
   }
 }
 
@@ -99,7 +110,6 @@
 .@{prefix}-extra-step-content {
   width: max-content;
   position: absolute;
-  left: -4px;
   bottom: 24px;
   padding: 8px;
   border-radius: 4px;
@@ -111,6 +121,18 @@
     border-top: 4px solid currentcolor;
     position: absolute;
     bottom: -4px;
+  }
+  &.left {
+    left: -4px;
+    &::after {
+      left: 8px;
+    }
+  }
+  &.right {
+    right: -4px;
+    &::after {
+      right: 8px;
+    }
   }
 }
 

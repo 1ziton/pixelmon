@@ -2,7 +2,10 @@
   "ngPackage": {
     "lib": {
       "flatModuleFile": "steps",
-      "entryFile": "public_api.ts"
+      "entryFile": "public_api.ts",
+      "umdModuleIds": {
+        "@pixelmon/util": "pixelmon.util"
+      }
     }
   }
 }

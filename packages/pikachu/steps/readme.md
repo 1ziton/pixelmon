@@ -33,13 +33,13 @@ module: StepsModule
 
 ### Step
 
-| 参数                  | 说明                           | 类型      | 是否必填 |
-| --------------------- | ------------------------------ | --------- | -------- |
-| `[index]`             | 相对于左边的坐标(请使用百分比) | `string`  | `true`   |
-| `[title]`             | 标题                           | `string`  | `true`   |
-| `[subTitle]`          | 副标题                         | `string`  | `false`  |
-| `[description]`       | 描述                           | `string`  | `false`  |
-| `[pointColor]`        | 点的颜色                       | `string`  | `false`  |
-| `[contentColor]`      | 文本的颜色                     | `string`  | `false`  |
-| `[contentBackground]` | 文本的背景                     | `string`  | `false`  |
-| `[hiddenContent]`     | 是否隐藏文本                   | `boolean` | `false`  |
+| 参数                | 说明                           | 类型      | 是否必填 |
+| ------------------- | ------------------------------ | --------- | -------- |
+| `index`             | 相对于左边的坐标(请使用百分比) | `string`  | `true`   |
+| `title`             | 标题                           | `string`  | `true`   |
+| `subTitle`          | 副标题                         | `string`  | `false`  |
+| `description`       | 描述                           | `string`  | `false`  |
+| `pointColor`        | 点的颜色                       | `string`  | `false`  |
+| `contentColor`      | 文本的颜色                     | `string`  | `false`  |
+| `contentBackground` | 文本的背景                     | `string`  | `false`  |
+| `hiddenContent`     | 是否隐藏文本                   | `boolean` | `false`  |
