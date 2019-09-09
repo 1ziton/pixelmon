@@ -1,0 +1,53 @@
+{{ data | json }}
+<div
+  cdkOverlayOrigin
+  p-select-top-control
+  tabindex="0"
+  class="ant-select-selection"
+  [nzOpen]="open"
+  [@.disabled]="noAnimation?.nzNoAnimation"
+  [nzNoAnimation]="noAnimation?.nzNoAnimation"
+  [nzMaxTagPlaceholder]="nzMaxTagPlaceholder"
+  [nzPlaceHolder]="nzPlaceHolder"
+  [nzAllowClear]="nzAllowClear"
+  [nzMaxTagCount]="nzMaxTagCount"
+  [nzShowArrow]="nzShowArrow"
+  [nzLoading]="nzLoading"
+  [nzSuffixIcon]="nzSuffixIcon"
+  [nzClearIcon]="nzClearIcon"
+  [nzRemoveIcon]="nzRemoveIcon"
+  [nzShowSearch]="nzShowSearch"
+  [nzTokenSeparators]="nzTokenSeparators"
+  [class.ant-select-selection--single]="addrSelectService.isSingleMode"
+  [class.ant-select-selection--multiple]="addrSelectService.isMultipleOrTags"
+  (keydown)="onKeyDown($event)"
+></div>
+<ng-template
+  cdkConnectedOverlay
+  nzConnectedOverlay
+  [cdkConnectedOverlayHasBackdrop]="true"
+  [cdkConnectedOverlayMinWidth]="nzDropdownMatchSelectWidth ? null : triggerWidth"
+  [cdkConnectedOverlayWidth]="nzDropdownMatchSelectWidth ? triggerWidth : null"
+  [cdkConnectedOverlayOrigin]="cdkOverlayOrigin"
+  (backdropClick)="closeDropDown()"
+  (detach)="closeDropDown()"
+  (positionChange)="onPositionChange($event)"
+  [cdkConnectedOverlayOpen]="open"
+>
+  <div
+    p-option-container
+    class="ant-select-dropdown"
+    [class.ant-select-dropdown--single]="addrSelectService.isSingleMode"
+    [class.ant-select-dropdown--multiple]="addrSelectService.isMultipleOrTags"
+    [class.ant-select-dropdown-placement-bottomLeft]="dropDownPosition === 'bottom'"
+    [class.ant-select-dropdown-placement-topLeft]="dropDownPosition === 'top'"
+    style="overflow: auto;transform: translateZ(0px);"
+    (keydown)="onKeyDown($event)"
+    [nzMenuItemSelectedIcon]="nzMenuItemSelectedIcon"
+    [nzNotFoundContent]="nzNotFoundContent"
+    (nzScrollToBottom)="nzScrollToBottom.emit()"
+  >
+    <h3>地址列表</h3>
+  </div>
+</ng-template>
+

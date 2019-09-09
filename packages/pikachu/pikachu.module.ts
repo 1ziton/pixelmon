@@ -12,6 +12,7 @@ import { TableModule } from './table';
 import { UploadModule } from './upload';
 import { SVModule } from './view';
 import { StepsModule } from './steps/steps.module';
+import { AddressSelectModule } from './address-select';
 
 const MODULES = [
   QueryTabsModule,
@@ -27,6 +28,7 @@ const MODULES = [
   PaginationModule,
   FooterToolbarModule,
   StepsModule,
+  AddressSelectModule,
 ];
 
 @NgModule({ exports: MODULES })
