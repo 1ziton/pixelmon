@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, OnChanges, SimpleChanges, TemplateRef } from '@angular/core';
 import { Step } from './steps.interface';
 import { DomHandler } from '@pixelmon/util';
 
@@ -14,17 +14,20 @@ export class StepsComponent implements OnInit, OnChanges {
   @Input() inactiveBackground = '#EAF0F0';
   @Input() backgroundImage = '';
 
+  @Input() activePointTemplate: TemplateRef<void>;
   @Input() activePointColor = '#1ECB8E';
   @Input() activeContentColor = '#FFFFFF';
   @Input() activeContentBackground = '#1ECB8E';
   @Input() activeContentAlign: 'left' | 'right';
   @Input() activeStep: Step;
 
+  @Input() keyPointTemplate: TemplateRef<void>;
   @Input() keyPointColor = '#1ECB8E';
   @Input() keyContentColor = '#999999';
   @Input() keyContentBackground = 'transparent';
   @Input() keySteps: Step[] = [];
 
+  @Input() extraPointTemplate: TemplateRef<void>;
   @Input() extraPointColor = '#F5A623';
   @Input() extraContentColor = '#333333';
   @Input() extraContentBackground = '#FFFFFF';
