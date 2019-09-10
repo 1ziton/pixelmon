@@ -12,6 +12,9 @@ config: LodopConfig
 
 > 运行示例的**前提条件**必须安装[Lodop](http://c-lodop.com/download.html)。
 
+公司购买了插件，使用方式见: https://git.1ziton.com/yzt/wiki/issues (内部)
+
+
 ## API
 
 ### LodopService
