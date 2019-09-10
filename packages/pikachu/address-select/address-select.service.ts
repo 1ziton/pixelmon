@@ -97,6 +97,10 @@ export class AddressSelectService {
     /** update listOfSelectedOption -> update listOfSelectedValue -> next listOfSelectedValue$ */
     if (!option.disabled) {
       this.updateActivatedOption(option);
+      this.listOfPOption.map(item => {
+        item.checked = false;
+      });
+      option.checked = true;
       let listOfSelectedValue = [...this.listOfSelectedValue];
       if (!this.compareWith(listOfSelectedValue[0], option.value)) {
         listOfSelectedValue = [option.value];
@@ -190,9 +194,7 @@ export class AddressSelectService {
       .map(item => item.value)
       .filter(item => !isNotNil(this.listOfSelectedValue.find(v => this.compareWith(v, item))));
 
-    const listOfUnMatchOptionValue = listOfLabel.filter(
-      label => this.listOfFilteredOption.map(item => item.label).indexOf(label) === -1,
-    );
+    const listOfUnMatchOptionValue = listOfLabel.filter(label => this.listOfFilteredOption.map(item => item.label).indexOf(label) === -1);
     this.updateListOfSelectedValue([...listOfSelectedValue, ...listOfMatchOptionValue, ...listOfUnMatchOptionValue], true);
   }
 

@@ -105,9 +105,6 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
   @Input() nzRemoveIcon: TemplateRef<void>;
   @Input() nzMenuItemSelectedIcon: TemplateRef<void>;
   @Input() nzShowArrow = true;
-  @Input() nzTokenSeparators: string[] = [];
-  // tslint:disable-next-line:no-any
-  @Input() nzMaxTagPlaceholder: TemplateRef<{ $implicit: any[] }>;
 
   @Input()
   set data(d: POption[]) {

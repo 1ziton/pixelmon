@@ -34,16 +34,12 @@ export class PSelectTopControlComponent implements OnInit, OnDestroy {
   @Input() nzShowSearch = false;
   @Input() nzPlaceHolder: string;
   @Input() nzOpen = false;
-  @Input() nzMaxTagCount: number;
   @Input() nzAllowClear = false;
   @Input() nzShowArrow = true;
   @Input() nzLoading = false;
   @Input() nzSuffixIcon: TemplateRef<void>;
   @Input() nzClearIcon: TemplateRef<void>;
   @Input() nzRemoveIcon: TemplateRef<void>;
-  // tslint:disable-next-line:no-any
-  @Input() nzMaxTagPlaceholder: TemplateRef<{ $implicit: any[] }>;
-  @Input() nzTokenSeparators: string[] = [];
 
   onClearSelection(e: MouseEvent): void {
     e.stopPropagation();

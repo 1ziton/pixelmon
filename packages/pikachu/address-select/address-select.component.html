@@ -1,4 +1,3 @@
-{{ data | json }}
 <div
   cdkOverlayOrigin
   p-select-top-control
@@ -7,19 +6,15 @@
   [nzOpen]="open"
   [@.disabled]="noAnimation?.nzNoAnimation"
   [nzNoAnimation]="noAnimation?.nzNoAnimation"
-  [nzMaxTagPlaceholder]="nzMaxTagPlaceholder"
   [nzPlaceHolder]="nzPlaceHolder"
   [nzAllowClear]="nzAllowClear"
-  [nzMaxTagCount]="nzMaxTagCount"
   [nzShowArrow]="nzShowArrow"
   [nzLoading]="nzLoading"
   [nzSuffixIcon]="nzSuffixIcon"
   [nzClearIcon]="nzClearIcon"
   [nzRemoveIcon]="nzRemoveIcon"
   [nzShowSearch]="nzShowSearch"
-  [nzTokenSeparators]="nzTokenSeparators"
   [class.ant-select-selection--single]="addrSelectService.isSingleMode"
-  [class.ant-select-selection--multiple]="addrSelectService.isMultipleOrTags"
   (keydown)="onKeyDown($event)"
 ></div>
 <ng-template
@@ -47,7 +42,6 @@
     [nzNotFoundContent]="nzNotFoundContent"
     (nzScrollToBottom)="nzScrollToBottom.emit()"
   >
-    <h3>地址列表</h3>
   </div>
 </ng-template>
 
