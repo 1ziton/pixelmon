@@ -13,6 +13,7 @@ import { UploadModule } from './upload';
 import { SVModule } from './view';
 import { StepsModule } from './steps/steps.module';
 import { AddressSelectModule } from './address-select';
+import { DropdownPanelModule } from './dropdown-panel';
 
 const MODULES = [
   QueryTabsModule,
@@ -29,6 +30,7 @@ const MODULES = [
   FooterToolbarModule,
   StepsModule,
   AddressSelectModule,
+  DropdownPanelModule,
 ];
 
 @NgModule({ exports: MODULES })

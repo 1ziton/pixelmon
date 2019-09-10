@@ -1,0 +1,68 @@
+<div
+  cdkOverlayOrigin
+  p-panel-top-control
+  tabindex="0"
+  class="ant-select-selection"
+  [open]="_open"
+  [@.disabled]="noAnimation?.nzNoAnimation"
+  [nzNoAnimation]="noAnimation?.nzNoAnimation"
+  [placeHolder]="placeHolder"
+  [allowClear]="allowClear"
+  [showArrow]="showArrow"
+  [loading]="loading"
+  [suffixIcon]="suffixIcon"
+  [clearIcon]="clearIcon"
+  [removeIcon]="removeIcon"
+  [showSearch]="showSearch"
+  [class.ant-select-selection--single]="dropPanelService.isSingleMode"
+  (keydown)="onKeyDown($event)"
+></div>
+<ng-template
+  cdkConnectedOverlay
+  nzConnectedOverlay
+  [cdkConnectedOverlayHasBackdrop]="true"
+  [cdkConnectedOverlayWidth]="triggerWidth"
+  [cdkConnectedOverlayOrigin]="cdkOverlayOrigin"
+  (backdropClick)="closeDropDown()"
+  (detach)="closeDropDown()"
+  (positionChange)="onPositionChange($event)"
+  [cdkConnectedOverlayOpen]="_open"
+>
+  <div
+    class="ant-select-dropdown"
+    [class.ant-select-dropdown--single]="dropPanelService.isSingleMode"
+    [class.ant-select-dropdown-placement-bottomLeft]="dropDownPosition === 'bottom'"
+    [class.ant-select-dropdown-placement-topLeft]="dropDownPosition === 'top'"
+    [nzClassListAdd]="[dropdownClassName]"
+    [@slideMotion]="dropDownPosition"
+    [@.disabled]="noAnimation?.nzNoAnimation"
+    [nzNoAnimation]="noAnimation?.nzNoAnimation"
+    [ngStyle]="dropdownStyle"
+  >
+    <div
+      p-panel-option-container
+      style="overflow: auto;transform: translateZ(0px);"
+      (keydown)="onKeyDown($event)"
+      [menuItemSelectedIcon]="menuItemSelectedIcon"
+      [notFoundContent]="notFoundContent"
+      (scrollToBottom)="scrollToBottom.emit()"
+    ></div>
+    <ng-template [ngTemplateOutlet]="dropdownRender"></ng-template>
+  </div>
+
+  <!-- <div
+    p-panel-option-container
+    class="ant-select-dropdown"
+    [ngStyle]="dropdownStyle"
+    [@slideMotion]="dropDownPosition"
+    [nzClassListAdd]="[dropdownClassName]"
+    [class.ant-select-dropdown--single]="dropPanelService.isSingleMode"
+    [class.ant-select-dropdown-placement-bottomLeft]="dropDownPosition === 'bottom'"
+    [class.ant-select-dropdown-placement-topLeft]="dropDownPosition === 'top'"
+    style="overflow: auto;transform: translateZ(0px);"
+    (keydown)="onKeyDown($event)"
+    [menuItemSelectedIcon]="menuItemSelectedIcon"
+    [notFoundContent]="notFoundContent"
+    (scrollToBottom)="scrollToBottom.emit()"
+  ></div> -->
+</ng-template>

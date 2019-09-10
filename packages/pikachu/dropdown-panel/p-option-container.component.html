@@ -1,0 +1,22 @@
+<ul #dropdownUl class="ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical" role="menu" tabindex="0">
+  <li
+    *ngIf="dropPanelService.isShowNotFound"
+    nz-select-unselectable
+    class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled"
+  >
+    <nz-embed-empty [nzComponentName]="'select'" [specificContent]="notFoundContent"></nz-embed-empty>
+  </li>
+  <li
+    class="item ant-select-dropdown-menu-item"
+    [class.ant-select-dropdown-menu-item-selected]="option.checked && !option.disabled"
+    *ngFor="
+      let option of dropPanelService.listOfPOption
+        | pFilterOption: dropPanelService.searchValue:dropPanelService.filterOption:dropPanelService.serverSearch;
+      trackBy: trackValue
+    "
+    (click)="clickOption(option)"
+  >
+    {{ option.label }}
+    <i nz-icon nzType="check" class="ant-select-selected-icon" *ngIf="option.checked && !option.disabled && !menuItemSelectedIcon"></i>
+  </li>
+</ul>
