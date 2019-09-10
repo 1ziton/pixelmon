@@ -1,0 +1,8 @@
+{
+  "ngPackage": {
+    "lib": {
+      "flatModuleFile": "steps",
+      "entryFile": "public_api.ts"
+    }
+  }
+}

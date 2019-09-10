@@ -1,9 +1,9 @@
 ---
-type: CURD
+type: Basic
 title: sv
 subtitle: 查看
 cols: 1
-order: 2
+order: 1
 module: SVModule
 config: SVConfig
 ---
