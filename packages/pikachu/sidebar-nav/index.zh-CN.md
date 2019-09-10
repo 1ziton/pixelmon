@@ -1,8 +1,9 @@
 ---
-type: Business
+type: Basic
 title: sidebar-nav
 subtitle: 主菜单
 cols: 1
+order: 3
 module: SidebarNavModule
 ---
 

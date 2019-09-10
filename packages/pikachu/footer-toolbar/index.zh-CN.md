@@ -3,6 +3,7 @@ type: Layout
 title: footer-toolbar
 subtitle: 底部工具栏
 cols: 1
+order: 2
 module: FooterToolbarModule
 ---
 
