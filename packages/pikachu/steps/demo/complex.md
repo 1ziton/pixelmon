@@ -24,7 +24,10 @@ import { Step } from '@pixelmon/pikachu/steps';
     ></p-steps>
 
     <div>
-      <button (click)="goForward()">
+      <button nz-button (click)="goBack()">
+        后退
+      </button>
+      <button nz-button (click)="goForward()">
         前进
       </button>
     </div>
@@ -79,13 +82,6 @@ export class DemoComponent implements OnInit {
       title: '干线到达时间',
       description: '2019/08/02 12:00',
     },
-    // {
-    //   index: "92%",
-    //   title: "全链路超时：10小时",
-    //   description: "签收时间：2019/08/08 10:00",
-    //   contentBackground: "red",
-    //   contentColor: "white"
-    // }
   ];
 
   constructor() {}
@@ -104,7 +100,16 @@ export class DemoComponent implements OnInit {
     }
     this.progress++;
     this.activeWidth = this.progress + '%';
-    this.activeStep.index = this.progress + '%';
+    this.activeStep = { ...this.activeStep, index: this.progress + '%' };
+  }
+
+  goBack() {
+    if (this.progress <= 0) {
+      return;
+    }
+    this.progress--;
+    this.activeWidth = this.progress + '%';
+    this.activeStep = { ...this.activeStep, index: this.progress + '%' };
   }
 }
 ```

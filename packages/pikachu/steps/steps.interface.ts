@@ -6,5 +6,7 @@ export interface Step {
   pointColor?: string;
   contentColor?: string;
   contentBackground?: string;
+  contentAlign?: 'left' | 'right';
+  smartContentAlign?: 'left' | 'right';
   hiddenContent?: boolean;
 }

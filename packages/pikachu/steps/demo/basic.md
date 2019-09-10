@@ -18,7 +18,10 @@ import { Step } from '@pixelmon/pikachu/steps';
     <p-steps [activeWidth]="activeWidth" [keySteps]="keySteps"></p-steps>
 
     <div>
-      <button (click)="goForward()">
+      <button nz-button (click)="goBack()">
+        上一步
+      </button>
+      <button nz-button (click)="goForward()">
         下一步
       </button>
     </div>
@@ -56,6 +59,14 @@ export class DemoComponent implements OnInit {
       return;
     }
     this.index++;
+    this.activeWidth = this.keySteps[this.index].index;
+  }
+
+  goBack() {
+    if (this.index === 0) {
+      return;
+    }
+    this.index--;
     this.activeWidth = this.keySteps[this.index].index;
   }
 }
