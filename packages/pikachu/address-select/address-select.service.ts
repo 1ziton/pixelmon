@@ -5,7 +5,7 @@ import { distinctUntilChanged, filter, map, share, skip, tap } from 'rxjs/operat
 
 import { isNil, isNotNil } from 'ng-zorro-antd/core';
 import { POption } from './interface';
-import { defaultFilterOption, PFilterOptionPipe } from './p-option.pipe';
+import { defaultFilterOption, AddrFilterOptionPipe } from './p-option.pipe';
 
 @Injectable()
 export class AddressSelectService {
@@ -80,7 +80,7 @@ export class AddressSelectService {
     tap(data => {
       this.listOfSelectedValue = data[0];
       this.listOfPOption = data[1].listOfPOption;
-      console.log(JSON.stringify(this.listOfPOption));
+      // console.log(JSON.stringify(this.listOfPOption));
       this.updateListOfFilteredOption();
       this.resetActivatedOptionIfNeeded();
       this.updateListOfCachedOption();
@@ -122,7 +122,7 @@ export class AddressSelectService {
   }
 
   updateListOfFilteredOption(): void {
-    const listOfFilteredOption = new PFilterOptionPipe().transform(
+    const listOfFilteredOption = new AddrFilterOptionPipe().transform(
       this.listOfPOption,
       this.searchValue,
       this.filterOption,

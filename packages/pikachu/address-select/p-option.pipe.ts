@@ -5,14 +5,13 @@ import { POption } from './interface';
 export type TFilterOption = (input: string, option: POption) => boolean;
 
 @Pipe({ name: 'pFilterOption' })
-export class PFilterOptionPipe implements PipeTransform {
+export class AddrFilterOptionPipe implements PipeTransform {
   transform(
     options: POption[],
     searchValue: string,
     filterOption: TFilterOption,
     serverSearch: boolean
   ): POption[] {
-    console.log(options)
     if (serverSearch || !searchValue) {
       return options;
     } else {

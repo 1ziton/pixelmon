@@ -41,13 +41,13 @@ import { POption } from './interface';
     `,
   ],
 })
-export class POptionContainerComponent implements OnDestroy, OnInit {
+export class AddrOptionContainerComponent implements OnDestroy, OnInit {
   private destroy$ = new Subject();
   private lastScrollTop = 0;
   @ViewChild('dropdownUl', { static: true }) dropdownUl: ElementRef<HTMLUListElement>;
-  @Input() nzNotFoundContent: string;
-  @Input() nzMenuItemSelectedIcon: TemplateRef<void>;
-  @Output() readonly nzScrollToBottom = new EventEmitter<void>();
+  @Input() notFoundContent: string;
+  @Input() menuItemSelectedIcon: TemplateRef<void>;
+  @Output() readonly scrollToBottom = new EventEmitter<void>();
   clickOption(option: POption): void {
     this.addrSelectService.clickOption(option);
   }
@@ -76,7 +76,7 @@ export class POptionContainerComponent implements OnDestroy, OnInit {
           if (ul && ul.scrollTop > this.lastScrollTop && ul.scrollHeight < ul.clientHeight + ul.scrollTop + 10) {
             this.lastScrollTop = ul.scrollTop;
             this.ngZone.run(() => {
-              this.nzScrollToBottom.emit();
+              this.scrollToBottom.emit();
             });
           }
         });

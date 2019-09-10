@@ -4,7 +4,7 @@
     nz-select-unselectable
     class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled"
   >
-    <nz-embed-empty [nzComponentName]="'select'" [specificContent]="nzNotFoundContent"></nz-embed-empty>
+    <nz-embed-empty [nzComponentName]="'select'" [specificContent]="notFoundContent"></nz-embed-empty>
   </li>
   <li
     class="item ant-select-dropdown-menu-item"
@@ -17,6 +17,6 @@
     (click)="clickOption(option)"
   >
     {{ option.label }}
-    <i nz-icon nzType="check" class="ant-select-selected-icon" *ngIf="option.checked && !option.disabled && !nzMenuItemSelectedIcon"></i>
+    <i nz-icon nzType="check" class="ant-select-selected-icon" *ngIf="option.checked && !option.disabled && !menuItemSelectedIcon"></i>
   </li>
 </ul>
