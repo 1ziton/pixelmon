@@ -92,6 +92,7 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
   @Output() readonly pFocus = new EventEmitter<void>();
 
   @Input() size: NzSizeLDSType = 'default';
+  @Input() level: number = 3;
   @Input() dropdownClassName: string;
   @Input() dropdownMatchSelectWidth = false;
   @Input() dropdownStyle: { [key: string]: string };

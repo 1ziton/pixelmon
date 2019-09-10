@@ -13,10 +13,11 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { fromEvent, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AddressSelectService } from './address-select.service';
 import { POption } from './interface';
+import { AddrLevelFilterPipe } from './p-option.pipe';
 
 @Component({
   selector: '[p-option-container]',
@@ -43,14 +44,32 @@ import { POption } from './interface';
 })
 export class AddrOptionContainerComponent implements OnDestroy, OnInit {
   private destroy$ = new Subject();
-  private lastScrollTop = 0;
+  levelLabels: POption[] = [];
   @ViewChild('dropdownUl', { static: true }) dropdownUl: ElementRef<HTMLUListElement>;
   @Input() notFoundContent: string;
   @Input() menuItemSelectedIcon: TemplateRef<void>;
   @Output() readonly scrollToBottom = new EventEmitter<void>();
+
+  @Input()
+  set level(v: number) {
+    this.levelLabels = new AddrLevelFilterPipe().transform(v);
+  }
+
   clickOption(option: POption): void {
     this.addrSelectService.clickOption(option);
   }
+
+  toggleTabs(tab: POption) {
+    if (tab.checked) return;
+    this.levelLabels.map(item => {
+      if (item.value === tab.value) {
+        item.checked = true;
+      } else {
+        item.checked = false;
+      }
+    });
+  }
+
   trackLabel(_index: number, option: POption): string | TemplateRef<void> {
     return option.label;
   }
@@ -65,21 +84,6 @@ export class AddrOptionContainerComponent implements OnDestroy, OnInit {
   ngOnInit(): void {
     this.addrSelectService.check$.pipe(takeUntil(this.destroy$)).subscribe(() => {
       this.cdr.markForCheck();
-    });
-    this.ngZone.runOutsideAngular(() => {
-      const ul = this.dropdownUl.nativeElement;
-      fromEvent<MouseEvent>(ul, 'scroll')
-        .pipe(takeUntil(this.destroy$))
-        .subscribe(e => {
-          e.preventDefault();
-          e.stopPropagation();
-          if (ul && ul.scrollTop > this.lastScrollTop && ul.scrollHeight < ul.clientHeight + ul.scrollTop + 10) {
-            this.lastScrollTop = ul.scrollTop;
-            this.ngZone.run(() => {
-              this.scrollToBottom.emit();
-            });
-          }
-        });
     });
   }
 

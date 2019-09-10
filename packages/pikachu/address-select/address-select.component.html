@@ -43,6 +43,7 @@
       p-option-container
       style="overflow: auto;transform: translateZ(0px);"
       (keydown)="onKeyDown($event)"
+      [level]="level"
       [menuItemSelectedIcon]="menuItemSelectedIcon"
       [notFoundContent]="notFoundContent"
       (scrollToBottom)="scrollToBottom.emit()"
