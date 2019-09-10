@@ -19,7 +19,7 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'p-demo-select-scroll-load',
   template: `
-   <p-dropdown-panel style="width: 320px;" [data]="optionList" [(ngModel)]="selectedValue" (scrollToBottom)="loadMore()"  showSearch placeHolder="请选择"></p-dropdown-panel>
+   <p-dropdown-panel style="width: 320px;" [data]="optionList" [loading]="isLoading" [(ngModel)]="selectedValue" (scrollToBottom)="loadMore()"  showSearch placeHolder="请选择"></p-dropdown-panel>
     <span style="margin-left:30px">
         值：{{selectedValue}}
     </span>
@@ -47,8 +47,8 @@ export class PDemoDropdownSelectScrollLoadComponent implements OnInit {
   loadMore(): void {
     this.isLoading = true;
     this.getRandomNameList.subscribe(data => {
-      this.isLoading = false;
       this.optionList = [...this.optionList, ...data];
+      this.isLoading = false;
     });
   }
 

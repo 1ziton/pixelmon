@@ -24,7 +24,7 @@ import { map } from 'rxjs/operators';
     </span>
   `
 })
-export class PDemoDropdownSelectScrollLoadComponent implements OnInit {
+export class PDemoDropdownSelectSearchComponent implements OnInit {
   randomUserUrl = 'https://api.randomuser.me/?results=12';
   optionList: string[] = [];
   selectedValue = null;
