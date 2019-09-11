@@ -56,7 +56,7 @@ export class AddrSelectTopControlComponent implements OnInit, OnDestroy {
   }
 
   get placeHolderDisplay(): string {
-    return this.inputValue || this.isComposing || this.addrSelectService.listOfSelectedValue.length ? 'none' : 'block';
+    return this.inputValue || this.isComposing || this.addrSelectService.listOfActivatedOption.length ? 'none' : 'block';
   }
 
   get selectedValueStyle(): { [key: string]: string } {

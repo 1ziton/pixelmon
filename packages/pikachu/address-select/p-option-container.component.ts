@@ -1,4 +1,17 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  TemplateRef,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AddressSelectService } from './address-select.service';
@@ -30,7 +43,6 @@ import { AddrLevelFilterPipe } from './p-option.pipe';
 })
 export class AddrOptionContainerComponent implements OnDestroy, OnInit {
   private destroy$ = new Subject();
-  levelLabels: POption[] = [];
   @ViewChild('dropdownUl', { static: true }) dropdownUl: ElementRef<HTMLUListElement>;
   @Input() notFoundContent: string;
   @Input() menuItemSelectedIcon: TemplateRef<void>;
@@ -38,22 +50,17 @@ export class AddrOptionContainerComponent implements OnDestroy, OnInit {
 
   @Input()
   set level(v: number) {
-    this.levelLabels = new AddrLevelFilterPipe().transform(v);
+    this.addrSelectService.levelLabels = new AddrLevelFilterPipe().transform(v);
+    this.addrSelectService.maxLevel = v;
   }
 
   clickOption(option: POption): void {
     this.addrSelectService.clickOption(option);
   }
 
-  toggleTabs(tab: POption) {
+  toggleTabs(tab, index: number) {
     if (tab.checked) return;
-    this.levelLabels.map(item => {
-      if (item.value === tab.value) {
-        item.checked = true;
-      } else {
-        item.checked = false;
-      }
-    });
+    this.addrSelectService.toggleTab(index);
   }
 
   trackLabel(_index: number, option: POption): string | TemplateRef<void> {

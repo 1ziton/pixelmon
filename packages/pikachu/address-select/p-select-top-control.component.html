@@ -1,4 +1,3 @@
-
 <ng-template #inputTemplate>
   <input
     #inputElement
@@ -15,29 +14,25 @@
   <div *ngIf="placeHolder" nz-select-unselectable [style.display]="placeHolderDisplay" class="ant-select-selection__placeholder">
     {{ placeHolder }}
   </div>
-
-  <!--single mode-->
-  <ng-container *ngIf="addrSelectService.isSingleMode">
-    <!--selected label-->
-    <div
-      *ngIf="addrSelectService.listOfCachedSelectedOption.length && addrSelectService.listOfSelectedValue.length"
-      class="ant-select-selection-selected-value"
-      [attr.title]="addrSelectService.listOfCachedSelectedOption[0]?.label"
-      [ngStyle]="selectedValueStyle"
-    >
-      <ng-container>{{ addrSelectService.listOfCachedSelectedOption[0]?.label }}</ng-container>
+  <!--selected label-->
+  <div
+    *ngIf="addrSelectService.selectedOption?.value"
+    class="ant-select-selection-selected-value"
+    [attr.title]="addrSelectService.selectedOption?.mergeName"
+    [ngStyle]="selectedValueStyle"
+  >
+    <ng-container>{{ addrSelectService.selectedOption?.mergeName }}</ng-container>
+  </div>
+  <!--show search-->
+  <div *ngIf="showSearch" class="ant-select-search ant-select-search--inline" [style.display]="open ? 'block' : 'none'">
+    <div class="ant-select-search__field__wrap">
+      <ng-template [ngTemplateOutlet]="inputTemplate"></ng-template>
+      <span class="ant-select-search__field__mirror">{{ inputValue }}&nbsp;</span>
     </div>
-    <!--show search-->
-    <div *ngIf="showSearch" class="ant-select-search ant-select-search--inline" [style.display]="open ? 'block' : 'none'">
-      <div class="ant-select-search__field__wrap">
-        <ng-template [ngTemplateOutlet]="inputTemplate"></ng-template>
-        <span class="ant-select-search__field__mirror">{{ inputValue }}&nbsp;</span>
-      </div>
-    </div>
-  </ng-container>
+  </div>
 </div>
 <span
-  *ngIf="allowClear && addrSelectService.listOfSelectedValue.length"
+  *ngIf="allowClear && addrSelectService.selectedOption?.value"
   class="ant-select-selection__clear"
   nz-select-unselectable
   (mousedown)="$event.preventDefault()"

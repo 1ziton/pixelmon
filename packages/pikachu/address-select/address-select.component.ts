@@ -112,19 +112,8 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
   }
 
   @Input()
-  set maxMultipleCount(value: number) {
-    this.addrSelectService.maxMultipleCount = value;
-  }
-
-  @Input()
   set serverSearch(value: boolean) {
     this.addrSelectService.serverSearch = toBoolean(value);
-  }
-
-  @Input()
-  set mode(value: 'default' | 'multiple' | 'tags') {
-    this.addrSelectService.mode = value;
-    this.addrSelectService.check();
   }
 
   @Input()
@@ -195,10 +184,6 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
     }
   }
 
-  onKeyDown(event: KeyboardEvent): void {
-    this.addrSelectService.onKeyDown(event);
-  }
-
   toggleDropDown(): void {
     if (!this.disabled) {
       this.addrSelectService.setOpenState(!this.open);
@@ -240,7 +225,7 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
     renderer.addClass(elementRef.nativeElement, 'ant-select');
   }
 
-  /** update ngModel -> update listOfSelectedValue */
+  /** update ngModel -> update selectedOption */
   // tslint:disable-next-line:no-any
   writeValue(value: any | any[]): void {
     this.value = value;
@@ -271,7 +256,7 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
 
   ngOnInit(): void {
     // 获取一级地址数据
-    this.addrSelectService.getAreasByCode();
+    this.addrSelectService.getAreasByCode('', 0);
     this.addrSelectService.searchValue$.pipe(takeUntil(this.destroy$)).subscribe(data => {
       this.onSearch.emit(data);
       this.updateCdkConnectedOverlayPositions();

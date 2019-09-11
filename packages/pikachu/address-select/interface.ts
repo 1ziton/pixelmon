@@ -7,6 +7,12 @@ export interface POption {
   checked?: boolean;
   level?: number;
 }
+export interface ResultOption {
+  label: string;
+  value: string;
+  mergeName?: string;
+  level?: number;
+}
 
 /**
  * 必须集成

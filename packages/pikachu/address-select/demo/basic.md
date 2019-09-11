@@ -14,9 +14,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'p-demo-address-select-basic',
   template: `
-    <div>
-      <p-address-select style="width: 320px;"  [(ngModel)]="selectedValue" nzAllowClear  nzShowSearch nzPlaceHolder="选择政区地址"></p-address-select>
-    </div>
+    <p-address-select style="width: 320px;"  [(ngModel)]="selectedValue" nzAllowClear  nzShowSearch nzPlaceHolder="选择政区地址"></p-address-select>
+     <span style="margin-left:30px">
+        值：{{selectedValue}}
+    </span>
   `
 })
 export class PDemoSelectBasicComponent  implements OnInit {

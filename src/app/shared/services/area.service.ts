@@ -12,7 +12,10 @@ export class AreaService extends AddressQueryService {
     super();
   }
 
-  getAreasByCode(code = '000000000000'): Observable<any[]> {
+  getAreasByCode(code: string): Observable<any[]> {
+    if (!code) {
+      code = code = '000000000000';
+    }
     return this.http
       .post(
         `https://domain.1ziton.com/api/baseConfig/findAreaList
@@ -25,6 +28,7 @@ export class AreaService extends AddressQueryService {
           return list.map((item: any) => ({
             label: `${item.name}`,
             value: `${item.code}`,
+            level: item.level,
           }));
         }),
       );
