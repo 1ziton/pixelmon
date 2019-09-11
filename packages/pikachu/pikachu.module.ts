@@ -12,6 +12,9 @@ import { TableModule } from '@pixelmon/pikachu/table';
 import { UploadModule } from '@pixelmon/pikachu/upload';
 import { SVModule } from '@pixelmon/pikachu/view';
 import { StepsModule } from '@pixelmon/pikachu/steps';
+import { AddressSelectModule } from '@pixelmon/pikachu/address-select';
+import { DropdownPanelModule } from '@pixelmon/pikachu/dropdown-panel';
+ 
 
 const MODULES = [
   QueryTabsModule,
@@ -27,6 +30,8 @@ const MODULES = [
   PaginationModule,
   FooterToolbarModule,
   StepsModule,
+  AddressSelectModule,
+  DropdownPanelModule,
 ];
 
 @NgModule({ exports: MODULES })

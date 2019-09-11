@@ -33,7 +33,8 @@
     "pre-publish": "node scripts/publish/publish.js",
     "publish:next": "bash scripts/publish/publish.sh -next",
     "publish": "bash scripts/publish/publish.sh",
-    "deploy:site": "node scripts/publish/gh-pages-publish.js"
+    "deploy:site": "node scripts/publish/gh-pages-publish.js",
+    "build:pikachu": "node --max_old_space_size=4096 ./scripts/build/packing pikachu"
   },
   "dependencies": {
     "@angular/animations": "~8.2.4",

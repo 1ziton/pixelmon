@@ -1,6 +1,6 @@
 ---
 type: Basic
-order: 1
+order: 2
 title: reuse-tab
 subtitle: 路由复用标签
 cols: 1
