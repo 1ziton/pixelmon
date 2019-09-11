@@ -2,7 +2,7 @@
   p-select-top-control
   cdkOverlayOrigin
   tabindex="0"
-  class="ant-select-selection"
+  class="ant-select-selection ant-select-selection--single"
   [open]="_open"
   [@.disabled]="noAnimation?.nzNoAnimation"
   [nzNoAnimation]="noAnimation?.nzNoAnimation"
@@ -14,7 +14,6 @@
   [clearIcon]="clearIcon"
   [removeIcon]="removeIcon"
   [showSearch]="showSearch"
-  [class.ant-select-selection--single]="addrSelectService.isSingleMode"
 ></div>
 <ng-template
   cdkConnectedOverlay
@@ -28,8 +27,7 @@
   [cdkConnectedOverlayOpen]="_open"
 >
   <div
-    class="ant-select-dropdown"
-    [class.ant-select-dropdown--single]="addrSelectService.isSingleMode"
+    class="ant-select-dropdown ant-select-dropdown--single"
     [class.ant-select-dropdown-placement-bottomLeft]="dropDownPosition === 'bottom'"
     [class.ant-select-dropdown-placement-topLeft]="dropDownPosition === 'top'"
     [nzClassListAdd]="[dropdownClassName]"
@@ -41,7 +39,6 @@
     <div
       p-option-container
       style="overflow: auto;transform: translateZ(0px);"
-      (keydown)="onKeyDown($event)"
       [level]="level"
       [menuItemSelectedIcon]="menuItemSelectedIcon"
       [notFoundContent]="notFoundContent"

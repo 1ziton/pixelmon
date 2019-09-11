@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { POption } from './interface';
+import { AddrOption } from './interface';
 
-export type TFilterOption = (input: string, option: POption) => boolean;
+export type TFilterOption = (input: string, option: AddrOption) => boolean;
 
-const defaultAddressLevelOptions: POption[] = [
+const defaultAddressLevelOptions: AddrOption[] = [
   {
     label: '省',
     value: 'province',
@@ -23,18 +23,18 @@ const defaultAddressLevelOptions: POption[] = [
   },
 ];
 
-@Pipe({ name: 'pFilterOption' })
+@Pipe({ name: 'addrFilterOption' })
 export class AddrFilterOptionPipe implements PipeTransform {
-  transform(options: POption[], searchValue: string, filterOption: TFilterOption, serverSearch: boolean): POption[] {
+  transform(options: AddrOption[], searchValue: string, filterOption: TFilterOption, serverSearch: boolean): AddrOption[] {
     if (serverSearch || !searchValue) {
       return options;
     } else {
-      return (options as POption[]).filter(o => filterOption(searchValue, o));
+      return (options as AddrOption[]).filter(o => filterOption(searchValue, o));
     }
   }
 }
 
-export function defaultFilterOption(searchValue: string, option: POption): boolean {
+export function defaultAddrFilterOption(searchValue: string, option: AddrOption): boolean {
   if (option && option.label) {
     return option.label.toLowerCase().indexOf(searchValue.toLowerCase()) > -1;
   } else {
@@ -42,7 +42,7 @@ export function defaultFilterOption(searchValue: string, option: POption): boole
   }
 }
 
-export function defaultLevelLabelsFilterOption(level = 1): POption[] {
+export function defaultLevelLabelsFilterOption(level = 1): AddrOption[] {
   return defaultAddressLevelOptions.slice(0, level);
 }
 

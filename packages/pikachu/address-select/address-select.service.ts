@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { isNotNil } from 'ng-zorro-antd/core';
 import { BehaviorSubject, merge, ReplaySubject, Subject } from 'rxjs';
 import { distinctUntilChanged, filter, map, share, skip, tap } from 'rxjs/operators';
-import { AddressQueryService, POption, ResultOption } from './interface';
-import { AddrFilterOptionPipe, defaultFilterOption } from './p-option.pipe';
+import { AddressQueryService, AddrOption, ResultOption } from './interface';
+import { AddrFilterOptionPipe, defaultAddrFilterOption } from './p-option.pipe';
 
 @Injectable()
 export class AddressSelectService {
   // Input params
   autoClearSearchValue = true;
   serverSearch = false;
-  filterOption: any = defaultFilterOption;
+  filterOption: any = defaultAddrFilterOption;
   disabled = false;
 
-  levelLabels: POption[] = [];
+  levelLabels: AddrOption[] = [];
   currentLevel: number = 1;
   maxLevel: number = 1;
+  separator: string;
   // selectedValueChanged should emit ngModelChange or not
   // tslint:disable-next-line:no-any
   private listOfSelectedValueWithEmit$ = new BehaviorSubject<{ value: any[]; emit: boolean }>({
@@ -25,7 +25,7 @@ export class AddressSelectService {
 
   // searchValue Change
   private searchValueRaw$ = new BehaviorSubject<string>('');
-  private listOfFilteredOption: POption[] = [];
+  private listOfFilteredOption: AddrOption[] = [];
   private openRaw$ = new Subject<boolean>();
   private checkRaw$ = new Subject();
   clearInput$ = new Subject<boolean>();
@@ -34,7 +34,7 @@ export class AddressSelectService {
   // open
   open$ = this.openRaw$.pipe(distinctUntilChanged());
   listOfActivatedOption: any[] = [];
-  listOfActivatedOption$ = new ReplaySubject<POption | null>(1);
+  listOfActivatedOption$ = new ReplaySubject<AddrOption | null>(1);
   selectedOption: ResultOption;
   modelChange$ = this.listOfSelectedValueWithEmit$.pipe(
     filter(item => item.emit),
@@ -61,10 +61,10 @@ export class AddressSelectService {
     }),
   );
   // address data
-  listOfProvinceOptions: POption[] = [];
-  listOfCityOptions: POption[] = [];
-  listOfDistinctOptions: POption[] = [];
-  listOfStreetOptions: POption[] = [];
+  listOfProvinceOptions: AddrOption[] = [];
+  listOfCityOptions: AddrOption[] = [];
+  listOfDistinctOptions: AddrOption[] = [];
+  listOfStreetOptions: AddrOption[] = [];
 
   check$ = merge(this.checkRaw$, this.searchValue$, this.listOfActivatedOption$, this.open$, this.modelChange$).pipe(share());
   compareWith = (o1: any, o2: any) => o1 === o2;
@@ -86,12 +86,6 @@ export class AddressSelectService {
     });
   }
 
-  getAreaLabelByCode(code: string) {
-    this.addrQuerySrv.getAreaLabelByCode(code).subscribe(json => {
-      console.log(json);
-    });
-  }
-
   toggleTab(index: number) {
     this.currentLevel = index + 1;
     this.levelLabels.forEach((item, i) => {
@@ -107,7 +101,7 @@ export class AddressSelectService {
     return this.maxLevel === this.currentLevel;
   }
 
-  clickOption(option: POption): void {
+  clickOption(option: AddrOption): void {
     if (option.disabled) {
       return;
     }
@@ -136,15 +130,16 @@ export class AddressSelectService {
       };
       return;
     }
-    const selectedOption: POption[] = this.listOfActivatedOption.filter(o => o && o.value);
+    const selectedOption: AddrOption[] = this.listOfActivatedOption.filter(o => o && o.value);
     const { length } = selectedOption;
+    console.log(this.separator)
     if (length > 0) {
       const { label, value, level } = selectedOption[length - 1];
       this.selectedOption = {
         label,
         value,
         level,
-        mergeName: selectedOption.map(o => o.label).join('/'),
+        mergeName: selectedOption.map(o => o.label).join(this.separator),
       };
     }
   }
@@ -164,13 +159,12 @@ export class AddressSelectService {
     this.clearInput$.next();
   }
 
-  // tslint:disable-next-line:no-any
   updateListOfSelectedValue(value: any[], emit: boolean): void {
     this.listOfSelectedValueWithEmit$.next({ value, emit });
     this.updateSelectedOption(!value.length);
   }
 
-  updateActivatedOption(option: POption | null, level: number): void {
+  updateActivatedOption(option: AddrOption | null, level: number): void {
     this.listOfActivatedOption$.next(option);
 
     if (this.listOfActivatedOption[level]) {
@@ -196,12 +190,6 @@ export class AddressSelectService {
     return false;
   }
 
-  splitBySeparators(str: string | string[], separators: string[]): string[] {
-    const reg = new RegExp(`[${separators.join()}]`);
-    const array = (str as string).split(reg).filter(token => token);
-    return Array.from(new Set(array));
-  }
-
   resetActivatedOptionIfNeeded(): void {
     const resetActivatedOption = () => {
       const listOfActivatedOption = this.listOfFilteredOption.find(item => this.compareWith(item.value, this.selectedOption[0]));
@@ -223,18 +211,21 @@ export class AddressSelectService {
     this.searchValueRaw$.next(value);
   }
 
-  updateSelectedValueByLabelList(listOfLabel: string[]): void {
-    const selectedOption = [...this.listOfActivatedOption];
-    const listOfMatchOptionValue = this.listOfFilteredOption
-      .filter(item => listOfLabel.indexOf(item.label) !== -1)
-      .map(item => item.value)
-      .filter(item => !isNotNil(this.listOfActivatedOption.find(v => this.compareWith(v, item))));
-
-    const listOfUnMatchOptionValue = listOfLabel.filter(label => this.listOfFilteredOption.map(item => item.label).indexOf(label) === -1);
-    this.updateListOfSelectedValue([...selectedOption, ...listOfMatchOptionValue, ...listOfUnMatchOptionValue], true);
+  updateSelectedOptionByCode(code: string): void {
+    this.addrQuerySrv.getAreaLabelByCode(code).subscribe(json => {
+      if (json.code === code) {
+        this.selectedOption = {
+          label: json.name,
+          value: json.code,
+          level: json.level,
+          mergeName: json.mergerName,
+        };
+        this.check();
+      }
+    });
   }
 
-  removeValueFormSelected(option: POption): void {
+  removeValueFormSelected(option: AddrOption): void {
     if (this.disabled || option.disabled) {
       return;
     }

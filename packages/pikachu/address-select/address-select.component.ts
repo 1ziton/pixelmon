@@ -91,6 +91,7 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
 
   @Input() size: NzSizeLDSType = 'default';
   @Input() level: number = 3;
+
   @Input() dropdownClassName: string;
   @Input() dropdownMatchSelectWidth = false;
   @Input() dropdownStyle: { [key: string]: string };
@@ -119,6 +120,11 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
   @Input()
   set filterOption(value: any) {
     this.addrSelectService.filterOption = value;
+  }
+  
+  @Input()
+  set separator(value: string) {
+    this.addrSelectService.separator = value;
   }
 
   @Input()
@@ -238,6 +244,9 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
       }
     }
     this.addrSelectService.updateListOfSelectedValue(listValue, false);
+    if (value) {
+      this.addrSelectService.updateSelectedOptionByCode(value);
+    }
     this.cdr.markForCheck();
   }
 

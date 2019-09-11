@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 
-export interface POption {
+export interface AddrOption {
   label: string;
   value: string;
   disabled?: boolean;

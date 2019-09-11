@@ -30,7 +30,7 @@
       [class.ant-select-dropdown-menu-item-selected]="option.checked && !option.disabled"
       *ngFor="
         let option of addrSelectService.listOfProvinceOptions
-          | pFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;
+          | addrFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;
         trackBy: trackValue
       "
       (click)="clickOption(option)"
@@ -59,7 +59,7 @@
       [class.ant-select-dropdown-menu-item-selected]="option.checked && !option.disabled"
       *ngFor="
         let option of addrSelectService.listOfCityOptions
-          | pFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;
+          | addrFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;
         trackBy: trackValue
       "
       (click)="clickOption(option)"
@@ -88,7 +88,7 @@
       [class.ant-select-dropdown-menu-item-selected]="option.checked && !option.disabled"
       *ngFor="
         let option of addrSelectService.listOfDistinctOptions
-          | pFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;
+          | addrFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;
         trackBy: trackValue
       "
       (click)="clickOption(option)"

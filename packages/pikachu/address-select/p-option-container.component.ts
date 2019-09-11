@@ -15,7 +15,7 @@ import {
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AddressSelectService } from './address-select.service';
-import { POption } from './interface';
+import { AddrOption } from './interface';
 import { AddrLevelFilterPipe } from './p-option.pipe';
 
 @Component({
@@ -54,7 +54,7 @@ export class AddrOptionContainerComponent implements OnDestroy, OnInit {
     this.addrSelectService.maxLevel = v;
   }
 
-  clickOption(option: POption): void {
+  clickOption(option: AddrOption): void {
     this.addrSelectService.clickOption(option);
   }
 
@@ -63,12 +63,12 @@ export class AddrOptionContainerComponent implements OnDestroy, OnInit {
     this.addrSelectService.toggleTab(index);
   }
 
-  trackLabel(_index: number, option: POption): string | TemplateRef<void> {
+  trackLabel(_index: number, option: AddrOption): string | TemplateRef<void> {
     return option.label;
   }
 
   // tslint:disable-next-line:no-any
-  trackValue(_index: number, option: POption): any {
+  trackValue(_index: number, option: AddrOption): any {
     return option.value;
   }
 
