@@ -16,7 +16,7 @@ import { HttpClient } from '@angular/common/http';
   selector: 'p-demo-dropdown-panel-basic',
   template: `
     <div>
-      <p-dropdown-panel style="width: 320px;" [data]="data" [(ngModel)]="selectedValue" placeHolder="选择政区地址"></p-dropdown-panel>
+      <p-dropdown-panel style="width: 320px;" [data]="data" [(ngModel)]="selectedValue" placeHolder="请选择"></p-dropdown-panel>
       <span style="margin-left:30px">
         值：{{selectedValue}}
       </span>
@@ -32,7 +32,7 @@ export class PDemoDropdownSelectBasicComponent  implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get(`/users?field=list&size=30`).subscribe((result:any) => {
+    this.http.get(`/users?field=list&size=15`).subscribe((result:any) => {
       this.data = result.map(item=>({
         label:item.name,
         value:item.id

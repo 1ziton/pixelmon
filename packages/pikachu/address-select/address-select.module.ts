@@ -7,12 +7,18 @@ import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzAddOnModule, NzNoAnimationModule, NzOverlayModule } from 'ng-zorro-antd/core';
 import { AddressSelectComponent } from './address-select.component';
-import { PFilterOptionPipe } from './p-option.pipe';
-import { PSelectTopControlComponent } from './p-select-top-control.component';
-import { POptionContainerComponent } from './p-option-container.component';
+import { AddrFilterOptionPipe, AddrLevelFilterPipe } from './p-option.pipe';
+import { AddrSelectTopControlComponent } from './p-select-top-control.component';
+import { AddrOptionContainerComponent } from './p-option-container.component';
 
 @NgModule({
-  declarations: [AddressSelectComponent, PSelectTopControlComponent, PFilterOptionPipe, POptionContainerComponent],
+  declarations: [
+    AddressSelectComponent,
+    AddrSelectTopControlComponent,
+    AddrFilterOptionPipe,
+    AddrLevelFilterPipe,
+    AddrOptionContainerComponent,
+  ],
   imports: [
     OverlayModule,
     PlatformModule,
@@ -24,6 +30,12 @@ import { POptionContainerComponent } from './p-option-container.component';
     NzNoAnimationModule,
     NzOverlayModule,
   ],
-  exports: [AddressSelectComponent, PSelectTopControlComponent, PFilterOptionPipe, POptionContainerComponent],
+  exports: [
+    AddressSelectComponent,
+    AddrSelectTopControlComponent,
+    AddrFilterOptionPipe,
+    AddrLevelFilterPipe,
+    AddrOptionContainerComponent,
+  ],
 })
 export class AddressSelectModule {}

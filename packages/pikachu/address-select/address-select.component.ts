@@ -26,8 +26,7 @@ import { InputBoolean, isNotNil, NzNoAnimationDirective, NzSizeLDSType, slideMot
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AddressSelectService } from './address-select.service';
-import { PSelectTopControlComponent } from './p-select-top-control.component';
-import { POption } from './interface';
+import { AddrSelectTopControlComponent } from './p-select-top-control.component';
 
 @Component({
   selector: 'p-address-select',
@@ -46,12 +45,12 @@ import { POption } from './interface';
   animations: [slideMotion],
   templateUrl: './address-select.component.html',
   host: {
-    '[class.ant-select-lg]': 'nzSize==="large"',
-    '[class.ant-select-sm]': 'nzSize==="small"',
-    '[class.ant-select-enabled]': '!nzDisabled',
-    '[class.ant-select-no-arrow]': '!nzShowArrow',
-    '[class.ant-select-disabled]': 'nzDisabled',
-    '[class.ant-select-allow-clear]': 'nzAllowClear',
+    '[class.ant-select-lg]': 'size==="large"',
+    '[class.ant-select-sm]': 'size==="small"',
+    '[class.ant-select-enabled]': '!disabled',
+    '[class.ant-select-no-arrow]': '!showArrow',
+    '[class.ant-select-disabled]': 'disabled',
+    '[class.ant-select-allow-clear]': 'allowClear',
     '[class.ant-select-open]': 'open',
     '(click)': 'toggleDropDown()',
   },
@@ -69,75 +68,63 @@ import { POption } from './interface';
   ],
 })
 export class AddressSelectComponent implements ControlValueAccessor, OnInit, AfterViewInit, OnDestroy, AfterContentInit {
-  open = false;
+  _open = false;
   // tslint:disable-next-line:no-any
   value: any | any[];
   dropDownPosition: 'top' | 'center' | 'bottom' = 'bottom';
   triggerWidth: number;
-  private _data: POption[] = [];
   private _disabled = false;
   private _autoFocus = false;
   private isInit = false;
   private destroy$ = new Subject();
   @ViewChild(CdkOverlayOrigin, { static: false }) cdkOverlayOrigin: CdkOverlayOrigin;
   @ViewChild(CdkConnectedOverlay, { static: false }) cdkConnectedOverlay: CdkConnectedOverlay;
-  @ViewChild(PSelectTopControlComponent, { static: true }) nzSelectTopControlComponent: PSelectTopControlComponent;
+  @ViewChild(AddrSelectTopControlComponent, { static: true }) panelTopControlComponent: AddrSelectTopControlComponent;
   // tslint:disable-next-line: jsdoc-format
   /** should move to nz-option-container when https://github.com/angular/angular/issues/20810 resolved **/
-  @Output() readonly nzOnSearch = new EventEmitter<string>();
-  @Output() readonly nzScrollToBottom = new EventEmitter<void>();
-  @Output() readonly nzOpenChange = new EventEmitter<boolean>();
-  @Output() readonly nzBlur = new EventEmitter<void>();
-  @Output() readonly nzFocus = new EventEmitter<void>();
+  // tslint:disable-next-line: no-output-on-prefix
+  @Output() readonly onSearch = new EventEmitter<string>();
+  @Output() readonly scrollToBottom = new EventEmitter<void>();
+  @Output() readonly openChange = new EventEmitter<boolean>();
+  @Output() readonly pBlur = new EventEmitter<void>();
+  @Output() readonly pFocus = new EventEmitter<void>();
 
-  @Input() nzSize: NzSizeLDSType = 'default';
-  @Input() nzDropdownClassName: string;
-  @Input() nzDropdownMatchSelectWidth = true;
-  @Input() nzDropdownStyle: { [key: string]: string };
-  @Input() nzNotFoundContent: string;
-  @Input() @InputBoolean() nzAllowClear = false;
-  @Input() @InputBoolean() nzShowSearch = false;
-  @Input() @InputBoolean() nzLoading = false;
-  @Input() nzPlaceHolder: string;
-  @Input() nzMaxTagCount: number;
-  @Input() nzSuffixIcon: TemplateRef<void>;
-  @Input() nzClearIcon: TemplateRef<void>;
-  @Input() nzRemoveIcon: TemplateRef<void>;
-  @Input() nzMenuItemSelectedIcon: TemplateRef<void>;
-  @Input() nzShowArrow = true;
+  @Input() size: NzSizeLDSType = 'default';
+  @Input() level: number = 3;
 
-  @Input()
-  set data(d: POption[]) {
-    this._data = d;
-    setTimeout(() => {
-      this.addrSelectService.updateTemplateOption(this._data);
-    });
-  }
+  @Input() dropdownClassName: string;
+  @Input() dropdownMatchSelectWidth = false;
+  @Input() dropdownStyle: { [key: string]: string };
+  @Input() notFoundContent: string;
+  @Input() @InputBoolean() allowClear = true;
+  @Input() @InputBoolean() showSearch = false;
+  @Input() @InputBoolean() loading = false;
+  @Input() placeHolder: string;
+  @Input() maxTagCount: number;
+  @Input() suffixIcon: TemplateRef<void>;
+  @Input() clearIcon: TemplateRef<void>;
+  @Input() removeIcon: TemplateRef<void>;
+  @Input() menuItemSelectedIcon: TemplateRef<void>;
+  @Input() showArrow = true;
 
   @Input()
-  set nzAutoClearSearchValue(value: boolean) {
+  set autoClearSearchValue(value: boolean) {
     this.addrSelectService.autoClearSearchValue = toBoolean(value);
   }
 
   @Input()
-  set nzMaxMultipleCount(value: number) {
-    this.addrSelectService.maxMultipleCount = value;
-  }
-
-  @Input()
-  set nzServerSearch(value: boolean) {
+  set serverSearch(value: boolean) {
     this.addrSelectService.serverSearch = toBoolean(value);
   }
 
   @Input()
-  set nzMode(value: 'default' | 'multiple' | 'tags') {
-    this.addrSelectService.mode = value;
-    this.addrSelectService.check();
-  }
-
-  @Input()
-  set nzFilterOption(value: any) {
+  set filterOption(value: any) {
     this.addrSelectService.filterOption = value;
+  }
+  
+  @Input()
+  set separator(value: string) {
+    this.addrSelectService.separator = value;
   }
 
   @Input()
@@ -147,32 +134,32 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
   }
 
   @Input()
-  set nzAutoFocus(value: boolean) {
+  set autoFocus(value: boolean) {
     this._autoFocus = toBoolean(value);
     this.updateAutoFocus();
   }
 
-  get nzAutoFocus(): boolean {
+  get autoFocus(): boolean {
     return this._autoFocus;
   }
 
   @Input()
-  set nzOpen(value: boolean) {
-    this.open = value;
+  set open(value: boolean) {
+    this._open = value;
     this.addrSelectService.setOpenState(value);
   }
 
   @Input()
-  set nzDisabled(value: boolean) {
+  set disabled(value: boolean) {
     this._disabled = toBoolean(value);
     this.addrSelectService.disabled = this._disabled;
     this.addrSelectService.check();
-    if (this.nzDisabled && this.isInit) {
+    if (this.disabled && this.isInit) {
       this.closeDropDown();
     }
   }
 
-  get nzDisabled(): boolean {
+  get disabled(): boolean {
     return this._disabled;
   }
 
@@ -180,35 +167,31 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
   onTouched: () => void = () => null;
 
   updateAutoFocus(): void {
-    if (this.nzSelectTopControlComponent.inputElement) {
-      if (this.nzAutoFocus) {
-        this.renderer.setAttribute(this.nzSelectTopControlComponent.inputElement.nativeElement, 'autofocus', 'autofocus');
+    if (this.panelTopControlComponent.inputElement) {
+      if (this.autoFocus) {
+        this.renderer.setAttribute(this.panelTopControlComponent.inputElement.nativeElement, 'autofocus', 'autofocus');
       } else {
-        this.renderer.removeAttribute(this.nzSelectTopControlComponent.inputElement.nativeElement, 'autofocus');
+        this.renderer.removeAttribute(this.panelTopControlComponent.inputElement.nativeElement, 'autofocus');
       }
     }
   }
 
   focus(): void {
-    if (this.nzSelectTopControlComponent.inputElement) {
-      this.focusMonitor.focusVia(this.nzSelectTopControlComponent.inputElement, 'keyboard');
-      this.nzFocus.emit();
+    if (this.panelTopControlComponent.inputElement) {
+      this.focusMonitor.focusVia(this.panelTopControlComponent.inputElement, 'keyboard');
+      this.pFocus.emit();
     }
   }
 
   blur(): void {
-    if (this.nzSelectTopControlComponent.inputElement) {
-      this.nzSelectTopControlComponent.inputElement.nativeElement.blur();
-      this.nzBlur.emit();
+    if (this.panelTopControlComponent.inputElement) {
+      this.panelTopControlComponent.inputElement.nativeElement.blur();
+      this.pBlur.emit();
     }
   }
 
-  onKeyDown(event: KeyboardEvent): void {
-    this.addrSelectService.onKeyDown(event);
-  }
-
   toggleDropDown(): void {
-    if (!this.nzDisabled) {
+    if (!this.disabled) {
       this.addrSelectService.setOpenState(!this.open);
     }
   }
@@ -223,7 +206,8 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
 
   updateCdkConnectedOverlayStatus(): void {
     if (this.platform.isBrowser) {
-      this.triggerWidth = this.cdkOverlayOrigin.elementRef.nativeElement.getBoundingClientRect().width + 70;
+      const triggerWidth = this.cdkOverlayOrigin.elementRef.nativeElement.getBoundingClientRect().width;
+      this.triggerWidth = this.dropdownMatchSelectWidth ? triggerWidth : triggerWidth + 75;
     }
   }
 
@@ -247,7 +231,7 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
     renderer.addClass(elementRef.nativeElement, 'ant-select');
   }
 
-  /** update ngModel -> update listOfSelectedValue */
+  /** update ngModel -> update selectedOption */
   // tslint:disable-next-line:no-any
   writeValue(value: any | any[]): void {
     this.value = value;
@@ -260,6 +244,9 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
       }
     }
     this.addrSelectService.updateListOfSelectedValue(listValue, false);
+    if (value) {
+      this.addrSelectService.updateSelectedOptionByCode(value);
+    }
     this.cdr.markForCheck();
   }
 
@@ -272,13 +259,15 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
   }
 
   setDisabledState(isDisabled: boolean): void {
-    this.nzDisabled = isDisabled;
+    this.disabled = isDisabled;
     this.cdr.markForCheck();
   }
 
   ngOnInit(): void {
+    // 获取一级地址数据
+    this.addrSelectService.getAreasByCode('', 0);
     this.addrSelectService.searchValue$.pipe(takeUntil(this.destroy$)).subscribe(data => {
-      this.nzOnSearch.emit(data);
+      this.onSearch.emit(data);
       this.updateCdkConnectedOverlayPositions();
     });
     this.addrSelectService.modelChange$.pipe(takeUntil(this.destroy$)).subscribe(modelValue => {
@@ -286,11 +275,12 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
         this.value = modelValue;
         this.onChange(this.value);
         this.updateCdkConnectedOverlayPositions();
+        // this.cdr.detectChanges();
       }
     });
     this.addrSelectService.open$.pipe(takeUntil(this.destroy$)).subscribe(value => {
       if (this.open !== value) {
-        this.nzOpenChange.emit(value);
+        this.openChange.emit(value);
       }
       if (value) {
         this.focus();

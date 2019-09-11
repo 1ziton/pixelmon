@@ -5,7 +5,6 @@ import {
   ElementRef,
   EventEmitter,
   Input,
-  NgZone,
   OnDestroy,
   OnInit,
   Output,
@@ -13,10 +12,11 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { fromEvent, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AddressSelectService } from './address-select.service';
-import { POption } from './interface';
+import { AddrOption } from './interface';
+import { AddrLevelFilterPipe } from './p-option.pipe';
 
 @Component({
   selector: '[p-option-container]',
@@ -41,45 +41,42 @@ import { POption } from './interface';
     `,
   ],
 })
-export class POptionContainerComponent implements OnDestroy, OnInit {
+export class AddrOptionContainerComponent implements OnDestroy, OnInit {
   private destroy$ = new Subject();
-  private lastScrollTop = 0;
   @ViewChild('dropdownUl', { static: true }) dropdownUl: ElementRef<HTMLUListElement>;
-  @Input() nzNotFoundContent: string;
-  @Input() nzMenuItemSelectedIcon: TemplateRef<void>;
-  @Output() readonly nzScrollToBottom = new EventEmitter<void>();
-  clickOption(option: POption): void {
+  @Input() notFoundContent: string;
+  @Input() menuItemSelectedIcon: TemplateRef<void>;
+  @Output() readonly scrollToBottom = new EventEmitter<void>();
+
+  @Input()
+  set level(v: number) {
+    this.addrSelectService.levelLabels = new AddrLevelFilterPipe().transform(v);
+    this.addrSelectService.maxLevel = v;
+  }
+
+  clickOption(option: AddrOption): void {
     this.addrSelectService.clickOption(option);
   }
-  trackLabel(_index: number, option: POption): string | TemplateRef<void> {
+
+  toggleTabs(tab, index: number) {
+    if (tab.checked) return;
+    this.addrSelectService.toggleTab(index);
+  }
+
+  trackLabel(_index: number, option: AddrOption): string | TemplateRef<void> {
     return option.label;
   }
 
   // tslint:disable-next-line:no-any
-  trackValue(_index: number, option: POption): any {
+  trackValue(_index: number, option: AddrOption): any {
     return option.value;
   }
 
-  constructor(public addrSelectService: AddressSelectService, private cdr: ChangeDetectorRef, private ngZone: NgZone) {}
+  constructor(public addrSelectService: AddressSelectService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.addrSelectService.check$.pipe(takeUntil(this.destroy$)).subscribe(() => {
       this.cdr.markForCheck();
-    });
-    this.ngZone.runOutsideAngular(() => {
-      const ul = this.dropdownUl.nativeElement;
-      fromEvent<MouseEvent>(ul, 'scroll')
-        .pipe(takeUntil(this.destroy$))
-        .subscribe(e => {
-          e.preventDefault();
-          e.stopPropagation();
-          if (ul && ul.scrollTop > this.lastScrollTop && ul.scrollHeight < ul.clientHeight + ul.scrollTop + 10) {
-            this.lastScrollTop = ul.scrollTop;
-            this.ngZone.run(() => {
-              this.nzScrollToBottom.emit();
-            });
-          }
-        });
     });
   }
 

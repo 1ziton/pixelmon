@@ -1,5 +1,5 @@
 ---
-order: 17
+order: 4
 title:
   zh-CN: 搜索过滤
 ---
@@ -18,18 +18,18 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'p-demo-dropdown-panel-search',
   template: `
-   <p-dropdown-panel style="width: 320px;" [data]="optionList" [(ngModel)]="selectedValue" (ngModelChange)="modelChanged($event)" (scrollToBottom)="loadMore()" showSearch placeHolder="选择政区地址"></p-dropdown-panel>
+   <p-dropdown-panel style="width: 320px;" [data]="optionList" [(ngModel)]="selectedValue" (ngModelChange)="modelChanged($event)" showSearch placeHolder="请选择"></p-dropdown-panel>
      <span style="margin-left:30px">
         值：{{selectedValue}}
     </span>
   `
 })
-export class PDemoDropdownSelectScrollLoadComponent implements OnInit {
-  randomUserUrl = 'https://api.randomuser.me/?results=20';
+export class PDemoDropdownSelectSearchComponent implements OnInit {
+  randomUserUrl = 'https://api.randomuser.me/?results=12';
   optionList: string[] = [];
   selectedValue = null;
   isLoading = false;
-  // tslint:disable:no-any
+ 
   getRandomNameList: Observable<string[]> = this.http
     .get(`${this.randomUserUrl}`)
     .pipe(map((res: any) => res.results))
@@ -41,7 +41,6 @@ export class PDemoDropdownSelectScrollLoadComponent implements OnInit {
         }));
       })
     );
-  // tslint:enable:no-any
 
   loadMore(): void {
     this.isLoading = true;

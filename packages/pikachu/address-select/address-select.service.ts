@@ -1,59 +1,49 @@
-import { BACKSPACE, DOWN_ARROW, ENTER, SPACE, TAB, UP_ARROW } from '@angular/cdk/keycodes';
 import { Injectable } from '@angular/core';
-import { combineLatest, merge, BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
+import { BehaviorSubject, merge, ReplaySubject, Subject } from 'rxjs';
 import { distinctUntilChanged, filter, map, share, skip, tap } from 'rxjs/operators';
-
-import { isNil, isNotNil } from 'ng-zorro-antd/core';
-import { POption } from './interface';
-import { defaultFilterOption, PFilterOptionPipe } from './p-option.pipe';
+import { AddressQueryService, AddrOption, ResultOption } from './interface';
+import { AddrFilterOptionPipe, defaultAddrFilterOption } from './p-option.pipe';
 
 @Injectable()
 export class AddressSelectService {
   // Input params
   autoClearSearchValue = true;
   serverSearch = false;
-  filterOption: any = defaultFilterOption;
-  mode = 'default';
-  maxMultipleCount = Infinity;
+  filterOption: any = defaultAddrFilterOption;
   disabled = false;
 
+  levelLabels: AddrOption[] = [];
+  currentLevel: number = 1;
+  maxLevel: number = 1;
+  separator: string;
   // selectedValueChanged should emit ngModelChange or not
   // tslint:disable-next-line:no-any
   private listOfSelectedValueWithEmit$ = new BehaviorSubject<{ value: any[]; emit: boolean }>({
     value: [],
     emit: false,
   });
-  // Data Change
-  private mapOfTemplateOption$ = new BehaviorSubject<{
-    listOfPOption: POption[];
-  }>({
-    listOfPOption: [],
-  });
+
   // searchValue Change
   private searchValueRaw$ = new BehaviorSubject<string>('');
-  private listOfFilteredOption: POption[] = [];
+  private listOfFilteredOption: AddrOption[] = [];
   private openRaw$ = new Subject<boolean>();
   private checkRaw$ = new Subject();
-  private open = false;
   clearInput$ = new Subject<boolean>();
   searchValue = '';
   isShowNotFound = false;
   // open
   open$ = this.openRaw$.pipe(distinctUntilChanged());
-  activatedOption: POption | null;
-  activatedOption$ = new ReplaySubject<POption | null>(1);
-  listOfSelectedValue$ = this.listOfSelectedValueWithEmit$.pipe(map(data => data.value));
+  listOfActivatedOption: any[] = [];
+  listOfActivatedOption$ = new ReplaySubject<AddrOption | null>(1);
+  selectedOption: ResultOption;
   modelChange$ = this.listOfSelectedValueWithEmit$.pipe(
     filter(item => item.emit),
     map(data => {
       const selectedList = data.value;
-      let modelValue: any[] | null = null; // tslint:disable-line:no-any
-      if (this.isSingleMode) {
-        if (selectedList.length) {
-          modelValue = selectedList[0];
-        }
-      } else {
-        modelValue = selectedList;
+      const { length } = selectedList;
+      let modelValue: any[] | null = null;
+      if (length > 1) {
+        modelValue = selectedList[length - 1].value;
       }
       return modelValue;
     }),
@@ -65,65 +55,98 @@ export class AddressSelectService {
     tap(value => {
       this.searchValue = value;
       if (value) {
-        this.updateActivatedOption(this.listOfFilteredOption[0]);
+        this.updateActivatedOption(this.listOfFilteredOption[0], this.currentLevel);
       }
       this.updateListOfFilteredOption();
     }),
   );
-  // tslint:disable-next-line:no-any
-  listOfSelectedValue: any[] = [];
-  // data
-  listOfPOption: POption[] = [];
-  listOfCachedSelectedOption: POption[] = [];
-  // selected value or Data change
-  valueOrOption$ = combineLatest([this.listOfSelectedValue$, this.mapOfTemplateOption$]).pipe(
-    tap(data => {
-      this.listOfSelectedValue = data[0];
-      this.listOfPOption = data[1].listOfPOption;
-      console.log(JSON.stringify(this.listOfPOption));
-      this.updateListOfFilteredOption();
-      this.resetActivatedOptionIfNeeded();
-      this.updateListOfCachedOption();
-    }),
-    share(),
-  );
-  check$ = merge(this.checkRaw$, this.valueOrOption$, this.searchValue$, this.activatedOption$, this.open$, this.modelChange$).pipe(
-    share(),
-  );
-  // tslint:disable-next-line:no-any
+  // address data
+  listOfProvinceOptions: AddrOption[] = [];
+  listOfCityOptions: AddrOption[] = [];
+  listOfDistinctOptions: AddrOption[] = [];
+  listOfStreetOptions: AddrOption[] = [];
+
+  check$ = merge(this.checkRaw$, this.searchValue$, this.listOfActivatedOption$, this.open$, this.modelChange$).pipe(share());
   compareWith = (o1: any, o2: any) => o1 === o2;
 
-  clickOption(option: POption): void {
-    /** update listOfSelectedOption -> update listOfSelectedValue -> next listOfSelectedValue$ */
-    if (!option.disabled) {
-      this.updateActivatedOption(option);
-      this.listOfPOption.map(item => {
-        item.checked = false;
-      });
-      option.checked = true;
-      let listOfSelectedValue = [...this.listOfSelectedValue];
-      if (!this.compareWith(listOfSelectedValue[0], option.value)) {
-        listOfSelectedValue = [option.value];
-        this.updateListOfSelectedValue(listOfSelectedValue, true);
+  constructor(private addrQuerySrv: AddressQueryService) {}
+
+  getAreasByCode(code?: string, level = 0) {
+    this.addrQuerySrv.getAreasByCode(code).subscribe(json => {
+      if (level === 0) {
+        this.listOfProvinceOptions = [...json];
+      } else if (level === 1) {
+        this.listOfCityOptions = [...json];
+      } else if (level === 2) {
+        this.listOfDistinctOptions = [...json];
+      } else if (level === 3) {
+        this.listOfStreetOptions = [...json];
       }
-      if (this.isSingleMode) {
-        this.setOpenState(false);
-      } else if (this.autoClearSearchValue) {
-        this.clearInput();
-      }
-    }
+      this.check();
+    });
   }
 
-  updateListOfCachedOption(): void {
-    const selectedOption = this.listOfPOption.find(o => this.compareWith(o.value, this.listOfSelectedValue[0]));
-    if (!isNil(selectedOption)) {
-      this.listOfCachedSelectedOption = [selectedOption];
+  toggleTab(index: number) {
+    this.currentLevel = index + 1;
+    this.levelLabels.forEach((item, i) => {
+      if (i === index) {
+        item.checked = true;
+      } else {
+        item.checked = false;
+      }
+    });
+  }
+
+  isMaxLevel(): boolean {
+    return this.maxLevel === this.currentLevel;
+  }
+
+  clickOption(option: AddrOption): void {
+    if (option.disabled) {
+      return;
+    }
+    const level = (option.level as number) + 1;
+    this.updateActivatedOption(option, level);
+    // 设置值
+    if (this.isMaxLevel()) {
+      if (this.autoClearSearchValue) {
+        this.clearInput();
+      }
+      this.setOpenState(false);
+      return;
+    }
+
+    this.getAreasByCode(option.value, level);
+    this.toggleTab(level);
+  }
+
+  updateSelectedOption(clean = false): void {
+    if (clean) {
+      this.toggleTab(0);
+      this.selectedOption = {
+        label: '',
+        value: '',
+        mergeName: '',
+      };
+      return;
+    }
+    const selectedOption: AddrOption[] = this.listOfActivatedOption.filter(o => o && o.value);
+    const { length } = selectedOption;
+    console.log(this.separator)
+    if (length > 0) {
+      const { label, value, level } = selectedOption[length - 1];
+      this.selectedOption = {
+        label,
+        value,
+        level,
+        mergeName: selectedOption.map(o => o.label).join(this.separator),
+      };
     }
   }
 
   updateListOfFilteredOption(): void {
-    const listOfFilteredOption = new PFilterOptionPipe().transform(
-      this.listOfPOption,
+    const listOfFilteredOption = new AddrFilterOptionPipe().transform(
+      this.listOfProvinceOptions,
       this.searchValue,
       this.filterOption,
       this.serverSearch,
@@ -136,14 +159,25 @@ export class AddressSelectService {
     this.clearInput$.next();
   }
 
-  // tslint:disable-next-line:no-any
   updateListOfSelectedValue(value: any[], emit: boolean): void {
     this.listOfSelectedValueWithEmit$.next({ value, emit });
+    this.updateSelectedOption(!value.length);
   }
 
-  updateActivatedOption(option: POption | null): void {
-    this.activatedOption$.next(option);
-    this.activatedOption = option;
+  updateActivatedOption(option: AddrOption | null, level: number): void {
+    this.listOfActivatedOption$.next(option);
+
+    if (this.listOfActivatedOption[level]) {
+      if (this.listOfActivatedOption[level].value !== (option && option.value) && this.isMaxLevel()) {
+        this.listOfActivatedOption[level] = option;
+        this.updateListOfSelectedValue([...this.listOfActivatedOption], true);
+        return;
+      }
+    }
+    this.listOfActivatedOption[level] = option;
+    if (this.isMaxLevel()) {
+      this.updateListOfSelectedValue([...this.listOfActivatedOption], true);
+    }
   }
 
   includesSeparators(str: string | string[], separators: string[]): boolean {
@@ -156,21 +190,15 @@ export class AddressSelectService {
     return false;
   }
 
-  splitBySeparators(str: string | string[], separators: string[]): string[] {
-    const reg = new RegExp(`[${separators.join()}]`);
-    const array = (str as string).split(reg).filter(token => token);
-    return Array.from(new Set(array));
-  }
-
   resetActivatedOptionIfNeeded(): void {
     const resetActivatedOption = () => {
-      const activatedOption = this.listOfFilteredOption.find(item => this.compareWith(item.value, this.listOfSelectedValue[0]));
-      this.updateActivatedOption(activatedOption || null);
+      const listOfActivatedOption = this.listOfFilteredOption.find(item => this.compareWith(item.value, this.selectedOption[0]));
+      this.updateActivatedOption(listOfActivatedOption || null, this.currentLevel);
     };
-    if (this.activatedOption) {
+    if (this.listOfActivatedOption) {
       if (
-        !this.listOfFilteredOption.find(item => this.compareWith(item.value, this.activatedOption!.value)) ||
-        !this.listOfSelectedValue.find(item => this.compareWith(item, this.activatedOption!.value))
+        !this.listOfFilteredOption.find(item => this.compareWith(item.value, this.listOfActivatedOption[this.currentLevel]!.value)) ||
+        !this.listOfActivatedOption.find(item => this.compareWith(item, this.listOfActivatedOption[this.currentLevel]!.value))
       ) {
         resetActivatedOption();
       }
@@ -179,90 +207,39 @@ export class AddressSelectService {
     }
   }
 
-  updateTemplateOption(listOfPOption: POption[]): void {
-    this.mapOfTemplateOption$.next({ listOfPOption });
-  }
-
   updateSearchValue(value: string): void {
     this.searchValueRaw$.next(value);
   }
 
-  updateSelectedValueByLabelList(listOfLabel: string[]): void {
-    const listOfSelectedValue = [...this.listOfSelectedValue];
-    const listOfMatchOptionValue = this.listOfFilteredOption
-      .filter(item => listOfLabel.indexOf(item.label) !== -1)
-      .map(item => item.value)
-      .filter(item => !isNotNil(this.listOfSelectedValue.find(v => this.compareWith(v, item))));
-
-    const listOfUnMatchOptionValue = listOfLabel.filter(label => this.listOfFilteredOption.map(item => item.label).indexOf(label) === -1);
-    this.updateListOfSelectedValue([...listOfSelectedValue, ...listOfMatchOptionValue, ...listOfUnMatchOptionValue], true);
+  updateSelectedOptionByCode(code: string): void {
+    this.addrQuerySrv.getAreaLabelByCode(code).subscribe(json => {
+      if (json.code === code) {
+        this.selectedOption = {
+          label: json.name,
+          value: json.code,
+          level: json.level,
+          mergeName: json.mergerName,
+        };
+        this.check();
+      }
+    });
   }
 
-  onKeyDown(e: KeyboardEvent): void {
-    if (this.disabled) {
-      return;
-    }
-    const keyCode = e.keyCode;
-    const listOfFilteredOptionWithoutDisabled = this.listOfFilteredOption.filter(item => !item.disabled);
-    const activatedIndex = listOfFilteredOptionWithoutDisabled.findIndex(item => item === this.activatedOption);
-    switch (keyCode) {
-      case UP_ARROW:
-        e.preventDefault();
-        const preIndex = activatedIndex > 0 ? activatedIndex - 1 : listOfFilteredOptionWithoutDisabled.length - 1;
-        this.updateActivatedOption(listOfFilteredOptionWithoutDisabled[preIndex]);
-        break;
-      case DOWN_ARROW:
-        e.preventDefault();
-        const nextIndex = activatedIndex < listOfFilteredOptionWithoutDisabled.length - 1 ? activatedIndex + 1 : 0;
-        this.updateActivatedOption(listOfFilteredOptionWithoutDisabled[nextIndex]);
-        if (!this.disabled && !this.open) {
-          this.setOpenState(true);
-        }
-        break;
-      case ENTER:
-        e.preventDefault();
-        if (this.open) {
-          if (this.activatedOption && !this.activatedOption.disabled) {
-            this.clickOption(this.activatedOption);
-          }
-        } else {
-          this.setOpenState(true);
-        }
-        break;
-      case BACKSPACE:
-        break;
-      case SPACE:
-        if (!this.disabled && !this.open) {
-          this.setOpenState(true);
-          e.preventDefault();
-        }
-        break;
-      case TAB:
-        this.setOpenState(false);
-        break;
-    }
-  }
-
-  // tslint:disable-next-line:no-any
-  removeValueFormSelected(option: POption): void {
+  removeValueFormSelected(option: AddrOption): void {
     if (this.disabled || option.disabled) {
       return;
     }
-    const listOfSelectedValue = this.listOfSelectedValue.filter(item => !this.compareWith(item, option.value));
-    this.updateListOfSelectedValue(listOfSelectedValue, true);
+    const selectedOption = this.listOfActivatedOption.filter(item => !this.compareWith(item, option.value));
+    this.updateListOfSelectedValue(selectedOption, true);
     this.clearInput();
   }
 
   setOpenState(value: boolean): void {
     this.openRaw$.next(value);
-    this.open = value;
+    // this.open = value;
   }
 
   check(): void {
     this.checkRaw$.next();
-  }
-
-  get isSingleMode(): boolean {
-    return this.mode === 'default';
   }
 }

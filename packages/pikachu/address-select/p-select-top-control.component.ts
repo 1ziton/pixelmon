@@ -26,20 +26,20 @@ import { AddressSelectService } from './address-select.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class PSelectTopControlComponent implements OnInit, OnDestroy {
+export class AddrSelectTopControlComponent implements OnInit, OnDestroy {
   inputValue: string;
   isComposing = false;
   private destroy$ = new Subject();
   @ViewChild('inputElement', { static: false }) inputElement: ElementRef;
-  @Input() nzShowSearch = false;
-  @Input() nzPlaceHolder: string;
-  @Input() nzOpen = false;
-  @Input() nzAllowClear = false;
-  @Input() nzShowArrow = true;
-  @Input() nzLoading = false;
-  @Input() nzSuffixIcon: TemplateRef<void>;
-  @Input() nzClearIcon: TemplateRef<void>;
-  @Input() nzRemoveIcon: TemplateRef<void>;
+  @Input() showSearch = false;
+  @Input() placeHolder: string;
+  @Input() open = false;
+  @Input() allowClear = false;
+  @Input() showArrow = true;
+  @Input() loading = false;
+  @Input() suffixIcon: TemplateRef<void>;
+  @Input() clearIcon: TemplateRef<void>;
+  @Input() removeIcon: TemplateRef<void>;
 
   onClearSelection(e: MouseEvent): void {
     e.stopPropagation();
@@ -56,16 +56,16 @@ export class PSelectTopControlComponent implements OnInit, OnDestroy {
   }
 
   get placeHolderDisplay(): string {
-    return this.inputValue || this.isComposing || this.addrSelectService.listOfSelectedValue.length ? 'none' : 'block';
+    return this.inputValue || this.isComposing || this.addrSelectService.listOfActivatedOption.length ? 'none' : 'block';
   }
 
   get selectedValueStyle(): { [key: string]: string } {
     let showSelectedValue = false;
     let opacity = 1;
-    if (!this.nzShowSearch) {
+    if (!this.showSearch) {
       showSelectedValue = true;
     } else {
-      if (this.nzOpen) {
+      if (this.open) {
         showSelectedValue = !(this.inputValue || this.isComposing);
         if (showSelectedValue) {
           opacity = 0.4;
@@ -82,7 +82,7 @@ export class PSelectTopControlComponent implements OnInit, OnDestroy {
 
   // tslint:disable-next-line:no-any
   trackValue(_index: number, option: any): any {
-    return option.nzValue;
+    return option.value;
   }
 
   removeSelectedValue(option: any, e: MouseEvent): void {

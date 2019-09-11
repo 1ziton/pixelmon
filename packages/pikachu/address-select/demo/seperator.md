@@ -1,8 +1,7 @@
 ---
 order: 1
 title:
-  en-US: Basic
-  zh-CN: 基础
+  zh-CN: 间隔符
   bg: f2f4f5
 ---
 
@@ -12,15 +11,15 @@ title:
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'p-demo-address-select-basic',
+  selector: 'p-demo-address-select-separator',
   template: `
-    <p-address-select style="width: 320px;"  [(ngModel)]="selectedValue" nzAllowClear  nzShowSearch nzPlaceHolder="选择政区地址"></p-address-select>
+    <p-address-select style="width: 320px;"  [(ngModel)]="selectedValue" separator="-" nzPlaceHolder="选择政区地址"></p-address-select>
      <span style="margin-left:30px">
         值：{{selectedValue}}
     </span>
   `
 })
-export class PDemoSelectBasicComponent  implements OnInit {
+export class PDemoSelectSeparatorComponent  implements OnInit {
   selectedValue = '450503000000';
 
   ngOnInit(): void {

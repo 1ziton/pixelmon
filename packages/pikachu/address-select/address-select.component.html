@@ -1,46 +1,48 @@
 <div
-  cdkOverlayOrigin
   p-select-top-control
+  cdkOverlayOrigin
   tabindex="0"
-  class="ant-select-selection"
-  [nzOpen]="open"
+  class="ant-select-selection ant-select-selection--single"
+  [open]="_open"
   [@.disabled]="noAnimation?.nzNoAnimation"
   [nzNoAnimation]="noAnimation?.nzNoAnimation"
-  [nzPlaceHolder]="nzPlaceHolder"
-  [nzAllowClear]="nzAllowClear"
-  [nzShowArrow]="nzShowArrow"
-  [nzLoading]="nzLoading"
-  [nzSuffixIcon]="nzSuffixIcon"
-  [nzClearIcon]="nzClearIcon"
-  [nzRemoveIcon]="nzRemoveIcon"
-  [nzShowSearch]="nzShowSearch"
-  [class.ant-select-selection--single]="addrSelectService.isSingleMode"
-  (keydown)="onKeyDown($event)"
+  [placeHolder]="placeHolder"
+  [allowClear]="allowClear"
+  [showArrow]="showArrow"
+  [loading]="loading"
+  [suffixIcon]="suffixIcon"
+  [clearIcon]="clearIcon"
+  [removeIcon]="removeIcon"
+  [showSearch]="showSearch"
 ></div>
 <ng-template
   cdkConnectedOverlay
   nzConnectedOverlay
   [cdkConnectedOverlayHasBackdrop]="true"
-  [cdkConnectedOverlayMinWidth]="nzDropdownMatchSelectWidth ? null : triggerWidth"
-  [cdkConnectedOverlayWidth]="nzDropdownMatchSelectWidth ? triggerWidth : null"
+  [cdkConnectedOverlayWidth]="triggerWidth"
   [cdkConnectedOverlayOrigin]="cdkOverlayOrigin"
   (backdropClick)="closeDropDown()"
   (detach)="closeDropDown()"
   (positionChange)="onPositionChange($event)"
-  [cdkConnectedOverlayOpen]="open"
+  [cdkConnectedOverlayOpen]="_open"
 >
   <div
-    p-option-container
-    class="ant-select-dropdown"
-    [class.ant-select-dropdown--single]="addrSelectService.isSingleMode"
+    class="ant-select-dropdown ant-select-dropdown--single"
     [class.ant-select-dropdown-placement-bottomLeft]="dropDownPosition === 'bottom'"
     [class.ant-select-dropdown-placement-topLeft]="dropDownPosition === 'top'"
-    style="overflow: auto;transform: translateZ(0px);"
-    (keydown)="onKeyDown($event)"
-    [nzMenuItemSelectedIcon]="nzMenuItemSelectedIcon"
-    [nzNotFoundContent]="nzNotFoundContent"
-    (nzScrollToBottom)="nzScrollToBottom.emit()"
+    [nzClassListAdd]="[dropdownClassName]"
+    [@slideMotion]="dropDownPosition"
+    [@.disabled]="noAnimation?.nzNoAnimation"
+    [nzNoAnimation]="noAnimation?.nzNoAnimation"
+    [ngStyle]="dropdownStyle"
   >
+    <div
+      p-option-container
+      style="overflow: auto;transform: translateZ(0px);"
+      [level]="level"
+      [menuItemSelectedIcon]="menuItemSelectedIcon"
+      [notFoundContent]="notFoundContent"
+      (scrollToBottom)="scrollToBottom.emit()"
+    ></div>
   </div>
 </ng-template>
-
