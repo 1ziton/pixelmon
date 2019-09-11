@@ -1,18 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  NgZone,
-  OnDestroy,
-  OnInit,
-  Output,
-  TemplateRef,
-  ViewChild,
-  ViewEncapsulation,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AddressSelectService } from './address-select.service';
@@ -79,7 +65,7 @@ export class AddrOptionContainerComponent implements OnDestroy, OnInit {
     return option.value;
   }
 
-  constructor(public addrSelectService: AddressSelectService, private cdr: ChangeDetectorRef, private ngZone: NgZone) {}
+  constructor(public addrSelectService: AddressSelectService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.addrSelectService.check$.pipe(takeUntil(this.destroy$)).subscribe(() => {

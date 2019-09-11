@@ -4,7 +4,7 @@ import { combineLatest, merge, BehaviorSubject, ReplaySubject, Subject } from 'r
 import { distinctUntilChanged, filter, map, share, skip, tap } from 'rxjs/operators';
 
 import { isNil, isNotNil } from 'ng-zorro-antd/core';
-import { POption } from './interface';
+import { POption, AddressQueryService } from './interface';
 import { defaultFilterOption, AddrFilterOptionPipe } from './p-option.pipe';
 
 @Injectable()
@@ -25,9 +25,15 @@ export class AddressSelectService {
   });
   // Data Change
   private mapOfTemplateOption$ = new BehaviorSubject<{
-    listOfPOption: POption[];
+    listOfProvinceOptions: POption[];
+    listOfCityOptions: POption[];
+    listOfDistinctOptions: POption[];
+    listOfStreetOptions: POption[];
   }>({
-    listOfPOption: [],
+    listOfProvinceOptions: [],
+    listOfCityOptions: [],
+    listOfDistinctOptions: [],
+    listOfStreetOptions: [],
   });
   // searchValue Change
   private searchValueRaw$ = new BehaviorSubject<string>('');
@@ -73,14 +79,20 @@ export class AddressSelectService {
   // tslint:disable-next-line:no-any
   listOfSelectedValue: any[] = [];
   // data
-  listOfPOption: POption[] = [];
+  listOfProvinceOptions: POption[] = [];
+  listOfCityOptions: POption[] = [];
+  listOfDistinctOptions: POption[] = [];
+  listOfStreetOptions: POption[] = [];
   listOfCachedSelectedOption: POption[] = [];
   // selected value or Data change
   valueOrOption$ = combineLatest([this.listOfSelectedValue$, this.mapOfTemplateOption$]).pipe(
     tap(data => {
       this.listOfSelectedValue = data[0];
-      this.listOfPOption = data[1].listOfPOption;
-      // console.log(JSON.stringify(this.listOfPOption));
+      this.listOfProvinceOptions = data[1].listOfProvinceOptions;
+      this.listOfCityOptions = data[1].listOfCityOptions;
+      this.listOfDistinctOptions = data[1].listOfDistinctOptions;
+      this.listOfStreetOptions = data[1].listOfStreetOptions     ;
+      // console.log(JSON.stringify(this.listOfProvinceOptions));
       this.updateListOfFilteredOption();
       this.resetActivatedOptionIfNeeded();
       this.updateListOfCachedOption();
@@ -93,11 +105,41 @@ export class AddressSelectService {
   // tslint:disable-next-line:no-any
   compareWith = (o1: any, o2: any) => o1 === o2;
 
+  constructor(private addrQuerySrv: AddressQueryService) {}
+
+  getAreasByCode(code?: string, level?: number) {
+    this.addrQuerySrv.getAreasByCode(code).subscribe(json => {
+      console.log(json, level);
+      if (level === 1 || !level) {
+        this.listOfProvinceOptions = json;
+        return;
+      }
+      if (level === 2) {
+        this.listOfCityOptions = json;
+        return;
+      }
+      if (level === 3) {
+        this.listOfDistinctOptions = json;
+        return;
+      }
+      if (level === 4) {
+        this.listOfStreetOptions = json;
+        return;
+      }
+    });
+  }
+
+  getAreaLabelByCode(code: string) {
+    this.addrQuerySrv.getAreaLabelByCode(code).subscribe(json => {
+      console.log(json);
+    });
+  }
+
   clickOption(option: POption): void {
     /** update listOfSelectedOption -> update listOfSelectedValue -> next listOfSelectedValue$ */
     if (!option.disabled) {
       this.updateActivatedOption(option);
-      this.listOfPOption.map(item => {
+      this.listOfProvinceOptions.map(item => {
         item.checked = false;
       });
       option.checked = true;
@@ -115,7 +157,7 @@ export class AddressSelectService {
   }
 
   updateListOfCachedOption(): void {
-    const selectedOption = this.listOfPOption.find(o => this.compareWith(o.value, this.listOfSelectedValue[0]));
+    const selectedOption = this.listOfProvinceOptions.find(o => this.compareWith(o.value, this.listOfSelectedValue[0]));
     if (!isNil(selectedOption)) {
       this.listOfCachedSelectedOption = [selectedOption];
     }
@@ -123,7 +165,7 @@ export class AddressSelectService {
 
   updateListOfFilteredOption(): void {
     const listOfFilteredOption = new AddrFilterOptionPipe().transform(
-      this.listOfPOption,
+      this.listOfProvinceOptions,
       this.searchValue,
       this.filterOption,
       this.serverSearch,
@@ -177,10 +219,6 @@ export class AddressSelectService {
     } else {
       resetActivatedOption();
     }
-  }
-
-  updateTemplateOption(listOfPOption: POption[]): void {
-    this.mapOfTemplateOption$.next({ listOfPOption });
   }
 
   updateSearchValue(value: string): void {

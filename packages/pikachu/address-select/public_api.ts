@@ -4,3 +4,5 @@ export { AddressSelectService } from './address-select.service';
 export { AddrOptionContainerComponent } from './p-option-container.component';
 export { AddrFilterOptionPipe } from './p-option.pipe';
 export { AddrSelectTopControlComponent } from './p-select-top-control.component';
+
+export * from './interface';

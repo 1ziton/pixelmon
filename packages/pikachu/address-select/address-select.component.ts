@@ -27,7 +27,6 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AddressSelectService } from './address-select.service';
 import { AddrSelectTopControlComponent } from './p-select-top-control.component';
-import { POption } from './interface';
 
 @Component({
   selector: 'p-address-select',
@@ -74,7 +73,6 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
   value: any | any[];
   dropDownPosition: 'top' | 'center' | 'bottom' = 'bottom';
   triggerWidth: number;
-  private _data: POption[] = [];
   private _disabled = false;
   private _autoFocus = false;
   private isInit = false;
@@ -107,14 +105,6 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
   @Input() removeIcon: TemplateRef<void>;
   @Input() menuItemSelectedIcon: TemplateRef<void>;
   @Input() showArrow = true;
-
-  @Input()
-  set data(d: POption[]) {
-    this._data = d;
-    setTimeout(() => {
-      this.addrSelectService.updateTemplateOption(this._data);
-    });
-  }
 
   @Input()
   set autoClearSearchValue(value: boolean) {
@@ -280,6 +270,8 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
   }
 
   ngOnInit(): void {
+    // 获取一级地址数据
+    this.addrSelectService.getAreasByCode();
     this.addrSelectService.searchValue$.pipe(takeUntil(this.destroy$)).subscribe(data => {
       this.onSearch.emit(data);
       this.updateCdkConnectedOverlayPositions();

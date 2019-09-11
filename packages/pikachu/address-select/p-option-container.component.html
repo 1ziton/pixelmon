@@ -7,7 +7,13 @@
     </div>
   </div>
   <!-- province -->
-  <ul #provinceUl class="ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical" role="menu" tabindex="0" [hidden]="levelLabels[0] && !levelLabels[0]['checked']">
+  <ul
+    #provinceUl
+    class="ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical"
+    role="menu"
+    tabindex="0"
+    [hidden]="levelLabels[0] && !levelLabels[0]['checked']"
+  >
     <li
       *ngIf="addrSelectService.isShowNotFound"
       nz-select-unselectable
@@ -19,7 +25,7 @@
       class="item ant-select-dropdown-menu-item"
       [class.ant-select-dropdown-menu-item-selected]="option.checked && !option.disabled"
       *ngFor="
-        let option of addrSelectService.listOfPOption
+        let option of addrSelectService.listOfProvinceOptions
           | pFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;
         trackBy: trackValue
       "
@@ -30,7 +36,13 @@
     </li>
   </ul>
   <!-- city -->
-  <ul #cityUl class="ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical" role="menu" tabindex="1"  [hidden]="levelLabels[1] && !levelLabels[1]['checked']">
+  <ul
+    #cityUl
+    class="ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical"
+    role="menu"
+    tabindex="1"
+    [hidden]="levelLabels[1] && !levelLabels[1]['checked']"
+  >
     <li
       *ngIf="addrSelectService.isShowNotFound"
       nz-select-unselectable
@@ -42,7 +54,7 @@
       class="item ant-select-dropdown-menu-item"
       [class.ant-select-dropdown-menu-item-selected]="option.checked && !option.disabled"
       *ngFor="
-        let option of addrSelectService.listOfPOption
+        let option of addrSelectService.listOfCityOptions
           | pFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;
         trackBy: trackValue
       "
@@ -53,7 +65,13 @@
     </li>
   </ul>
   <!-- distinct -->
-  <ul #distinctUl class="ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical" role="menu" tabindex="2" [hidden]="levelLabels[2] && !levelLabels[2]['checked']">
+  <ul
+    #distinctUl
+    class="ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical"
+    role="menu"
+    tabindex="2"
+    [hidden]="levelLabels[2] && !levelLabels[2]['checked']"
+  >
     <li
       *ngIf="addrSelectService.isShowNotFound"
       nz-select-unselectable
@@ -65,7 +83,7 @@
       class="item ant-select-dropdown-menu-item"
       [class.ant-select-dropdown-menu-item-selected]="option.checked && !option.disabled"
       *ngFor="
-        let option of addrSelectService.listOfPOption
+        let option of addrSelectService.listOfDistinctOptions
           | pFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;
         trackBy: trackValue
       "
