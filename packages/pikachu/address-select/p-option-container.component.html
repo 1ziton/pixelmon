@@ -1,0 +1,100 @@
+<div class="address-container">
+  <div class="ant-tabs ant-tabs-card">
+    <div class="ant-tabs-bar ant-tabs-card-bar ant-tabs-top-bar ant-tabs-default-bar">
+      <span
+        class="ant-tabs-tab"
+        [class.ant-tabs-tab-active]="item.checked"
+        *ngFor="let item of addrSelectService.levelLabels;let i=index"
+        (click)="toggleTabs(item,i)"
+        >{{ item.label }}</span
+      >
+    </div>
+  </div>
+  <!-- province -->
+  <ul
+    #provinceUl
+    class="ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical"
+    role="menu"
+    tabindex="0"
+    [hidden]="addrSelectService.levelLabels[0] && !addrSelectService.levelLabels[0]['checked']"
+  >
+    <li
+      *ngIf="addrSelectService.isShowNotFound"
+      nz-select-unselectable
+      class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled"
+    >
+      <nz-embed-empty [nzComponentName]="'select'" [specificContent]="notFoundContent"></nz-embed-empty>
+    </li>
+    <li
+      class="item ant-select-dropdown-menu-item"
+      [class.ant-select-dropdown-menu-item-selected]="option.checked && !option.disabled"
+      *ngFor="
+        let option of addrSelectService.listOfProvinceOptions
+          | addrFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;
+        trackBy: trackValue
+      "
+      (click)="clickOption(option)"
+    >
+      {{ option.label }}
+      <i nz-icon nzType="check" class="ant-select-selected-icon" *ngIf="option.checked && !option.disabled && !menuItemSelectedIcon"></i>
+    </li>
+  </ul>
+  <!-- city -->
+  <ul
+    #cityUl
+    class="ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical"
+    role="menu"
+    tabindex="1"
+    [hidden]="addrSelectService.levelLabels[1] && !addrSelectService.levelLabels[1]['checked']"
+  >
+    <li
+      *ngIf="addrSelectService.isShowNotFound"
+      nz-select-unselectable
+      class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled"
+    >
+      <nz-embed-empty [nzComponentName]="'select'" [specificContent]="notFoundContent"></nz-embed-empty>
+    </li>
+    <li
+      class="item ant-select-dropdown-menu-item"
+      [class.ant-select-dropdown-menu-item-selected]="option.checked && !option.disabled"
+      *ngFor="
+        let option of addrSelectService.listOfCityOptions
+          | addrFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;
+        trackBy: trackValue
+      "
+      (click)="clickOption(option)"
+    >
+      {{ option.label }}
+      <i nz-icon nzType="check" class="ant-select-selected-icon" *ngIf="option.checked && !option.disabled && !menuItemSelectedIcon"></i>
+    </li>
+  </ul>
+  <!-- distinct -->
+  <ul
+    #distinctUl
+    class="ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical"
+    role="menu"
+    tabindex="2"
+    [hidden]="addrSelectService.levelLabels[2] && !addrSelectService.levelLabels[2]['checked']"
+  >
+    <li
+      *ngIf="addrSelectService.isShowNotFound"
+      nz-select-unselectable
+      class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled"
+    >
+      <nz-embed-empty [nzComponentName]="'select'" [specificContent]="notFoundContent"></nz-embed-empty>
+    </li>
+    <li
+      class="item ant-select-dropdown-menu-item"
+      [class.ant-select-dropdown-menu-item-selected]="option.checked && !option.disabled"
+      *ngFor="
+        let option of addrSelectService.listOfDistinctOptions
+          | addrFilterOption: addrSelectService.searchValue:addrSelectService.filterOption:addrSelectService.serverSearch;
+        trackBy: trackValue
+      "
+      (click)="clickOption(option)"
+    >
+      {{ option.label }}
+      <i nz-icon nzType="check" class="ant-select-selected-icon" *ngIf="option.checked && !option.disabled && !menuItemSelectedIcon"></i>
+    </li>
+  </ul>
+</div>

@@ -26,6 +26,8 @@ import { IconComponent } from './shared/components/icon/icon.component';
 import { SharedModule } from './shared/shared.module';
 import { UploadServiceToken } from '@pixelmon/pikachu/upload/upload-interface';
 import { UploadService } from './upload.service';
+import { AddressQueryService } from '@pixelmon/pikachu/address-select/interface';
+import { AreaService } from '@shared/services/area.service';
 
 registerLocaleData(localeZh);
 
@@ -63,6 +65,7 @@ export function StartupServiceFactory(startupService: StartupService) {
   providers: [
     { provide: PIXELMON_I18N_TOKEN, useClass: I18NService, multi: false },
     { provide: UploadServiceToken, useExisting: UploadService },
+    { provide: AddressQueryService, useExisting: AreaService },
     StartupService,
     {
       provide: APP_INITIALIZER,

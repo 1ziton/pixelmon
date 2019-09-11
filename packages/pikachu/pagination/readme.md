@@ -1,8 +1,9 @@
 ---
-type: Business
+type: Basic
 subtitle: 分页
 title: pagination
 cols: 1
+order: 2
 module: PaginationModule
 ---
 
