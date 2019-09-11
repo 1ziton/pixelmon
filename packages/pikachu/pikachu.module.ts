@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { LodopModule } from '@pixelmon/pikachu/lodop';
-import { FooterToolbarModule } from './footer-toolbar';
-import { NoticeIconModule } from './notice-icon';
-import { PageHeaderModule } from './page-header';
-import { PaginationModule } from './pagination';
-import { QueryTabsModule } from './query-tabs';
-import { ReuseTabModule } from './reuse-tab';
-import { SidebarNavModule } from './sidebar-nav';
-import { SmartTextModule } from './smart-text';
-import { TableModule } from './table';
-import { UploadModule } from './upload';
-import { SVModule } from './view';
-import { StepsModule } from './steps/steps.module';
-import { AddressSelectModule } from './address-select';
-import { DropdownPanelModule } from './dropdown-panel';
+import { FooterToolbarModule } from '@pixelmon/pikachu/footer-toolbar';
+import { NoticeIconModule } from '@pixelmon/pikachu/notice-icon';
+import { PageHeaderModule } from '@pixelmon/pikachu/page-header';
+import { PaginationModule } from '@pixelmon/pikachu/pagination';
+import { QueryTabsModule } from '@pixelmon/pikachu/query-tabs';
+import { ReuseTabModule } from '@pixelmon/pikachu/reuse-tab';
+import { SidebarNavModule } from '@pixelmon/pikachu/sidebar-nav';
+import { SmartTextModule } from '@pixelmon/pikachu/smart-text';
+import { TableModule } from '@pixelmon/pikachu/table';
+import { UploadModule } from '@pixelmon/pikachu/upload';
+import { SVModule } from '@pixelmon/pikachu/view';
+import { StepsModule } from '@pixelmon/pikachu/steps';
+import { AddressSelectModule } from '@pixelmon/pikachu/address-select';
+import { DropdownPanelModule } from '@pixelmon/pikachu/dropdown-panel';
+ 
 
 const MODULES = [
   QueryTabsModule,
