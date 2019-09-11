@@ -1,3 +1,24 @@
+## [0.1.7](https://github.com/1ziton/pixelmon/compare/v0.1.6...v0.1.7) (2019-09-11)
+
+
+### Bug Fixes
+
+* **build:** 导出路径使用绝对路径 ([fc1e868](https://github.com/1ziton/pixelmon/commit/fc1e868))
+
+
+### Features
+
+* **component:address-select:**  add address select component ([1365a67](https://github.com/1ziton/pixelmon/commit/1365a67))
+* **dropdown-panel:** support serverSearch ([ce696eb](https://github.com/1ziton/pixelmon/commit/ce696eb))
+* **pikachu:** add demo ([0d5d766](https://github.com/1ziton/pixelmon/commit/0d5d766))
+* **pikachu:** add steps component ([b0bdb83](https://github.com/1ziton/pixelmon/commit/b0bdb83))
+* **steps:** custom template ([89c7e8a](https://github.com/1ziton/pixelmon/commit/89c7e8a))
+* **steps:** updateContentAlign ([fcdb59e](https://github.com/1ziton/pixelmon/commit/fcdb59e))
+* **util:** add number & other function ([7ed9691](https://github.com/1ziton/pixelmon/commit/7ed9691))
+* **utils:** add DomHandler tool ([c231b0c](https://github.com/1ziton/pixelmon/commit/c231b0c))
+
+
+
 ## [0.1.6](https://github.com/1ziton/pixelmon/compare/v0.1.3...v0.1.6) (2019-08-31)
 
 
