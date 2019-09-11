@@ -7,11 +7,10 @@ node_js:
 
 addons:
   apt:
-    sources:
-      - google-chrome
+    # sources:
+    #   - google-chrome
     packages:
       - google-chrome-stable
-      - google-chrome-beta
 
 git:
   depth: 1
