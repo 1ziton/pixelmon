@@ -93,3 +93,13 @@ export const isEmptyVal = val => {
 export const isValidVal = val => {
   return !isEmptyVal(val) && !['null', 'undefined'].includes(val);
 };
+
+/**
+ * 深克隆
+ * @param obj 
+ */
+export const deepClone = obj => {
+  const clone = { ...obj };
+  Object.keys(clone).forEach(key => (clone[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key]));
+  return Array.isArray(obj) && obj.length ? (clone.length = obj.length) && Array.from(clone) : Array.isArray(obj) ? Array.from(obj) : clone;
+};

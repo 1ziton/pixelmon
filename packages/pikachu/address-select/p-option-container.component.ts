@@ -2,14 +2,12 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef,
   EventEmitter,
   Input,
   OnDestroy,
   OnInit,
   Output,
   TemplateRef,
-  ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 import { Subject } from 'rxjs';
@@ -43,24 +41,24 @@ import { AddrLevelFilterPipe } from './p-option.pipe';
 })
 export class AddrOptionContainerComponent implements OnDestroy, OnInit {
   private destroy$ = new Subject();
-  @ViewChild('dropdownUl', { static: true }) dropdownUl: ElementRef<HTMLUListElement>;
   @Input() notFoundContent: string;
   @Input() menuItemSelectedIcon: TemplateRef<void>;
   @Output() readonly scrollToBottom = new EventEmitter<void>();
 
   @Input()
   set level(v: number) {
-    this.addrSelectService.levelLabels = new AddrLevelFilterPipe().transform(v);
-    this.addrSelectService.maxLevel = v;
+    this.addrSrv.levelLabels = new AddrLevelFilterPipe().transform(v);
+    this.addrSrv.maxLevel = v;
+    this.addrSrv.currentLevel = 1;
   }
 
   clickOption(option: AddrOption): void {
-    this.addrSelectService.clickOption(option);
+    this.addrSrv.clickOption(option);
   }
 
   toggleTabs(tab, index: number) {
     if (tab.checked) return;
-    this.addrSelectService.toggleTab(index);
+    this.addrSrv.toggleTab(index);
   }
 
   trackLabel(_index: number, option: AddrOption): string | TemplateRef<void> {
@@ -72,10 +70,10 @@ export class AddrOptionContainerComponent implements OnDestroy, OnInit {
     return option.value;
   }
 
-  constructor(public addrSelectService: AddressSelectService, private cdr: ChangeDetectorRef) {}
+  constructor(public addrSrv: AddressSelectService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.addrSelectService.check$.pipe(takeUntil(this.destroy$)).subscribe(() => {
+    this.addrSrv.check$.pipe(takeUntil(this.destroy$)).subscribe(() => {
       this.cdr.markForCheck();
     });
   }

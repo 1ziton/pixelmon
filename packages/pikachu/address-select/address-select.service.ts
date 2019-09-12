@@ -15,9 +15,8 @@ export class AddressSelectService {
   levelLabels: AddrOption[] = [];
   currentLevel: number = 1;
   maxLevel: number = 1;
-  separator: string;
+  separator = '/';
   // selectedValueChanged should emit ngModelChange or not
-  // tslint:disable-next-line:no-any
   private listOfSelectedValueWithEmit$ = new BehaviorSubject<{ value: any[]; emit: boolean }>({
     value: [],
     emit: false,
@@ -71,8 +70,8 @@ export class AddressSelectService {
 
   constructor(private addrQuerySrv: AddressQueryService) {}
 
-  getAreasByCode(code?: string, level = 0) {
-    this.addrQuerySrv.getAreasByCode(code).subscribe(json => {
+  getListByCode(code?: string, level = 0) {
+    this.addrQuerySrv.getListByCode(code).subscribe(json => {
       if (level === 0) {
         this.listOfProvinceOptions = [...json];
       } else if (level === 1) {
@@ -116,7 +115,7 @@ export class AddressSelectService {
       return;
     }
 
-    this.getAreasByCode(option.value, level);
+    this.getListByCode(option.value, level);
     this.toggleTab(level);
   }
 
@@ -132,7 +131,6 @@ export class AddressSelectService {
     }
     const selectedOption: AddrOption[] = this.listOfActivatedOption.filter(o => o && o.value);
     const { length } = selectedOption;
-    console.log(this.separator)
     if (length > 0) {
       const { label, value, level } = selectedOption[length - 1];
       this.selectedOption = {
@@ -162,18 +160,12 @@ export class AddressSelectService {
   updateListOfSelectedValue(value: any[], emit: boolean): void {
     this.listOfSelectedValueWithEmit$.next({ value, emit });
     this.updateSelectedOption(!value.length);
+    this.check();
   }
 
   updateActivatedOption(option: AddrOption | null, level: number): void {
     this.listOfActivatedOption$.next(option);
 
-    if (this.listOfActivatedOption[level]) {
-      if (this.listOfActivatedOption[level].value !== (option && option.value) && this.isMaxLevel()) {
-        this.listOfActivatedOption[level] = option;
-        this.updateListOfSelectedValue([...this.listOfActivatedOption], true);
-        return;
-      }
-    }
     this.listOfActivatedOption[level] = option;
     if (this.isMaxLevel()) {
       this.updateListOfSelectedValue([...this.listOfActivatedOption], true);
@@ -212,7 +204,7 @@ export class AddressSelectService {
   }
 
   updateSelectedOptionByCode(code: string): void {
-    this.addrQuerySrv.getAreaLabelByCode(code).subscribe(json => {
+    this.addrQuerySrv.getOptionByCode(code).subscribe(json => {
       if (json.code === code) {
         this.selectedOption = {
           label: json.name,

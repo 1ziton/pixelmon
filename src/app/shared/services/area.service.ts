@@ -12,7 +12,7 @@ export class AreaService extends AddressQueryService {
     super();
   }
 
-  getAreasByCode(code: string): Observable<any[]> {
+  getListByCode(code: string): Observable<any[]> {
     if (!code) {
       code = code = '000000000000';
     }
@@ -33,7 +33,7 @@ export class AreaService extends AddressQueryService {
         }),
       );
   }
-  getAreaLabelByCode(code: string): Observable<any> {
+  getOptionByCode(code: string): Observable<any> {
     return this.http.post(`https://domain.1ziton.com/api/baseConfig/getAreaByCode`, [{ code }]).pipe(map((res: any) => res.content));
   }
 }
