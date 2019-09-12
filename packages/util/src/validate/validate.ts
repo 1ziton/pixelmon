@@ -57,7 +57,7 @@ export function isEmail(value: string): boolean {
   return /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(value);
 }
 
-/** 是否uuid*/
+/** 是否uuid */
 export function isUUID(value: string): boolean {
   return /^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$/i.test(value);
 }
