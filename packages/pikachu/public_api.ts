@@ -12,5 +12,7 @@ export * from '@pixelmon/pikachu/upload';
 export * from '@pixelmon/pikachu/steps';
 export * from '@pixelmon/pikachu/address-select';
 export * from '@pixelmon/pikachu/dropdown-panel';
+export * from '@pixelmon/pikachu/smart-text';
+export * from '@pixelmon/pikachu/query-tabs';
 
 export * from './pikachu.module';
