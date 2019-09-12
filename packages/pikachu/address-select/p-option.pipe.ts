@@ -29,7 +29,9 @@ export class AddrFilterOptionPipe implements PipeTransform {
     if (serverSearch || !searchValue) {
       return options;
     } else {
-      return (options as AddrOption[]).filter(o => filterOption(searchValue, o));
+      const result = (options as AddrOption[]).filter(o => filterOption(searchValue, o));
+      console.log(result);
+      return result;
     }
   }
 }
@@ -43,12 +45,24 @@ export function defaultAddrFilterOption(searchValue: string, option: AddrOption)
 }
 
 export function defaultLevelLabelsFilterOption(level = 1): AddrOption[] {
-  return defaultAddressLevelOptions.slice(0, level);
+  const cloneArr = defaultAddressLevelOptions.map(o => ({ ...o }));
+  return cloneArr.slice(0, level);
 }
 
 @Pipe({ name: 'pAddrLevelFitler' })
 export class AddrLevelFilterPipe implements PipeTransform {
   transform(level: number): any[] {
     return defaultLevelLabelsFilterOption(level);
+  }
+}
+
+@Pipe({ name: 'pAddrCheckedFitler' })
+export class AddrCheckedFilterPipe implements PipeTransform {
+  transform(activedOption: AddrOption[], index: number, option: AddrOption): boolean {
+    if (activedOption && activedOption.length > 0) {
+      if (!activedOption[index]) return false;
+      return activedOption[index].value === option.value && !option.disabled;
+    }
+    return false;
   }
 }

@@ -7,7 +7,7 @@ import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzAddOnModule, NzNoAnimationModule, NzOverlayModule } from 'ng-zorro-antd/core';
 import { AddressSelectComponent } from './address-select.component';
-import { AddrFilterOptionPipe, AddrLevelFilterPipe } from './p-option.pipe';
+import { AddrFilterOptionPipe, AddrLevelFilterPipe, AddrCheckedFilterPipe } from './p-option.pipe';
 import { AddrSelectTopControlComponent } from './p-select-top-control.component';
 import { AddrOptionContainerComponent } from './p-option-container.component';
 
@@ -17,6 +17,7 @@ import { AddrOptionContainerComponent } from './p-option-container.component';
     AddrSelectTopControlComponent,
     AddrFilterOptionPipe,
     AddrLevelFilterPipe,
+    AddrCheckedFilterPipe,
     AddrOptionContainerComponent,
   ],
   imports: [
@@ -35,6 +36,7 @@ import { AddrOptionContainerComponent } from './p-option-container.component';
     AddrSelectTopControlComponent,
     AddrFilterOptionPipe,
     AddrLevelFilterPipe,
+    AddrCheckedFilterPipe,
     AddrOptionContainerComponent,
   ],
 })
