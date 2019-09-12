@@ -42,7 +42,7 @@ export const USERS = {
         ],
       });
     }
-    return onlyList ? res.list : res;
+    return onlyList ? res.data : res;
   },
   'GET /user/check/': () => false,
   'GET /user/check/:name': (req: MockRequest) => req.params.name === 'cipchk',

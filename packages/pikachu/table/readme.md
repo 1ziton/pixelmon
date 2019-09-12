@@ -3,6 +3,7 @@ type: Business
 title: table
 subtitle: 表格组件
 cols: 1
+order: 1
 module: TableModule
 ---
 

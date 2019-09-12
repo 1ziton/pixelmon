@@ -1,6 +1,6 @@
 ---
 type: Basic
-order: 4
+order: 5
 title: lodop
 subtitle: Lodop打印
 cols: 1
@@ -8,9 +8,12 @@ module: LodopModule
 config: LodopConfig
 ---
 
-[Lodop](http://c-lodop.com/) 打印的基础实现，商用需要购买KEY。（同时感谢 lodop 为 1ziton 免费提供正版KEY）
+[Lodop](http://c-lodop.com/) 打印的基础实现，商用需要购买KEY。（公司购买了正版KEY，使用方式见: https://git.1ziton.com/yzt/wiki/issues 内部）
 
 > 运行示例的**前提条件**必须安装[Lodop](http://c-lodop.com/download.html)。
+
+
+
 
 ## API
 
