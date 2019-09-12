@@ -80,3 +80,14 @@ updateHostClass(
   }
 )
 ```
+
+
+## deepClone
+
+创建对象的深层克隆。 
+
+
+```ts
+const a = { foo: 'bar', obj: { a: 1, b: 2 } };
+const b = deepClone(a); // a !== b, a.obj !== b.obj
+```

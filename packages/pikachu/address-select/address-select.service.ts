@@ -15,9 +15,8 @@ export class AddressSelectService {
   levelLabels: AddrOption[] = [];
   currentLevel: number = 1;
   maxLevel: number = 1;
-  separator: string;
+  separator = '/';
   // selectedValueChanged should emit ngModelChange or not
-  // tslint:disable-next-line:no-any
   private listOfSelectedValueWithEmit$ = new BehaviorSubject<{ value: any[]; emit: boolean }>({
     value: [],
     emit: false,
@@ -54,9 +53,9 @@ export class AddressSelectService {
     share(),
     tap(value => {
       this.searchValue = value;
-      if (value) {
-        this.updateActivatedOption(this.listOfFilteredOption[0], this.currentLevel);
-      }
+      // if (value) {
+      //   this.updateActivatedOption(this.listOfFilteredOption[0], this.currentLevel);
+      // }
       this.updateListOfFilteredOption();
     }),
   );
@@ -71,8 +70,8 @@ export class AddressSelectService {
 
   constructor(private addrQuerySrv: AddressQueryService) {}
 
-  getAreasByCode(code?: string, level = 0) {
-    this.addrQuerySrv.getAreasByCode(code).subscribe(json => {
+  getListByCode(code?: string, level = 0) {
+    this.addrQuerySrv.getListByCode(code).subscribe(json => {
       if (level === 0) {
         this.listOfProvinceOptions = [...json];
       } else if (level === 1) {
@@ -109,14 +108,13 @@ export class AddressSelectService {
     this.updateActivatedOption(option, level);
     // 设置值
     if (this.isMaxLevel()) {
-      if (this.autoClearSearchValue) {
-        this.clearInput();
-      }
       this.setOpenState(false);
       return;
     }
-
-    this.getAreasByCode(option.value, level);
+    if (this.autoClearSearchValue) {
+      this.clearInput();
+    }
+    this.getListByCode(option.value, level);
     this.toggleTab(level);
   }
 
@@ -128,11 +126,11 @@ export class AddressSelectService {
         value: '',
         mergeName: '',
       };
+      this.listOfActivatedOption = [];
       return;
     }
     const selectedOption: AddrOption[] = this.listOfActivatedOption.filter(o => o && o.value);
     const { length } = selectedOption;
-    console.log(this.separator)
     if (length > 0) {
       const { label, value, level } = selectedOption[length - 1];
       this.selectedOption = {
@@ -145,8 +143,15 @@ export class AddressSelectService {
   }
 
   updateListOfFilteredOption(): void {
+    let filterOptionList: AddrOption[] = [];
+
+    if (this.currentLevel === 1) filterOptionList = [...this.listOfProvinceOptions];
+    if (this.currentLevel === 2) filterOptionList = [...this.listOfCityOptions];
+    if (this.currentLevel === 3) filterOptionList = [...this.listOfDistinctOptions];
+    if (this.currentLevel === 4) filterOptionList = [...this.listOfStreetOptions];
+
     const listOfFilteredOption = new AddrFilterOptionPipe().transform(
-      this.listOfProvinceOptions,
+      filterOptionList,
       this.searchValue,
       this.filterOption,
       this.serverSearch,
@@ -162,18 +167,12 @@ export class AddressSelectService {
   updateListOfSelectedValue(value: any[], emit: boolean): void {
     this.listOfSelectedValueWithEmit$.next({ value, emit });
     this.updateSelectedOption(!value.length);
+    this.check();
   }
 
   updateActivatedOption(option: AddrOption | null, level: number): void {
     this.listOfActivatedOption$.next(option);
 
-    if (this.listOfActivatedOption[level]) {
-      if (this.listOfActivatedOption[level].value !== (option && option.value) && this.isMaxLevel()) {
-        this.listOfActivatedOption[level] = option;
-        this.updateListOfSelectedValue([...this.listOfActivatedOption], true);
-        return;
-      }
-    }
     this.listOfActivatedOption[level] = option;
     if (this.isMaxLevel()) {
       this.updateListOfSelectedValue([...this.listOfActivatedOption], true);
@@ -212,7 +211,7 @@ export class AddressSelectService {
   }
 
   updateSelectedOptionByCode(code: string): void {
-    this.addrQuerySrv.getAreaLabelByCode(code).subscribe(json => {
+    this.addrQuerySrv.getOptionByCode(code).subscribe(json => {
       if (json.code === code) {
         this.selectedOption = {
           label: json.name,
