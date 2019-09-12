@@ -14,7 +14,8 @@ module: AddressSelectModule
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| `[ngModel]` | 双向绑定，当 `mode` 为 `multiple` 或 `tags` 时，ngModel 为数组 | `any | any[]` | - |
+| `[ngModel]` | 双向绑定 | `string` | - |
+| `[level]` | 支持级别从 `1~4` | `number` | - |
 | `[allowClear]` | 支持清除 | `boolean` | `true` |
 | `[open]` | 下拉菜单是否打开，可双向绑定 | `boolean` | `false` |
 | `[autoFocus]` | 默认获取焦点 | `boolean` | `false` |
@@ -22,8 +23,6 @@ module: AddressSelectModule
 | `[dropdownClassName]` | 下拉菜单的 className 属性 | `string` | - |
 | `[dropdownMatchSelectWidth]` | 下拉菜单和选择器同宽 | `boolean` | `false` |
 | `[dropdownStyle]` | 下拉菜单的 style 属性 | `object` | - |
-<!-- | `[nzCustomTemplate]` | 自定义选择框的Template内容 | `TemplateRef<{ $implicit: NzOptionComponent }>` | - | -->
-<!-- | `[serverSearch]` | 是否使用服务端搜索，当为 true 时，将不再在前端进行过滤 | `boolean` | `false` | -->
 | `[filterOption]` | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | `(input?: string, option?: POption) => boolean;` | - |
 | `[mode]` | 设置 p-dropdown-panel 的模式 | `'multiple' | 'tags' | 'default'` | `'default'` |
 | `[notFoundContent]` | 当下拉列表为空时显示的内容 | `string | TemplateRef<void>` | - |
@@ -47,6 +46,8 @@ module: AddressSelectModule
 
 组件数据来源方式是外放数据获取接口，通过**继承** `AddressQueryService` 抽象类，重写(Override) `getListByCode` 和 `getOptionByCode` 方法，如下例子：
 
+*数据结构符合层级关系都可以实现这样的级联效果*
+
 ### 方法
 
 | 参数               | 说明                                                           | 类型       | 默认值 |
@@ -56,7 +57,7 @@ module: AddressSelectModule
 
 ## 举例
 
-数据结构符合层级关系都可以实现这样的级联效果
+可以在文档demo中预览源码[area.service.ts](https://github.com/1ziton/pixelmon/blob/master/src/app/shared/services/area.service.ts)
 
 ```ts
 import { Injectable } from '@angular/core';

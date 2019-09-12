@@ -53,9 +53,9 @@ export class AddressSelectService {
     share(),
     tap(value => {
       this.searchValue = value;
-      if (value) {
-        this.updateActivatedOption(this.listOfFilteredOption[0], this.currentLevel);
-      }
+      // if (value) {
+      //   this.updateActivatedOption(this.listOfFilteredOption[0], this.currentLevel);
+      // }
       this.updateListOfFilteredOption();
     }),
   );
@@ -108,13 +108,12 @@ export class AddressSelectService {
     this.updateActivatedOption(option, level);
     // 设置值
     if (this.isMaxLevel()) {
-      if (this.autoClearSearchValue) {
-        this.clearInput();
-      }
       this.setOpenState(false);
       return;
     }
-
+    if (this.autoClearSearchValue) {
+      this.clearInput();
+    }
     this.getListByCode(option.value, level);
     this.toggleTab(level);
   }
@@ -127,6 +126,7 @@ export class AddressSelectService {
         value: '',
         mergeName: '',
       };
+      this.listOfActivatedOption = [];
       return;
     }
     const selectedOption: AddrOption[] = this.listOfActivatedOption.filter(o => o && o.value);
@@ -143,8 +143,15 @@ export class AddressSelectService {
   }
 
   updateListOfFilteredOption(): void {
+    let filterOptionList: AddrOption[] = [];
+
+    if (this.currentLevel === 1) filterOptionList = [...this.listOfProvinceOptions];
+    if (this.currentLevel === 2) filterOptionList = [...this.listOfCityOptions];
+    if (this.currentLevel === 3) filterOptionList = [...this.listOfDistinctOptions];
+    if (this.currentLevel === 4) filterOptionList = [...this.listOfStreetOptions];
+
     const listOfFilteredOption = new AddrFilterOptionPipe().transform(
-      this.listOfProvinceOptions,
+      filterOptionList,
       this.searchValue,
       this.filterOption,
       this.serverSearch,

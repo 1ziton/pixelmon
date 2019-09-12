@@ -59,6 +59,7 @@ export class AddrOptionContainerComponent implements OnDestroy, OnInit {
   toggleTabs(tab, index: number) {
     if (tab.checked) return;
     this.addrSrv.toggleTab(index);
+    this.addrSrv.updateListOfFilteredOption();
   }
 
   trackLabel(_index: number, option: AddrOption): string | TemplateRef<void> {

@@ -18,7 +18,11 @@
     tabindex="0"
     [hidden]="addrSrv.levelLabels[0] && !addrSrv.levelLabels[0]['checked']"
   >
-    <li *ngIf="addrSrv.isShowNotFound" nz-select-unselectable class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled">
+    <li
+      *ngIf="addrSrv.isShowNotFound && addrSrv.currentLevel === 1"
+      nz-select-unselectable
+      class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled"
+    >
       <nz-embed-empty [nzComponentName]="'select'" [specificContent]="notFoundContent"></nz-embed-empty>
     </li>
     <li
@@ -47,7 +51,11 @@
     tabindex="1"
     [hidden]="addrSrv.levelLabels[1] && !addrSrv.levelLabels[1]['checked']"
   >
-    <li *ngIf="addrSrv.isShowNotFound" nz-select-unselectable class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled">
+    <li
+      *ngIf="addrSrv.isShowNotFound && addrSrv.currentLevel === 2"
+      nz-select-unselectable
+      class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled"
+    >
       <nz-embed-empty [nzComponentName]="'select'" [specificContent]="notFoundContent"></nz-embed-empty>
     </li>
     <li
@@ -76,7 +84,11 @@
     tabindex="2"
     [hidden]="addrSrv.levelLabels[2] && !addrSrv.levelLabels[2]['checked']"
   >
-    <li *ngIf="addrSrv.isShowNotFound" nz-select-unselectable class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled">
+    <li
+      *ngIf="addrSrv.isShowNotFound && addrSrv.currentLevel === 3"
+      nz-select-unselectable
+      class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled"
+    >
       <nz-embed-empty [nzComponentName]="'select'" [specificContent]="notFoundContent"></nz-embed-empty>
     </li>
     <li
@@ -94,6 +106,38 @@
         nzType="check"
         class="ant-select-selected-icon"
         *ngIf="(addrSrv.listOfActivatedOption | pAddrCheckedFitler: 3:option) && !menuItemSelectedIcon"
+      ></i>
+    </li>
+  </ul>
+  <!-- street -->
+  <ul
+    class="ant-select-dropdown-menu ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical"
+    role="menu"
+    tabindex="3"
+    [hidden]="addrSrv.levelLabels[3] && !addrSrv.levelLabels[3]['checked']"
+  >
+    <li
+      *ngIf="addrSrv.isShowNotFound && addrSrv.currentLevel === 4"
+      nz-select-unselectable
+      class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-disabled"
+    >
+      <nz-embed-empty [nzComponentName]="'select'" [specificContent]="notFoundContent"></nz-embed-empty>
+    </li>
+    <li
+      class="item ant-select-dropdown-menu-item"
+      [class.ant-select-dropdown-menu-item-selected]="addrSrv.listOfActivatedOption | pAddrCheckedFitler: 4:option"
+      *ngFor="
+        let option of addrSrv.listOfStreetOptions | addrFilterOption: addrSrv.searchValue:addrSrv.filterOption:addrSrv.serverSearch;
+        trackBy: trackValue
+      "
+      (click)="clickOption(option)"
+    >
+      {{ option.label }}
+      <i
+        nz-icon
+        nzType="check"
+        class="ant-select-selected-icon"
+        *ngIf="(addrSrv.listOfActivatedOption | pAddrCheckedFitler: 4:option) && !menuItemSelectedIcon"
       ></i>
     </li>
   </ul>
