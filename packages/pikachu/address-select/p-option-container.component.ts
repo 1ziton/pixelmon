@@ -28,33 +28,7 @@ import { AddrLevelFilterPipe } from './p-option.pipe';
     '[style.user-select]': '"none"',
     '(mousedown)': '$event.preventDefault()',
   },
-  styles: [
-    `
-      .ant-tabs-bar {
-        margin-bottom: 10px;
-        padding-left: 10px;
-        background: #e8e8e8;
-        border-bottom: none !important;
-      }
-      .ant-tabs-tab {
-        display: inline-block;
-        height: 100%;
-        background: transparent !important;
-        cursor: pointer;
-      }
-      .ant-tabs-tab-active {
-        background: #fff !important;
-      }
-      .ant-select-dropdown-menu-root {
-        padding: 0 10px 5px 10px;
-      }
-      .item {
-        display: inline-block;
-        width: 120px;
-        padding: 5px 10px;
-      }
-    `,
-  ],
+  styleUrls: ['./style/index.less'],
 })
 export class AddrOptionContainerComponent implements OnDestroy, OnInit {
   private destroy$ = new Subject();
