@@ -15,7 +15,7 @@ export interface ResultOption {
 }
 
 /**
- * 必须集成
+ * 抽象类，继承以便重写方法获取数据
  */
 export abstract class AddressQueryService {
   abstract getListByCode(code?: string): Observable<any[]>;

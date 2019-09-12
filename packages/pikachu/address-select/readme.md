@@ -59,6 +59,8 @@ module: AddressSelectModule
 
 可以在文档demo中预览源码[area.service.ts](https://github.com/1ziton/pixelmon/blob/master/src/app/shared/services/area.service.ts)
 
+`getListByCode` 建议走缓存，保证每次数据仅查一次，有效提高性能和减轻后端接口压力（尽管后端走Redis，前端缓存也是有必要，减少网络通信）
+
 ```ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';

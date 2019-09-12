@@ -26,11 +26,28 @@ import { AddrLevelFilterPipe } from './p-option.pipe';
   host: {
     '[attr.unselectable]': '"unselectable"',
     '[style.user-select]': '"none"',
-    '[style.padding]': '"10px"',
     '(mousedown)': '$event.preventDefault()',
   },
   styles: [
     `
+      .ant-tabs-bar {
+        margin-bottom: 10px;
+        padding-left: 10px;
+        background: #e8e8e8;
+        border-bottom: none !important;
+      }
+      .ant-tabs-tab {
+        display: inline-block;
+        height: 100%;
+        background: transparent !important;
+        cursor: pointer;
+      }
+      .ant-tabs-tab-active {
+        background: #fff !important;
+      }
+      .ant-select-dropdown-menu-root {
+        padding: 0 10px 5px 10px;
+      }
       .item {
         display: inline-block;
         width: 120px;

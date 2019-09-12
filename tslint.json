@@ -65,7 +65,7 @@
       "ignore-params"
     ],
     "no-non-null-assertion": false,
-    "no-redundant-jsdoc": true,
+    "no-redundant-jsdoc": false,
     "no-switch-case-fall-through": true,
     "no-use-before-declare": false,
     "no-var-requires": false,
