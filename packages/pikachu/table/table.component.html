@@ -65,18 +65,20 @@
     </tbody>
   </nz-table>
 
-  <p-pagination
-    *ngIf="fixedPagination ? showPagination : showPagination && data?.totalSize"
-    nzSize="small"
-    [(nzPageIndex)]="pageIndex"
-    [(nzPageSize)]="pageSize"
-    [nzShowSizeChanger]="showSizeChanger"
-    [nzPageSizeOptions]="pageSizeOptions"
-    [nzTotal]="data?.totalSize || 0"
-    [nzShowTotal]="totalTemplate"
-    (nzPageIndexChange)="pageIndexChange()"
-    (nzPageSizeChange)="pageSizeChange()"
-  ></p-pagination>
+  <div class="p-table-pagination-container">
+    <p-pagination
+      *ngIf="fixedPagination ? showPagination : showPagination && data?.totalSize"
+      nzSize="small"
+      [(nzPageIndex)]="pageIndex"
+      [(nzPageSize)]="pageSize"
+      [nzShowSizeChanger]="showSizeChanger"
+      [nzPageSizeOptions]="pageSizeOptions"
+      [nzTotal]="data?.totalSize || 0"
+      [nzShowTotal]="totalTemplate"
+      (nzPageIndexChange)="pageIndexChange()"
+      (nzPageSizeChange)="pageSizeChange()"
+    ></p-pagination>
+  </div>
 </nz-spin>
 
 <!-- total模板 -->
