@@ -20,7 +20,7 @@ import { Step } from '@pixelmon/pikachu/steps';
       [keySteps]="keySteps"
       [extraSteps]="extraSteps"
       [activeStep]="activeStep"
-      backgroundImage="url(/assets/img/steps/background.png)"
+      [backgroundImage]="backgroundImage"
     ></p-steps>
 
     <div>
@@ -34,6 +34,7 @@ import { Step } from '@pixelmon/pikachu/steps';
   `,
 })
 export class DemoComponent implements OnInit {
+  backgroundImage = `url(${window.location.origin}/${window.location.pathname}/assets/img/steps/background.png)`
   progress = 0;
   activeWidth = '0%';
 
