@@ -1,11 +1,9 @@
 <!-- 直接显示 -->
-<ng-container *ngIf="text.length <= maxLength; else tooltipBlock">
+<ng-container *ngIf="text.length <= maxLength; else tooltipTemplate">
   <span>{{ text }}</span>
 </ng-container>
 
 <!-- 提示框显示 -->
-<ng-template #tooltipBlock>
-  <span nz-tooltip [nzTitle]="text">{{ text | shortcut: maxLength:tail }}</span>
+<ng-template #tooltipTemplate>
+  <span nz-tooltip [nzTooltipTitle]="text">{{ text | shortcut: maxLength:tail }}</span>
 </ng-template>
-
-<ng-content></ng-content>
