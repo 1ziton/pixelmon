@@ -22,7 +22,7 @@ import {
   TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
-import { NzDropDownComponent } from 'ng-zorro-antd';
+import { NzDropDownDirective } from 'ng-zorro-antd';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { TableCellComponent } from './table-cell.component';
@@ -226,8 +226,8 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   /**
    * 查询确认回调
    */
-  onFilterConfim(dropdown: NzDropDownComponent): void {
-    dropdown.setVisibleStateWhen(false);
+  onFilterConfim(dropdown: NzDropDownDirective): void {
+    dropdown.nzDropdownMenu.setVisibleStateWhen(false);
     this.columns = [...this.columns];
     this.columnsChange.emit(this.columns);
   }

@@ -33,22 +33,36 @@
         >
           {{ column.title }}
           <!-- 搜索 -->
-          <nz-dropdown *ngIf="column.showFilter" nzTrigger="click" nzPlacement="bottomRight" [nzClickHide]="false" nzTableFilter #dropdown>
-            <i nz-icon nzType="search" class="ant-table-filter-icon" [class.ant-table-filter-open]="dropdown.nzVisible" nz-dropdown></i>
-            <div class="p-table-filter-panel">
-              <!-- 搜索组件 -->
-              <ng-container
-                [ngTemplateOutlet]="filterTemplate"
-                [ngTemplateOutletContext]="{ $implicit: column, dropdown: dropdown }"
-              ></ng-container>
-              <!-- 搜索确认按钮 -->
-              <div nz-row nzType="flex" nzJustify="end" nzAlign="middle" class="p-table-filter-button">
-                <button nz-button nzSize="small" nzType="primary" (click)="onFilterConfim(dropdown)">
-                  确认
-                </button>
+          <ng-container *ngIf="column.showFilter">
+            <i
+              nz-icon
+              nz-dropdown
+              [nzDropdownMenu]="dropdownMenu"
+              nzType="search"
+              class="ant-table-filter-icon"
+              [class.ant-table-filter-open]="dropdown.nzVisible"
+              nzTrigger="click"
+              nzPlacement="bottomRight"
+              [nzClickHide]="false"
+              nzTableFilter
+              #dropdown="nzDropdown"
+            ></i>
+            <nz-dropdown-menu #dropdownMenu="nzDropdownMenu">
+              <div class="p-table-filter-panel">
+                <!-- 搜索组件 -->
+                <ng-container
+                  [ngTemplateOutlet]="filterTemplate"
+                  [ngTemplateOutletContext]="{ $implicit: column, dropdown: dropdown }"
+                ></ng-container>
+                <!-- 搜索确认按钮 -->
+                <div nz-row nzType="flex" nzJustify="end" nzAlign="middle" class="p-table-filter-button">
+                  <button nz-button nzSize="small" nzType="primary" (click)="onFilterConfim(dropdown)">
+                    确认
+                  </button>
+                </div>
               </div>
-            </div>
-          </nz-dropdown>
+            </nz-dropdown-menu>
+          </ng-container>
         </th>
       </tr>
     </thead>
