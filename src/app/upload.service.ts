@@ -6,7 +6,7 @@ import { UploadServiceToken, BosConfig } from '@pixelmon/pikachu/upload/upload-i
   providedIn: 'root',
 })
 export class UploadService extends UploadServiceToken {
-  workerUrl = '/assets/js/getFileMd5.js';
+  workerUrl = `${window.location.origin}/${window.location.pathname}/assets/js/getFileMd5.js`;
   bosConfig: BosConfig;
 
   constructor() {

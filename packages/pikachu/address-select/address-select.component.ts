@@ -100,7 +100,6 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
   @Input() @InputBoolean() showSearch = false;
   @Input() @InputBoolean() loading = false;
   @Input() placeHolder: string;
-  @Input() maxTagCount: number;
   @Input() suffixIcon: TemplateRef<void>;
   @Input() clearIcon: TemplateRef<void>;
   @Input() removeIcon: TemplateRef<void>;
@@ -232,10 +231,9 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
   }
 
   /** update ngModel -> update selectedOption */
-  // tslint:disable-next-line:no-any
   writeValue(value: any | any[]): void {
     this.value = value;
-    let listValue: any[] = []; // tslint:disable-line:no-any
+    let listValue: any[] = []; 
     if (isNotNil(value)) {
       if (Array.isArray(value)) {
         listValue = value;
@@ -265,7 +263,7 @@ export class AddressSelectComponent implements ControlValueAccessor, OnInit, Aft
 
   ngOnInit(): void {
     // 获取一级地址数据
-    this.addrSelectService.getAreasByCode('', 0);
+    this.addrSelectService.getListByCode('', 0);
     this.addrSelectService.searchValue$.pipe(takeUntil(this.destroy$)).subscribe(data => {
       this.onSearch.emit(data);
       this.updateCdkConnectedOverlayPositions();

@@ -6,7 +6,7 @@ title:
   bg: f2f4f5
 ---
 
-基础用法。
+基础用法，默认回显。
 
 ```ts
 import { Component, OnInit } from '@angular/core';
