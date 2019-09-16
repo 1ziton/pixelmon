@@ -5,8 +5,24 @@
  */
 
 import { formatDate } from '@angular/common';
-import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, Component, ContentChildren, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, TemplateRef, ViewEncapsulation } from '@angular/core';
-import { NzDropDownComponent } from 'ng-zorro-antd';
+import {
+  AfterContentInit,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ContentChildren,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  Renderer2,
+  TemplateRef,
+  ViewEncapsulation,
+} from '@angular/core';
+import { NzDropDownDirective } from 'ng-zorro-antd';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { TableCellComponent } from './table-cell.component';
@@ -77,9 +93,6 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   ngOnInit() {
     /* tslint:disable */
     this.load$.pipe(debounceTime(20)).subscribe(() => {
-      // 清空selections
-      this.selections = [];
-      this.selectionsChange.emit(this.selections);
       // 发出load事件
       this.load.emit({ page: this.pageIndex, size: this.pageSize });
     });
@@ -213,8 +226,8 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   /**
    * 查询确认回调
    */
-  onFilterConfim(dropdown: NzDropDownComponent): void {
-    dropdown.setVisibleStateWhen(false);
+  onFilterConfim(dropdown: NzDropDownDirective): void {
+    dropdown.nzDropdownMenu.setVisibleStateWhen(false);
     this.columns = [...this.columns];
     this.columnsChange.emit(this.columns);
   }
@@ -229,7 +242,7 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
     setTimeout(() => {
       const windowHeight = document.documentElement.clientHeight;
       const tableBody = this._elementRef.nativeElement.querySelector('.ant-table-body');
-      const pagination = this._elementRef.nativeElement.querySelector('.ant-pagination');
+      const pagination = this._elementRef.nativeElement.querySelector('.p-table-pagination-container');
       const tableBodyTop = tableBody.getBoundingClientRect().top;
       const scrollHeight = windowHeight - tableBodyTop - pagination.clientHeight + 'px';
       // 设scroll 实际上是设了max-height
