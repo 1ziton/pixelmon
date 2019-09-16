@@ -2,6 +2,8 @@ import { MockRequest, MockStatusError } from '@pixelmon/mock';
 // import * as Mock from 'mockjs';
 
 const r = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1) + min);
+const userNames = 'Tom|Jack|Thomas|Tompson|Curry|Kobe|Mike|John|Jordon|Brant|Jams|Cuke|Steph|Mathias|Buus'.split('|');
+// 输出结果
 
 export const USERS = {
   // 支持值为 Object 和 Array
@@ -19,19 +21,22 @@ export const USERS = {
       num = size;
     }
     for (let i = 0; i < num; i++) {
+      const uuid = Math.random()
+        .toString(16)
+        .substr(2);
       res.data.push({
-        id: i + 1,
+        id: uuid,
         thumbnail: `https://randomuser.me/api/portraits/thumb/${r(0, 1) === 0 ? 'men' : 'women'}/${r(1, 50)}.jpg`,
-        name: `Tom-${r(1, 10)}`,
+        name: `${userNames[r(1, 10)]}${uuid.substr(10)}`,
         fullname: {
           last: `last-${r(1, 10)}`,
           first: `first-${r(10, 20)}`,
         },
         nat: ['CH', 'US', 'DE'][i % 3],
-        birthday: '1992-08-08',
+        birthday: `${r(1981, 2010)}-0${r(1, 9)}-0${r(1, 9)}`,
         gender: ['male', 'female'][i % 2],
-        email: `aaa${r(1, 10)}@qq.com`,
-        phone: `phone-${r(1000, 100000)}`,
+        email: `${userNames[r(1, 10)]}${r(1, 10)}@qq.com`,
+        phone: `1${r(30, 100)}${r(10000001, 99999999)}`,
         price: r(10, 10000000),
         registered: new Date(),
         pictures: [
