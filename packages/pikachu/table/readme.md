@@ -13,25 +13,28 @@ module: TableModule
 
 ### p-table
 
-| 参数                | 说明                                             | 类型                                                                | 默认值                       |
-| ------------------- | ------------------------------------------------ | ------------------------------------------------------------------- | ---------------------------- |
-| `[data]`            | 表格数据                                         | `object`                                                            | `{ data: [], totalSize: 0 }` |
-| `[frontPagination]` | 是否在前端对数据进行分页                         | `boolean`                                                           | `false`                      |
-| `[fixedPagination]` | 是否固定分页在页面底部                           | `boolean`                                                           | `false`                      |
-| `[pageIndex]`       | 当前页码，可双向绑定                             | `number`                                                            | -                            |
-| `[pageSize]`        | 每页展示多少数据，可双向绑定                     | `number`                                                            | -                            |
-| `[showPagination]`  | 是否显示分页器                                   | `boolean`                                                           | `true`                       |
-| `[size]`            | 正常或迷你类型                                   | `'middle'｜'small'｜'default'`                                      | `'default'`                  |
-| `[loading]`         | 页面是否加载中                                   | `boolean`                                                           | `false`                      |
-| `[scroll]`          | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度 | `object`                                                            | -                            |
-| `[title]`           | 表格标题                                         | `string｜TemplateRef<void>`                                         | -                            |
-| `[pageSizeOptions]` | 页数选择器可选值                                 | `number[]`                                                          | `[10, 30, 50, 100]`          |
-| `[showSizeChanger]` | 是否可以改变 `nzPageSize`                        | `boolean`                                                           | `true`                       |
-| `[selections]`      | 当前选中数据,可双向绑定                          | `any[]`                                                             | `[]`                         |
-| `[columns]`         | 数据列的属性，建议双向绑定                       | `TableColumn[]`                                                     | `[]`                         |
-| `(load)`            | 加载数据事件                                     | `EventEmitter<[PageParams, { [key: string]: any }?]>`               | -                            |
-| `(sort)`            | 排序事件                                         | `EventEmitter<{ key: string; value: 'descend' | 'ascend' | null }>` | -                            |
-| `(linkClick)`       | 链接点击事件                                     | `EventEmitter<{ field: string; rowData: any }>`                     | -                            |
+| 参数                | 说明                                             | 类型                           | 默认值                       |
+| ------------------- | ------------------------------------------------ | ------------------------------ | ---------------------------- |
+| `[data]`            | 表格数据                                         | `object`                       | `{ data: [], totalSize: 0 }` |
+| `[frontPagination]` | 是否在前端对数据进行分页                         | `boolean`                      | `false`                      |
+| `[fixedPagination]` | 是否固定分页在页面底部                           | `boolean`                      | `false`                      |
+| `[pageIndex]`       | 当前页码，可双向绑定                             | `number`                       | -                            |
+| `[pageSize]`        | 每页展示多少数据，可双向绑定                     | `number`                       | -                            |
+| `[showPagination]`  | 是否显示分页器                                   | `boolean`                      | `true`                       |
+| `[size]`            | 正常或迷你类型                                   | `'middle'｜'small'｜'default'` | `'default'`                  |
+| `[loading]`         | 页面是否加载中                                   | `boolean`                      | `false`                      |
+| `[scroll]`          | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度 | `object`                       | -                            |
+| `[title]`           | 表格标题                                         | `string｜TemplateRef<void>`    | -                            |
+| `[pageSizeOptions]` | 页数选择器可选值                                 | `number[]`                     | `[10, 30, 50, 100]`          |
+| `[showSizeChanger]` | 是否显示条数切换器                               | `boolean`                      | `true`                       |
+| `[showQuickJumper]` | 是否显示快速跳转器                               | `boolean`                      | `true`                       |
+
+@Input() = ; // 是否显示快速跳转器
+| `[selections]` | 当前选中数据,可双向绑定 | `any[]` | `[]` |
+| `[columns]` | 数据列的属性，建议双向绑定 | `TableColumn[]` | `[]` |
+| `(load)` | 加载数据事件 | `EventEmitter<[PageParams, { [key: string]: any }?]>` | - |
+| `(sort)` | 排序事件 | `EventEmitter<{ key: string; value: 'descend' | 'ascend' | null }>` | - |
+| `(linkClick)` | 链接点击事件 | `EventEmitter<{ field: string; rowData: any }>` | - |
 
 ### TableColumn
 
