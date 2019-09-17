@@ -1,3 +1,23 @@
+## [0.1.8](https://github.com/1ziton/pixelmon/compare/v0.1.7...v0.1.8) (2019-09-16)
+
+
+### Bug Fixes
+
+* **address-select:** style ([4d79740](https://github.com/1ziton/pixelmon/commit/4d79740))
+* **pikachu:** assets路径改成绝对路径 ([b73088d](https://github.com/1ziton/pixelmon/commit/b73088d))
+* **pikachu/table:** get pagination real height ([6dc390b](https://github.com/1ziton/pixelmon/commit/6dc390b))
+
+
+### Features
+
+* **address-select:** support search ([54d9047](https://github.com/1ziton/pixelmon/commit/54d9047))
+* **address-select:** 政区选择组件实现 ([6ec238f](https://github.com/1ziton/pixelmon/commit/6ec238f))
+* add common validator ([f1e34da](https://github.com/1ziton/pixelmon/commit/f1e34da))
+* **pikachu/smart-text:** deprecated nz-tooltip ([7cfefa2](https://github.com/1ziton/pixelmon/commit/7cfefa2))
+* **pikachu/table:** deprecated nz-dropdown ([4995bf5](https://github.com/1ziton/pixelmon/commit/4995bf5))
+
+
+
 ## [0.1.7](https://github.com/1ziton/pixelmon/compare/v0.1.6...v0.1.7) (2019-09-11)
 
 
