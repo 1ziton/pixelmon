@@ -28,12 +28,12 @@ module: TableModule
 | `[pageSizeOptions]` | 页数选择器可选值                                 | `number[]`                                                          | `[10, 30, 50, 100]`          |
 | `[showSizeChanger]` | 是否可以改变 `nzPageSize`                        | `boolean`                                                           | `true`                       |
 | `[selections]`      | 当前选中数据,可双向绑定                          | `any[]`                                                             | `[]`                         |
-| `[columns]`         | 数据列的属性，建议双向绑定                       | `PTableColumn[]`                                                    | `[]`                         |
+| `[columns]`         | 数据列的属性，建议双向绑定                       | `TableColumn[]`                                                     | `[]`                         |
 | `(load)`            | 加载数据事件                                     | `EventEmitter<[PageParams, { [key: string]: any }?]>`               | -                            |
 | `(sort)`            | 排序事件                                         | `EventEmitter<{ key: string; value: 'descend' | 'ascend' | null }>` | -                            |
 | `(linkClick)`       | 链接点击事件                                     | `EventEmitter<{ field: string; rowData: any }>`                     | -                            |
 
-### PTableColumn
+### TableColumn
 
 基本属性
 
