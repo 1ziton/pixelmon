@@ -14,7 +14,7 @@
   [clearIcon]="clearIcon"
   [removeIcon]="removeIcon"
   [showSearch]="showSearch"
-  [class.ant-select-selection--single]="dropPanelService.isSingleMode"
+  [class.ant-select-selection--single]="dropdownPanelService.isSingleMode"
   (keydown)="onKeyDown($event)"
 ></div>
 <ng-template
@@ -30,7 +30,7 @@
 >
   <div
     class="ant-select-dropdown"
-    [class.ant-select-dropdown--single]="dropPanelService.isSingleMode"
+    [class.ant-select-dropdown--single]="dropdownPanelService.isSingleMode"
     [class.ant-select-dropdown-placement-bottomLeft]="dropDownPosition === 'bottom'"
     [class.ant-select-dropdown-placement-topLeft]="dropDownPosition === 'top'"
     [nzClassListAdd]="[dropdownClassName]"
@@ -48,20 +48,5 @@
       (scrollToBottom)="scrollToBottom.emit()"
     ></div>
   </div>
-
-  <!-- <div
-    p-panel-option-container
-    class="ant-select-dropdown"
-    [ngStyle]="dropdownStyle"
-    [@slideMotion]="dropDownPosition"
-    [nzClassListAdd]="[dropdownClassName]"
-    [class.ant-select-dropdown--single]="dropPanelService.isSingleMode"
-    [class.ant-select-dropdown-placement-bottomLeft]="dropDownPosition === 'bottom'"
-    [class.ant-select-dropdown-placement-topLeft]="dropDownPosition === 'top'"
-    style="overflow: auto;transform: translateZ(0px);"
-    (keydown)="onKeyDown($event)"
-    [menuItemSelectedIcon]="menuItemSelectedIcon"
-    [notFoundContent]="notFoundContent"
-    (scrollToBottom)="scrollToBottom.emit()"
-  ></div> -->
+ 
 </ng-template>

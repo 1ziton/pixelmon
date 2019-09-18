@@ -16,10 +16,13 @@ import { HttpClient } from '@angular/common/http';
   selector: 'p-demo-dropdown-panel-basic',
   template: `
     <div>
-      <p-dropdown-panel style="width: 320px;" [data]="data" [(ngModel)]="selectedValue" placeHolder="请选择"></p-dropdown-panel>
-      <span style="margin-left:30px">
-        值：{{selectedValue}}
-      </span>
+      <p-dropdown-panel style="width: 320px;" size="small" [data]="data" [(ngModel)]="selectedValue" placeHolder="小"></p-dropdown-panel>
+    </div>
+    <div style="margin-top:15px">
+      <p-dropdown-panel style="width: 320px;" [data]="data" [(ngModel)]="selectedValue" placeHolder="中（默认）" [disabled]="true"></p-dropdown-panel>
+    </div>
+    <div style="margin-top:15px">
+      <p-dropdown-panel style="width: 320px;" size="large" [data]="data" [open]="true" [(ngModel)]="selectedValue" placeHolder="大" (openChange)="openChanged($event)"></p-dropdown-panel>
     </div>
   `
 })
@@ -38,6 +41,10 @@ export class PDemoDropdownSelectBasicComponent  implements OnInit {
         value:item.id
       }))
     });
+  }
+
+  openChanged($event){
+    console.log($event)
   }
 }
 
