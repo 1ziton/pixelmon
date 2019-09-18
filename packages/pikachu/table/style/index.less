@@ -1,25 +1,64 @@
-@p-table-prefix: ~'p-table';
+@import './variable.less';
 
-.@{p-table-prefix}-filter-panel {
-  padding: 8px;
-}
-
-.@{p-table-prefix}-filter-button {
-  margin-top: 8px;
-}
-
-.@{p-table-prefix}-clear-icon {
-  color: rgba(0, 0, 0, 0.25);
-  font-size: 12px;
-  vertical-align: top;
-  cursor: pointer;
-  transition: color 0.3s;
-
-  &:hover {
-    color: rgba(0, 0, 0, 0.45);
+.@{p-table-prefix} {
+  &-filter-panel {
+    padding: 8px;
   }
-}
 
-.@{p-table-prefix}-pagination-container {
-  padding: 2px;
+  &-filter-button {
+    margin-top: 8px;
+  }
+
+  &-clear-icon {
+    color: rgba(0, 0, 0, 0.25);
+    font-size: 12px;
+    vertical-align: top;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  &.fixed-pagination .ant-table-placeholder {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: none;
+  }
+
+  .ant-table-scroll {
+    position: relative;
+  }
+
+  .ant-table-thead > tr > th .ant-table-header-column .ant-table-column-sorters > *:not(.ant-table-column-sorter) {
+    position: unset;
+  }
+
+  &-pagination-container {
+    padding-top: 2px;
+    .ant-pagination {
+      padding: 8px 0;
+      text-align: right;
+      box-shadow: 0px -2px 4px 1px rgba(241, 247, 245, 1);
+      background: white;
+    }
+
+    .ant-pagination-options {
+      margin-right: 16px;
+    }
+  }
+
+  td {
+    word-break: break-all;
+  }
+
+  tr:nth-child(odd) > td {
+    background: @table-tr-odd-background;
+  }
+
+  tr:nth-child(even) > td {
+    background: @table-tr-even-background;
+  }
 }

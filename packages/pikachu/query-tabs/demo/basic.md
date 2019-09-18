@@ -11,7 +11,7 @@ title:
 ```ts
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PTableColumn, PTableData, PTableRow, PTablePage } from '@pixelmon/pikachu/table';
+import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/table';
 
 @Component({
   selector: 'app-basic',
@@ -59,15 +59,15 @@ import { PTableColumn, PTableData, PTableRow, PTablePage } from '@pixelmon/pikac
   `,
 })
 export class BasicComponent implements OnInit {
-  tableData: PTableData = {
+  tableData: TableData = {
     data: [],
     totalSize: 0,
   };
   queryParams = {};
 
   tableLoading = false;
-  selections: PTableRow[] = [];
-  columns: PTableColumn[] = [
+  selections: TableRow[] = [];
+  columns: TableColumn[] = [
     {
       title: 'id',
       field: 'id',
@@ -132,14 +132,14 @@ export class BasicComponent implements OnInit {
 
   ngOnInit() {}
 
-  load(pageParams: PTablePage = { page: 1, size: 10 }) {
+  load(pageParams: TablePage = { page: 1, size: 10 }) {
     console.log(pageParams);
     console.log(this.queryParams);
     this.tableLoading = true;
 
     const url = `/users?total=1000&size=${pageParams.size}`;
     this.http.get(url).subscribe(users => {
-      this.tableData = users as PTableData;
+      this.tableData = users as TableData;
       this.selections = [];
       this.tableLoading = false;
     });

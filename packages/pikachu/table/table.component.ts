@@ -27,20 +27,19 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { TableCellComponent } from './table-cell.component';
 import { TableFilterComponent } from './table-filter.component';
-import { PTableColumn, PTablePage, PTableRow } from './table-interface';
+import { TableColumn, TablePage, TableRow } from './table-interface';
 
 @Component({
   selector: 'p-table',
   exportAs: 'pTable',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.Emulated,
+  encapsulation: ViewEncapsulation.None,
 })
 export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterContentInit, OnDestroy {
-  @Input() columns: PTableColumn[] = []; // 列数据
-  @Input() data: { data: PTableRow[]; totalSize: number } = { data: [], totalSize: 0 }; // 表格数据
-  @Input() selections: PTableRow[] = []; // 已选项
+  @Input() columns: TableColumn[] = []; // 列数据
+  @Input() data: { data: TableRow[]; totalSize: number } = { data: [], totalSize: 0 }; // 表格数据
+  @Input() selections: TableRow[] = []; // 已选项
   @Input() scroll: { x?: string | null; y?: string | null }; // 固定表头，滚动
   @Input() loading = false; // 表格loading
   @Input() pageSize = 10; // 显示条数
@@ -48,14 +47,17 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   @Input() showPagination = true; // 是否显示分页器
   @Input() fixedPagination = false; // 是否固定分页器
   @Input() showSizeChanger = true; // 是否显示条数切换器
-  @Input() size = 'middle'; // 表格size
+  @Input() showQuickJumper = true; // 是否显示快速跳转器
+  @Input() size: 'middle' | 'small' | 'default' = 'middle'; // 表格size
+  @Input() paginationSize: 'default' | 'small' = 'default'; // 分页size
+
   @Input() pageSizeOptions = [10, 30, 50, 100]; // 页数选择器可选值
   @Input() showCheckbox = false; // 是否显示复选框
   @Input() titleTemplate: TemplateRef<void>; // title模板
 
-  @Output() columnsChange: EventEmitter<PTableColumn[]> = new EventEmitter(); // 列数据改变事件 用于双向绑定
-  @Output() selectionsChange: EventEmitter<PTableRow[]> = new EventEmitter(); // 已选项改变事件 用于双向绑定
-  @Output() load: EventEmitter<PTablePage> = new EventEmitter(); // load事件
+  @Output() columnsChange: EventEmitter<TableColumn[]> = new EventEmitter(); // 列数据改变事件 用于双向绑定
+  @Output() selectionsChange: EventEmitter<TableRow[]> = new EventEmitter(); // 已选项改变事件 用于双向绑定
+  @Output() load: EventEmitter<TablePage> = new EventEmitter(); // load事件
   @Output() sort: EventEmitter<{ key: string; value: 'descend' | 'ascend' | null }> = new EventEmitter(); // 排序事件
   @Output() linkClick: EventEmitter<{ field: string; rowData: any }> = new EventEmitter(); // 链接点击事件
 
@@ -64,7 +66,7 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
 
   load$: Subject<any> = new Subject(); // load流
 
-  displayData: PTableRow[] = []; // 当前显示数据
+  displayData: TableRow[] = []; // 当前显示数据
   pageIndex = 1; // 当前页码
   sortParams: { key: string; value: 'descend' | 'ascend' | null };
 
@@ -213,7 +215,7 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
    * @param isOpen 是否打开
    * @param column 当前列模型数据
    */
-  onRangePickerOpenChange(isOpen: boolean, column: PTableColumn): void {
+  onRangePickerOpenChange(isOpen: boolean, column: TableColumn): void {
     if (isOpen === false) {
       const date = column.searchValue;
       if (date && Array.isArray(date) && date.length === 2) {

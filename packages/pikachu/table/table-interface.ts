@@ -1,13 +1,13 @@
 import { TemplateRef } from '@angular/core';
 import { QueryTab } from '@pixelmon/pikachu/query-tabs';
 
-export interface PTableData {
-  data: PTableRow[];
+export interface TableData {
+  data: TableRow[];
   totalSize: number;
 }
 
 // 列数据接口
-export interface PTableColumn extends QueryTab {
+export interface TableColumn extends QueryTab {
   title: string;
   field: string;
   width?: string;
@@ -29,13 +29,13 @@ export interface PTableColumn extends QueryTab {
 }
 
 // 行数据接口
-export interface PTableRow {
-  isChecked: boolean;
+export interface TableRow {
+  isChecked?: boolean;
   [key: string]: any;
 }
 
 // 分页参数接口
-export interface PTablePage {
+export interface TablePage {
   page: number;
   size: number;
 }

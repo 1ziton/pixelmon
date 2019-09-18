@@ -1,14 +1,15 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { CacheService } from '@pixelmon/cache';
 import { AddressQueryService } from '@pixelmon/pikachu/address-select/interface';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AreaService extends AddressQueryService {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private cacheSrv: CacheService) {
     super();
   }
 
@@ -25,11 +26,19 @@ export class AreaService extends AddressQueryService {
       .pipe(map((res: any) => res.content))
       .pipe(
         map((list: any) => {
-          return list.map((item: any) => ({
+          const cacheResult: Array<any> = this.cacheSrv.getNone(`/data/area-${code}`) || [];
+          if (cacheResult.length > 0) {
+            return cacheResult;
+          }
+          const result = list.map((item: any) => ({
             label: `${item.name}`,
             value: `${item.code}`,
             level: item.level,
           }));
+          if (result.length > 0) {
+            this.cacheSrv.set(`/data/area-${code}`, result);
+          }
+          return result;
         }),
       );
   }
