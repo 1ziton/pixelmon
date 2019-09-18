@@ -111,40 +111,40 @@ export class DropdownPanelComponent implements ControlValueAccessor, OnInit, Aft
   set data(d: POption[]) {
     this._data = d;
     setTimeout(() => {
-      this.dropPanelService.updateTemplateOption(this._data);
+      this.dropdownPanelService.updateTemplateOption(this._data);
     });
   }
 
   @Input()
   set autoClearSearchValue(value: boolean) {
-    this.dropPanelService.autoClearSearchValue = toBoolean(value);
+    this.dropdownPanelService.autoClearSearchValue = toBoolean(value);
   }
 
   @Input()
   set maxMultipleCount(value: number) {
-    this.dropPanelService.maxMultipleCount = value;
+    this.dropdownPanelService.maxMultipleCount = value;
   }
 
   @Input()
   set serverSearch(value: boolean) {
-    this.dropPanelService.serverSearch = toBoolean(value);
+    this.dropdownPanelService.serverSearch = toBoolean(value);
   }
 
   @Input()
   set mode(value: 'default' | 'multiple' | 'tags') {
-    this.dropPanelService.mode = value;
-    this.dropPanelService.check();
+    this.dropdownPanelService.mode = value;
+    this.dropdownPanelService.check();
   }
 
   @Input()
   set filterOption(value: any) {
-    this.dropPanelService.filterOption = value;
+    this.dropdownPanelService.filterOption = value;
   }
 
   @Input()
   // tslint:disable-next-line:no-any
   set compareWith(value: (o1: any, o2: any) => boolean) {
-    this.dropPanelService.compareWith = value;
+    this.dropdownPanelService.compareWith = value;
   }
 
   @Input()
@@ -159,15 +159,22 @@ export class DropdownPanelComponent implements ControlValueAccessor, OnInit, Aft
 
   @Input()
   set open(value: boolean) {
-    this._open = value;
-    this.dropPanelService.setOpenState(value);
+    setTimeout(() => {
+      this._open = value;
+      this.dropdownPanelService.setOpenState(value);
+      this.cdr.markForCheck();
+    });
+  }
+
+  get open(): boolean {
+    return this._open;
   }
 
   @Input()
   set disabled(value: boolean) {
     this._disabled = toBoolean(value);
-    this.dropPanelService.disabled = this._disabled;
-    this.dropPanelService.check();
+    this.dropdownPanelService.disabled = this._disabled;
+    this.dropdownPanelService.check();
     if (this.disabled && this.isInit) {
       this.closeDropDown();
     }
@@ -205,17 +212,17 @@ export class DropdownPanelComponent implements ControlValueAccessor, OnInit, Aft
   }
 
   onKeyDown(event: KeyboardEvent): void {
-    this.dropPanelService.onKeyDown(event);
+    this.dropdownPanelService.onKeyDown(event);
   }
 
   toggleDropDown(): void {
     if (!this.disabled) {
-      this.dropPanelService.setOpenState(!this.open);
+      this.dropdownPanelService.setOpenState(!this.open);
     }
   }
 
   closeDropDown(): void {
-    this.dropPanelService.setOpenState(false);
+    this.dropdownPanelService.setOpenState(false);
   }
 
   onPositionChange(position: ConnectedOverlayPositionChange): void {
@@ -223,7 +230,7 @@ export class DropdownPanelComponent implements ControlValueAccessor, OnInit, Aft
   }
 
   updateCdkConnectedOverlayStatus(): void {
-    if (this.platform.isBrowser) {
+    if (this.platform.isBrowser && this.cdkOverlayOrigin) {
       const triggerWidth = this.cdkOverlayOrigin.elementRef.nativeElement.getBoundingClientRect().width;
       this.triggerWidth = this.dropdownMatchSelectWidth ? triggerWidth : triggerWidth + 75;
     }
@@ -239,7 +246,7 @@ export class DropdownPanelComponent implements ControlValueAccessor, OnInit, Aft
 
   constructor(
     private renderer: Renderer2,
-    public dropPanelService: DropdownPanelService,
+    public dropdownPanelService: DropdownPanelService,
     private cdr: ChangeDetectorRef,
     private focusMonitor: FocusMonitor,
     private platform: Platform,
@@ -261,7 +268,7 @@ export class DropdownPanelComponent implements ControlValueAccessor, OnInit, Aft
         listValue = [value];
       }
     }
-    this.dropPanelService.updateListOfSelectedValue(listValue, false);
+    this.dropdownPanelService.updateListOfSelectedValue(listValue, false);
     this.cdr.markForCheck();
   }
 
@@ -279,11 +286,11 @@ export class DropdownPanelComponent implements ControlValueAccessor, OnInit, Aft
   }
 
   ngOnInit(): void {
-    this.dropPanelService.searchValue$.pipe(takeUntil(this.destroy$)).subscribe(data => {
+    this.dropdownPanelService.searchValue$.pipe(takeUntil(this.destroy$)).subscribe(data => {
       this.onSearch.emit(data);
       this.updateCdkConnectedOverlayPositions();
     });
-    this.dropPanelService.modelChange$.pipe(takeUntil(this.destroy$)).subscribe(modelValue => {
+    this.dropdownPanelService.modelChange$.pipe(takeUntil(this.destroy$)).subscribe(modelValue => {
       if (this.value !== modelValue) {
         this.value = modelValue;
         this.onChange(this.value);
@@ -291,7 +298,7 @@ export class DropdownPanelComponent implements ControlValueAccessor, OnInit, Aft
         // this.cdr.detectChanges();
       }
     });
-    this.dropPanelService.open$.pipe(takeUntil(this.destroy$)).subscribe(value => {
+    this.dropdownPanelService.open$.pipe(takeUntil(this.destroy$)).subscribe(value => {
       if (this.open !== value) {
         this.openChange.emit(value);
       }
@@ -303,9 +310,9 @@ export class DropdownPanelComponent implements ControlValueAccessor, OnInit, Aft
         this.onTouched();
       }
       this.open = value;
-      this.dropPanelService.clearInput();
+      this.dropdownPanelService.clearInput();
     });
-    this.dropPanelService.check$.pipe(takeUntil(this.destroy$)).subscribe(() => {
+    this.dropdownPanelService.check$.pipe(takeUntil(this.destroy$)).subscribe(() => {
       this.cdr.markForCheck();
     });
   }
