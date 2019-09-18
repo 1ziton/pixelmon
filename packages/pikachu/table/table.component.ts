@@ -33,9 +33,8 @@ import { TableColumn, TablePage, TableRow } from './table-interface';
   selector: 'p-table',
   exportAs: 'pTable',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.Emulated,
+  encapsulation: ViewEncapsulation.None,
 })
 export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterContentInit, OnDestroy {
   @Input() columns: TableColumn[] = []; // 列数据
