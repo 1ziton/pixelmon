@@ -30,7 +30,7 @@ export interface TableColumn extends QueryTab {
 
 // 行数据接口
 export interface TableRow {
-  isChecked: boolean;
+  isChecked?: boolean;
   [key: string]: any;
 }
 
