@@ -21,7 +21,8 @@ module: TableModule
 | `[pageIndex]`       | 当前页码，可双向绑定                             | `number`                       | -                            |
 | `[pageSize]`        | 每页展示多少数据，可双向绑定                     | `number`                       | -                            |
 | `[showPagination]`  | 是否显示分页器                                   | `boolean`                      | `true`                       |
-| `[size]`            | 正常或迷你类型                                   | `'middle'｜'small'｜'default'` | `'default'`                  |
+| `[size]`            | 表格大小                                         | `'middle'｜'small'｜'default'` | `'default'`                  |
+| `[paginationSize]`  | 分页大小                                         | `'default' | 'small'`          | `'default'`                  |
 | `[loading]`         | 页面是否加载中                                   | `boolean`                      | `false`                      |
 | `[scroll]`          | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度 | `object`                       | -                            |
 | `[title]`           | 表格标题                                         | `string｜TemplateRef<void>`    | -                            |

@@ -48,7 +48,9 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   @Input() fixedPagination = false; // 是否固定分页器
   @Input() showSizeChanger = true; // 是否显示条数切换器
   @Input() showQuickJumper = true; // 是否显示快速跳转器
-  @Input() size = 'middle'; // 表格size
+  @Input() size: 'middle' | 'small' | 'default' = 'middle'; // 表格size
+  @Input() paginationSize: 'default' | 'small' = 'default'; // 分页size
+
   @Input() pageSizeOptions = [10, 30, 50, 100]; // 页数选择器可选值
   @Input() showCheckbox = false; // 是否显示复选框
   @Input() titleTemplate: TemplateRef<void>; // title模板
