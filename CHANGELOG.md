@@ -1,3 +1,25 @@
+## [0.1.9](https://github.com/1ziton/pixelmon/compare/v0.1.8...v0.1.9) (2019-09-18)
+
+
+### Bug Fixes
+
+* **pikachu/table:** no-duplicate-selectors ([70635d0](https://github.com/1ziton/pixelmon/commit/70635d0))
+
+
+### Features
+
+* **pikachu/table:** paginationSize ([7675387](https://github.com/1ziton/pixelmon/commit/7675387))
+* **pikachu/table:** style variable ([5764e64](https://github.com/1ziton/pixelmon/commit/5764e64))
+* **pikachu/table:** TableRow isChecked optional ([4221cd4](https://github.com/1ziton/pixelmon/commit/4221cd4))
+* **pikachu/table:** 根据UI调整默认样式 ([f6ba05a](https://github.com/1ziton/pixelmon/commit/f6ba05a))
+
+
+### Performance Improvements
+
+* **pikachu/table:** ViewEncapsulation.None ([24a25b2](https://github.com/1ziton/pixelmon/commit/24a25b2))
+
+
+
 ## [0.1.8](https://github.com/1ziton/pixelmon/compare/v0.1.7...v0.1.8) (2019-09-16)
 
 
