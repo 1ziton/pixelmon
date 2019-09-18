@@ -82,7 +82,8 @@
   <div class="p-table-pagination-container">
     <p-pagination
       *ngIf="fixedPagination ? showPagination : showPagination && data?.totalSize"
-      nzSize="small"
+      [nzSize]="paginationSize"
+      [nzShowQuickJumper]="showQuickJumper"
       [(nzPageIndex)]="pageIndex"
       [(nzPageSize)]="pageSize"
       [nzShowSizeChanger]="showSizeChanger"
