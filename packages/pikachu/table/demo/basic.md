@@ -26,6 +26,7 @@ import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/t
       [loading]="tableLoading"
       [titleTemplate]="titleTemplate"
       [fixedPagination]="true"
+      [paginationOffset]="8"
       (load)="load($event)"
       (sort)="sort($event)"
     >
