@@ -1,0 +1,4 @@
+<ng-content></ng-content>
+<a *ngIf="expandable" class="tag-select__trigger" (click)="trigger()">
+  {{expand ? '折叠' : '展开'}}<i nz-icon [nzType]="expand ? 'up' : 'down'" class="tag-select__trigger-icon"></i>
+</a>
