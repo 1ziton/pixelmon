@@ -6,17 +6,20 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-list-layout',
   templateUrl: './list.component.html',
+  host: {
+    '[style.padding]': '"50px"'
+  },
 })
 export class ProListLayoutComponent implements OnInit, OnDestroy {
   private router$: Subscription;
   tabs: any[] = [
     {
-      key: 'articles',
-      tab: '文章',
+      key: 'blocks',
+      tab: '区块',
     },
     {
-      key: 'projects',
-      tab: '项目',
+      key: 'scaffolds',
+      tab: '模板',
     },
   ];
 

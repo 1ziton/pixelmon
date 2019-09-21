@@ -1,23 +1,23 @@
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { NzMessageService } from 'ng-zorro-antd';
 import { _HttpClient } from '@pixelmon/theme';
 
 @Component({
-  selector: 'app-list-articles',
-  templateUrl: './articles.component.html',
+  selector: 'app-list-scaffolds',
+  templateUrl: './scaffolds.component.html',
+  styleUrls: ['./scaffolds.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProListArticlesComponent implements OnInit {
-  // endregion
-
-  constructor(private http: _HttpClient, private cdr: ChangeDetectorRef) {}
+export class ProListProjectsComponent implements OnInit {
   q: any = {
-    ps: 5,
+    ps: 8,
     categories: [],
     owners: ['zxx'],
   };
 
   list: any[] = [];
-  loading = false;
+
+  loading = true;
 
   // region: cateogry
   categories = [
@@ -35,31 +35,6 @@ export class ProListArticlesComponent implements OnInit {
     { id: 11, text: '类目十一', value: false },
     { id: 12, text: '类目十二', value: false },
   ];
-  // endregion
-
-  // region: owners
-  owners = [
-    {
-      id: 'wzj',
-      name: '我自己',
-    },
-    {
-      id: 'wjh',
-      name: '吴家豪',
-    },
-    {
-      id: 'zxx',
-      name: '周星星',
-    },
-    {
-      id: 'zly',
-      name: '赵丽颖',
-    },
-    {
-      id: 'ym',
-      name: '姚明',
-    },
-  ];
 
   changeCategory(status: boolean, idx: number) {
     if (idx === 0) {
@@ -67,22 +42,20 @@ export class ProListArticlesComponent implements OnInit {
     } else {
       this.categories[idx].value = status;
     }
+    this.getData();
   }
+  // endregion
 
-  setOwner() {
-    this.q.owners = [`wzj`];
-    // TODO: wait nz-dropdown OnPush mode
-    setTimeout(() => this.cdr.detectChanges());
-  }
+  constructor(private http: _HttpClient, public msg: NzMessageService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.getData();
   }
 
-  getData(more = false) {
+  getData() {
     this.loading = true;
     this.http.get('/api/list', { count: this.q.ps }).subscribe((res: any) => {
-      this.list = more ? this.list.concat(res) : res;
+      this.list = this.list.concat(res);
       this.loading = false;
       this.cdr.detectChanges();
     });
