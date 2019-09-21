@@ -7,7 +7,7 @@ import { ModuleConfig, SiteConfig } from '../interfaces';
 const MT = require('mark-twain');
 const JsonML = require('jsonml.js/lib/utils');
 
-let exampleIndexTpl = null;
+let exampleIndexTpl: any = null;
 
 function fixExample(item: any, filePath: string, config: ModuleConfig) {
   item.componentIndexName = `${genUpperName(`${config.name}-${item.name}-index`)}Component`;
@@ -23,14 +23,7 @@ function fixExample(item: any, filePath: string, config: ModuleConfig) {
   generateDoc(obj, exampleIndexTpl, filePath);
 }
 
-export function generateDemo(
-  rootDir: string,
-  key: string,
-  dir: string,
-  cols: number,
-  config: ModuleConfig,
-  siteConfig: SiteConfig,
-) {
+export function generateDemo(rootDir: string, key: string, dir: string, cols: number, config: ModuleConfig, siteConfig: SiteConfig) {
   if (!exampleIndexTpl) {
     exampleIndexTpl = fs.readFileSync(path.join(rootDir, siteConfig.template.examples_index)).toString('utf8');
   }
@@ -46,11 +39,15 @@ export function generateDemo(
 
   const demos: any[] = fse.readdirSync(dir).map(name => {
     const filePath = path.join(dir, name);
-    let mt = null;
+    let mt: any = null;
     try {
       mt = MT(fse.readFileSync(filePath, { encoding: 'utf-8' }));
     } catch (err) {
       console.error(`invalid ${filePath}`, err);
+      return;
+    }
+    if (!mt) {
+      console.log(`mt is null`);
       return;
     }
     mt.name = name.replace('.md', '');

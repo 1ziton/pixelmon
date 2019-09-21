@@ -12,6 +12,7 @@ export interface SiteConfig {
     examples_index: string;
   };
   modules: ModuleConfig[];
+  materials: any;
 }
 
 export interface TemplateConfig {

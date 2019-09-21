@@ -1,0 +1,6 @@
+{
+    "type": "angular",
+    "categories": ["列表"],
+    "materials": [{"name":"article-list","title":"文章列表","categories":["列表"],"screenshot":"https://unpkg.com/@pixelmon-materials/article-list-block/screenshot.png","publishTime":"2019-09-21 13:29:34","updateTime":"2019-09-21 17:29:39","description":"文章列表","version":"1.0.0"}]
+}
+  

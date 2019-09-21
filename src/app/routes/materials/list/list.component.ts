@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-list-layout',
   templateUrl: './list.component.html',
   host: {
-    '[style.padding]': '"50px"'
+    '[style.padding]': '"40px 80px 80px 80px"'
   },
 })
 export class ProListLayoutComponent implements OnInit, OnDestroy {
