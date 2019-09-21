@@ -152,7 +152,7 @@
     "tslint": "~5.20.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-language-service": "^0.9.9",
-    "typescript": "^3.6.3",
+    "typescript": "3.5.1",
     "webpack-bundle-analyzer": "^3.5.1",
     "xlsx": "^0.15.1"
   },
