@@ -8,10 +8,10 @@
 ### 目录结构
 
 ```
-- article-list # 区块名称
-    - src # 源码文件
-    - index.ts # 统一入口文件
-    - package.json # 区块信息文件描述
+ |-- article-list # 区块名称
+     |-- src # 源码文件
+     |-- index.ts # 统一入口文件
+     |-- package.json # 区块信息文件描述
 ```
 
 **package.json** 文件说明
@@ -35,4 +35,3 @@
 
  这些信息都会动态展示到网站，所以需要认真书写。
 
- 

@@ -80,4 +80,8 @@ export class ProListArticlesComponent implements OnInit {
     //   this.cdr.detectChanges();
     // });
   }
+
+  imgLoad($event, item) {
+    item.imgError = $event.type === 'error';
+  }
 }

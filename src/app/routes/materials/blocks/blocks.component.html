@@ -25,9 +25,14 @@
     <nz-list-item>
       <nz-card nzHoverable [nzCover]="cover">
         <ng-template #cover>
-          <img alt="{{ item.title }}" src="{{ item.cover }}" />
+          <img alt="{{ item.title }}" src="{{ item.cover }}" (error)="imgLoad($event, item)" *ngIf="!item.imgError" />
+          <nz-empty [nzNotFoundContent]="contentTpl" *ngIf="item.imgError" style="margin-top:10px;">
+            <ng-template #contentTpl>
+              <span style="color: red"> 未提供图片 </span>
+            </ng-template>
+          </nz-empty>
         </ng-template>
-        <nz-card-meta [nzTitle]="nzTitle" [nzDescription]="item.subDescription">
+        <nz-card-meta [nzTitle]="nzTitle" [nzDescription]="item.description">
           <ng-template #nzTitle>
             <a (click)="msg.success('标题：' + item.id)">{{ item.title }}</a>
           </ng-template>
