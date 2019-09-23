@@ -4,7 +4,6 @@
  * @description: 物料预览
  */
 
-
 import { Component, Input, OnInit, ChangeDetectorRef, ViewChildren } from '@angular/core';
 import { MaterialsService } from '@core/materials.service';
 import { ENTY_BLOCKS_COMPONENTS } from '@materials/blocks/entry_components';
@@ -15,7 +14,8 @@ import { DynamicComponent } from 'ng-dynamic-component';
   selector: 'app-preview-materials',
   template: `
     <div class="flow-modal">
-      <div class="title">
+      <div class="top">
+        <span class="title"> {{ selector }} - {{ title }} </span>
         <span class="close" (click)="close()">
           <i nz-icon nzType="close-circle" nzTheme="outline"></i>
         </span>
@@ -37,21 +37,32 @@ import { DynamicComponent } from 'ng-dynamic-component';
         z-index: 1000;
         background-color: rgba(0, 0, 0, 0.15);
       }
-      .title,
+      .title {
+        display: inline-block;
+        font-size: 18px;
+        width: 30%;
+        margin: 5px 30px;
+      }
+      .top {
+        background: #ee8a7b;
+        color: #fff;
+      }
+      .top,
       .footer {
         height: 40px;
       }
 
       .modal-content {
         position: relative;
-        padding: 0 30px;
+        padding: 20px 30px 0 30px;
         overflow-y: scroll;
         width: 100%;
         height: 90%;
       }
       .close {
         float: right;
-        margin: 5px 10px;
+        margin: 0 10px;
+        cursor: pointer;
         font-size: 28px;
       }
     `,
@@ -61,6 +72,10 @@ export class MaterialsPreviewComponent implements OnInit {
   @ViewChildren(DynamicComponent) component: DynamicComponent;
 
   componentType: any;
+  @Input()
+  title: string;
+  @Input()
+  selector: string;
 
   @Input()
   set componentName(name: string) {
