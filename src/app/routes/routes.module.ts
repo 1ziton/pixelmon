@@ -28,6 +28,10 @@ const routes: Route[] = [
       { path: 'mock', loadChildren: () => import('./gen/mock/mock.module').then(m => m.MockModule) },
       { path: 'util', loadChildren: () => import('./gen/util/util.module').then(m => m.UtilModule) },
       { path: 'ggeditor', loadChildren: () => import('./gen/ggeditor/ggeditor.module').then(m => m.GgeditorModule) },
+      {
+        path: 'materials',
+        loadChildren: () => import('./materials/materials.module').then(m => m.MaterialsModule),
+      },
       // #endregion
     ],
   },

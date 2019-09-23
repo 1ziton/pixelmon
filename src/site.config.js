@@ -6,6 +6,30 @@ module.exports = {
     examples: './src/templates/examples.ts',
     examples_index: './src/templates/examples_index.ts',
   },
+  materials: {
+    blocks: {
+      dir: {
+        src: './materials/blocks',
+        ignores: ['README.md', 'readme.md'],
+        template: {
+          content: './src/templates/materials.json',
+        },
+        hasSubDir: true,
+      },
+      dist: './src/app/routes/materials/blocks',
+    },
+    scaffolds: {
+      dir: {
+        src: './materials/scaffolds',
+        ignores: ['README.md', 'readme.md'],
+        template: {
+          content: './src/templates/materials.json',
+        },
+        hasSubDir: true,
+      },
+      dist: './src/app/routes/materials/scaffolds',
+    },
+  },
   modules: [
     {
       name: 'docs',

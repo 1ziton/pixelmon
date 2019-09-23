@@ -1,0 +1,58 @@
+<nz-card [nzBordered]="false">
+  <form nz-form se-container="1" size="compact" gutter="32" [labelWidth]="null">
+    <se label="所属类目" line>
+      <tag-select>
+        <nz-tag
+          *ngFor="let i of categories; let idx = index"
+          nzMode="checkable"
+          [nzChecked]="i.value"
+          (nzCheckedChange)="changeCategory($event, idx)"
+        >
+          {{ i.text }}
+        </nz-tag>
+      </tag-select>
+    </se>
+  </form>
+</nz-card>
+<nz-list
+  [nzLoading]="loading"
+  [nzRenderItem]="item"
+  [nzDataSource]="list"
+  [nzGrid]="{ gutter: 24, lg: 6, md: 8, sm: 12, xs: 24 }"
+>
+  <ng-template #item let-item>
+    <nz-list-item>
+      <nz-card nzHoverable [nzCover]="cover">
+        <ng-template #cover>
+          <img alt="{{ item.title }}" src="{{ item.cover }}" (error)="imgLoad($event, item)" *ngIf="!item.imgError" />
+          <nz-empty [nzNotFoundContent]="contentTpl" *ngIf="item.imgError" style="margin-top:10px;">
+            <ng-template #contentTpl>
+              <span style="color: red"> 未提供图片 </span>
+            </ng-template>
+          </nz-empty>
+        </ng-template>
+        <nz-card-meta [nzTitle]="nzTitle" [nzDescription]="item.description">
+          <ng-template #nzTitle>
+            <a (click)="msg.success('标题：' + item.id)">{{ item.title }}</a>
+          </ng-template>
+        </nz-card-meta>
+        <div class="card-item-content">
+          <span class="text-grey">{{ item.updatedAt | _date: 'fn' }}</span>
+          <!-- <avatar-list size="mini">
+            <avatar-list-item *ngFor="let m of item.members" [src]="m.avatar" [tips]="m.name"></avatar-list-item>
+          </avatar-list> -->
+          <div style="display:inline-block; float:right;">
+            <img *ngFor="let m of item.members" src="{{ m.avatar }}" alt="{{ m.name }}" />
+          </div>
+        </div>
+      </nz-card>
+    </nz-list-item>
+  </ng-template>
+</nz-list>
+<!-- <ng-template #loadMore>
+  <div class="text-center mt-md">
+    <button nz-button (click)="getData(true)" [nzLoading]="loading" [nzType]="'dashed'" style="min-width:200px;">
+      加载更多
+    </button>
+  </div>
+</ng-template> -->
