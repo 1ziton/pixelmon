@@ -4,27 +4,27 @@
  * @description:
  */
 
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { _HttpClient } from '@pixelmon/theme';
+import { OverlayRef, Overlay } from '@angular/cdk/overlay';
+import { ComponentPortal, ComponentType } from '@angular/cdk/portal';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, OnInit } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd';
-
+import { MaterialsPreviewComponent } from '../preview.component';
+import { MaterialsService } from '@core/materials.service';
 const MaterialsMeta = require('./materials.json');
+
 @Component({
   selector: 'app-list-blocks',
   templateUrl: './blocks.component.html',
+  styleUrls: ['./blocks.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProListArticlesComponent implements OnInit {
-  // endregion
-
-  constructor(private cdr: ChangeDetectorRef, public msg: NzMessageService) {}
+export class BlockListComponent implements OnInit {
+  private overlayRef: OverlayRef;
+  private modalRef: ComponentRef<any> | null; // Modal ComponentRef, "null" means it has been destroyed
 
   list: any[] = [];
   loading = false;
-
-  // region: cateogry
   categories: Array<{ text: string; id: number; value: boolean }> = [];
-  // endregion
 
   // region: owners
   owners = [
@@ -50,6 +50,13 @@ export class ProListArticlesComponent implements OnInit {
     },
   ];
 
+  constructor(
+    private overlay: Overlay,
+    private cdr: ChangeDetectorRef,
+    public msg: NzMessageService,
+    private materialSrv: MaterialsService,
+  ) {}
+
   changeCategory(status: boolean, idx: number) {
     if (idx === 0) {
       this.categories.map(i => (i.value = status));
@@ -64,7 +71,18 @@ export class ProListArticlesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.categories = MaterialsMeta.categories.map((c, index) => ({ id: index, value: false, text: c }));
+    this.materialSrv.change.subscribe((v: any) => {
+      if (v === 'close') {
+        this.destroyModal();
+        return;
+      }
+    });
+
+    this.categories = MaterialsMeta.categories.map((c, index) => ({
+      id: index,
+      value: false,
+      text: c,
+    }));
     this.getData();
   }
 
@@ -84,5 +102,31 @@ export class ProListArticlesComponent implements OnInit {
 
   imgLoad($event, item) {
     item.imgError = $event.type === 'error';
+  }
+
+  public createModal(component: ComponentType<any>) {
+    this.overlayRef = this.overlay.create();
+    this.modalRef = this.overlayRef.attach(new ComponentPortal(component));
+  }
+
+  private destroyModal(): void {
+    if (this.modalRef) {
+      this.overlayRef.dispose();
+      this.modalRef = null;
+    }
+  }
+
+  private changeProps(options): void {
+    if (this.modalRef) {
+      this.modalRef.instance.componentName = options.componentName;
+      console.log(this.modalRef.instance);
+    }
+  }
+
+  // 需求变动，弹窗无用
+  preview(componentName?: string) {
+    console.log(componentName);
+    this.createModal(MaterialsPreviewComponent);
+    this.changeProps({ componentName });
   }
 }

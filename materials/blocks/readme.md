@@ -14,24 +14,29 @@
      |-- package.json # 区块信息文件描述
 ```
 
-**package.json** 文件说明
+###  package.json 文件说明
 
-重要的属性有如下，还有 `version` 和 `description`
+重要的属性有如下，还有 `version` 和 `description`，这些信息都会动态展示到网站，所以需要认真书写。
 
 ```json
 
   "blockConfig": {
-    "name": "article-list",
-    "title": "文章列表",
-    "categories": [
+    "name": "article-list", // 区块名，以 selector 来标识
+    "entryClassName": "ProListArticlesComponent", // 区块入口组件类名（重要）
+    "title": "文章列表", // 区块标题，是什么东西
+    "categories": [ // 区块类型标签，可多个
       "列表"
     ],
-    "screenshot": "https://unpkg.com/@pixelmon-materials/article-list-block/screenshot.png",
-    "publishTime": "2019-09-21 13:29:34",
-    "updateTime": "2019-09-21 17:29:39"
+    "screenshot": "https://raw.githubusercontent.com/1ziton/pixelmon/materials/blocks/article-list/screenshot.png", // 区块demo截图，截图命名为screenshot.png放到根目录即可展示
+    "publishTime": "2019-09-21 13:29:34", // 区块创建时间
+    "updateTime": "2019-09-21 17:29:39" // 区块更新时间
   },
 
  ```
 
- 这些信息都会动态展示到网站，所以需要认真书写。
+### 统一导出
+
+`entry_components.ts` 文件下统一导出区块，动态创建组件预览需要使用。
+
+
 

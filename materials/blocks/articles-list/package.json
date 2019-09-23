@@ -1,5 +1,5 @@
 {
-  "name": "@pixelmon-materials/article-list-block",
+  "name": "@pixelmon-materials/articles-list-block",
   "version": "1.0.0",
   "description": "文章列表",
   "author": {
@@ -7,7 +7,8 @@
     "email": "giscafer@outlook.com"
   },
   "blockConfig": {
-    "name": "article-list",
+    "name": "articles-list",
+    "entryClassName": "ProListArticlesComponent",
     "title": "文章列表",
     "categories": [
       "列表"

@@ -62,6 +62,7 @@
     "file-saver": "^2.0.2",
     "gg-editor": "^2.0.4",
     "marked": "^0.7.0",
+    "ng-dynamic-component": "^5.0.0",
     "ng-github-button": "^2.1.4",
     "ng-zorro-antd": "^8.3.0",
     "ng2-ace-editor": "^0.3.9",
