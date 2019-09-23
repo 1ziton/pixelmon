@@ -6,6 +6,7 @@
 
 import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { _HttpClient } from '@pixelmon/theme';
+import { NzMessageService } from 'ng-zorro-antd';
 
 const MaterialsMeta = require('./materials.json');
 @Component({
@@ -16,7 +17,7 @@ const MaterialsMeta = require('./materials.json');
 export class ProListArticlesComponent implements OnInit {
   // endregion
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef, public msg: NzMessageService) {}
 
   list: any[] = [];
   loading = false;
