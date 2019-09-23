@@ -13,13 +13,13 @@
     "categories": [
       "列表"
     ],
-    "screenshot": "https://raw.githubusercontent.com/1ziton/pixelmon/materials/blocks/article-list/screenshot.png",
+    "screenshot": "https://raw.githubusercontent.com/1ziton/pixelmon/master/materials/blocks/articles-list/screenshot.png",
     "publishTime": "2019-09-21 13:29:34",
     "updateTime": "2019-09-21 17:29:39"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/1ziton/pixelmon/tree/master/materials/blocks/article-list"
+    "url": "https://github.com/1ziton/pixelmon/tree/master/materials/blocks/articles-list"
   },
   "license": "MIT",
   "keywords": [
@@ -32,7 +32,7 @@
     "access": "public",
     "registry": "http://registry.npmjs.com"
   },
-  "homepage": "https://unpkg.com/@pixelmon-materials/article-list-block/build/index.html",
+  "homepage": "https://unpkg.com/@pixelmon-materials/articles-list-block/build/index.html",
   "scripts": {},
   "dependencies": {
     "@pixelmon/theme": "*",

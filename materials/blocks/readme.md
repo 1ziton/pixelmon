@@ -16,7 +16,7 @@
 
 ###  package.json 文件说明
 
-重要的属性有如下，还有 `version` 和 `description`，这些信息都会动态展示到网站，所以需要认真书写。
+重要的属性有如下，还有 `version` 、 `description`、`repository`，这些信息都会动态展示到网站，所以需要认真书写。
 
 ```json
 
@@ -33,6 +33,10 @@
   },
 
  ```
+
+ `screenshot` 截图地址目前临时使用 GitHub 的，地址固定为: `https://raw.githubusercontent.com/1ziton/pixelmon/master/materials/{区块 or 模板文件目录}/screenshot.png`，每次发版合并到master分支，图片即可见效.
+
+
 
 ### 统一导出
 

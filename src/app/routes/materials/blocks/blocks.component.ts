@@ -53,7 +53,7 @@ export class BlockListComponent implements OnInit {
   constructor(
     private overlay: Overlay,
     private cdr: ChangeDetectorRef,
-    public msg: NzMessageService,
+    public msgSrv: NzMessageService,
     private materialSrv: MaterialsService,
   ) {}
 
@@ -118,15 +118,23 @@ export class BlockListComponent implements OnInit {
 
   private changeProps(options): void {
     if (this.modalRef) {
-      this.modalRef.instance.componentName = options.componentName;
+      Object.assign(this.modalRef.instance, options);
       console.log(this.modalRef.instance);
     }
   }
 
   // 需求变动，弹窗无用
-  preview(componentName?: string) {
-    console.log(componentName);
+  preview(item) {
+    const { name, title, entryClassName } = item;
     this.createModal(MaterialsPreviewComponent);
-    this.changeProps({ componentName });
+    this.changeProps({ componentName: entryClassName, title, selector: name });
+  }
+
+  viewSourceCode(item) {
+    if (!item.repositoryUrl) {
+      this.msgSrv.error(`没有找到物料组件源码地址，请检测配置!`);
+      return;
+    }
+    window.open(item.repositoryUrl);
   }
 }

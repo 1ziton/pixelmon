@@ -28,20 +28,7 @@ const desc = [
   '那时候我只会想自己想要什么，从不想自己拥有什么',
 ];
 
-const user = [
-  '卡色',
-  'cipchk',
-  '付小小',
-  '曲丽丽',
-  '林东东',
-  '周星星',
-  '吴加好',
-  '朱偏右',
-  '鱼酱',
-  '乐哥',
-  '谭小仪',
-  '仲尼',
-];
+const user = ['卡色', 'cipchk', 'giscafer', '付小小', '曲丽丽', '林东东', '周星星', '吴加好', '朱偏右', '鱼酱', '乐哥', '谭小仪', '仲尼'];
 
 // endregion
 
@@ -57,7 +44,7 @@ function getFakeList(count: number = 20): any[] {
       status: ['active', 'exception', 'normal'][i % 3],
       percent: Math.ceil(Math.random() * 50) + 50,
       logo: avatars[i % 8],
-      href: 'https://ant.design',
+      href: i % 2 === 0 ? 'http://giscafer.com' : 'https://1ziton.github.io/pixelmon',
       updatedAt: new Date(new Date().getTime() - 1000 * 60 * 60 * 2 * i),
       createdAt: new Date(new Date().getTime() - 1000 * 60 * 60 * 2 * i),
       subDescription: desc[i % 5],

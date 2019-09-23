@@ -47,6 +47,7 @@ function generate(rootPath, config) {
       ...p.blockConfig,
       description: p.description,
       version: p.version,
+      repositoryUrl: p.repository.url,
     });
   });
   let categories: string[] = [];

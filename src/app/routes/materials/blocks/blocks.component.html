@@ -28,7 +28,7 @@
         </ng-template>
         <nz-card-meta [nzTitle]="nzTitle" [nzDescription]="item.description">
           <ng-template #nzTitle>
-            <a (click)="preview(item.entryClassName)">{{ item.title }}</a>
+            <a (click)="preview(item)">{{ item.title }}</a>
           </ng-template>
         </nz-card-meta>
         <div class="card-item-content">
@@ -41,18 +41,18 @@
               nz-icon
               nzType="eye"
               nzTheme="outline"
-              (click)="preview(item.entryClassName)"
+              (click)="preview(item)"
             ></i>
           </div>
           <div class="preview-btn">
             <i
-              nzTooltipTitle="下载"
+              nzTooltipTitle="查看代码"
               nzTooltipPlacement="top"
               nz-tooltip
               nz-icon
               nzType="cloud-download"
               nzTheme="outline"
-              (click)="preview(item.entryClassName)"
+              (click)="viewSourceCode(item)"
             ></i>
           </div>
         </div>
