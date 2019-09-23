@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PaginationModule } from '@pixelmon/pikachu/pagination';
 import { SmartTextModule } from '@pixelmon/pikachu/smart-text';
-import { ViewerDirectiveModule } from '@pixelmon/pikachu/viewer';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
@@ -34,7 +33,6 @@ const MODULE = [
   NzDatePickerModule,
   NzSpinModule,
   SmartTextModule,
-  ViewerDirectiveModule,
   PaginationModule,
 ];
 
