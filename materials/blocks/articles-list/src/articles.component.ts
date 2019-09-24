@@ -6,7 +6,7 @@ import { _HttpClient } from '@pixelmon/theme';
   templateUrl: './articles.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProListArticlesComponent implements OnInit {
+export class ArticlesListPageComponent implements OnInit {
   // endregion
 
   constructor(private http: _HttpClient, private cdr: ChangeDetectorRef) {}

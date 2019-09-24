@@ -1,17 +1,18 @@
 {
   "name": "@pixelmon-materials/articles-list-block",
   "version": "1.0.0",
-  "description": "文章列表",
+  "description": "文章列表页，含标签筛选和查询条件",
   "author": {
     "name": "giscafer",
     "email": "giscafer@outlook.com"
   },
   "blockConfig": {
     "name": "articles-list",
-    "entryClassName": "ProListArticlesComponent",
-    "title": "文章列表",
+    "entryClassName": "ArticlesListPageComponent",
+    "title": "文章列表页",
     "categories": [
-      "列表"
+      "标签列表页",
+      "文章列表"
     ],
     "screenshot": "https://raw.githubusercontent.com/1ziton/pixelmon/master/materials/blocks/articles-list/screenshot.png",
     "publishTime": "2019-09-21 13:29:34",
