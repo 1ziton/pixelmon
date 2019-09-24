@@ -9,9 +9,10 @@ import { META as MockMeta } from '../routes/gen/mock/meta';
 import { META as ThemeMeta } from '../routes/gen/theme/meta';
 import { META as UtilMeta } from '../routes/gen/util/meta';
 import { META as GgEditorMeta } from '../routes/gen/ggeditor/meta';
+import { META as ChartMeta } from '../routes/gen/chart/meta';
 import { I18NService } from './i18n/service';
 
-const FULLMETAS: Meta[] = [DocsMeta, ComponentsMeta, ACLMeta, MockMeta, UtilMeta, ThemeMeta, CacheMeta, GgEditorMeta] as any;
+const FULLMETAS: Meta[] = [DocsMeta, ComponentsMeta, ACLMeta, MockMeta, UtilMeta, ThemeMeta, CacheMeta, ChartMeta, GgEditorMeta] as any;
 
 @Injectable({ providedIn: 'root' })
 export class MetaService {
@@ -26,8 +27,8 @@ export class MetaService {
         item._t =
           typeof curTitle !== 'string'
             ? Object.values(curTitle!)
-              .map(v => v)
-              .join('-')
+                .map(v => v)
+                .join('-')
             : curTitle;
       }
     }
@@ -122,10 +123,10 @@ export class MetaService {
     const category = this.getCatgory(url);
     return category
       ? url
-        .split('?')[0]
-        .split('/')[1]
-        .toLowerCase()
-        .split('-')[0]
+          .split('?')[0]
+          .split('/')[1]
+          .toLowerCase()
+          .split('-')[0]
       : '';
   }
 
