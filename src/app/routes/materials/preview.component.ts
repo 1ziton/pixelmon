@@ -35,7 +35,7 @@ import { DynamicComponent } from 'ng-dynamic-component';
         left: 2.5%;
         top: 2.5%;
         z-index: 1000;
-        background-color: rgba(0, 0, 0, 0.15);
+        background-color: #f5f7fa;
       }
       .title {
         display: inline-block;
