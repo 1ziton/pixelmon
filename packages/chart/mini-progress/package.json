@@ -1,0 +1,13 @@
+{
+  "ngPackage": {
+    "lib": {
+      "flatModuleFile": "mini-progress",
+      "entryFile": "public_api.ts",
+      "umdModuleIds": {
+        "ng-zorro-antd/tooltip": "ng-zorro-antd/tooltip",
+        "@pixelmon/theme": "pixelmon.theme",
+        "@pixelmon/util": "pixelmon.util"
+      }
+    }
+  }
+}

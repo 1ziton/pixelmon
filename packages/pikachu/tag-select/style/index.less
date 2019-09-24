@@ -1,0 +1,32 @@
+@import '../../../theme/styles/default.less';
+
+.tag-select {
+  position: relative;
+  display: block;
+  max-height: @form-component-max-height - 0.0001px;
+  margin-left: -8px;
+  overflow: hidden;
+  line-height: @form-component-max-height - 0.0001px;
+  transition: all 0.3s;
+  user-select: none;
+  &__expanded {
+    max-height: 200px;
+    transition: all 0.3s;
+  }
+  &__has-expand {
+    padding-right: 50px;
+  }
+  .@{ant-prefix}-tag {
+    margin-right: 24px;
+    padding: 0 8px;
+  }
+  &__trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    &-icon {
+      margin-left: 8px;
+      font-size: 12px;
+    }
+  }
+}

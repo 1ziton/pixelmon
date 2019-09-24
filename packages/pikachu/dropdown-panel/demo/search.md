@@ -37,7 +37,7 @@ export class PDemoDropdownSelectSearchComponent implements OnInit {
       map((list: any) => {
         return list.map((item: any) => ({
           label:`${item.name.first}`,
-          value:`${item.id.value}`,
+          value:`${item.id.value || Math.random().toString(16).substr(2)}`,
         }));
       })
     );

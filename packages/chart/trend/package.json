@@ -1,0 +1,12 @@
+{
+  "ngPackage": {
+    "lib": {
+      "flatModuleFile": "trend",
+      "entryFile": "public_api.ts",
+      "umdModuleIds": {
+        "ng-zorro-antd/icon": "ng-zorro-antd/icon",
+        "@pixelmon/util": "pixelmon.util"
+      }
+    }
+  }
+}

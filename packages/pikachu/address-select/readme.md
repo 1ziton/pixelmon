@@ -44,7 +44,7 @@ module: AddressSelectModule
 
 ## AddressQueryService
 
-组件数据来源方式是外放数据获取接口，通过**继承** `AddressQueryService` 抽象类，重写(Override) `getListByCode` 和 `getOptionByCode` 方法，如下例子：
+组件数据来源方式是外放数据获取接口，通过 **继承** `AddressQueryService` 抽象类，重写(Override) `getListByCode` 和 `getOptionByCode` 方法，如下例子：
 
 *数据结构符合层级关系都可以实现这样的级联效果*
 
@@ -57,7 +57,7 @@ module: AddressSelectModule
 
 ## 举例
 
-可以在文档demo中预览源码[area.service.ts](https://github.com/1ziton/pixelmon/blob/master/src/app/shared/services/area.service.ts)
+可以在文档demo中预览源码：[area.service.ts](https://github.com/1ziton/pixelmon/blob/master/src/app/shared/services/area.service.ts) （缓存了数据，退出登录时建议清空缓存）
 
 `getListByCode` 建议走缓存，保证每次数据仅查一次，有效提高性能和减轻后端接口压力（尽管后端走Redis，前端缓存也是有必要，减少网络通信）
 
@@ -76,6 +76,7 @@ export class AreaService extends AddressQueryService {
     super();
   }
 
+  // 未做请求缓存
   getListByCode(code: string): Observable<any[]> {
     if (!code) {
       code = code = '000000000000';

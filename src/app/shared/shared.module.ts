@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { PikachuModule } from '@pixelmon/pikachu';
 import { PixelmonThemeModule } from '@pixelmon/theme';
 import { PixelmonGGEditorModule } from '@pixelmon/ggeditor';
+import { PixelmonChartModule } from '@pixelmon/chart';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { GithubButtonModule } from 'ng-github-button';
@@ -62,6 +63,7 @@ const THIRDS = [
     PixelmonThemeModule.forChild(),
     PikachuModule,
     PixelmonGGEditorModule,
+    PixelmonChartModule,
     ...THIRDS,
   ],
   declarations: COMPONENTS,
@@ -75,6 +77,7 @@ const THIRDS = [
     PixelmonThemeModule,
     PikachuModule,
     PixelmonGGEditorModule,
+    PixelmonChartModule,
     ...THIRDS,
     ...COMPONENTS,
   ],
