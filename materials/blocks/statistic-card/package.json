@@ -1,0 +1,44 @@
+{
+  "name": "@pixelmon-materials/statistic-card-block",
+  "version": "1.0.0",
+  "description": "在卡片中展示统计数值和图形。",
+  "author": {
+    "name": "giscafer",
+    "email": "giscafer@outlook.com"
+  },
+  "blockConfig": {
+    "name": "statistic-card",
+    "entryClassName": "StatisticCardBlockComponent",
+    "title": "统计卡片",
+    "categories": [
+      "指标统计",
+      "统计",
+      "卡片"
+    ],
+    "screenshot": "https://raw.githubusercontent.com/1ziton/pixelmon/master/materials/blocks/statistic-card/screenshot.png",
+    "publishTime": "2019-09-24 11:01:01",
+    "updateTime": "2019-09-24 11:01:01"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1ziton/pixelmon/tree/master/materials/blocks/statistic-card"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ice",
+    "angular",
+    "materials",
+    "block"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://registry.npmjs.com"
+  },
+  "homepage": "https://unpkg.com/@pixelmon-materials/statistic-card-block/build/index.html",
+  "scripts": {},
+  "dependencies": {
+    "@pixelmon/theme": "*",
+    "@pixelmon/pikachu": "*"
+  },
+  "devDependencies": {}
+}

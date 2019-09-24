@@ -2,41 +2,44 @@ import { Component, ChangeDetectionStrategy, OnInit, ChangeDetectorRef } from '@
 import { NzMessageService } from 'ng-zorro-antd';
 import { getTimeDistance, deepCopy, toFixed } from '@pixelmon/util';
 import { _HttpClient } from '@pixelmon/theme';
+import { I18NService } from '@core/i18n/service';
+import format from 'date-fns/format';
 
 @Component({
-  selector: 'app-dashboard-analysis',
-  templateUrl: './analysis.component.html',
-  styleUrls: ['./analysis.component.less'],
+  selector: 'block-statistic-card',
+  templateUrl: './statistic-card.component.html',
+  styleUrls: ['./statistic-card.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardAnalysisComponent implements OnInit {
-  constructor(private http: _HttpClient, public msg: NzMessageService, private cdr: ChangeDetectorRef) {}
-  data: any = {};
+export class StatisticCardBlockComponent implements OnInit {
+  constructor(private http: _HttpClient, public msg: NzMessageService, private i18n: I18NService, private cdr: ChangeDetectorRef) {}
+  data: any = { visitData: [] };
   loading = true;
   date_range: Date[] = [];
   rankingListData: any[] = Array(7)
     .fill({})
-    .map(() => {
+    .map((item, i) => {
+      console.log(item);
       return {
-        title: '总销售额',
+        title: this.i18n.fanyi('app.analysis.test', { no: i }),
         total: 323234,
       };
     });
   titleMap = {
-    y1: '访问量',
-    y2: '日访问量',
+    y1: this.i18n.fanyi('app.analysis.traffic'),
+    y2: this.i18n.fanyi('app.analysis.payments'),
   };
-
-
-  salesType = 'all';
-  salesPieData: any;
-  salesTotal = 0;
-
-  saleTabs: any[] = [{ key: 'sales', show: true }, { key: 'visits' }];
-
-  offlineIdx = 0;
+  visitData: any[] = [];
 
   ngOnInit() {
+    const beginDay = new Date().getTime();
+    for (let i = 0; i < 20; i += 1) {
+      this.visitData.push({
+        x: format(new Date(beginDay + 1000 * 60 * 60 * 24 * i), 'YYYY-MM-DD'),
+        y: Math.floor(Math.random() * 100) + 10,
+      });
+    }
+    this.cdr.detectChanges();
     this.http.get('/chart').subscribe((res: any) => {
       res.offlineData.forEach((item: any, idx: number) => {
         item.show = idx === 0;
@@ -44,7 +47,7 @@ export class DashboardAnalysisComponent implements OnInit {
       });
       this.data = res;
       this.loading = false;
-      this.changeSaleType();
+      setTimeout(() => this.cdr.detectChanges());
     });
   }
 
@@ -52,28 +55,11 @@ export class DashboardAnalysisComponent implements OnInit {
     this.date_range = getTimeDistance(type);
     setTimeout(() => this.cdr.detectChanges());
   }
-  changeSaleType() {
-    this.salesPieData =
-      this.salesType === 'all'
-        ? this.data.salesTypeData
-        : this.salesType === 'online'
-        ? this.data.salesTypeDataOnline
-        : this.data.salesTypeDataOffline;
-    if (this.salesPieData) {
-      this.salesTotal = this.salesPieData.reduce((pre, now) => now.y + pre, 0);
-    }
-    this.cdr.detectChanges();
-  }
 
   handlePieValueFormat(value: any) {
     return toFixed(value);
   }
-  salesChange(idx: number) {
-    if (this.saleTabs[idx].show !== true) {
-      this.saleTabs[idx].show = true;
-      this.cdr.detectChanges();
-    }
-  }
+
   offlineChange(idx: number) {
     if (this.data.offlineData[idx].show !== true) {
       this.data.offlineData[idx].show = true;
