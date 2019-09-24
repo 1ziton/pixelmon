@@ -1,3 +1,3 @@
-import { ProListArticlesComponent } from './articles-list';
+import { ArticlesListPageComponent } from './articles-list';
 
-export const ENTY_BLOCKS_COMPONENTS = [ProListArticlesComponent];
+export const ENTY_BLOCKS_COMPONENTS = [ArticlesListPageComponent];

@@ -1,0 +1,13 @@
+{
+  "ngPackage": {
+    "lib": {
+      "flatModuleFile": "card",
+      "entryFile": "public_api.ts",
+      "umdModuleIds": {
+        "ng-zorro-antd/card": "ng-zorro-antd/card",
+        "ng-zorro-antd/spin": "ng-zorro-antd/spin",
+        "@pixelmon/util": "pixelmon.util"
+      }
+    }
+  }
+}
