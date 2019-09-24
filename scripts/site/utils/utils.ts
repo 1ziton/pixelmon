@@ -108,3 +108,26 @@ export function genComponentName(...names) {
 export function genSelector(...names: string[]) {
   return `app-${names.join('-')}`;
 }
+
+/**
+ * 解决电脑路径存在 .符号的用户名的情况
+ * @param path  文件路径 
+ */
+export function getPath(path) {
+  let dotIdx = path.indexOf('.');
+  let deskIdx = path.indexOf('Desktop');
+  let path2 = '';
+  let path3 = '';
+  let resultPath = '';
+  if (deskIdx !== -1) {
+    path2 = path.substring(deskIdx);
+    path3 = path.substring(0, deskIdx);
+  }
+
+  if (deskIdx > dotIdx) {
+    resultPath = path3 + path2.split('.')[0];
+  } else {
+    resultPath = path.split('.')[0];
+  }
+  return resultPath;
+}

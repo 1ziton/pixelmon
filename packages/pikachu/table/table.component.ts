@@ -45,15 +45,15 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   @Input() pageSize = 10; // 显示条数
   @Input() frontPagination = false; // 是否前端分页
   @Input() showPagination = true; // 是否显示分页器
-  @Input() fixedPagination = false; // 是否固定分页器
+  @Input() fixedPagination = false; // 是否固定分页器，直接固定在页面底部
+  @Input() paginationOffset = 0; // 固定分页器的偏移量，用于不固定在页面底部而与页面底部有小许边距
   @Input() showSizeChanger = true; // 是否显示条数切换器
   @Input() showQuickJumper = true; // 是否显示快速跳转器
   @Input() size: 'middle' | 'small' | 'default' = 'middle'; // 表格size
   @Input() paginationSize: 'default' | 'small' = 'default'; // 分页size
-
+  @Input() title: string | TemplateRef<void>; // 表格标题
   @Input() pageSizeOptions = [10, 30, 50, 100]; // 页数选择器可选值
   @Input() showCheckbox = false; // 是否显示复选框
-  @Input() titleTemplate: TemplateRef<void>; // title模板
 
   @Output() columnsChange: EventEmitter<TableColumn[]> = new EventEmitter(); // 列数据改变事件 用于双向绑定
   @Output() selectionsChange: EventEmitter<TableRow[]> = new EventEmitter(); // 已选项改变事件 用于双向绑定
@@ -246,7 +246,7 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
       const tableBody = this._elementRef.nativeElement.querySelector('.ant-table-body');
       const pagination = this._elementRef.nativeElement.querySelector('.p-table-pagination-container');
       const tableBodyTop = tableBody.getBoundingClientRect().top;
-      const scrollHeight = windowHeight - tableBodyTop - pagination.clientHeight + 'px';
+      const scrollHeight = windowHeight - tableBodyTop - pagination.clientHeight - this.paginationOffset + 'px';
       // 设scroll 实际上是设了max-height
       this.scroll = { ...this.scroll, y: scrollHeight };
       // 设height

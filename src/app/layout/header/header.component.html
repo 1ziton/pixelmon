@@ -28,6 +28,9 @@
         <li nz-menu-item (click)="toViaMobile('/components/view')">
           {{ 'app.header.menu.components' | translate }}
         </li>
+        <li nz-menu-item (click)="toViaMobile('/materials')">
+          物料
+        </li>
         <li nz-submenu>
           <span title>{{ 'app.header.menu.pixelmon' | translate }}</span>
           <ul>
@@ -47,7 +50,7 @@
 </ng-container>
 <nz-row class="navbar">
   <nz-col nzXs="24" nzSm="24" nzMd="7" nzLg="6" nzXl="6" nzXXl="5">
-    <a routerLink="/{{ i18n.zone }}">
+    <a routerLink="">
       <!-- <nz-tooltip nzTitle="{{ 'app.home.slogan' | translate }}"> -->
       <span nz-tooltip id="logo">
         <img src="./assets/img/logo.png" />
@@ -79,17 +82,20 @@
       </div>
       <div *ngIf="!isMobile" class="header-menu">
         <ul nz-menu nzMode="horizontal" class="menu-site" id="nav">
-          <li nz-menu-item routerLink="/docs/getting-started/{{ i18n.zone }}">
+          <li nz-menu-item routerLink="/docs/getting-started">
             {{ 'app.header.menu.docs' | translate }}
           </li>
-          <li nz-menu-item routerLink="/components/view/{{ i18n.zone }}">
+          <li nz-menu-item routerLink="/components/view">
             {{ 'app.header.menu.components' | translate }}
+          </li>
+          <li nz-menu-item routerLink="/materials/">
+            物料
           </li>
           <li nz-menu-item>
             <div nz-dropdown nzPlacement="bottomRight" [nzDropdownMenu]="pixelmonMenu">{{ 'app.header.menu.pixelmon' | translate }}</div>
             <nz-dropdown-menu #pixelmonMenu="nzDropdownMenu">
               <ul nz-menu>
-                <li *ngFor="let i of pixelmon" nz-menu-item routerLink="/{{ i }}/getting-started/{{ i18n.zone }}">
+                <li *ngFor="let i of pixelmon" nz-menu-item routerLink="/{{ i }}/getting-started">
                   {{ 'app.header.menu.' + i | translate }}
                 </li>
               </ul>
