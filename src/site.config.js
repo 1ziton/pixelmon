@@ -119,7 +119,25 @@ module.exports = {
             },
           },
         },
-         {
+         
+          {
+          name: 'auth',
+          route: '/auth/getting-started',
+          order: 100,
+          i18n: true,
+          lib: true,
+          meta: {
+            'zh-CN': {
+              type: 'Business',
+              title: '用户认证',
+            },
+            'en-US': {
+              type: 'Business',
+              title: 'Authentication',
+            },
+          },
+        }, */
+        {
           name: 'chart',
           route: '/chart/getting-started',
           order: 100,
@@ -138,23 +156,6 @@ module.exports = {
             },
           },
         },
-          {
-          name: 'auth',
-          route: '/auth/getting-started',
-          order: 100,
-          i18n: true,
-          lib: true,
-          meta: {
-            'zh-CN': {
-              type: 'Business',
-              title: '用户认证',
-            },
-            'en-US': {
-              type: 'Business',
-              title: 'Authentication',
-            },
-          },
-        }, */
         {
           name: 'acl',
           route: '/acl/getting-started',
@@ -529,6 +530,35 @@ module.exports = {
         },
       ],
     },
+    
+    {
+      name: 'cli',
+      github: 'https://github.com/1ziton/pixelmon',
+      dist: './src/app/routes/gen/cli',
+      types: [
+        {
+          'zh-CN': '文档',
+          'en-US': 'Documents',
+        },
+      ],
+      module: '1ziton',
+      defaultRoute: 'getting-started',
+      extraRouteMeta: [],
+      metaIncludeAttributes: ['name', 'types', 'github', 'module'],
+      template: {
+        meta: './src/templates/meta.ts',
+        module: './src/templates/module.ts',
+      },
+      dir: [
+        {
+          src: ['./packages/schematics/docs'],
+          template: {
+            content: './src/templates/content.ts',
+          },
+          hasSubDir: false,
+        },
+      ],
+    },*/
     {
       name: 'chart',
       github: 'https://github.com/1ziton/pixelmon',
@@ -568,34 +598,6 @@ module.exports = {
         },
       ],
     },
-    {
-      name: 'cli',
-      github: 'https://github.com/1ziton/pixelmon',
-      dist: './src/app/routes/gen/cli',
-      types: [
-        {
-          'zh-CN': '文档',
-          'en-US': 'Documents',
-        },
-      ],
-      module: '1ziton',
-      defaultRoute: 'getting-started',
-      extraRouteMeta: [],
-      metaIncludeAttributes: ['name', 'types', 'github', 'module'],
-      template: {
-        meta: './src/templates/meta.ts',
-        module: './src/templates/module.ts',
-      },
-      dir: [
-        {
-          src: ['./packages/schematics/docs'],
-          template: {
-            content: './src/templates/content.ts',
-          },
-          hasSubDir: false,
-        },
-      ],
-    },*/
     {
       name: 'theme',
       github: 'https://github.com/1ziton/pixelmon',

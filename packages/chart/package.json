@@ -1,0 +1,32 @@
+{
+  "name": "@pixelmon/chart",
+  "version": "0.0.0-PLACEHOLDER",
+  "author": "cipchk<cipchk@qq.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1ziton/pixelmon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/1ziton/pixelmon/issues"
+  },
+  "homepage": "https://1ziton.github.io/pixelmon/",
+  "keywords": [
+    "pixelmon",
+    "pixelmon",
+    "alain",
+    "chart",
+    "angular chart",
+    "ng chart",
+    "ngx chart",
+    "antd",
+    "ng-zorro-antd",
+    "angular",
+    "component"
+  ],
+  "dependencies": {
+    "@pixelmon/util": "PEER-0.0.0-PLACEHOLDER",
+    "@pixelmon/theme": "PEER-0.0.0-PLACEHOLDER"
+  },
+  "sideEffects": false
+}

@@ -11,6 +11,7 @@ PACKAGES=(
   acl
   theme
   pikachu
+  chart
   ggeditor
   cache
   mock

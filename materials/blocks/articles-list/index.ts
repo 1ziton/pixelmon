@@ -1,1 +1,1 @@
-export { ProListArticlesComponent } from './src/articles.component';
+export { ArticlesListPageComponent } from './src/articles.component';

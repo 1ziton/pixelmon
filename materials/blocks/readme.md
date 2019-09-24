@@ -22,7 +22,7 @@
 
   "blockConfig": {
     "name": "article-list", // 区块名，以 selector 来标识
-    "entryClassName": "ProListArticlesComponent", // 区块入口组件类名（重要）
+    "entryClassName": "ArticlesListPageComponent", // 区块入口组件类名（重要）
     "title": "文章列表", // 区块标题，是什么东西
     "categories": [ // 区块类型标签，可多个
       "列表"
