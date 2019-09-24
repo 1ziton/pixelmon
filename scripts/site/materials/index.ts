@@ -52,7 +52,7 @@ function generate(rootPath, config) {
   });
   let categories: string[] = [];
   content.map(c => {
-    categories = [...categories, ...c.categories];
+    categories = [...new Set([...categories, ...c.categories])];
   });
   const tpl = fs.readFileSync(path.join(rootDir, config.dir.template.content)).toString('utf8');
   const result = mustache.render(tpl, { data: JSON.stringify(content), categories: JSON.stringify(categories) });

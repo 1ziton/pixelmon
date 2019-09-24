@@ -19,7 +19,14 @@
     <nz-list-item>
       <nz-card nzHoverable [nzCover]="cover">
         <ng-template #cover>
-          <img alt="{{ item.title }}" src="{{ item.cover }}" (error)="imgLoad($event, item)" *ngIf="!item.imgError" />
+          <img
+            class="cover"
+            alt="{{ item.name }}"
+            src="{{ item.screenshot }}"
+            (click)="preview(item)"
+            (error)="imgLoad($event, item)"
+            *ngIf="!item.imgError"
+          />
           <nz-empty [nzNotFoundContent]="contentTpl" *ngIf="item.imgError" style="margin-top:10px;">
             <ng-template #contentTpl>
               <span style="color: red"> 未提供图片 </span>
@@ -34,15 +41,7 @@
         <div class="card-item-content">
           <span class="text-grey">{{ item.updateTime | _date: 'fn' }}</span>
           <div class="preview-btn">
-            <i
-              nzTooltipTitle="预览"
-              nzTooltipPlacement="top"
-              nz-tooltip
-              nz-icon
-              nzType="eye"
-              nzTheme="outline"
-              (click)="preview(item)"
-            ></i>
+            <i nzTooltipTitle="预览" nzTooltipPlacement="top" nz-tooltip nz-icon nzType="eye" nzTheme="outline" (click)="preview(item)"></i>
           </div>
           <div class="preview-btn">
             <i
