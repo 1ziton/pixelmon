@@ -1,8 +1,6 @@
 /**
  * 模拟lodash _.pick
- * @param {Object} o
- * @param  {Array<string>} props
  */
-export function pick(o, props) {
+export function pick(o: any, props: Array<string>) {
   return Object.assign({}, ...props.map(prop => ({ [prop]: o[prop] })));
 }
