@@ -2,7 +2,7 @@ echo ""
 echo "Build angular"
 echo ""
 if [[ ${GH} == true ]]; then
-  $(npm bin)/ng build --prod --build-optimizer --base-href /ng-alain/
+  $(npm bin)/ng build --prod --build-optimizer --base-href /pixelmon/
 else
   $(npm bin)/ng build --prod --build-optimizer
 fi
@@ -11,8 +11,8 @@ cp -f ${DIST_DIR}/index.html ${DIST_DIR}/404.html
 if [[ ${GH} == true ]]; then
   commitAuthorName=$(git --no-pager show -s --format='%an' HEAD)
 
-  if [[ ${commitAuthorName} != 'cipchk' ]] && [[ ${commitAuthorName} != '卡色' ]]; then
-    echo "Warning: Just only cipchk or 卡色 user (current: ${commitAuthorName})"
+  if [[ ${commitAuthorName} != 'giscafer' ]] && [[ ${commitAuthorName} != 'Nickbing Lao' ]]; then
+    echo "Warning: Just only giscafer or Nickbing Lao user (current: ${commitAuthorName})"
     exit 0
   fi
 
@@ -25,5 +25,5 @@ if [[ ${GH} == true ]]; then
   echo ""
   echo "Deploy by gh-pages"
   echo ""
-  $(npm bin)/gh-pages -d dist -r "https://${NG_ALAIN_BUILDS_TOKEN}@github.com/ng-alain/ng-alain.git"
+  $(npm bin)/gh-pages -d dist -r "https://${NG_ALAIN_BUILDS_TOKEN}@github.com/1ziton/pixelmon.git"
 fi

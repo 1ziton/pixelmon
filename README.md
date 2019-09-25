@@ -27,8 +27,7 @@ _基于 [delon](https://github.com/ng-alain/delon) ,搭建开发符合自身业�
 </div>
 
 
-
-## Links
+## Document
 
 - [Document](http://1ziton.github.io/pixelmon)
 
@@ -46,7 +45,13 @@ _基于 [delon](https://github.com/ng-alain/delon) ,搭建开发符合自身业�
 
 ## Materials
 
-可复用物料，减少重复的开发，提升效率
+可复用物料，减少重复的开发，提升效率，详情见 [@pixelmon/materials](http://fex.1ziton.com/pixelmon/#/materials)
+
+## Related
+
+- [ng-zorro-antd](https://github.com/ng-zorro/ng-zorro-antd)
+- [delon](https://github.com/ng-alain/delon)
+- [ng-alain](https://github.com/ng-alain/ng-alain)
 
 ### License
 

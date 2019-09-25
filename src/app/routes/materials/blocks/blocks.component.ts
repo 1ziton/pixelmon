@@ -125,9 +125,9 @@ export class BlockListComponent implements OnInit {
 
   // 需求变动，弹窗无用
   preview(item) {
-    const { name, title, entryClassName } = item;
+    const { name, title } = item;
     this.createModal(MaterialsPreviewComponent);
-    this.changeProps({ componentName: entryClassName, title, selector: name });
+    this.changeProps({ componentSelector: name, title, selector: name });
   }
 
   viewSourceCode(item) {
