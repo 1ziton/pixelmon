@@ -6,9 +6,9 @@
 
 import { Component, Input, OnInit, ChangeDetectorRef, ViewChildren } from '@angular/core';
 import { MaterialsService } from '@core/materials.service';
-import { MATERIALS_ENTY_COMPONENTS } from '@materials/entry_components';
 import { NzMessageService } from 'ng-zorro-antd';
 import { DynamicComponent } from 'ng-dynamic-component';
+import { MATERIALS_COMPONENT_CONFIG } from './MATERIALS_COMPONENT_CONFIG';
 
 @Component({
   selector: 'app-preview-materials',
@@ -78,17 +78,17 @@ export class MaterialsPreviewComponent implements OnInit {
   selector: string;
 
   @Input()
-  set componentName(name: string) {
-    console.log(name);
-    if (!name) {
+  set componentSelector(selector: string) {
+    console.log(selector);
+    if (!selector) {
       this.msgSrv.error(`没有找到物料组件名称，请参考约定规则!`);
       return;
     }
-    const arr = MATERIALS_ENTY_COMPONENTS.filter(comp => {
-      return comp.name === name;
+    const arr = MATERIALS_COMPONENT_CONFIG.filter(item => {
+      return item.selector === selector;
     });
     if (arr.length === 1) {
-      this.componentType = arr[0];
+      this.componentType = arr[0]!.component;
       this.cdr.detectChanges();
       return;
     }

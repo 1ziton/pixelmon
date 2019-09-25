@@ -8,7 +8,6 @@ import { _HttpClient } from '@pixelmon/theme';
 })
 export class ArticlesListPageComponent implements OnInit {
   // endregion
-
   constructor(private http: _HttpClient, private cdr: ChangeDetectorRef) {}
   q: any = {
     ps: 5,
