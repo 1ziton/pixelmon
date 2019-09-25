@@ -19,7 +19,7 @@ function copyLess(name) {
   });
 }
 
-['pikachu','ggeditor/src/editor/styles'].forEach(name => copyLess(name));
+['pikachu', 'ggeditor/src/editor/styles', 'chart'].forEach(name => copyLess(name));
 console.log('pikachu style copy finish');
 // copy theme
 fse.copySync(path.join(root, `packages/theme/styles`), path.join(root, `dist/@pixelmon/theme/styles`));
