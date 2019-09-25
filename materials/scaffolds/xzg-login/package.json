@@ -13,13 +13,13 @@
     "categories": [
       "登录页"
     ],
-    "screenshot": "https://raw.githubusercontent.com/1ziton/pixelmon/master/materials/blocks/xzg-login/screenshot.png",
+    "screenshot": "https://raw.githubusercontent.com/1ziton/pixelmon/master/materials/scaffolds/xzg-login/screenshot.png",
     "publishTime": "2019-09-25 11:01:01",
     "updateTime": "2019-09-25 11:01:01"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/1ziton/pixelmon/tree/master/materials/blocks/xzg-login"
+    "url": "https://github.com/1ziton/pixelmon/tree/master/materials/scaffolds/xzg-login"
   },
   "license": "MIT",
   "keywords": [
