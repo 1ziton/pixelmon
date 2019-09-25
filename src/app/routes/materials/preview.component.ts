@@ -6,7 +6,7 @@
 
 import { Component, Input, OnInit, ChangeDetectorRef, ViewChildren } from '@angular/core';
 import { MaterialsService } from '@core/materials.service';
-import { ENTY_BLOCKS_COMPONENTS } from '@materials/blocks/entry_components';
+import { MATERIALS_ENTY_COMPONENTS } from '@materials/entry_components';
 import { NzMessageService } from 'ng-zorro-antd';
 import { DynamicComponent } from 'ng-dynamic-component';
 
@@ -84,7 +84,7 @@ export class MaterialsPreviewComponent implements OnInit {
       this.msgSrv.error(`没有找到物料组件名称，请参考约定规则!`);
       return;
     }
-    const arr = ENTY_BLOCKS_COMPONENTS.filter(comp => {
+    const arr = MATERIALS_ENTY_COMPONENTS.filter(comp => {
       return comp.name === name;
     });
     if (arr.length === 1) {
