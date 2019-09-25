@@ -52,10 +52,12 @@ function generate(rootPath, config) {
   });
   let categories: string[] = [];
   content.map(c => {
-    categories = [...categories, ...c.categories];
+    categories = categories.concat(c.categories);
   });
+  const set = new Set(categories);
+  
   const tpl = fs.readFileSync(path.join(rootDir, config.dir.template.content)).toString('utf8');
-  const result = mustache.render(tpl, { data: JSON.stringify(content), categories: JSON.stringify(categories) });
+  const result = mustache.render(tpl, { data: JSON.stringify(content), categories: JSON.stringify(Array.from(set)) });
   fs.writeFileSync(filePath, result, { flag: 'w+' });
 }
 
