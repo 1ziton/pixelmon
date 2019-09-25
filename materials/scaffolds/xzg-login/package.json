@@ -1,0 +1,42 @@
+{
+  "name": "@pixelmon-materials/xzg-login-page",
+  "version": "1.0.0",
+  "description": "小智哥项目登录页面",
+  "author": {
+    "name": "giscafer",
+    "email": "giscafer@outlook.com"
+  },
+  "blockConfig": {
+    "name": "xzg-login",
+    "entryClassName": "XzgLoginPageComponent",
+    "title": "登录页面xzg",
+    "categories": [
+      "登录页"
+    ],
+    "screenshot": "https://raw.githubusercontent.com/1ziton/pixelmon/master/materials/blocks/xzg-login/screenshot.png",
+    "publishTime": "2019-09-25 11:01:01",
+    "updateTime": "2019-09-25 11:01:01"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1ziton/pixelmon/tree/master/materials/blocks/xzg-login"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ice",
+    "angular",
+    "materials",
+    "page"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://registry.npmjs.com"
+  },
+  "homepage": "https://unpkg.com/@pixelmon-materials/xzg-login-page/build/index.html",
+  "scripts": {},
+  "dependencies": {
+    "@pixelmon/theme": "*",
+    "@pixelmon/pikachu": "*"
+  },
+  "devDependencies": {}
+}

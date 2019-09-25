@@ -1,0 +1,119 @@
+.login-container {
+  position: relative;
+  height: 100%;
+  background-color: #fff;
+  overflow-y: auto;
+  padding: 20px 25px;
+
+  > .login-body {
+    > .login-ctn {
+      position: absolute;
+      width: 1000px;
+      height: 560px;
+      top: 50%;
+      left: 50%;
+      margin-top: -280px;
+      margin-left: -500px;
+      border-radius: 10px;
+      box-shadow: 10px 14px 14px rgba(205, 206, 206, 0.1), 10px -14px 14px rgba(205, 206, 206, 0.1), -10px 0 14px rgba(205, 206, 206, 0.1),
+        -10px 0 14px rgba(205, 206, 206, 0.1);
+
+      > div:nth-child(2) {
+        height: 100%;
+
+        > div {
+          height: 100%;
+
+          > div {
+            width: 70%;
+          }
+        }
+      }
+      .sys-name {
+        font-size: 18px;
+        font-weight: 800;
+        color: #333333;
+        margin-bottom: 70px;
+      }
+      .login-ctn-img {
+        border-radius: 10px;
+      }
+      .loading {
+        margin-top: 49%;
+      }
+      .login-left {
+        width: 497px;
+        height: 614px;
+        margin-left: 15px;
+        margin-top: -28px;
+        background: url('http://ww1.sinaimg.cn/large/940e68eegy1g7bjv1z0sgj20hc0ln4h0.jpg');
+        box-shadow: 2px 4px 16px 0px rgba(0, 0, 0, 0.38);
+        border-radius: 10px;
+        text-align: center;
+        h1 {
+          color: white;
+          display: block;
+          width: 100%;
+          position: relative;
+          top: 150px;
+        }
+        p {
+          position: relative;
+          top: 200px;
+          color: #e7e7e7;
+          line-height: 36px;
+          text-align: left;
+          left: 165px;
+        }
+      }
+      form {
+        .login-form-button {
+          width: 100%;
+          border-radius: 20px;
+          margin-top: 24px !important;
+        }
+
+        .verify-code-input {
+          width: calc(100% - 140px);
+          margin-right: 17px;
+        }
+        .verify-code-btn {
+          width: 123px !important;
+        }
+      }
+    }
+  }
+
+  .login-footer {
+    // position: fixed;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+
+    > p {
+      margin-bottom: 2em;
+    }
+  }
+}
+
+:host /deep/ .ant-tabs-bar {
+  text-align: center !important;
+  border-bottom: none !important;
+  margin-bottom: 40px !important;
+}
+
+:host /deep/ {
+  .ant-input {
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+    outline: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  nz-form-explain {
+    text-align: right;
+  }
+}

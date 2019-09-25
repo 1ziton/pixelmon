@@ -1,6 +1,6 @@
 {
     "type": "angular",
-    "categories": [],
-    "materials": []
+    "categories": ["登录页"],
+    "materials": [{"name":"fml-login","entryClassName":"FmlLoginPageComponent","title":"登录页面fml","categories":["登录页"],"screenshot":"https://raw.githubusercontent.com/1ziton/pixelmon/master/materials/blocks/fml-login/screenshot.png","publishTime":"2019-09-25 11:01:01","updateTime":"2019-09-25 11:01:01","description":"方米立项目登录页面","version":"1.0.0","repositoryUrl":"https://github.com/1ziton/pixelmon/tree/master/materials/blocks/fml-login"},{"name":"xzg-login","entryClassName":"XzgLoginPageComponent","title":"登录页面xzg","categories":["登录页"],"screenshot":"https://raw.githubusercontent.com/1ziton/pixelmon/master/materials/blocks/xzg-login/screenshot.png","publishTime":"2019-09-25 11:01:01","updateTime":"2019-09-25 11:01:01","description":"小智哥项目登录页面","version":"1.0.0","repositoryUrl":"https://github.com/1ziton/pixelmon/tree/master/materials/blocks/xzg-login"}]
 }
   
