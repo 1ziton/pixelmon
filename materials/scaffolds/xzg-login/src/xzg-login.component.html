@@ -23,7 +23,7 @@
               <nz-form-item>
                 <nz-form-control>
                   <input type="text" nz-input formControlName="username" placeholder="账号/手机号" />
-                  <nz-form-explain *ngIf="loginForm.get('username').dirty && loginForm.get('username').errors">
+                  <nz-form-explain *ngIf="loginForm.get('username')!.dirty && loginForm.get('username')!.errors">
                     请输入账号/手机号！</nz-form-explain
                   >
                 </nz-form-control>
@@ -31,7 +31,7 @@
               <nz-form-item>
                 <nz-form-control>
                   <input type="password" nz-input formControlName="password" placeholder="密码" />
-                  <nz-form-explain *ngIf="loginForm.get('password').dirty && loginForm.get('password').errors">
+                  <nz-form-explain *ngIf="loginForm.get('password')!.dirty && loginForm.get('password')!.errors">
                     请输入密码！</nz-form-explain
                   >
                 </nz-form-control>

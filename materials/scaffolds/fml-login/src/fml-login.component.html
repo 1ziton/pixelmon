@@ -16,7 +16,7 @@
                   <nz-form-item>
                     <nz-form-control>
                       <input type="text" nz-input formControlName="username" placeholder="账号" />
-                      <nz-form-explain *ngIf="loginForm.get('username').dirty && loginForm.get('username').errors"
+                      <nz-form-explain *ngIf="loginForm.get('username')!.dirty && loginForm.get('username')!.errors"
                         >请输入账号！</nz-form-explain
                       >
                     </nz-form-control>
@@ -24,7 +24,7 @@
                   <nz-form-item>
                     <nz-form-control>
                       <input type="password" nz-input formControlName="password" placeholder="密码" />
-                      <nz-form-explain *ngIf="loginForm.get('password').dirty && loginForm.get('password').errors"
+                      <nz-form-explain *ngIf="loginForm.get('password')!.dirty && loginForm.get('password')!.errors"
                         >请输入密码！</nz-form-explain
                       >
                     </nz-form-control>
@@ -34,10 +34,10 @@
                   <nz-form-item>
                     <nz-form-control>
                       <input type="text" nz-input maxlength="11" formControlName="phoneNo" placeholder="手机号码" />
-                      <nz-form-explain *ngIf="loginForm.get('phoneNo').dirty && loginForm.get('phoneNo').hasError('required')"
+                      <nz-form-explain *ngIf="loginForm.get('phoneNo')!.dirty && loginForm.get('phoneNo')!.hasError('required')"
                         >请输入手机号码</nz-form-explain
                       >
-                      <nz-form-explain *ngIf="loginForm.get('phoneNo').dirty && loginForm.get('phoneNo').hasError('pattern')"
+                      <nz-form-explain *ngIf="loginForm.get('phoneNo')!.dirty && loginForm.get('phoneNo')!.hasError('pattern')"
                         >请输入11位数字</nz-form-explain
                       >
                     </nz-form-control>
@@ -50,19 +50,19 @@
                         class="verify-code-btn"
                         type="button"
                         [nzType]="'primary'"
-                        [disabled]="cannotClick || loginForm.get('phoneNo').errors"
+                        [disabled]="cannotClick || loginForm.get('phoneNo')!.errors"
                         (click)="getVerifyCode()"
                       >
                         {{ getVerifyBtnStr }}
                       </button>
                       <nz-form-explain
                         class="padding-right-140"
-                        *ngIf="loginForm.get('verifyCode').dirty && loginForm.get('verifyCode').hasError('required')"
+                        *ngIf="loginForm.get('verifyCode')!.dirty && loginForm.get('verifyCode')!.hasError('required')"
                         >请输入验证码</nz-form-explain
                       >
                       <nz-form-explain
                         class="padding-right-140"
-                        *ngIf="loginForm.get('verifyCode').dirty && loginForm.get('verifyCode').hasError('pattern')"
+                        *ngIf="loginForm.get('verifyCode')!.dirty && loginForm.get('verifyCode')!.hasError('pattern')"
                         >请输入6位数字</nz-form-explain
                       >
                     </nz-form-control>
