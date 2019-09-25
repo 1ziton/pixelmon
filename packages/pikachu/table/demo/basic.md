@@ -24,7 +24,7 @@ import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/t
       [(selections)]="selections"
       [scroll]="{ y: '300px' }"
       [loading]="tableLoading"
-      [titleTemplate]="titleTemplate"
+      [title]="title"
       [fixedPagination]="true"
       [paginationOffset]="8"
       (load)="load($event)"
@@ -44,7 +44,7 @@ import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/t
       </p-tableFilter>
 
       <!-- 自定义title -->
-      <ng-template #titleTemplate>
+      <ng-template #title>
         <div [hidden]="selections.length">
           <p-queryTabs [(tabs)]="columns" (queryChange)="onQueryChange($event)"></p-queryTabs>
         </div>

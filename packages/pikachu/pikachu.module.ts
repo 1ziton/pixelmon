@@ -15,6 +15,7 @@ import { SEModule } from '@pixelmon/pikachu/edit';
 import { StepsModule } from '@pixelmon/pikachu/steps';
 import { AddressSelectModule } from '@pixelmon/pikachu/address-select';
 import { DropdownPanelModule } from '@pixelmon/pikachu/dropdown-panel';
+import { ViewerDirectiveModule } from './viewer';
 import { TagSelectModule } from '@pixelmon/pikachu/tag-select';
 
 const MODULES = [
@@ -34,6 +35,7 @@ const MODULES = [
   StepsModule,
   AddressSelectModule,
   DropdownPanelModule,
+  ViewerDirectiveModule,
   TagSelectModule,
 ];
 

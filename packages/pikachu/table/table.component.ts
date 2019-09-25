@@ -29,6 +29,8 @@ import { TableCellComponent } from './table-cell.component';
 import { TableFilterComponent } from './table-filter.component';
 import { TableColumn, TablePage, TableRow } from './table-interface';
 
+declare const Viewer: any;
+
 @Component({
   selector: 'p-table',
   exportAs: 'pTable',
@@ -51,10 +53,9 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   @Input() showQuickJumper = true; // 是否显示快速跳转器
   @Input() size: 'middle' | 'small' | 'default' = 'middle'; // 表格size
   @Input() paginationSize: 'default' | 'small' = 'default'; // 分页size
-
+  @Input() title: string | TemplateRef<void>; // 表格标题
   @Input() pageSizeOptions = [10, 30, 50, 100]; // 页数选择器可选值
   @Input() showCheckbox = false; // 是否显示复选框
-  @Input() titleTemplate: TemplateRef<void>; // title模板
 
   @Output() columnsChange: EventEmitter<TableColumn[]> = new EventEmitter(); // 列数据改变事件 用于双向绑定
   @Output() selectionsChange: EventEmitter<TableRow[]> = new EventEmitter(); // 已选项改变事件 用于双向绑定
@@ -257,5 +258,23 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
 
   onlinkClick(field: string, rowData: any) {
     this.linkClick.emit({ field, rowData });
+  }
+
+  view(imgUrls: string[]) {
+    const images = imgUrls.map(url => {
+      const image = new Image();
+      image.src = url;
+      return image;
+    });
+
+    const hostElement = document.createElement('div');
+    hostElement.append(...images);
+
+    const viewer = new Viewer(hostElement, {
+      hidden: () => {
+        viewer.destroy();
+      },
+    });
+    viewer.show();
   }
 }

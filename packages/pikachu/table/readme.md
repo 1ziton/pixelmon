@@ -26,7 +26,7 @@ module: TableModule
 | `[paginationSize]`   | 分页大小                                                                           | `'default' | 'small'`                                               | `'default'`                  |
 | `[loading]`          | 页面是否加载中                                                                     | `boolean`                                                           | `false`                      |
 | `[scroll]`           | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度                                   | `object`                                                            | -                            |
-| `[title]`            | 表格标题                                                                           | `string｜TemplateRef<void>`                                         | -                            |
+| `[title]`            | 表格标题                                                                           | `string | TemplateRef<void>`                                        | -                            |
 | `[pageSizeOptions]`  | 页数选择器可选值                                                                   | `number[]`                                                          | `[10, 30, 50, 100]`          |
 | `[showSizeChanger]`  | 是否显示条数切换器                                                                 | `boolean`                                                           | `true`                       |
 | `[showQuickJumper]`  | 是否显示快速跳转器                                                                 | `boolean`                                                           | `true`                       |
