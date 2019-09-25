@@ -174,25 +174,24 @@
       </ng-template>
       <!-- thumbnail -->
       <ng-template ngSwitchCase="thumbnail">
-        <!-- 无图片不初始化viewer -->
-        <div viewer [isLazyLoad]="true" [maxShowNum]="1" *ngIf="row[column['field']]?.length">
-          <!-- 超过一张图片显示badge -->
-          <ng-template [ngIf]="row[column['field']]?.length > 1" [ngIfElse]="noBadgeTemplate">
-            <nz-badge [nzCount]="row[column['field']]?.length">
-              <ng-container [ngTemplateOutlet]="noBadgeTemplate"></ng-container>
-            </nz-badge>
-          </ng-template>
-          <!-- 只有一张图片不显示badge -->
-          <ng-template #noBadgeTemplate>
-            <img
-              viewerImg
-              height="24px"
-              width="24px"
-              *ngFor="let url of row[column['field']] || []"
-              [lazyLoadSrc]="url"
-              style="cursor: zoom-in"
-            />
-          </ng-template>
+        <div class="p-table-thumbnail" *ngIf="row[column['field']]?.length" (click)="view(row[column['field']])">
+          <svg
+            t="1569221249447"
+            class="icon"
+            viewBox="0 0 1024 1024"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            p-id="2711"
+            width="100%"
+            height="100%"
+          >
+            <path
+              d="M896 0H128a128 128 0 0 0-128 128v768a128 128 0 0 0 128 128h768a128 128 0 0 0 128-128V128a128 128 0 0 0-128-128zM128 64h768a64 64 0 0 1 64 64v552.64l-169.6-141.12-192 160L241.92 373.76 64 611.2V128a64 64 0 0 1 64-64z m768 896H128a64 64 0 0 1-64-64v-177.92l186.88-249.6 346.56 315.2 192-160L960 764.16V896a64 64 0 0 1-64 64z"
+              p-id="2712"
+            ></path>
+            <path d="M736 416a128 128 0 1 0-128-128 128 128 0 0 0 128 128z m0-192a64 64 0 1 1-64 64 64 64 0 0 1 64-64z" p-id="2713"></path>
+          </svg>
+          <div class="p-table-thumbnail-mask">{{ row[column['field']].length }}</div>
         </div>
       </ng-template>
       <!-- default -->

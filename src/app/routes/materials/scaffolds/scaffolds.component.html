@@ -12,26 +12,6 @@
         </nz-tag>
       </tag-select>
     </se>
-    <se label="其它选项">
-      <div class="ant-form ant-form-inline">
-        <nz-form-item>
-          <nz-form-label nzFor="rate">作者</nz-form-label>
-          <nz-form-control>
-            <nz-select [(ngModel)]="q.user" name="user" [nzPlaceHolder]="'不限'" [nzShowSearch]="true" style="width: 100px;">
-              <nz-option [nzLabel]="'李三'" [nzValue]="'lisa'"></nz-option>
-            </nz-select>
-          </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-          <nz-form-label nzFor="rate">好评度</nz-form-label>
-          <nz-form-control>
-            <nz-select [(ngModel)]="q.rate" name="rate" [nzPlaceHolder]="'不限'" [nzShowSearch]="true" style="width: 100px;">
-              <nz-option [nzLabel]="'优秀'" [nzValue]="'good'"></nz-option>
-            </nz-select>
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-    </se>
   </form>
 </nz-card>
 <nz-list [nzLoading]="loading" [nzRenderItem]="item" [nzDataSource]="list" [nzGrid]="{ gutter: 24, lg: 6, md: 8, sm: 12, xs: 24 }">
@@ -39,23 +19,50 @@
     <nz-list-item>
       <nz-card nzHoverable [nzCover]="cover">
         <ng-template #cover>
-          <img alt="{{ item.title }}" src="{{ item.cover }}" />
+          <img
+            class="cover"
+            alt="{{ item.name }}"
+            src="{{ item.screenshot }}"
+            (click)="preview(item)"
+            (error)="imgLoad($event, item)"
+            *ngIf="!item.imgError"
+          />
+          <nz-empty [nzNotFoundContent]="contentTpl" *ngIf="item.imgError" style="margin-top:10px;">
+            <ng-template #contentTpl>
+              <span style="color: red"> 未提供图片 </span>
+            </ng-template>
+          </nz-empty>
         </ng-template>
-        <nz-card-meta [nzTitle]="nzTitle" [nzDescription]="item.subDescription">
+        <nz-card-meta [nzTitle]="nzTitle" [nzDescription]="item.description">
           <ng-template #nzTitle>
-            <a (click)="msg.success('标题：' + item.id)">{{ item.title }}</a>
+            <a (click)="preview(item)">{{ item.title }}</a>
           </ng-template>
         </nz-card-meta>
         <div class="card-item-content">
-          <span class="text-grey">{{ item.updatedAt | _date: 'fn' }}</span>
-          <!-- <avatar-list size="mini">
-            <avatar-list-item *ngFor="let m of item.members" [src]="m.avatar" [tips]="m.name"></avatar-list-item>
-          </avatar-list> -->
-          <div style="display:inline-block; float:right;">
-            <img *ngFor="let m of item.members" src="{{ m.avatar }}" alt="{{ m.name }}" />
+          <span class="text-grey">{{ item.updateTime | _date: 'fn' }}</span>
+          <div class="preview-btn">
+            <i nzTooltipTitle="预览" nzTooltipPlacement="top" nz-tooltip nz-icon nzType="eye" nzTheme="outline" (click)="preview(item)"></i>
+          </div>
+          <div class="preview-btn">
+            <i
+              nzTooltipTitle="查看代码"
+              nzTooltipPlacement="top"
+              nz-tooltip
+              nz-icon
+              nzType="cloud-download"
+              nzTheme="outline"
+              (click)="viewSourceCode(item)"
+            ></i>
           </div>
         </div>
       </nz-card>
     </nz-list-item>
   </ng-template>
 </nz-list>
+<!-- <ng-template #loadMore>
+    <div class="text-center mt-md">
+      <button nz-button (click)="getData(true)" [nzLoading]="loading" [nzType]="'dashed'" style="min-width:200px;">
+        加载更多
+      </button>
+    </div>
+  </ng-template> -->

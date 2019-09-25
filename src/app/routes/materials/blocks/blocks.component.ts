@@ -26,30 +26,6 @@ export class BlockListComponent implements OnInit {
   loading = false;
   categories: Array<{ text: string; id: number; value: boolean }> = [];
 
-  // region: owners
-  owners = [
-    {
-      id: 'wzj',
-      name: '我自己',
-    },
-    {
-      id: 'wjh',
-      name: '吴家豪',
-    },
-    {
-      id: 'zxx',
-      name: '周星星',
-    },
-    {
-      id: 'zly',
-      name: '赵丽颖',
-    },
-    {
-      id: 'ym',
-      name: '姚明',
-    },
-  ];
-
   constructor(
     private overlay: Overlay,
     private cdr: ChangeDetectorRef,
@@ -63,6 +39,7 @@ export class BlockListComponent implements OnInit {
     } else {
       this.categories[idx].value = status;
     }
+    this.getData(true);
   }
 
   setOwner() {
@@ -78,26 +55,49 @@ export class BlockListComponent implements OnInit {
       }
     });
 
-    this.categories = MaterialsMeta.categories.map((c, index) => ({
-      id: index,
+    const cate = MaterialsMeta.categories.map((c, index) => ({
+      id: index + 1,
       value: false,
       text: c,
     }));
+    this.categories = [{ text: '所有', value: false, id: 0 }, ...cate];
     this.getData();
   }
 
-  getData() {
+  getData(filter = false) {
     this.loading = true;
+
+    if (!filter) {
+      return this.getAllList();
+    }
+    const qs = this.categories.filter(c => c.value);
+    if (qs.length === 0) {
+      return this.getAllList();
+    }
+
+    // tslint:disable-next-line: prefer-const
+    let result: any = [];
+    const cateLabels = qs.map(v => v.text).join('');
+    for (const m of MaterialsMeta.materials) {
+      for (const t of m.categories) {
+        if (cateLabels.indexOf(t) !== -1) {
+          result.push(m);
+          break;
+        }
+      }
+    }
+
+    this.loading = false;
+    this.list = result;
+    this.cdr.detectChanges();
+  }
+
+  getAllList() {
     setTimeout(() => {
       this.list = MaterialsMeta.materials;
       this.loading = false;
       this.cdr.detectChanges();
     }, 17);
-    // this.http.get('/api/list', { count: this.q.ps }).subscribe((res: any) => {
-    //   this.list = more ? this.list.concat(res) : res;
-    //   this.loading = false;
-    //   this.cdr.detectChanges();
-    // });
   }
 
   imgLoad($event, item) {

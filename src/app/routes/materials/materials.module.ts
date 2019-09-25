@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ENTY_BLOCKS_COMPONENTS } from '@materials/blocks/entry_components';
+import { MATERIALS_ENTY_COMPONENTS } from '@materials/entry_components';
 import { SharedModule } from '@shared/shared.module';
 import { DynamicModule } from 'ng-dynamic-component';
 import { BlockListComponent } from './blocks/blocks.component';
 import { ProListLayoutComponent } from './list/list.component';
 import { MaterialsPreviewComponent } from './preview.component';
-import { ProListProjectsComponent } from './scaffolds/scaffolds.component';
+import { ScaffoldsListComponent } from './scaffolds/scaffolds.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'list', pathMatch: 'full' },
@@ -17,7 +17,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'blocks', pathMatch: 'full' },
       { path: 'blocks', component: BlockListComponent, pathMatch: 'full' },
-      { path: 'scaffolds', component: ProListProjectsComponent, pathMatch: 'full' },
+      { path: 'scaffolds', component: ScaffoldsListComponent, pathMatch: 'full' },
     ],
   },
 ];
@@ -27,15 +27,15 @@ const routes: Routes = [
     MaterialsPreviewComponent,
     ProListLayoutComponent,
     BlockListComponent,
-    ProListProjectsComponent,
+    ScaffoldsListComponent,
     MaterialsPreviewComponent,
-    ...ENTY_BLOCKS_COMPONENTS,
+    ...MATERIALS_ENTY_COMPONENTS,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     SharedModule,
-    DynamicModule.withComponents([...ENTY_BLOCKS_COMPONENTS, MaterialsPreviewComponent]),
+    DynamicModule.withComponents([...MATERIALS_ENTY_COMPONENTS, MaterialsPreviewComponent]),
   ],
 })
 export class MaterialsModule {}

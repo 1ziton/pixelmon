@@ -32,16 +32,21 @@ _基于 [delon](https://github.com/ng-alain/delon) ,搭建开发符合自身业�
 
 - [Document](http://1ziton.github.io/pixelmon)
 
-## Feature & Libs
+## Packages & Libs
 
 - **pikachu** （皮卡丘）组件库，含基础通用组件&业务组件
 - **theme** 主题样式、管道、Services 等
 - **acl** 角色权限控制
 - **cache** 缓存工具
 - **util** 工具包
+- **chart** 图表
 - **ggeditor** 可视化图编辑器
 - **mock** mock 测试数据，拦截 http 请求，生成随机数据
 - **testing** 测试套件
+
+## Materials
+
+可复用物料，减少重复的开发，提升效率
 
 ### License
 

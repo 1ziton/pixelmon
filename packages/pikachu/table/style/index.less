@@ -41,13 +41,34 @@
     .ant-pagination {
       padding: 8px 0;
       text-align: right;
-      box-shadow: 0px 0px 2px 2px rgba(241, 247, 245, 1);
       background: white;
+      box-shadow: 0 0 2px 2px rgba(241, 247, 245, 1);
     }
 
     .ant-pagination-options {
       margin-right: 16px;
     }
+  }
+
+  &-thumbnail {
+    width: 24px;
+    height: 24px;
+    position: relative;
+  }
+
+  &-thumbnail-mask {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    top: 0;
+    color: white;
+    cursor: zoom-in;
+    border-radius: 4px;
+    font-weight: 500;
   }
 
   td {

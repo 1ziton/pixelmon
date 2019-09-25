@@ -1,0 +1,66 @@
+<div class="login-container">
+  <!-- <div class="login-header">
+            <img src="/assets/img/logo.png">
+        </div> -->
+  <div class="login-body">
+    <div class="login-ctn" nz-row>
+      <div nz-col nzSpan="12">
+        <div class="login-left">
+          <h1>小智哥运营管理平台</h1>
+          <p>
+            打造高效、专业、便捷，<br />
+            智慧的互联网家装服务<br />
+            生态交付平台<br />
+          </p>
+          <!-- <img  class="login-ctn-img" width="497px" height="614px" src="/assets/img/security/dashixiong.png"> -->
+        </div>
+      </div>
+      <div nz-col nzSpan="12">
+        <div nz-row nzType="flex" nzJustify="center" nzAlign="middle">
+          <div nzSpan="24">
+            <p class="sys-name">小智哥运营管理系统</p>
+            <form nz-col nz-form [formGroup]="loginForm" (ngSubmit)="login()">
+              <nz-form-item>
+                <nz-form-control>
+                  <input type="text" nz-input formControlName="username" placeholder="账号/手机号" />
+                  <nz-form-explain *ngIf="loginForm.get('username')!.dirty && loginForm.get('username')!.errors">
+                    请输入账号/手机号！</nz-form-explain
+                  >
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control>
+                  <input type="password" nz-input formControlName="password" placeholder="密码" />
+                  <nz-form-explain *ngIf="loginForm.get('password')!.dirty && loginForm.get('password')!.errors">
+                    请输入密码！</nz-form-explain
+                  >
+                </nz-form-control>
+              </nz-form-item>
+              <nz-form-item>
+                <nz-form-control>
+                  <label nz-checkbox formControlName="remember">
+                    <span>自动登录</span>
+                  </label>
+                  <!--<a class="float-right">忘记密码?</a>-->
+                  <button
+                    nz-button
+                    class="login-form-button"
+                    [nzType]="'primary'"
+                    type="submit"
+                    [disabled]="!loginForm.valid"
+                    [nzLoading]="loading"
+                  >
+                    登录
+                  </button>
+                </nz-form-control>
+              </nz-form-item>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="login-footer">
+    <p class="align-center">copyright&copy;{{ nowYear }} 小智哥出品</p>
+  </div>
+</div>

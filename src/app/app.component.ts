@@ -83,8 +83,10 @@ export class AppComponent {
         this.router.navigateByUrl('/404');
         return;
       }
-      const item = this.meta.getPathByUrl(url);
-      this.title.setTitle(item ? item.title || item.subtitle : '');
+      const _url = url.indexOf('/zh') !== -1 ? url : url + '/zh';
+      const item = this.meta.getPathByUrl(_url);
+      // console.log(item);
+      this.title.setTitle(item ? item.title || item.subtitle : 'Pixelmon');
       // scroll to top
       document.body.scrollIntoView();
     });

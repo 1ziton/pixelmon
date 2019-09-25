@@ -1,0 +1,42 @@
+<nz-card [nzLoading]="loading" [nzBordered]="false" class="sales-card">
+  <nz-tabset [nzTabBarExtraContent]="extraTemplate" *ngIf="data.salesData" (nzSelectedIndexChange)="salesChange($event)">
+    <nz-tab *ngFor="let tab of saleTabs" nzTitle="{{ tab.key === 'sales' ? '销售量' : '访问量' }}">
+      <div nz-row nzGutter="20">
+        <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="16">
+          <div class="bar">
+            <g2-bar
+              *ngIf="tab.show"
+              height="295"
+              style="width: 100%"
+              title="{{ tab.key === 'sales' ? '销售趋势' : '访问量趋势' }}"
+              [data]="data.salesData"
+            ></g2-bar>
+          </div>
+        </div>
+        <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="8">
+          <div class="rank">
+            <h4 class="ranking-title">{{ tab.key !== 'sales' ? '门店访问量排名' : '门店销售额排名' }}</h4>
+            <ul class="rank-list">
+              <li *ngFor="let i of rankingListData; let idx = index">
+                <span class="number" [ngClass]="{ active: idx < 3 }">{{ idx + 1 }}</span>
+                <span class="title">{{ i.title }}</span>
+                <span class="value">{{ i.total | number: '3.0' }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nz-tab>
+    <ng-template #extraTemplate>
+      <div class="sales-extra-wrap">
+        <div class="sales-extra">
+          <a (click)="setDate('today')">今日</a>
+          <a (click)="setDate('week')">本周</a>
+          <a (click)="setDate('month')">本月</a>
+          <a (click)="setDate('year')">全年</a>
+        </div>
+        <nz-range-picker [(ngModel)]="date_range" style="display:inline-block; width: 256px;"></nz-range-picker>
+      </div>
+    </ng-template>
+  </nz-tabset>
+</nz-card>
