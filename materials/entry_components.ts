@@ -3,6 +3,7 @@ import { StatisticCardBlockComponent } from './blocks/statistic-card';
 import { SaleAnalysisCardBlockComponent } from './blocks/sale-analysis-card';
 import { XzgLoginPageComponent } from './scaffolds/xzg-login';
 import { FmlLoginPageComponent } from './scaffolds/fml-login';
+import { DashboardAnalysisPageComponent } from './scaffolds/analysis-dashboard';
 
 /**
  * 区块blocks组件
@@ -12,6 +13,6 @@ const BLOCKS_COMPONENTS = [ArticlesListPageComponent, StatisticCardBlockComponen
 /**
  * 模板scaffolds组件
  */
-const SCOFFOLDS_COMPONENTS = [XzgLoginPageComponent, FmlLoginPageComponent];
+const SCOFFOLDS_COMPONENTS = [XzgLoginPageComponent, FmlLoginPageComponent, DashboardAnalysisPageComponent];
 
 export const MATERIALS_ENTY_COMPONENTS = [...BLOCKS_COMPONENTS, ...SCOFFOLDS_COMPONENTS];

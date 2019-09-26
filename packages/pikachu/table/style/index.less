@@ -51,24 +51,24 @@
   }
 
   &-thumbnail {
+    position: relative;
     width: 24px;
     height: 24px;
-    position: relative;
   }
 
   &-thumbnail-mask {
     position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 24px;
     height: 24px;
-    background: rgba(0, 0, 0, 0.4);
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    top: 0;
     color: white;
-    cursor: zoom-in;
-    border-radius: 4px;
     font-weight: 500;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    cursor: zoom-in;
   }
 
   td {
