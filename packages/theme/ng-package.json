@@ -23,6 +23,7 @@
     "ng-zorro-antd",
     "@pixelmon/acl",
     "@pixelmon/util",
+    "@pixelmon/chart",
     "@ant-design/icons-angular"
   ]
 }
