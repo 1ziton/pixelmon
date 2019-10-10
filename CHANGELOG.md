@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/1ziton/pixelmon/compare/v0.2.0...v0.2.1) (2019-10-10)
+
+
+### Features
+
+* **materials:analysis-dashboard:** 添加分析页面模板 ([5035b60](https://github.com/1ziton/pixelmon/commit/5035b60))
+
+
+
 # [0.2.0](https://github.com/1ziton/pixelmon/compare/v0.1.9...v0.2.0) (2019-09-25)
 
 
