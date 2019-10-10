@@ -1,0 +1,42 @@
+{
+  "name": "@pixelmon-materials/analysis-dashboard-page",
+  "version": "1.0.0",
+  "description": "分析统计面板 analysis dashboard",
+  "author": {
+    "name": "giscafer",
+    "email": "giscafer@outlook.com"
+  },
+  "blockConfig": {
+    "name": "analysis-dashboard",
+    "entryClassName": "DashboardAnalysisPageComponent",
+    "title": "分析统计页",
+    "categories": [
+      "分析统计页"
+    ],
+    "screenshot": "https://raw.githubusercontent.com/1ziton/pixelmon/master/materials/scaffolds/analysis-dashboard/screenshot.png",
+    "publishTime": "2019-09-26 12:00:15",
+    "updateTime": "2019-09-26 12:00:15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1ziton/pixelmon/tree/master/materials/scaffolds/analysis-dashboard"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ice",
+    "angular",
+    "materials",
+    "page"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://registry.npmjs.com"
+  },
+  "homepage": "https://unpkg.com/@pixelmon-materials/analysis-dashboard-page/build/index.html",
+  "scripts": {},
+  "dependencies": {
+    "@pixelmon/theme": "*",
+    "@pixelmon/pikachu": "*"
+  },
+  "devDependencies": {}
+}
