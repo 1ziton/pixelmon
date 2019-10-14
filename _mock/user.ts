@@ -40,10 +40,10 @@ export const USERS = {
         price: r(10, 10000000),
         registered: new Date(),
         pictures: [
-          'https://cdn.pixabay.com/photo/2018/01/12/10/19/fantasy-3077928__340.jpg',
-          'https://cdn.pixabay.com/photo/2016/10/18/21/22/california-1751455__340.jpg',
-          'https://cdn.pixabay.com/photo/2018/08/21/23/29/fog-3622519__340.jpg',
-          'https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547__340.jpg',
+          'https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture',
+          'https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture',
+          'https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture',
+          'https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture',
         ],
       });
     }

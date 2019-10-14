@@ -9,20 +9,20 @@ title:
 基础用法。
 
 ```ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/table';
+import { TableColumn, TableData, TableRow, TablePage, TableComponent } from '@pixelmon/pikachu/table';
 
 @Component({
-  selector: 'app-basic',
+  selector: 'app-demo',
   template: `
     <p-table
       #table
       [data]="tableData"
       [(columns)]="columns"
-      [showCheckbox]="true"
       [(selections)]="selections"
-      [scroll]="{ y: '300px' }"
+      [showCheckbox]="true"
+      [initLoad]="false"
       [loading]="tableLoading"
       [title]="title"
       [fixedPagination]="true"
@@ -59,7 +59,9 @@ import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/t
     </p-table>
   `,
 })
-export class BasicComponent implements OnInit {
+export class DemoComponent implements OnInit {
+  @ViewChild(TableComponent, { static: true }) tableRef: TableComponent;
+
   tableData: TableData = {
     data: [],
     totalSize: 0,
@@ -133,7 +135,7 @@ export class BasicComponent implements OnInit {
 
   ngOnInit() {}
 
-  load(pageParams: TablePage = { page: 1, size: 10 }) {
+  load(pageParams: TablePage = { page: this.tableRef.pageIndex, size: this.tableRef.pageSize }) {
     console.log(pageParams);
     console.log(this.queryParams);
     this.tableLoading = true;
@@ -148,7 +150,8 @@ export class BasicComponent implements OnInit {
 
   onQueryChange(queryParams) {
     this.queryParams = queryParams;
-    window.setTimeout(() => this.load());
+    this.tableRef.pageIndex = 1;
+    this.load();
   }
 
   sort(sort: { field: string; sortValue: 'descend' | 'ascend' | null }) {

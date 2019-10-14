@@ -90,8 +90,8 @@
       [nzPageSizeOptions]="pageSizeOptions"
       [nzTotal]="data?.totalSize || 0"
       [nzShowTotal]="totalTemplate"
-      (nzPageIndexChange)="pageIndexChange()"
-      (nzPageSizeChange)="pageSizeChange()"
+      (nzPageIndexChange)="onPageIndexChange()"
+      (nzPageSizeChange)="onPageSizeChange()"
     ></p-pagination>
   </div>
 </nz-spin>

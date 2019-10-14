@@ -9,12 +9,12 @@ title:
 简单表格。
 
 ```ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/table';
+import { TableColumn, TableData, TableRow, TablePage, TableComponent } from '@pixelmon/pikachu/table';
 
 @Component({
-  selector: 'app-basic',
+  selector: 'app-demo',
   template: `
     <p-table
       #table
@@ -29,7 +29,8 @@ import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/t
     </p-table>
   `,
 })
-export class BasicComponent implements OnInit {
+export class DemoComponent implements OnInit {
+  @ViewChild(TableComponent, { static: true }) tableRef: TableComponent;
   tableData: TableData = {
     data: [],
     totalSize: 0,
@@ -82,7 +83,7 @@ export class BasicComponent implements OnInit {
 
   ngOnInit() {}
 
-  load(pageParams: TablePage = { page: 1, size: 10 }) {
+  load(pageParams: TablePage = { page: this.tableRef.pageIndex, size: this.tableRef.pageSize }) {
     console.log(pageParams);
     this.tableLoading = true;
 
