@@ -22,7 +22,7 @@ module: TableModule
 | `[pageIndex]`        | 当前页码，可双向绑定                                                               | `number`                                                            | -                            |
 | `[pageSize]`         | 每页展示多少数据，可双向绑定                                                       | `number`                                                            | -                            |
 | `[showPagination]`   | 是否显示分页器                                                                     | `boolean`                                                           | `true`                       |
-| `[size]`             | 表格大小                                                                           | `'middle'｜'small'｜'default'`                                      | `'default'`                  |
+| `[size]`             | 表格大小                                                                           | `'middle'｜'small'｜'default'`                                      | `'middle'`                   |
 | `[paginationSize]`   | 分页大小                                                                           | `'default' | 'small'`                                               | `'default'`                  |
 | `[loading]`          | 页面是否加载中                                                                     | `boolean`                                                           | `false`                      |
 | `[scroll]`           | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度                                   | `object`                                                            | -                            |
@@ -32,9 +32,17 @@ module: TableModule
 | `[showQuickJumper]`  | 是否显示快速跳转器                                                                 | `boolean`                                                           | `true`                       |
 | `[selections]`       | 当前选中数据,可双向绑定                                                            | `any[]`                                                             | `[]`                         |
 | `[columns]`          | 数据列的属性，建议双向绑定                                                         | `TableColumn[]`                                                     | `[]`                         |
-| `(load)`             | 加载数据事件                                                                       | `EventEmitter<[PageParams, { [key: string]: any }?]>`               | -                            |
+| `[initLoad]`         | 是否初始化完成后自动 load 一次                                                     | `boolean`                                                           | `true`                       |
+| `(load)`             | 加载数据事件                                                                       | `EventEmitter<TablePage>`                                           | -                            |
 | `(sort)`             | 排序事件                                                                           | `EventEmitter<{ key: string; value: 'descend' | 'ascend' | null }>` | -                            |
 | `(linkClick)`        | 链接点击事件                                                                       | `EventEmitter<{ field: string; rowData: any }>`                     | -                            |
+
+### TablePage
+
+| 属性   | 说明 | 类型     | 是否必填 |
+| ------ | ---- | -------- | -------- |
+| `page` | 页码 | `number` | `true`   |
+| `size` | 条数 | `number` | `true`   |
 
 ### TableColumn
 
@@ -81,47 +89,47 @@ module: TableModule
 
 ## 注意
 
-- p-table 采用`OnPush`策略，按照 [Angular 的设计](https://angular.io/guide/lifecycle-hooks#onchanges)，当需要对数据进行增删时需要使用以下操作，使用 `push` 或者 `splice` 不会生效
+1. p-table 采用`OnPush`策略，按照 [Angular 的设计](https://angular.io/guide/lifecycle-hooks#onchanges)，当需要对数据进行增删时需要使用以下操作，使用 `push` 或者 `splice` 不会生效。具体用法如下：
 
-```typescript
-// 增加数据
-this.tableData.data = [
-  ...this.tableData.data,
-  {
-    key: `${this.i}`,
-    name: `Edward King ${this.i}`,
-    age: '32',
-    address: `London, Park Lane no. ${this.i}`,
-  },
-]; // 传入nz-table
-this.tableData = { ...this.tableData }; // 传入p-table
+   ```typescript
+   // 增加数据
+   this.tableData.data = [
+     ...this.tableData.data,
+     {
+       key: `${this.i}`,
+       name: `Edward King ${this.i}`,
+       age: '32',
+       address: `London, Park Lane no. ${this.i}`,
+     },
+   ]; // 传入nz-table
+   this.tableData = { ...this.tableData }; // 传入p-table
 
-// 删除数据
-this.tableData.data = this.tableData.data.filter(d => d.key !== i); // 传入nz-table
-this.tableData = { ...this.tableData }; // 传入p-table
-```
+   // 删除数据
+   this.tableData.data = this.tableData.data.filter(d => d.key !== i); // 传入nz-table
+   this.tableData = { ...this.tableData }; // 传入p-table
+   ```
 
-- 图片预览依赖了 viewer.js，请自行安装依赖:[viewer.js](https://github.com/fengyuanchen/viewerjs)。
+2. 图片预览依赖了 viewer.js，请自行安装依赖:[viewer.js](https://github.com/fengyuanchen/viewerjs)。如下：
 
-```html
-<!-- index.html -->
+   ```html
+   <!-- index.html -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.min.js" type="text/javascript"></script>
-```
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.min.css" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.3.6/viewer.min.js" type="text/javascript"></script>
+   ```
 
-- 因为固定分页只会在初始化时动态计算，请保证初始化后页面高度不会抖动。
+3. 因为固定分页只会在初始化时动态计算，请保证初始化后页面高度不会变化。关键源码如下：
 
-```typescript
-// table.component.ts
+   ```typescript
+   // table.component.ts
 
-const windowHeight = document.documentElement.clientHeight;
-const tableBody = this._elementRef.nativeElement.querySelector('.ant-table-body');
-const pagination = this._elementRef.nativeElement.querySelector('.ant-pagination');
-const tableBodyTop = tableBody.getBoundingClientRect().top;
-const scrollHeight = windowHeight - tableBodyTop - pagination.clientHeight + 'px';
-// 设scroll 实际上是设了max-height
-this.scroll = { ...this.scroll, y: scrollHeight };
-// 设height
-this._renderer2.setStyle(tableBody, 'height', scrollHeight);
-```
+   const windowHeight = document.documentElement.clientHeight;
+   const tableBody = this._elementRef.nativeElement.querySelector('.ant-table-body');
+   const pagination = this._elementRef.nativeElement.querySelector('.ant-pagination');
+   const tableBodyTop = tableBody.getBoundingClientRect().top;
+   const scrollHeight = windowHeight - tableBodyTop - pagination.clientHeight + 'px';
+   // 设scroll 实际上是设了max-height
+   this.scroll = { ...this.scroll, y: scrollHeight };
+   // 设height
+   this._renderer2.setStyle(tableBody, 'height', scrollHeight);
+   ```

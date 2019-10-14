@@ -44,6 +44,7 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   @Input() selections: TableRow[] = []; // 已选项
   @Input() scroll: { x?: string | null; y?: string | null }; // 固定表头，滚动
   @Input() loading = false; // 表格loading
+  @Input() pageIndex = 1; // 当前页码
   @Input() pageSize = 10; // 显示条数
   @Input() frontPagination = false; // 是否前端分页
   @Input() showPagination = true; // 是否显示分页器
@@ -56,9 +57,12 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   @Input() title: string | TemplateRef<void>; // 表格标题
   @Input() pageSizeOptions = [10, 30, 50, 100]; // 页数选择器可选值
   @Input() showCheckbox = false; // 是否显示复选框
+  @Input() initLoad = true; // 是否初始化完成后自动load一次
 
   @Output() columnsChange: EventEmitter<TableColumn[]> = new EventEmitter(); // 列数据改变事件 用于双向绑定
   @Output() selectionsChange: EventEmitter<TableRow[]> = new EventEmitter(); // 已选项改变事件 用于双向绑定
+  @Output() pageIndexChange: EventEmitter<number> = new EventEmitter(); // 当前页码改变事件 用于双向绑定
+  @Output() pageSizeChange: EventEmitter<number> = new EventEmitter(); // 显示条数改变事件 用于双向绑定
   @Output() load: EventEmitter<TablePage> = new EventEmitter(); // load事件
   @Output() sort: EventEmitter<{ key: string; value: 'descend' | 'ascend' | null }> = new EventEmitter(); // 排序事件
   @Output() linkClick: EventEmitter<{ field: string; rowData: any }> = new EventEmitter(); // 链接点击事件
@@ -69,7 +73,6 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   load$: Subject<any> = new Subject(); // load流
 
   displayData: TableRow[] = []; // 当前显示数据
-  pageIndex = 1; // 当前页码
   sortParams: { key: string; value: 'descend' | 'ascend' | null };
 
   constructor(private _elementRef: ElementRef, private _renderer2: Renderer2) {}
@@ -95,16 +98,17 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   }
 
   ngOnInit() {
-    /* tslint:disable */
     this.load$.pipe(debounceTime(20)).subscribe(() => {
-      // 发出load事件
       this.load.emit({ page: this.pageIndex, size: this.pageSize });
     });
   }
 
   ngAfterViewInit() {
     // 页面初始化完成后自动load一次
-    this.load$.next();
+    if (this.initLoad) {
+      this.load$.next();
+    }
+
     if (this.showPagination && this.fixedPagination) {
       this.toFixedPagination();
     }
@@ -173,16 +177,21 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   /**
    * 页码改变回调
    */
-  pageIndexChange(): void {
+  onPageIndexChange(): void {
+    this.pageIndexChange.next(this.pageIndex);
     this.load$.next();
   }
 
   /**
    * 显示条数改变回调
    */
-  pageSizeChange(): void {
+  onPageSizeChange(): void {
+    this.pageSizeChange.next(this.pageSize);
+
     // 显示条数改变时回到首页
     this.pageIndex = 1;
+    this.pageIndexChange.next(this.pageIndex);
+
     this.load$.next();
   }
 

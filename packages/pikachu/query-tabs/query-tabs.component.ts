@@ -59,7 +59,9 @@ export class QueryTabsComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.tabs) {
-      this.updateQuery();
+      Promise.resolve().then(() => {
+        this.updateQuery();
+      });
     }
   }
 
