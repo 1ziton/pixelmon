@@ -239,7 +239,7 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   /**
    * 查询确认回调
    */
-  onFilterConfim(dropdown: NzDropDownDirective): void {
+  onFilterConfirm(dropdown: NzDropDownDirective): void {
     dropdown.nzDropdownMenu.setVisibleStateWhen(false);
     this.columns = [...this.columns];
     this.columnsChange.emit(this.columns);
@@ -251,6 +251,7 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   toFixedPagination(): void {
     // 没有滚动条时和有滚动条时tableBody会不一样，故先给上滚动条
     this.scroll = { ...this.scroll, y: '0px' };
+
     // 等待滚动条更新
     setTimeout(() => {
       const windowHeight = document.documentElement.clientHeight;
@@ -258,8 +259,11 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
       const pagination = this._elementRef.nativeElement.querySelector('.p-table-pagination-container');
       const tableBodyTop = tableBody.getBoundingClientRect().top;
       const scrollHeight = windowHeight - tableBodyTop - pagination.clientHeight - this.paginationOffset + 'px';
-      // 设scroll 实际上是设了max-height
+
+      // 设max-height
       this.scroll = { ...this.scroll, y: scrollHeight };
+      this._renderer2.setStyle(tableBody, 'max-height', scrollHeight);
+
       // 设height
       this._renderer2.setStyle(tableBody, 'height', scrollHeight);
     });
