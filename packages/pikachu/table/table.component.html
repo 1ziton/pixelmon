@@ -56,7 +56,7 @@
                 ></ng-container>
                 <!-- 搜索确认按钮 -->
                 <div nz-row nzType="flex" nzJustify="end" nzAlign="middle" class="p-table-filter-button">
-                  <button nz-button nzSize="small" nzType="primary" (click)="onFilterConfim(dropdown)">
+                  <button nz-button nzSize="small" nzType="primary" (click)="onFilterConfirm(dropdown)">
                     确认
                   </button>
                 </div>
@@ -138,7 +138,7 @@
             placeholder="请输入"
             [(ngModel)]="column.searchValue"
             [style.width]="column.filterWidth || '180px'"
-            (keydown.enter)="onFilterConfim(dropdown)"
+            (keydown.enter)="onFilterConfirm(dropdown)"
           />
         </nz-input-group>
         <ng-template #suffixTemplate>
