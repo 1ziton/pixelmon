@@ -65,7 +65,7 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   @Output() pageSizeChange: EventEmitter<number> = new EventEmitter(); // 显示条数改变事件 用于双向绑定
   @Output() load: EventEmitter<TablePage> = new EventEmitter(); // load事件
   @Output() sort: EventEmitter<{ key: string; value: 'descend' | 'ascend' | null }> = new EventEmitter(); // 排序事件
-  @Output() linkClick: EventEmitter<{ field: string; rowData: any }> = new EventEmitter(); // 链接点击事件
+  @Output() linkClick: EventEmitter<{ field: string; value: string; rowData: TableRow }> = new EventEmitter(); // 链接点击事件
 
   @ContentChildren(TableCellComponent) customCells: TableCellComponent[]; // 自定义单元格
   @ContentChildren(TableFilterComponent) customFilters: TableFilterComponent[]; // 自定义搜索组件
@@ -270,7 +270,7 @@ export class TableComponent implements OnChanges, OnInit, AfterViewInit, AfterCo
   }
 
   onlinkClick(field: string, rowData: any) {
-    this.linkClick.emit({ field, rowData });
+    this.linkClick.emit({ field, value: rowData[field], rowData });
   }
 
   view(imgUrls: string[]) {
