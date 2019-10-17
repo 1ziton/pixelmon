@@ -29,6 +29,7 @@ import { TableColumn, TableData, TableRow, TablePage, TableComponent } from '@pi
       [paginationOffset]="8"
       (load)="load($event)"
       (sort)="sort($event)"
+      (linkClick)="linkClick($event)"
     >
       <!-- 自定义单元格 -->
       <p-tableCell field="email">
@@ -156,6 +157,10 @@ export class DemoComponent implements OnInit {
 
   sort(sort: { field: string; sortValue: 'descend' | 'ascend' | null }) {
     console.log(sort);
+  }
+
+  linkClick(event) {
+    console.log(event);
   }
 }
 ```

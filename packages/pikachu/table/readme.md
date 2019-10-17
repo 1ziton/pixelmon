@@ -35,7 +35,7 @@ module: TableModule
 | `[initLoad]`         | 是否初始化完成后自动 load 一次                                                     | `boolean`                                                           | `true`                       |
 | `(load)`             | 加载数据事件                                                                       | `EventEmitter<TablePage>`                                           | -                            |
 | `(sort)`             | 排序事件                                                                           | `EventEmitter<{ key: string; value: 'descend' | 'ascend' | null }>` | -                            |
-| `(linkClick)`        | 链接点击事件                                                                       | `EventEmitter<{ field: string; rowData: any }>`                     | -                            |
+| `(linkClick)`        | 链接点击事件                                                                       | `EventEmitter<{ field: string; value: string; rowData: TableRow }>` | -                            |
 
 ### TablePage
 
