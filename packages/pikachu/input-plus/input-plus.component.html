@@ -1,0 +1,23 @@
+<div class="p-input-plus">
+  <input nz-input class="p-input" [(ngModel)]="inputValue" [placeholder]="placeholder" (ngModelChange)="inputValueChange()" />
+
+  <div
+    nz-popover
+    class="p-plus"
+    [(nzVisible)]="visible"
+    nzPopoverTrigger="click"
+    nzPopoverPlacement="bottomRight"
+    [nzPopoverContent]="contentTemplate"
+  >
+    <i nz-icon nzType="plus" nzTheme="outline"></i>
+  </div>
+
+  <ng-template #contentTemplate>
+    <p class="p-input-plus-title">{{ title }}</p>
+    <textarea nz-input class="p-input-plus-textarea" [(ngModel)]="textareaValue" (ngModelChange)="textareaValueChange()"></textarea>
+    <div nz-row class="p-input-plus-buttons" nzType="flex" nzAlign="middle" nzJustify="space-between">
+      <button nz-button nzType="primary" (click)="onOk()">确定</button>
+      <button nz-button (click)="onClear()">清空</button>
+    </div>
+  </ng-template>
+</div>
