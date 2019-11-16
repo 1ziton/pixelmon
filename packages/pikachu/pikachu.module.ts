@@ -17,6 +17,7 @@ import { AddressSelectModule } from '@pixelmon/pikachu/address-select';
 import { DropdownPanelModule } from '@pixelmon/pikachu/dropdown-panel';
 import { ViewerDirectiveModule } from '@pixelmon/pikachu/viewer';
 import { TagSelectModule } from '@pixelmon/pikachu/tag-select';
+import { InputPlusModule } from '@pixelmon/pikachu/input-plus';
 
 const MODULES = [
   QueryTabsModule,
@@ -37,6 +38,7 @@ const MODULES = [
   DropdownPanelModule,
   ViewerDirectiveModule,
   TagSelectModule,
+  InputPlusModule,
 ];
 
 @NgModule({ exports: MODULES })
