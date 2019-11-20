@@ -1,9 +1,9 @@
 <div class="p-input-plus">
-  <input nz-input class="p-input" [(ngModel)]="inputValue" [placeholder]="placeholder" (ngModelChange)="inputValueChange()" />
+  <input nz-input class="p-input-plus-input" [(ngModel)]="inputValue" [placeholder]="placeholder" (ngModelChange)="inputValueChange()" />
 
   <div
     nz-popover
-    class="p-plus"
+    class="p-input-plus-button"
     [(nzVisible)]="visible"
     nzPopoverTrigger="click"
     nzPopoverPlacement="bottomRight"
@@ -13,11 +13,13 @@
   </div>
 
   <ng-template #contentTemplate>
-    <p class="p-input-plus-title">{{ title }}</p>
-    <textarea nz-input class="p-input-plus-textarea" [(ngModel)]="textareaValue" (ngModelChange)="textareaValueChange()"></textarea>
-    <div nz-row class="p-input-plus-buttons" nzType="flex" nzAlign="middle" nzJustify="space-between">
-      <button nz-button nzType="primary" (click)="onOk()">确定</button>
-      <button nz-button (click)="onClear()">清空</button>
+    <div class="p-input-plus-popover">
+      <div class="p-input-plus-title">{{ title }}</div>
+      <textarea nz-input class="p-input-plus-textarea" [(ngModel)]="textareaValue" (ngModelChange)="textareaValueChange()"></textarea>
+      <div nz-row nzType="flex" nzAlign="middle" nzJustify="space-between">
+        <button nz-button nzType="primary" (click)="onOk()">确定</button>
+        <button nz-button (click)="onClear()">清空</button>
+      </div>
     </div>
   </ng-template>
 </div>
