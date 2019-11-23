@@ -47,7 +47,7 @@ import { TableColumn, TableData, TableRow, TablePage, TableComponent } from '@pi
       <!-- 自定义title -->
       <ng-template #title>
         <div [hidden]="selections.length">
-          <p-queryTabs [(tabs)]="columns" (queryChange)="onQueryChange($event)"></p-queryTabs>
+          <p-query-tabs [(tabs)]="columns" (queryChange)="onQueryChange($event)"></p-query-tabs>
         </div>
         <div [hidden]="!selections.length">
           已选 {{ selections.length }} 项

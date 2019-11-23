@@ -1,29 +1,22 @@
-<nz-tabset nzType="card">
+<nz-tabset nzType="card" class="p-query-tabs">
   <ng-container *ngFor="let tab of tabs | filter: filterRule">
     <nz-tab [nzTitle]="titleTemplate">
       <ng-template #titleTemplate>
-        <div class="flex">
-          <span class="label">{{ tab.title + '：' }}</span>
-          <ng-container *ngIf="(tab.searchValue | translate: tab.lexicon || lexicon)?.length > 10; else textTemplate">
-            <div nz-popover nzTrigger="hover" [nzContent]="textTemplate" nzPlacement="bottom">
-              <span class="value text-ellipsis">
-                {{ tab.displayValue || tab.searchValue | translate: tab.lexicon || lexicon }}
-              </span>
-            </div>
-          </ng-container>
+        <span class="p-query-tabs-label">{{ tab.title + '：' }}</span>
 
-          <ng-template #textTemplate>
-            <div>
-              <span class="value">
-                {{ tab.displayValue || tab.searchValue | translate: tab.lexicon || lexicon }}
-              </span>
-            </div>
-          </ng-template>
+        <ng-container *ngIf="(tab.displayValue || tab.searchValue | translate: tab.lexicon || lexicon)?.length > 10; else textTemplate">
+          <span nz-popover nzTrigger="hover" [nzContent]="textTemplate" nzPlacement="bottom" class="p-query-tabs-value text-ellipsis">
+            {{ tab.displayValue || tab.searchValue | translate: tab.lexicon || lexicon }}
+          </span>
+        </ng-container>
 
-          <div>
-            <i nz-icon nzType="close" class="ant-tabs-close-x" (click)="onClose(tab)"></i>
-          </div>
-        </div>
+        <ng-template #textTemplate>
+          <span class="p-query-tabs-value">
+            {{ tab.displayValue || tab.searchValue | translate: tab.lexicon || lexicon }}
+          </span>
+        </ng-template>
+
+        <i nz-icon nzType="close" class="ant-tabs-close-x" (click)="onClose(tab)"></i>
       </ng-template>
     </nz-tab>
   </ng-container>

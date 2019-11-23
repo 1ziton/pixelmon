@@ -13,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'demo-basic',
+  selector: 'app-demo',
   template: `
     <form nz-form [formGroup]="validateForm">
       <div nz-row [nzGutter]="8">
@@ -49,7 +49,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
     </div>
   `,
 })
-export class DemoBasicComponent implements OnInit {
+export class DemoComponent implements OnInit {
   validateForm: FormGroup;
 
   constructor(private fb: FormBuilder) {}
