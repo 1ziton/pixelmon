@@ -7,15 +7,16 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'smart-text',
+  selector: 'p-smart-text',
   exportAs: 'pSmartText',
   templateUrl: './smart-text.component.html',
 })
 export class SmartTextComponent {
-  protected _text = '';
+  private _text = '';
 
   @Input() maxLength = 20;
   @Input() tail = '...';
+
   @Input() set text(value) {
     if (value === undefined || value === null) {
       this._text = '';

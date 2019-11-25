@@ -53,31 +53,30 @@ describe('pikachu: smart-text', () => {
     const textContent2 = dl.query(By.css('.text4')).nativeElement.querySelector('span').textContent;
     expect(textContent2).toEqual('');
   });
-
 });
 
 @Component({
   template: `
     <p>
-      <smart-text [text]="text1" class="text1"></smart-text>
+      <p-smart-text [text]="text1" class="text1"></p-smart-text>
     </p>
     <p>
-      <smart-text [text]="text2"></smart-text>
+      <p-smart-text [text]="text2"></p-smart-text>
     </p>
     <p>
-      <smart-text [text]="text2" [tail]="tail" class="tail"></smart-text>
+      <p-smart-text [text]="text2" [tail]="tail" class="tail"></p-smart-text>
     </p>
     <p>
-      <smart-text [text]="text2" [maxLength]="maxLength" class="text2"></smart-text>
+      <p-smart-text [text]="text2" [maxLength]="maxLength" class="text2"></p-smart-text>
     </p>
     <p>
-      <smart-text [text]="text3"></smart-text>
+      <p-smart-text [text]="text3"></p-smart-text>
     </p>
     <p>
-      <smart-text [text]="text4" class="text4"></smart-text>
+      <p-smart-text [text]="text4" class="text4"></p-smart-text>
     </p>
     <p>
-      <smart-text [text]="text5" class="text5"></smart-text>
+      <p-smart-text [text]="text5" class="text5"></p-smart-text>
     </p>
   `,
 })
@@ -89,6 +88,7 @@ export class TestComponent implements OnInit {
   text3 = '';
   text4 = null;
   text5 = undefined;
+
   ngOnInit() {
     setTimeout(() => {
       this.text3 = this.text2;

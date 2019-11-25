@@ -169,7 +169,7 @@
       <!-- link -->
       <ng-template ngSwitchCase="link">
         <a (click)="onlinkClick(column['field'], row)">
-          <smart-text [text]="row[column['field']]"></smart-text>
+          <p-smart-text [text]="row[column['field']]"></p-smart-text>
         </a>
       </ng-template>
       <!-- thumbnail -->
@@ -196,7 +196,7 @@
       </ng-template>
       <!-- default -->
       <ng-template ngSwitchDefault>
-        <smart-text [text]="row[column['field']]"></smart-text>
+        <p-smart-text [text]="row[column['field']]"></p-smart-text>
       </ng-template>
     </ng-container>
   </ng-template>
