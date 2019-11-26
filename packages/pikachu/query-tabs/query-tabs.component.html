@@ -4,17 +4,10 @@
       <ng-template #titleTemplate>
         <span class="p-query-tabs-label">{{ tab.title + '：' }}</span>
 
-        <ng-container *ngIf="(tab.displayValue || tab.searchValue | translate: tab.lexicon || lexicon)?.length > 10; else textTemplate">
-          <span nz-popover nzTrigger="hover" [nzContent]="textTemplate" nzPlacement="bottom" class="p-query-tabs-value text-ellipsis">
-            {{ tab.displayValue || tab.searchValue | translate: tab.lexicon || lexicon }}
-          </span>
-        </ng-container>
-
-        <ng-template #textTemplate>
-          <span class="p-query-tabs-value">
-            {{ tab.displayValue || tab.searchValue | translate: tab.lexicon || lexicon }}
-          </span>
-        </ng-template>
+        <p-smart-text
+          [text]="tab.displayValue || tab.searchValue | translate: tab.lexicon || lexicon"
+          class="p-query-tabs-value"
+        ></p-smart-text>
 
         <i nz-icon nzType="close" class="ant-tabs-close-x" (click)="onClose(tab)"></i>
       </ng-template>
