@@ -1,11 +1,22 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, ElementRef, OnChanges, SimpleChanges, TemplateRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy,
+  ElementRef,
+  OnChanges,
+  SimpleChanges,
+  TemplateRef,
+  ViewEncapsulation,
+} from '@angular/core';
 import { Step } from './steps.interface';
 import { DomHandler } from '@pixelmon/util';
 
 @Component({
   selector: 'p-steps',
+  exportAs: 'pSteps',
   templateUrl: './steps.component.html',
-  styleUrls: ['./steps.component.less'],
+  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StepsComponent implements OnInit, OnChanges {
@@ -57,7 +68,7 @@ export class StepsComponent implements OnInit, OnChanges {
    * @param steps 对应的steps
    */
   updateContentAlign(contentSelector: string, steps: Step[]) {
-    const container = this._el.nativeElement.querySelector('.p-steps-container');
+    const container = this._el.nativeElement.querySelector('.p-steps');
 
     if (!container) {
       return;
