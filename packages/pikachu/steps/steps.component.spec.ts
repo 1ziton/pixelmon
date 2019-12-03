@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CommonModule } from '@angular/common';
 import { StepsComponent } from './steps.component';
 
 describe('StepsComponent', () => {
@@ -8,9 +8,9 @@ describe('StepsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StepsComponent ]
-    })
-    .compileComponents();
+      declarations: [StepsComponent],
+      imports: [CommonModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -56,7 +56,7 @@
                 ></ng-container>
                 <!-- 搜索确认按钮 -->
                 <div nz-row nzType="flex" nzJustify="end" nzAlign="middle" class="p-table-filter-button">
-                  <button nz-button nzSize="small" nzType="primary" (click)="onFilterConfim(dropdown)">
+                  <button nz-button nzSize="small" nzType="primary" (click)="onFilterConfirm(dropdown)">
                     确认
                   </button>
                 </div>
@@ -90,8 +90,8 @@
       [nzPageSizeOptions]="pageSizeOptions"
       [nzTotal]="data?.totalSize || 0"
       [nzShowTotal]="totalTemplate"
-      (nzPageIndexChange)="pageIndexChange()"
-      (nzPageSizeChange)="pageSizeChange()"
+      (nzPageIndexChange)="onPageIndexChange()"
+      (nzPageSizeChange)="onPageSizeChange()"
     ></p-pagination>
   </div>
 </nz-spin>
@@ -138,7 +138,7 @@
             placeholder="请输入"
             [(ngModel)]="column.searchValue"
             [style.width]="column.filterWidth || '180px'"
-            (keydown.enter)="onFilterConfim(dropdown)"
+            (keydown.enter)="onFilterConfirm(dropdown)"
           />
         </nz-input-group>
         <ng-template #suffixTemplate>
@@ -169,7 +169,7 @@
       <!-- link -->
       <ng-template ngSwitchCase="link">
         <a (click)="onlinkClick(column['field'], row)">
-          <smart-text [text]="row[column['field']]"></smart-text>
+          <p-smart-text [text]="row[column['field']]"></p-smart-text>
         </a>
       </ng-template>
       <!-- thumbnail -->
@@ -196,7 +196,7 @@
       </ng-template>
       <!-- default -->
       <ng-template ngSwitchDefault>
-        <smart-text [text]="row[column['field']]"></smart-text>
+        <p-smart-text [text]="row[column['field']]"></p-smart-text>
       </ng-template>
     </ng-container>
   </ng-template>

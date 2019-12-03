@@ -9,26 +9,27 @@ title:
 基础用法。
 
 ```ts
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/table';
+import { TableColumn, TableData, TableRow, TablePage, TableComponent } from '@pixelmon/pikachu/table';
 
 @Component({
-  selector: 'app-basic',
+  selector: 'app-demo',
   template: `
     <p-table
       #table
       [data]="tableData"
       [(columns)]="columns"
-      [showCheckbox]="true"
       [(selections)]="selections"
-      [scroll]="{ y: '300px' }"
+      [showCheckbox]="true"
+      [initLoad]="false"
       [loading]="tableLoading"
       [title]="title"
       [fixedPagination]="true"
       [paginationOffset]="8"
       (load)="load($event)"
       (sort)="sort($event)"
+      (linkClick)="linkClick($event)"
     >
       <!-- 自定义单元格 -->
       <p-tableCell field="email">
@@ -46,7 +47,7 @@ import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/t
       <!-- 自定义title -->
       <ng-template #title>
         <div [hidden]="selections.length">
-          <p-queryTabs [(tabs)]="columns" (queryChange)="onQueryChange($event)"></p-queryTabs>
+          <p-query-tabs [(tabs)]="columns" (queryChange)="onQueryChange($event)"></p-query-tabs>
         </div>
         <div [hidden]="!selections.length">
           已选 {{ selections.length }} 项
@@ -59,7 +60,9 @@ import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/t
     </p-table>
   `,
 })
-export class BasicComponent implements OnInit {
+export class DemoComponent implements OnInit {
+  @ViewChild(TableComponent, { static: true }) tableRef: TableComponent;
+
   tableData: TableData = {
     data: [],
     totalSize: 0,
@@ -133,7 +136,7 @@ export class BasicComponent implements OnInit {
 
   ngOnInit() {}
 
-  load(pageParams: TablePage = { page: 1, size: 10 }) {
+  load(pageParams: TablePage = { page: this.tableRef.pageIndex, size: this.tableRef.pageSize }) {
     console.log(pageParams);
     console.log(this.queryParams);
     this.tableLoading = true;
@@ -148,11 +151,16 @@ export class BasicComponent implements OnInit {
 
   onQueryChange(queryParams) {
     this.queryParams = queryParams;
-    window.setTimeout(() => this.load());
+    this.tableRef.pageIndex = 1;
+    this.load();
   }
 
   sort(sort: { field: string; sortValue: 'descend' | 'ascend' | null }) {
     console.log(sort);
+  }
+
+  linkClick(event) {
+    console.log(event);
   }
 }
 ```

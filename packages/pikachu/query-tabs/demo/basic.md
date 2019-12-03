@@ -14,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/table';
 
 @Component({
-  selector: 'app-basic',
+  selector: 'app-demo',
   template: `
     <p-table
       #table
@@ -27,25 +27,11 @@ import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/t
       [title]="title"
       [fixedPagination]="true"
       (load)="load($event)"
-      (sort)="sort($event)"
     >
-      <!-- 自定义单元格 -->
-      <p-tableCell field="email">
-        <ng-template let-data>
-          <a>{{ data.email }}</a>
-        </ng-template>
-      </p-tableCell>
-      <!-- 自定义搜索组件 -->
-      <p-tableFilter field="name">
-        <ng-template let-column>
-          <nz-tree-select style="width: 250px" [nzNodes]="nodes" nzPlaceHolder="请选择" [(ngModel)]="column.searchValue"> </nz-tree-select>
-        </ng-template>
-      </p-tableFilter>
-
       <!-- 自定义title -->
       <ng-template #title>
         <div [hidden]="selections.length">
-          <p-queryTabs [(tabs)]="columns" (queryChange)="onQueryChange($event)"></p-queryTabs>
+          <p-query-tabs [(tabs)]="columns" (queryChange)="onQueryChange($event)" (tabClose)="onTabClose($event)"></p-query-tabs>
         </div>
         <div [hidden]="!selections.length">
           已选 {{ selections.length }} 项
@@ -58,7 +44,7 @@ import { TableColumn, TableData, TableRow, TablePage } from '@pixelmon/pikachu/t
     </p-table>
   `,
 })
-export class BasicComponent implements OnInit {
+export class DemoComponent implements OnInit {
   tableData: TableData = {
     data: [],
     totalSize: 0,
@@ -82,7 +68,12 @@ export class BasicComponent implements OnInit {
       field: 'gender',
       showFilter: true,
       filterType: 'select',
-      filterOptions: [{ value: 'all', label: '全部' }, { value: 'male', label: '男' }, { value: 'female', label: '女' }],
+      defaultValue: 'ALL',
+      filterOptions: [
+        { value: 'ALL', label: '全部' },
+        { value: 'MALE', label: '男' },
+        { value: 'FEMALE', label: '女' },
+      ],
     },
     {
       title: '生日',
@@ -109,25 +100,6 @@ export class BasicComponent implements OnInit {
     },
   ];
 
-  nodes = [
-    {
-      title: 'parent 1',
-      key: '100',
-      children: [
-        {
-          title: 'parent 1-0',
-          key: '1001',
-          children: [{ title: 'leaf 1-0-0', key: '10010', isLeaf: true }, { title: 'leaf 1-0-1', key: '10011', isLeaf: true }],
-        },
-        {
-          title: 'parent 1-1',
-          key: '1002',
-          children: [{ title: 'leaf 1-1-0', key: '10020', isLeaf: true }],
-        },
-      ],
-    },
-  ];
-
   constructor(private http: HttpClient) {}
 
   ngOnInit() {}
@@ -150,8 +122,8 @@ export class BasicComponent implements OnInit {
     window.setTimeout(() => this.load());
   }
 
-  sort(sort: { field: string; sortValue: 'descend' | 'ascend' | null }) {
-    console.log(sort);
+  onTabClose(tab) {
+    console.log(tab);
   }
 }
 ```

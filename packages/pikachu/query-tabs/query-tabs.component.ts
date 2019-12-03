@@ -18,12 +18,11 @@ import {
 import { QueryTab } from './query-tabs-interface';
 
 @Component({
-  selector: 'p-queryTabs',
-  exportAs: 'queryTabs',
+  selector: 'p-query-tabs',
+  exportAs: 'pQueryTabs',
   templateUrl: './query-tabs.component.html',
-  styleUrls: ['./query-tabs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.Emulated,
+  encapsulation: ViewEncapsulation.None,
 })
 export class QueryTabsComponent implements OnInit, OnChanges {
   @Input() tabs: QueryTab[] = [];
@@ -31,7 +30,7 @@ export class QueryTabsComponent implements OnInit, OnChanges {
 
   @Output() tabsChange: EventEmitter<QueryTab[]> = new EventEmitter();
   @Output() queryChange: EventEmitter<object> = new EventEmitter();
-  @Output() closeTab: EventEmitter<QueryTab> = new EventEmitter();
+  @Output() tabClose: EventEmitter<QueryTab> = new EventEmitter();
 
   // 过滤规则
   @Input() filterRule: (tab: QueryTab) => boolean = tab => {
@@ -59,7 +58,9 @@ export class QueryTabsComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.tabs) {
-      this.updateQuery();
+      Promise.resolve().then(() => {
+        this.updateQuery();
+      });
     }
   }
 
@@ -67,7 +68,7 @@ export class QueryTabsComponent implements OnInit, OnChanges {
     // 有默认值恢复默认值，没有则置为null
     tab.searchValue = tab.hasOwnProperty('defaultValue') ? tab.defaultValue : null;
 
-    this.closeTab.emit(tab);
+    this.tabClose.emit(tab);
     this.tabs = [...this.tabs];
     this.tabsChange.emit(this.tabs);
   }

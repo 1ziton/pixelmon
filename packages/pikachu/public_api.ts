@@ -16,5 +16,6 @@ export * from '@pixelmon/pikachu/dropdown-panel';
 export * from '@pixelmon/pikachu/smart-text';
 export * from '@pixelmon/pikachu/query-tabs';
 export * from '@pixelmon/pikachu/tag-select';
+export * from '@pixelmon/pikachu/input-plus';
 
 export { PikachuModule } from './pikachu.module';
