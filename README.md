@@ -1,8 +1,8 @@
 # Pixelmon
 
 <p align="center">
-  <a href="https://1ziton.github.io/pixelmon">
-    <img width="100" src="https://1ziton.github.io/pixelmon/assets/img/logo.png">
+  <a href="https://yzt.felearn.com/pixelmon">
+    <img width="100" src="https://yzt.felearn.com/pixelmon/assets/img/logo.png">
   </a>
 </p>
 
@@ -29,7 +29,7 @@ _基于 [delon](https://github.com/ng-alain/delon) ,搭建开发符合自身业�
 
 ## Document
 
-- [Document](http://1ziton.github.io/pixelmon)
+- [Document](http://yzt.felearn.com/pixelmon)
 
 ## Packages & Libs
 
@@ -45,7 +45,7 @@ _基于 [delon](https://github.com/ng-alain/delon) ,搭建开发符合自身业�
 
 ## Materials
 
-可复用物料，减少重复的开发，提升效率，详情见 [@pixelmon/materials](http://fex.1ziton.com/pixelmon/#/materials)
+可复用物料，减少重复的开发，提升效率，详情见 [@pixelmon/materials](http://yzt.felearn.com/pixelmon/#/materials)
 
 ## Related
 
